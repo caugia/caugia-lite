@@ -1,106 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caugia Studio</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #0b132b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* vroeger: center */
+    min-height: 100vh;
+    text-align: center;
+    padding-top: 80px; /* vroeger 120px — logo komt hoger */
+  }
 
-  <style>
-    :root {
-      --navy: #0b132b;
-      --orange: #ff7700;
-      --blue: #0b66ff;
-    }
+  img.logo {
+    width: 180px; /* blijft goed formaat */
+    margin-bottom: 20px; /* vroeger 60px — kleiner gat onder logo */
+  }
 
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background-color: #ffffff;
-      color: var(--navy);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-
-    img.logo {
-      width: 320px;
-      margin-bottom: 0.3rem; /* veel kleinere ruimte */
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      max-width: 900px;
-    }
-
-    .accent {
-      color: var(--orange);
-    }
-
-    p {
-      font-size: 1.25rem;
-      color: #1b1b1b;
-      max-width: 620px;
-      line-height: 1.6;
-      margin: 0 auto 2rem;
-    }
-
-    a.button {
-      background-color: var(--blue);
-      color: white;
-      text-decoration: none;
-      padding: 0.9rem 1.8rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      display: inline-block;
-    }
-
-    a.button:hover {
-      background-color: #094fc7;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    footer a {
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
-  <img src="logo.png" alt="Caugia Logo" class="logo" />
-
-  <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-
-  <p>
-    Caugia Studio helps executives and GTM leaders design integrated revenue
-    systems that align data, teams, and growth — transforming fragmented
-    operations into measurable performance.
-  </p>
-
-  <a href="mailto:tom@caugia.com" class="button">Get in touch</a>
-
-  <footer>
-    © 2025 Caugia Studio ·
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
-  </footer>
-</body>
-</html>
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+</style>
