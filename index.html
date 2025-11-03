@@ -14,9 +14,7 @@
       --header-h: 64px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -99,9 +97,7 @@
       font-weight: 600;
     }
 
-    .cta:hover {
-      background: var(--blue-d);
-    }
+    .cta:hover { background: var(--blue-d); }
 
     /* HERO */
     main {
@@ -111,7 +107,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: 120px; /* ruimte voor header */
+      padding-top: 120px;
     }
 
     .hero {
@@ -123,11 +119,15 @@
       align-items: center;
     }
 
-    .hero .logo {
+    .hero img {
       width: 260px;
       height: auto;
       margin-bottom: 20px;
+      display: block;
     }
+
+    .logo-light { display: block; }
+    .logo-dark { display: none; }
 
     h1 {
       margin: 0.25rem 0 0.75rem 0;
@@ -135,12 +135,10 @@
       line-height: 1.22;
       font-weight: 800;
       max-width: 980px;
-      white-space: nowrap; /* <<< zorgt dat alle woorden op 1 regel blijven */
+      white-space: nowrap;
     }
 
-    .accent {
-      color: var(--accent);
-    }
+    .accent { color: var(--accent); }
 
     p {
       margin: 0 auto 32px auto;
@@ -150,7 +148,6 @@
       color: #1b1b1b;
     }
 
-    /* FOOTER */
     footer {
       margin-top: 80px;
       padding: 24px 0 32px 0;
@@ -166,77 +163,43 @@
       font-weight: 500;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
 
     /* DARK MODE */
     @media (prefers-color-scheme: dark) {
-      body {
-        background: #0b132b;
-        color: #f5f5f5;
-      }
-
+      body { background: #0b132b; color: #f5f5f5; }
       header {
         background: rgba(15, 20, 35, 0.9);
         border-bottom-color: rgba(255, 255, 255, 0.08);
       }
+      .brand span, nav a, footer a { color: #f5f5f5; }
+      .cta { background: var(--accent); }
+      .cta:hover { background: #e56b00; }
+      p { color: #e9e9e9; }
+      footer { border-top-color: rgba(255, 255, 255, 0.08); }
 
-      .brand span, nav a, footer a {
-        color: #f5f5f5;
-      }
-
-      .cta {
-        background: var(--accent);
-      }
-
-      .cta:hover {
-        background: #e56b00;
-      }
-
-      .hero .logo {
-        content: url('logo_white.png');
-      }
-
-      p {
-        color: #e9e9e9;
-      }
-
-      footer {
-        border-top-color: rgba(255, 255, 255, 0.08);
-      }
+      /* LOGO SWITCH */
+      .logo-light { display: none; }
+      .logo-dark { display: block; }
     }
 
-    /* RESPONSIVE */
     @media (max-width: 1000px) {
-      h1 {
-        white-space: normal; /* mag afbreken op kleinere schermen */
-        font-size: 2.2rem;
-      }
+      h1 { white-space: normal; font-size: 2.2rem; }
     }
 
     @media (max-width: 640px) {
-      nav {
-        display: none;
-      }
-
-      h1 {
-        font-size: 1.85rem;
-      }
-
-      .hero .logo {
-        width: 180px;
-      }
+      nav { display: none; }
+      h1 { font-size: 1.85rem; }
+      .hero img { width: 180px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container">
       <div class="brand">
-        <img src="C-logo.png" alt="Caugia C logo">
+        <img src="C-logo.png" alt="Caugia C logo" />
         <span>Caugia Studio</span>
       </div>
       <nav>
@@ -250,10 +213,12 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main>
     <section class="hero">
-      <img src="logo.png" alt="Caugia Logo" class="logo">
+      <!-- twee versies van het logo -->
+      <img src="logo.png" alt="Caugia Logo" class="logo-light" />
+      <img src="logo_white.png" alt="Caugia Logo" class="logo-dark" />
+      
       <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
       <p>
         Caugia Studio helps executives and GTM leaders design integrated revenue systems
@@ -263,7 +228,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
