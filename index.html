@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=2">
 
   <style>
-    :root {
+    :root{
       --ink:#0b132b; --blue:#0b66ff; --blue-d:#094fc7; --accent:#ff7700;
       --maxw:1180px; --header-h:64px;
     }
@@ -35,37 +35,27 @@
       display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
     .brand{display:flex; align-items:center; gap:10px}
-    .brand img{height:32px}
+    .brand img{height:28px}
     .brand span{font-weight:600; white-space:nowrap}
     nav{display:flex; align-items:center; gap:20px}
-    nav a{
-      color:var(--ink); text-decoration:none; font-weight:500;
-      transition:color .2s ease;
-    }
-    nav a:hover{color:var(--accent)}
-    .cta{
-      background:var(--blue); color:#fff; text-decoration:none;
-      padding:.55rem 1.1rem; border-radius:8px; font-weight:600;
-      transition:background .25s ease, color .25s ease;
-    }
-    .cta:hover{background:var(--blue-d); color:var(--accent)}
-    nav, .cta {transform:translateZ(0)} /* voorkomt lichte verschuiving bij hover */
+    nav a{color:var(--ink); text-decoration:none; font-weight:500}
+    nav a:hover{color:var(--blue)}
+    .cta{background:var(--blue); color:#fff; text-decoration:none; padding:.55rem 1.1rem; border-radius:8px; font-weight:600}
+    .cta:hover{background:var(--blue-d)}
 
     /* Hero */
     main{
       flex:1; display:flex; align-items:center; justify-content:center;
-      padding-top:120px;
+      padding-top:120px; /* ruimte voor header */
     }
     .hero{
       max-width:var(--maxw); margin:0 auto; padding:0 24px;
       display:flex; flex-direction:column; align-items:center;
     }
-    .hero img.logo{
-      width:400px; height:auto; margin:0 0 24px 0; display:block;
-    }
+    .hero img.logo{width:360px; height:auto; margin:0 0 20px 0; display:block}
     h1{
       margin:.25rem 0 .75rem 0; font-size:2.6rem; line-height:1.22; font-weight:800;
-      max-width:980px; white-space:nowrap;
+      max-width:980px; white-space:nowrap; /* één regel op desktop */
     }
     .accent{color:var(--accent)}
     p{
@@ -80,12 +70,12 @@
     footer a{color:var(--ink); text-decoration:none; font-weight:500}
     footer a:hover{text-decoration:underline}
 
-    /* Dark mode */
+    /* Dark mode (geen logo-swap meer) */
     @media (prefers-color-scheme: dark){
       body{background:#0b132b; color:#f5f5f5}
       header{background:rgba(15,20,35,.9); border-bottom-color:rgba(255,255,255,.08)}
       .brand span, nav a, footer a{color:#f5f5f5}
-      .cta{background:var(--accent)} .cta:hover{background:#e56b00; color:#fff}
+      .cta{background:var(--accent)} .cta:hover{background:#e56b00}
       p{color:#e9e9e9} footer{border-top-color:rgba(255,255,255,.08)}
     }
 
@@ -96,11 +86,10 @@
     @media (max-width:640px){
       nav{display:none}
       h1{font-size:1.85rem}
-      .hero img.logo{width:260px}
+      .hero img.logo{width:180px}
     }
   </style>
 </head>
-
 <body>
   <header>
     <div class="container">
@@ -122,7 +111,7 @@
       <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
       <p>
         Caugia Studio helps executives and GTM leaders design integrated revenue systems
-        that align data, teams, and growth, transforming fragmented operations into measurable performance.
+        that align data, teams, and growth — transforming fragmented operations into measurable performance.
       </p>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </section>
