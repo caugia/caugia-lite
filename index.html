@@ -5,18 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio — From Data to Direction</title>
   <style>
+    :root {
+      --caugia-blue: #0046A5;
+      --insight-orange: #F36C21;
+      --deep-navy: #002A5C;
+      --signal-white: #FFFFFF;
+      --ai-silver: #E6E9EF;
+      --text-dark: #0b132b;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #0b132b;
+      background-color: var(--signal-white);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid #f1f3f7;
+      z-index: 50;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--deep-navy);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: conic-gradient(from 315deg, var(--insight-orange) 0 18%, var(--caugia-blue) 18% 100%);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--deep-navy);
+      font-weight: 600;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: var(--insight-orange);
+    }
+
+    .btn-contact {
+      background-color: var(--caugia-blue);
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-contact:hover {
+      background-color: #003a8c;
+    }
+
+    /* HERO */
+    main {
+      padding-top: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      text-align: center;
-      padding-top: 70px;
+      justify-content: center;
+      flex-grow: 1;
+      padding-bottom: 3rem;
     }
 
     img.logo {
@@ -27,24 +115,24 @@
     h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
       line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
 
     .accent {
-      color: #f36c21; /* Insight Orange */
+      color: var(--insight-orange);
     }
 
     p {
       font-size: 1.25rem;
-      color: #1b1b1b;
       max-width: 700px;
       line-height: 1.6;
       margin: 0 auto 2rem auto;
+      color: #1b1b1b;
     }
 
     a.button {
-      background-color: #0046A5; /* Caugia Blue */
+      background-color: var(--caugia-blue);
       color: white;
       text-decoration: none;
       padding: 0.75rem 1.5rem;
@@ -58,6 +146,7 @@
       background-color: #003a8c;
     }
 
+    /* FOOTER */
     footer {
       margin-top: auto;
       padding: 2rem 0;
@@ -66,7 +155,7 @@
     }
 
     footer a {
-      color: #0b132b;
+      color: var(--deep-navy);
       text-decoration: none;
       font-weight: 500;
     }
@@ -75,36 +164,63 @@
       text-decoration: underline;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
       h1 {
         font-size: 2rem;
       }
-
       p {
         font-size: 1rem;
         padding: 0 1rem;
       }
-
       img.logo {
         width: 160px;
-        margin-bottom: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Caugia Logo" class="logo" />
-  <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-  <p>
-    Caugia Studio helps executives and GTM leaders design integrated revenue systems
-    that align data, teams, and growth — transforming fragmented operations into measurable performance.
-  </p>
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <a href="#" class="brand">
+        <div class="brand-logo"></div>
+        Caugia Studio
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#signals">Signals</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me"
+               target="_blank" rel="noopener" class="btn-contact">Get in touch</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <a href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me" 
-     class="button" target="_blank" rel="noopener">Get in touch</a>
+  <!-- HERO -->
+  <main>
+    <img src="logo.png" alt="Caugia Logo" class="logo" />
+    <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
+    <p>
+      Caugia Studio helps executives and GTM leaders design integrated revenue systems
+      that align data, teams, and growth — transforming fragmented operations into measurable performance.
+    </p>
+    <a href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me"
+       class="button" target="_blank" rel="noopener">Get in touch</a>
+  </main>
 
+  <!-- FOOTER -->
   <footer>
-    © 2025 Caugia Studio · 
+    © 2025 Caugia Studio ·
     <a href="https://www.linkedin.com/in/meijertom/" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </body>
