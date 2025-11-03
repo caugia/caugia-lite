@@ -1,75 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Caugia Studio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #0b132b;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+    :root{
+      --primary:#0b132b;     /* navy */
+      --accent:#ff7700;      /* orange */
+      --text:#1b1b1b;
+      --muted:#777;
+      --bg:#ffffff;
     }
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      color:var(--primary);
+      background:var(--bg);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
     }
-    p {
-      font-size: 1.25rem;
-      color: #1b1b1b;
-      max-width: 600px;
-      line-height: 1.6;
-      margin: 0 auto 2rem;
+    .wrap{
+      max-width:920px;
+      padding:48px 24px 80px;
     }
-    .accent { color: #ff7700; }
-    a.button {
-      background-color: #0b132b;
-      color: #fff;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
+    img.logo{
+      width:120px;            /* tweak if you want it bigger/smaller */
+      height:auto;
+      display:block;
+      margin:0 auto 28px;
     }
-    a.button:hover {
-      background-color: #ff7700;
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(28px,4.4vw,48px);
+      line-height:1.15;
+      font-weight:800;
+      color:var(--primary);
     }
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #777;
+    .accent{color:var(--accent)}
+    p{
+      margin:0 auto 28px;
+      max-width:680px;
+      color:var(--text);
+      font-size:clamp(15px,1.6vw,18px);
+      line-height:1.6;
     }
-    footer a {
-      color: #0b132b;
-      text-decoration: none;
-      font-weight: 500;
+    .btn{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      text-decoration:none;
+      padding:12px 22px;
+      border-radius:8px;
+      font-weight:700;
+      transition:transform .04s ease, opacity .2s ease;
     }
-    footer a:hover { text-decoration: underline; }
-    img.logo {
-      width: 90px;
-      margin-bottom: 1rem;
+    .btn:hover{opacity:.92; transform:translateY(-1px)}
+    footer{
+      position:fixed;
+      left:0; right:0; bottom:18px;
+      color:var(--muted);
+      font-size:14px;
     }
+    footer a{color:var(--primary); text-decoration:none; font-weight:600}
+    footer a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
-  <img src="https://www.caugia.com/logo.png" alt="Caugia Logo" class="logo" />
-  <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-  <p>
-    Caugia Studio helps executives and GTM leaders design integrated revenue systems
-    that align data, teams, and growth—transforming fragmented operations into measurable performance.
-  </p>
-  <a href="mailto:tom@caugia.com" class="button">Get in touch</a>
+  <main class="wrap">
+    <!-- Logo file must be exactly 'logo.png' in the repo root -->
+    <img src="./logo.png" alt="Caugia Logo" class="logo" />
+
+    <h1>
+      Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines
+    </h1>
+
+    <p>
+      Caugia Studio helps executives and GTM leaders design integrated revenue systems
+      that align data, teams, and growth—transforming fragmented operations into measurable performance.
+    </p>
+
+    <a class="btn" href="mailto:tom@caugia.com">Get in touch</a>
+  </main>
+
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </body>
 </html>
