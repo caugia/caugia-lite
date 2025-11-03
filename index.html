@@ -5,22 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio — From Data to Direction</title>
 
-  <!-- Metadata -->
+  <!-- Meta & Fonts -->
   <meta name="description" content="Caugia Studio helps GTM leaders turn revenue chaos into predictable growth through Calm Intelligence — aligning data, teams, and systems in one flow.">
   <meta property="og:title" content="Caugia Studio — From Data to Direction">
   <meta property="og:description" content="Turn GTM chaos into predictable revenue engines with Calm Intelligence.">
   <meta property="og:image" content="logo.png">
-  <meta property="og:type" content="website">
   <meta name="theme-color" content="#0046A5">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="C-logo.png">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --caugia-blue:#0046A5;
       --insight-orange:#F36C21;
       --deep-navy:#002A5C;
@@ -28,142 +23,85 @@
       --text-dark:#0b132b;
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--signal-white);
-      color: var(--text-dark);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:'Inter',sans-serif;
+      background:var(--signal-white);
+      color:var(--text-dark);
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+      text-align:center;
+      transition:background .3s,color .3s;
     }
-
-    a { text-decoration: none; color: inherit; }
-    a:focus-visible { outline: 2px solid var(--insight-orange); outline-offset: 3px; }
+    a{text-decoration:none;color:inherit;}
+    a:focus-visible{outline:2px solid var(--insight-orange);outline-offset:2px;}
 
     /* HEADER */
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(255,255,255,.96);
-      backdrop-filter: saturate(160%) blur(10px);
-      border-bottom: 1px solid #f1f3f7;
-      z-index: 1000;
+    header{
+      position:fixed;top:0;left:0;right:0;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:saturate(160%) blur(10px);
+      border-bottom:1px solid #f1f3f7;
+      z-index:1000;
     }
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    .nav{
+      max-width:1100px;margin:0 auto;
+      padding:12px 20px;
+      display:flex;align-items:center;justify-content:space-between;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: var(--deep-navy);
-    }
-    .brand img { height: 44px; width: auto; }
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      margin: 0;
-      padding: 0;
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 600;
-    }
-    nav a:hover { color: var(--insight-orange); }
-    .btn-contact {
-      background: var(--caugia-blue);
-      color: #fff;
-      padding: .55rem 1.1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background .25s ease, color .25s ease;
-    }
-    .btn-contact:hover, .btn-contact:focus { background: #003a8c; color: #fff; }
+    .brand{display:flex;align-items:center;gap:.6rem;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.25rem;color:var(--deep-navy);}
+    .brand img{height:46px;width:auto;}
+    nav ul{list-style:none;display:flex;align-items:center;gap:1.4rem;margin:0;padding:0;font-family:"Space Grotesk",sans-serif;font-weight:600;}
+    nav a:hover{color:var(--insight-orange);}
+    .btn-contact{background:var(--caugia-blue);color:#fff;padding:.55rem 1.1rem;border-radius:6px;font-weight:600;transition:background .25s ease;}
+    .btn-contact:hover,.btn-contact:focus{background:#003a8c;color:#fff;}
+
+    /* HAMBURGER (mobile) */
+    .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+    .hamburger span{width:22px;height:2px;background:var(--deep-navy);transition:.3s;}
+    #menu-toggle{display:none;}
+    #menu-toggle:checked ~ nav ul{display:flex;flex-direction:column;position:absolute;top:64px;right:16px;background:var(--signal-white);padding:1rem 1.5rem;border:1px solid #e4e6ea;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.08);}
 
     /* HERO */
-    main {
-      padding-top: 130px;
-      padding-bottom: 60px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    main{
+      padding-top:120px;
+      padding-bottom:60px;
+      flex:1;display:flex;flex-direction:column;align-items:center;
     }
-    .hero-logo { width: 240px; margin-bottom: 16px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.04)); }
-    h1 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(28px,4vw,48px);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--deep-navy);
-      margin: 0.4rem 0 0.6rem;
-    }
-    .accent { color: var(--insight-orange); }
-    p.lead {
-      font-size: clamp(16px,2vw,20px);
-      max-width: 720px;
-      line-height: 1.6;
-      color: #1b1b1b;
-      margin: 0 auto 1.8rem;
-    }
-    a.button {
-      background: var(--caugia-blue);
-      color: #fff;
-      padding: .75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      display: inline-block;
-      transition: background .25s ease;
-    }
-    a.button:hover, a.button:focus { background: #003a8c; color:#fff; }
+    .hero-logo{width:340px;margin-bottom:8px;margin-top:-20px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.04));}
+    h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.1;color:var(--deep-navy);margin:0.2rem 0 0.3rem;}
+    .accent{color:var(--insight-orange);}
+    p.lead{font-size:clamp(16px,2vw,20px);max-width:720px;line-height:1.55;margin:0 auto 1.2rem;color:#1b1b1b;}
+    a.button{background:var(--caugia-blue);color:#fff;padding:.75rem 1.5rem;border-radius:6px;font-weight:600;display:inline-block;transition:background .25s;}
+    a.button:hover,a.button:focus{background:#003a8c;color:#fff;}
 
     /* SECTIONS */
-    section {
-      padding: 80px 20px;
-      border-top: 1px solid #f1f3f7;
-    }
-    section h2 {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 2rem;
-      color: var(--deep-navy);
-      margin-bottom: .4rem;
-    }
-    section p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #444;
-      line-height: 1.6;
-    }
+    section{padding:80px 20px;border-top:1px solid #f1f3f7;}
+    section h2{font-family:"Space Grotesk",sans-serif;font-size:2rem;color:var(--deep-navy);margin-bottom:.4rem;}
+    section p{max-width:700px;margin:0 auto;font-size:1.1rem;color:#444;line-height:1.6;}
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid #eef1f6;
-      padding: 24px 0;
-      color: #6b7280;
-      font-size: .95rem;
-    }
-    footer a { color: var(--deep-navy); font-weight: 500; }
-    footer a:hover { text-decoration: underline; }
+    footer{border-top:1px solid #eef1f6;padding:24px 0;color:#6b7280;font-size:.95rem;}
+    footer a{color:var(--deep-navy);font-weight:500;}
+    footer a:hover{text-decoration:underline;}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul { display: none; }
-      .brand img { height: 36px; }
-      .hero-logo { width: 200px; }
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
+      body{background:#0c111c;color:#eaeff6;}
+      header{background:rgba(18,22,33,.9);border-bottom:1px solid #222;}
+      .brand,.menu a,footer a{color:#eaeff6;}
+      .btn-contact{background:#0046A5;}
+      nav ul{background:#101623;}
+      section{border-top:1px solid #222;}
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav ul{display:none;}
+      .hamburger{display:flex;}
+      .hero-logo{width:280px;}
     }
   </style>
 </head>
@@ -176,6 +114,13 @@
         <img src="C-logo.png" alt="Caugia Icon" />
         Caugia Studio
       </a>
+
+      <!-- Hamburger for mobile -->
+      <label for="menu-toggle" class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+      <input type="checkbox" id="menu-toggle" />
+
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -183,10 +128,7 @@
           <li><a href="#work">Work</a></li>
           <li><a href="#signals">Signals</a></li>
           <li><a href="#clients">Clients</a></li>
-          <li>
-            <a href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me"
-               target="_blank" rel="noopener" class="btn-contact">Get in touch</a>
-          </li>
+          <li><a href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me" target="_blank" rel="noopener" class="btn-contact">Get in touch</a></li>
         </ul>
       </nav>
     </div>
@@ -218,7 +160,7 @@
   <section id="approach">
     <h2>Approach</h2>
     <p>
-      Our framework — <strong>Clarity → Structure → Direction</strong> — ensures that every GTM system
+      Our framework — <strong>Clarity → Structure → Direction</strong> — ensures every GTM system
       we build is measurable, repeatable, and human-friendly. We don’t add dashboards; we remove friction.
     </p>
   </section>
@@ -247,8 +189,8 @@
     <h2>Clients</h2>
     <p>
       Built for European scale-ups and innovation leaders.
-      We’ve worked with teams redefining how marketing, sales, and ops move together — from
-      early-stage SaaS to Next40 champions.
+      We’ve worked with teams redefining how marketing, sales, and ops move together —
+      from early-stage SaaS to Next40 champions.
     </p>
   </section>
 
