@@ -13,13 +13,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
-      padding-top: 60px;
     }
 
-    /* Header navigation */
     header {
       width: 100%;
       display: flex;
@@ -28,6 +25,7 @@
       padding: 12px 6%;
       position: fixed;
       top: 0;
+      left: 0;
       background-color: rgba(255, 255, 255, 0.98);
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       z-index: 1000;
@@ -40,7 +38,7 @@
     }
 
     .nav-left img {
-      height: 32px;
+      height: 28px;
     }
 
     .nav-left span {
@@ -76,15 +74,18 @@
     }
 
     main {
-      margin-top: 160px; /* hoger logo en tekst */
+      margin-top: 160px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      text-align: center;
     }
 
     img.logo {
       width: 260px;
-      margin-bottom: 40px; /* logo dichter bij tekst */
+      margin-bottom: 20px;
+      margin-top: -20px; /* optisch naar boven */
     }
 
     h1 {
@@ -93,6 +94,7 @@
       line-height: 1.25;
       max-width: 950px;
       margin-bottom: 0.75rem;
+      margin-top: 0.25rem;
     }
 
     .accent {
@@ -124,7 +126,7 @@
       text-decoration: underline;
     }
 
-    /* Dark mode: logo swap */
+    /* Dark mode */
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #0b132b;
@@ -168,7 +170,6 @@
       }
       img.logo {
         width: 180px;
-        margin-bottom: 20px;
       }
     }
   </style>
@@ -191,6 +192,7 @@
   </header>
 
   <main>
+    <!-- Hero section -->
     <img src="logo_transparent.png" alt="Caugia Logo" class="logo" />
     <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
     <p>
