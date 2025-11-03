@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Caugia Studio — From Data to Direction</title>
-  <meta name="description" content="Caugia Studio helps GTM leaders turn chaos into predictable revenue engines by architecting AI-first revenue systems that scale without friction." />
   <link rel="icon" href="/favicon.png" type="image/png" />
   <style>
     :root {
@@ -16,33 +15,30 @@
       --font-display: "Space Grotesk", Inter, system-ui, sans-serif;
       --font-body: Inter, system-ui, sans-serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {box-sizing: border-box; margin: 0; padding: 0;}
     body {
       font-family: var(--font-body);
       color: var(--deep-navy);
       background-color: var(--signal-white);
+      text-align: center;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
     header {
-      text-align: center;
       padding: 100px 20px 80px;
       max-width: 900px;
       margin: 0 auto;
     }
     header img {
       max-width: 200px;
-      height: auto;
       margin-bottom: 32px;
     }
-    header h1 {
+    h1 {
       font-family: var(--font-display);
       font-size: 2.4rem;
       color: var(--deep-navy);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
-    header p {
+    p {
       font-size: 1.1rem;
       color: var(--deep-navy);
       opacity: 0.9;
@@ -62,47 +58,46 @@
       color: var(--insight-orange);
       border: 2px solid var(--insight-orange);
     }
-
-    section {
+    .about {
+      display: none;
       max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 20px;
+      margin: 40px auto;
+      text-align: left;
+      padding: 20px;
+      border-top: 1px solid var(--ai-silver);
+      animation: fadeIn .6s ease forwards;
     }
-    section h1, section h2 {
+    .about h2 {
       font-family: var(--font-display);
-      color: var(--deep-navy);
+      font-size: 1.8rem;
       margin-bottom: 1rem;
+      color: var(--deep-navy);
     }
-    section h1 { font-size: 2rem; }
-    section h2 { font-size: 1.5rem; margin-top: 2.5rem; }
-    section p { margin-bottom: 1rem; font-size: 1rem; }
-    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
-    li { margin-bottom: .5rem; }
-
-    figure { margin: 60px auto; max-width: 900px; }
-    figcaption {
-      text-align: center;
-      color: #6B7280;
-      font-size: 13px;
-      margin-top: 8px;
+    .show {display: block;}
+    .link {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--caugia-blue);
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s;
     }
-
+    .link:hover {color: var(--insight-orange);}
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
     footer {
       text-align: center;
-      font-size: 0.85rem;
+      font-size: .85rem;
       color: #6B7280;
       border-top: 1px solid var(--ai-silver);
-      padding: 20px 0 40px;
-      margin-top: 80px;
+      padding: 30px 0 40px;
+      margin-top: 60px;
     }
-    footer a { color: var(--deep-navy); text-decoration: none; }
-    footer a:hover { color: var(--insight-orange); text-decoration: none; }
-
-    @media (max-width: 600px) {
-      header { padding: 80px 20px 60px; }
-      header h1 { font-size: 1.8rem; }
-      header p { font-size: 1rem; }
-    }
+    footer a {color: var(--deep-navy); text-decoration: none;}
+    footer a:hover {color: var(--insight-orange);}
   </style>
 </head>
 <body>
@@ -113,133 +108,30 @@
     <h1>Turn GTM Chaos Into Predictable Revenue Engines</h1>
     <p>Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance.</p>
     <a class="cta" href="mailto:tom@caugia.com">Get in touch →</a>
+    <br>
+    <a class="link" onclick="toggleAbout()">About</a>
   </header>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h1>About — From Data to Direction</h1>
-
-    <p>Most GTM organizations don’t fail because of effort — they fail because of entropy.
-    Dozens of tools, disconnected teams, reactive pipeline building. Growth happens, but never predictably.</p>
-
-    <p><strong>Caugia Studio</strong> exists to change that.
-    We treat revenue generation as an engineered system — where people, processes, and performance operate in harmony.</p>
-
-    <h2>Who I Am</h2>
-    <p>I’m <strong>Tom Meijer</strong>, Founder of <strong>Caugia Studio</strong> and a Revenue Systems Architect.
-    Over the past decade, I’ve built and scaled GTM engines for some of Europe’s fastest-growing B2B companies.</p>
-
-    <p>At <strong>Contentsquare</strong>, I designed the global pipeline architecture that powered hyper-growth — scaling from <strong>$5M to $350M ARR</strong> and generating over <strong>$1B in qualified pipeline</strong> across three continents.</p>
-
-    <p>At <strong>Greenly</strong>, I rebuilt the entire GTM foundation:</p>
-    <ul>
-      <li>Introduced a new organizational structure with dedicated <em>GTM Engineers</em> bridging RevOps and execution.</li>
-      <li>Rewrote the sales funnel and unified inbound and outbound into one continuous motion.</li>
-      <li>Designed a new tooling architecture combining <strong>Nooks, Apollo, Dust, Clay,</strong> and <strong>Madkudu</strong> for smarter targeting and forecasting.</li>
-      <li>Implemented cross-functional alignment between Marketing, Sales, and CS — improving revenue predictability, conversion, and churn.</li>
-    </ul>
-
-    <h2>Our Philosophy — The 3P Principle</h2>
-    <p>Every predictable revenue system is built on three foundations:</p>
-
-    <p><strong>People</strong> — Align your teams.<br>
-    From Marketing to CS, clarity of ownership creates velocity.</p>
-
-    <p><strong>Process</strong> — Design the flow.<br>
-    Map how leads, data, and decisions move through your system — supported by the right tools, not buried under them.</p>
-
-    <p><strong>Performance</strong> — Measure what matters.<br>
-    Define metrics that drive behaviour, not vanity. Use data and AI to see friction before it happens.</p>
-
-    <p>This is how chaos turns into rhythm — and rhythm into growth.</p>
-
-    <h2>How We Work</h2>
-    <p>Every Caugia engagement starts with a <strong>3P Audit</strong> — a structured review of how your teams, processes, and performance metrics interact today.
-    We then architect a blueprint that unifies them into one coherent revenue engine: who does what, when, with which tools, and how success is measured.</p>
-
-    <p>The result is not another set of dashboards — it’s a system that thinks.
-    A GTM engine that scales without friction.</p>
-
-    <h2>Our Mission</h2>
-    <p>To help modern companies replace reactive growth with predictable performance — and to prove that clarity scales faster than headcount.</p>
-
-    <p style="margin-top:2rem;">
-      <a class="cta" href="mailto:tom@caugia.com">Get in touch →</a>
-    </p>
+  <!-- ABOUT (toggle) -->
+  <section id="about" class="about">
+    <h2>About — From Data to Direction</h2>
+    <p>Most GTM organizations don’t fail because of effort — they fail because of entropy. Dozens of tools, disconnected teams, reactive pipeline building. Growth happens, but never predictably.</p>
+    <p><strong>Caugia Studio</strong> exists to change that. We treat revenue generation as an engineered system — where people, processes, and performance operate in harmony.</p>
+    <p>Founded by <strong>Tom Meijer</strong>, who built and scaled GTM systems at fast-growing B2B companies like Contentsquare and Greenly. At Caugia Studio, we bring the same system design mindset to your organization — aligning teams, optimizing processes, and creating clarity where chaos used to be.</p>
+    <p><strong>People</strong>, <strong>Process</strong>, <strong>Performance</strong> — aligned into one predictable growth engine.</p>
   </section>
 
-  <!-- 3P VISUAL -->
-  <figure>
-    <svg viewBox="0 0 900 460" role="img" aria-labelledby="caugia3pTitle caugia3pDesc" width="100%" height="100%">
-      <title id="caugia3pTitle">Caugia Studio — 3P Framework</title>
-      <desc id="caugia3pDesc">Diagram showing People, Process, and Performance feeding a central Predictable Revenue Engine.</desc>
-
-      <defs>
-        <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#0046A5"/>
-          <stop offset="100%" stop-color="#002A5C"/>
-        </linearGradient>
-        <linearGradient id="gradOrange" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#F36C21"/>
-          <stop offset="100%" stop-color="#D85F1D"/>
-        </linearGradient>
-        <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#002A5C" flood-opacity="0.12"/>
-        </filter>
-        <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
-          <path d="M0,0 L12,6 L0,12 Z" fill="#0046A5"/>
-        </marker>
-        <style>
-          .card { fill: #FFFFFF; stroke: #E6E9EF; stroke-width: 1; }
-          .label { font-family: Inter, sans-serif; fill: #002A5C; font-size: 16px; font-weight: 600; }
-          .sub { font-family: Inter, sans-serif; fill: #002A5C; opacity: .75; font-size: 13px; }
-          .chip { fill: url(#gradBlue); filter: url(#softShadow); }
-          .chipText { font-family: Inter, sans-serif; fill: #FFFFFF; font-size: 13px; font-weight: 600; letter-spacing: .2px; }
-        </style>
-      </defs>
-
-      <rect x="20" y="20" width="860" height="420" rx="24" fill="#F7F8FB" stroke="#E6E9EF" />
-      <g transform="translate(450,230)">
-        <circle r="96" fill="url(#gradBlue)" filter="url(#softShadow)"/>
-        <circle r="70" fill="#FFFFFF" stroke="#0046A5" stroke-width="2"/>
-        <text text-anchor="middle" fill="#002A5C" font-family="Space Grotesk, Inter, sans-serif" font-weight="700" font-size="16" y="-6">
-          Predictable Revenue Engine
-        </text>
-        <text text-anchor="middle" class="sub" y="16">From Data to Direction</text>
-      </g>
-
-      <g transform="translate(170,120)">
-        <rect class="card" x="-120" y="-60" width="240" height="120" rx="16"/>
-        <text class="label" x="0" y="-10" text-anchor="middle">People</text>
-        <text class="sub" x="0" y="16" text-anchor="middle">Roles • Alignment • Enablement</text>
-      </g>
-
-      <g transform="translate(720,120)">
-        <rect class="card" x="-120" y="-60" width="240" height="120" rx="16"/>
-        <text class="label" x="0" y="-10" text-anchor="middle">Process</text>
-        <text class="sub" x="0" y="16" text-anchor="middle">Flows • Playbooks • Tools</text>
-      </g>
-
-      <g transform="translate(720,340)">
-        <rect class="card" x="-120" y="-60" width="240" height="120" rx="16"/>
-        <text class="label" x="0" y="-10" text-anchor="middle">Performance</text>
-        <text class="sub" x="0" y="16" text-anchor="middle">KPI • Forecast • AI Signals</text>
-      </g>
-
-      <g stroke="#0046A5" stroke-width="3" marker-end="url(#arrow)" opacity="0.9">
-        <path d="M 290 120 C 360 120, 380 120, 450 170" fill="none"/>
-        <path d="M 600 120 C 560 120, 520 120, 510 170" fill="none"/>
-        <path d="M 600 340 C 560 330, 520 300, 510 280" fill="none"/>
-      </g>
-      <path d="M 352 112 A 120 120 0 0 1 548 112" fill="none" stroke="url(#gradOrange)" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
-    </svg>
-    <figcaption>People • Process • Performance — aligned into one Predictable Revenue Engine.</figcaption>
-  </figure>
-
-  <!-- FOOTER -->
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/tommeijer">LinkedIn</a>
   </footer>
+
+  <script>
+    function toggleAbout() {
+      const about = document.getElementById("about");
+      about.classList.toggle("show");
+      window.scrollTo({top: about.offsetTop - 40, behavior: 'smooth'});
+    }
+  </script>
 
 </body>
 </html>
