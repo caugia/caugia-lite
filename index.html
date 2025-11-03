@@ -74,7 +74,7 @@
     }
 
     main {
-      margin-top: 160px;
+      margin-top: 140px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -82,10 +82,17 @@
       text-align: center;
     }
 
-    img.logo {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero img.logo {
       width: 260px;
-      margin-bottom: 20px;
-      margin-top: -20px; /* optisch naar boven */
+      margin-bottom: 18px;
+      margin-top: -10px;
     }
 
     h1 {
@@ -93,8 +100,7 @@
       font-weight: 700;
       line-height: 1.25;
       max-width: 950px;
-      margin-bottom: 0.75rem;
-      margin-top: 0.25rem;
+      margin: 0.25rem auto 0.75rem auto;
     }
 
     .accent {
@@ -192,13 +198,14 @@
   </header>
 
   <main>
-    <!-- Hero section -->
-    <img src="logo_transparent.png" alt="Caugia Logo" class="logo" />
-    <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-    <p>
-      Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance.
-    </p>
-    <a href="https://www.linkedin.com/in/meijertom" class="cta" target="_blank">Get in touch</a>
+    <div class="hero">
+      <img src="logo.png" alt="Caugia Logo" class="logo" />
+      <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
+      <p>
+        Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance.
+      </p>
+      <a href="https://www.linkedin.com/in/meijertom" class="cta" target="_blank">Get in touch</a>
+    </div>
   </main>
 
   <footer>
