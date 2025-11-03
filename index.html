@@ -1,112 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caugia Studio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caugia — From Data to Direction</title>
+  <meta name="description" content="Caugia is een AI‑gedreven GTM‑assistent die binnen 3 minuten van data naar richting gaat — zonder dashboards of complexiteit." />
+  <meta name="theme-color" content="#0046A5" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Caugia — From Data to Direction" />
+  <meta property="og:description" content="AI‑gedreven GTM‑intelligence. In 3 minuten helderheid over momentum en frictie." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.caugia.fr/" />
+  <meta property="og:image" content="/og-cover.png" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #0b132b;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      text-align: center;
-      padding-top: 70px; /* logo iets hoger */
+    :root{
+      --caugia-blue:#0046A5; /* intelligence */
+      --deep-navy:#002A5C;  /* contrast */
+      --insight-orange:#F36C21; /* audacity */
+      --ai-silver:#E6E9EF; /* neutral */
+      --signal-white:#FFFFFF; /* clarity */
+      --text:#0B1220;
     }
-
-    img.logo {
-      width: 220px; /* groter logo */
-      margin-bottom: 10px; /* veel kleinere ruimte onder logo */
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-
-    .accent {
-      color: #ff7700; /* oranje accent */
-    }
-
-    p {
-      font-size: 1.25rem;
-      color: #1b1b1b;
-      max-width: 700px;
-      line-height: 1.6;
-      margin: 0 auto 2rem auto;
-    }
-
-    a.button {
-      background-color: #0b66ff; /* Caugia blue */
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-
-    a.button:hover {
-      background-color: #094fc7; /* donkerder blauw bij hover */
-    }
-
-    footer {
-      margin-top: auto;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    footer a {
-      color: #0b132b;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-
-      img.logo {
-        width: 160px;
-        margin-bottom: 8px;
-      }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--signal-white)}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    a{color:inherit;text-decoration:none}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.2rem;border-radius:14px;font-weight:600;line-height:1;letter-spacing:.2px;transition:transform .06s ease, box-shadow .2s ease, background .2s ease,color .2s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--caugia-blue);color:#fff;box-shadow:0 6px 18px rgba(0,70,165,.25)}
+    .btn-primary:hover{background:#0d57c0}
+    .btn-ghost{background:transparent;border:1px solid var(--ai-silver)}
+    header{position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #f1f3f7;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.7rem}
+    .brand-logo{width:28px;height:28px;border-radius:8px;background:conic-gradient(from 315deg, var(--insight-orange) 0 18%, var(--caugia-blue) 18% 100%)}
+    .brand-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;letter-spacing:.3px}
+    .nav-links{display:flex;gap:1.2rem;align-items:center}
+    .nav-links a{font-weight:600;color:#2b3648}
+    .hero{position:relative;padding:84px 0}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px}
+    .kicker{font-weight:600;color:var(--insight-orange);letter-spacing:.4px;margin-bottom:10px}
+    h1{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(32px,4.4vw,52px);line-height:1.05;margin:0 0 16px;color:var(--deep-navy)}
+    .lead{font-size:18px;line-height:1.6;color:#364155;margin:0 0 28px}
+    .hero-card{border:1px solid var(--ai-silver);border-radius:18px;padding:18px;background:#fff;box-shadow:0 10px 28px rgba(0,0,0,.04)}
+    .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg, #fff, #fff), var(--ai-silver);border:1px solid var(--ai-silver);padding:.5rem .7rem;border-radius:999px;font-size:12px;font-weight:600}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .chip{border:1px solid var(--ai-silver);border-radius:12px;padding:12px 14px;background:#fff}
+    .chip strong{color:var(--deep-navy)}
+    .section{padding:60px 0}
+    .section h2{font-family:"Space Grotesk";font-size:28px;color:var(--deep-navy);margin:0 0 10px}
+    .muted{color:#556070}
+    .feature{display:flex;gap:16px;border:1px solid var(--ai-silver);border-radius:14px;padding:14px;background:#fff}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.blue{background:var(--caugia-blue)}
+    .dot.orange{background:var(--insight-orange)}
+    .dot.silver{background:var(--ai-silver);border:1px solid #d4d8e2}
+    footer{border-top:1px solid #eef1f6;padding:24px 0;color:#6b7280}
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Caugia Logo" class="logo" />
-  <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-  <p>
-    Caugia Studio helps executives and GTM leaders design integrated revenue systems
-    that align data, teams, and growth — transforming fragmented operations into measurable performance.
-  </p>
-  <a href="mailto:tom@caugia.com" class="button">Get in touch</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Hoofd navigatie">
+      <a class="brand" href="#" aria-label="Caugia home">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <span class="brand-title">Caugia</span>
+      </a>
+      <nav class="nav-links" aria-label="Primaire links">
+        <a href="#product">Product</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">Over</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/tommeijer/?msgControlName=message_button&trk=public_profile_contact_me" target="_blank" rel="noopener" aria-label="Contact via LinkedIn">Get in touch</a>
+      </nav>
+    </div>
+  </header>
 
-  <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
-  </footer>
-</body>
-</html>
-
-
-
-
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">Pipeline Intelligence • Calm, helder en snel</div>
+          <h1>Van data naar richting — in 3 minuten.</h1>
+          <p class="lead">Caugia leest je GTM‑data, ontdekt frictie en geeft drie concrete acties. Geen dashboards, geen ruis — alleen richting.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/tommeijer/?msgControlName=message_button&trk=public_profile_contact_me" target="_blank" rel="noopener" aria-label="Stuur Tom Meijer een bericht op LinkedIn">Get in touch</a>
+            <a class="btn btn-ghos
