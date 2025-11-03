@@ -1,19 +1,76 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio</title>
+
   <style>
-    :root{
-      --primary:#0b132b;     /* navy */
-      --accent:#ff7700;      /* orange */
-      --text:#1b1b1b;
-      --muted:#777;
-      --bg:#ffffff;
+    :root {
+      --primary: #0b132b; /* navy */
+      --accent: #ff7700; /* orange */
+      --caugia-blue: #0b66ff;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    img.logo {
+      width: 320px; /* groter logo */
+      margin-bottom: 1rem; /* minder ruimte */
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #1b1b1b;
+      max-width: 600px;
+      line-height: 1.6;
+      margin: 0 auto 2rem;
+    }
+
+    a.button {
+      background-color: var(--caugia-blue);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #094fc7;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="logo.png" alt="Caugia Logo" class="logo" />
+
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -92,6 +149,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
