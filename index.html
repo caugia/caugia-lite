@@ -30,8 +30,8 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: saturate(160%) blur(12px);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: saturate(160%) blur(10px);
       border-bottom: 1px solid #f1f3f7;
       z-index: 50;
     }
@@ -49,18 +49,16 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      text-decoration: none;
+      color: var(--deep-navy);
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       font-size: 1.25rem;
-      color: var(--deep-navy);
-      text-decoration: none;
     }
 
-    .brand-logo {
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: conic-gradient(from 315deg, var(--insight-orange) 0 18%, var(--caugia-blue) 18% 100%);
+    .brand img {
+      height: 32px;
+      width: auto;
     }
 
     nav ul {
@@ -98,7 +96,7 @@
 
     /* HERO */
     main {
-      padding-top: 100px;
+      padding-top: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -107,9 +105,9 @@
       padding-bottom: 3rem;
     }
 
-    img.logo {
-      width: 220px;
-      margin-bottom: 10px;
+    img.hero-logo {
+      width: 240px;
+      margin-bottom: 14px;
     }
 
     h1 {
@@ -117,6 +115,7 @@
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 0.5rem;
+      color: var(--deep-navy);
     }
 
     .accent {
@@ -176,8 +175,8 @@
         font-size: 1rem;
         padding: 0 1rem;
       }
-      img.logo {
-        width: 160px;
+      img.hero-logo {
+        width: 170px;
       }
     }
   </style>
@@ -187,7 +186,7 @@
   <header>
     <div class="nav">
       <a href="#" class="brand">
-        <div class="brand-logo"></div>
+        <img src="logo.png" alt="Caugia Studio Logo" />
         Caugia Studio
       </a>
       <nav>
@@ -208,7 +207,7 @@
 
   <!-- HERO -->
   <main>
-    <img src="logo.png" alt="Caugia Logo" class="logo" />
+    <img src="text-logo.png" alt="Caugia Logo" class="hero-logo" />
     <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
     <p>
       Caugia Studio helps executives and GTM leaders design integrated revenue systems
