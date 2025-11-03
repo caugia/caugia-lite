@@ -5,183 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio — From Data to Direction</title>
   <style>
-    :root {
-      --caugia-blue: #0046A5;
-      --insight-orange: #F36C21;
-      --deep-navy: #002A5C;
-      --signal-white: #FFFFFF;
-      --ai-silver: #E6E9EF;
-      --text-dark: #0b132b;
+    :root{
+      --caugia-blue:#0046A5;
+      --insight-orange:#F36C21;
+      --deep-navy:#002A5C;
+      --signal-white:#FFFFFF;
+      --text-dark:#0b132b;
     }
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text-dark);
+      background:var(--signal-white);
+      display:flex;
+      flex-direction:column;
+      text-align:center;
+    }
+    a{color:inherit;text-decoration:none}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--signal-white);
-      color: var(--text-dark);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      text-align: center;
+    /* Header (fixed) */
+    header{
+      position:fixed; top:0; left:0; right:0;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:saturate(160%) blur(10px);
+      border-bottom:1px solid #f1f3f7;
+      z-index:1000;
     }
+    .nav{
+      max-width:1100px; margin:0 auto;
+      padding:12px 20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; font-family:"Space Grotesk", Inter, sans-serif; color:var(--deep-navy)}
+    .brand img{height:44px; width:auto;} /* groter C-logo linksboven */
+    .menu{display:flex; gap:1.2rem; align-items:center; flex-wrap:wrap}
+    .menu a{font-weight:600; color:var(--deep-navy)}
+    .menu a:hover{color:var(--insight-orange)}
+    .btn{background:var(--caugia-blue); color:#fff; padding:.55rem 1.1rem; border-radius:6px; font-weight:600}
+    .btn:hover{background:#003a8c}
 
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: saturate(160%) blur(10px);
-      border-bottom: 1px solid #f1f3f7;
-      z-index: 50;
+    /* Main / hero */
+    main{
+      /* genoeg ruimte zodat fixed header niks overlapt */
+      padding-top:140px;
+      padding-bottom:48px;
+      display:flex; flex-direction:column; align-items:center; flex:1;
     }
+    .hero-logo{width:260px; margin:0 0 18px 0}  /* volledig logo.png in de hero */
+    h1{font-size:clamp(28px,4.2vw,48px); line-height:1.15; margin:.2rem 0 .6rem; color:var(--deep-navy); font-weight:800}
+    .accent{color:var(--insight-orange)}
+    p.lead{max-width:740px; margin:0 auto 1.8rem; font-size:clamp(16px,2.2vw,20px); line-height:1.6; color:#1b1b1b}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 14px 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      color: var(--deep-navy);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-    }
-
-    .brand img {
-      height: 44px; /* groter logo in header */
-      width: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--deep-navy);
-      font-weight: 600;
-      transition: color 0.25s ease;
-    }
-
-    nav a:hover {
-      color: var(--insight-orange);
-    }
-
-    .btn-contact {
-      background-color: var(--caugia-blue);
-      color: #fff;
-      padding: 0.55rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn-contact:hover {
-      background-color: #003a8c;
-    }
-
-    /* HERO */
-    main {
-      padding-top: 120px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-      padding-bottom: 3rem;
-    }
-
-    img.hero-logo {
-      width: 260px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-      color: var(--deep-navy);
-    }
-
-    .accent {
-      color: var(--insight-orange);
-    }
-
-    p {
-      font-size: 1.25rem;
-      max-width: 700px;
-      line-height: 1.6;
-      margin: 0 auto 2rem auto;
-      color: #1b1b1b;
-    }
-
-    a.button {
-      background-color: var(--caugia-blue);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      display: inline-block;
-    }
-
-    a.button:hover {
-      background-color: #003a8c;
-    }
-
-    /* FOOTER */
-    footer {
-      margin-top: auto;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    footer a {
-      color: var(--deep-navy);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-      img.hero-logo {
-        width: 190px;
-      }
-      .brand img {
-        height: 34px;
-      }
-    }
+    /* Footer */
+    footer{border-top:1px solid #eef1f6; padding:22px 0; color:#6b7280; font-size:.95rem}
+    footer a{color:var(--deep-navy)}
+    footer a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -189,4 +70,34 @@
   <header>
     <div class="nav">
       <a href="#" class="brand">
-        <img src="C-logo.png" alt="Caugia Icon" />
+        <img src="C-logo.png" alt="Caugia Icon">
+        <span>Caugia Studio</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#signals">Signals</a>
+        <a href="#clients">Clients</a>
+        <a class="btn" href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me" target="_blank" rel="noopener">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <img src="logo.png" alt="Caugia Logo" class="hero-logo">
+    <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
+    <p class="lead">
+      Caugia Studio helps executives and GTM leaders design integrated revenue systems
+      that align data, teams, and growth — transforming fragmented operations into measurable performance.
+    </p>
+    <a class="btn" href="https://www.linkedin.com/in/meijertom/?msgControlName=message_button&trk=public_profile_contact_me" target="_blank" rel="noopener">Get in touch</a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom/" target="_blank" rel="noopener">LinkedIn</a>
+  </footer>
+</body>
+</html>
