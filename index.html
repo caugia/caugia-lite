@@ -135,6 +135,7 @@
       line-height: 1.22;
       font-weight: 800;
       max-width: 980px;
+      white-space: nowrap; /* <<< zorgt dat alle woorden op 1 regel blijven */
     }
 
     .accent {
@@ -207,17 +208,10 @@
     }
 
     /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav {
-        gap: 14px;
-      }
-
+    @media (max-width: 1000px) {
       h1 {
-        font-size: 2.1rem;
-      }
-
-      .hero .logo {
-        width: 200px;
+        white-space: normal; /* mag afbreken op kleinere schermen */
+        font-size: 2.2rem;
       }
     }
 
