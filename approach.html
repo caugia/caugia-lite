@@ -8,30 +8,24 @@
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
-      background-color: var(--bg-color, #fff);
-      color: var(--text-color, #000);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      background-color: #fff;
+      color: #000;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 20px;
-      position: relative;
-    }
-
-    .container {
+      padding: 20px;
       max-width: 1100px;
       margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
       gap: 8px;
+      padding-left: 18px;
     }
 
     .logo-container img {
@@ -41,8 +35,8 @@
 
     nav {
       display: flex;
-      gap: 32px;
       align-items: center;
+      gap: 32px;
     }
 
     nav a {
@@ -65,52 +59,45 @@
       border-color: #f97316;
     }
 
-    /* Hamburger */
+    /* Hamburger menu */
     .hamburger {
       display: none;
       flex-direction: column;
-      cursor: pointer;
       gap: 4px;
+      cursor: pointer;
     }
 
     .hamburger div {
       width: 25px;
       height: 3px;
-      background-color: currentColor;
+      background-color: #000;
     }
 
     .mobile-menu {
       display: none;
       flex-direction: column;
-      background: var(--bg-color, #fff);
       position: absolute;
-      top: 60px;
       right: 20px;
+      top: 60px;
+      background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-      padding: 10px;
-      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      padding: 10px 20px;
     }
 
     .mobile-menu a {
       text-decoration: none;
-      color: inherit;
+      color: #000;
       padding: 10px 0;
     }
 
     @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .mobile-menu.show {
-        display: flex;
-      }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu.show { display: flex; }
     }
 
-    /* Approach Section */
+    /* Approach section */
     .approach {
       max-width: 900px;
       margin: 0 auto;
@@ -124,13 +111,9 @@
     }
 
     .approach p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: #555;
       margin-bottom: 1.2rem;
-    }
-
-    .approach strong {
-      color: #f97316;
     }
 
     footer {
@@ -141,22 +124,16 @@
     }
 
     @media (prefers-color-scheme: dark) {
-      body {
-        --bg-color: #000;
-        --text-color: #fff;
-      }
-      .mobile-menu {
-        background: #111;
-      }
-      .approach p {
-        color: #ccc;
-      }
+      body { background-color: #000; color: #fff; }
+      .mobile-menu { background: #111; }
+      .hamburger div { background-color: #fff; }
+      .approach p { color: #ccc; }
     }
   </style>
 </head>
 
 <body>
-  <header class="container">
+  <header>
     <div class="logo-container">
       <img src="logo.png" alt="Caugia Studio Logo" />
       <span>Caugia Studio</span>
@@ -186,23 +163,20 @@
   <section class="approach">
     <h1>Our Approach</h1>
     <p>
-      Caugia Studio applies a <strong>system-thinking methodology</strong> to revenue design — where data, operations, and
-      human behavior intersect. Each engagement begins with a mapping of your current GTM ecosystem to uncover inefficiencies,
-      silos, and missed connections.
+      At Caugia Studio, we use a <strong>system-thinking approach</strong> to design revenue architectures that connect
+      data, teams, and outcomes. We begin by mapping your GTM ecosystem — identifying friction points, inefficiencies, and
+      opportunities for alignment across sales, marketing, and operations.
     </p>
     <p>
-      We then co-design an integrated architecture, aligning metrics, tools, and workflows into a single operating system
-      for growth. This isn’t theory; it’s a hands-on framework grounded in years of building real revenue engines across
-      scale-ups and enterprise environments.
-    </p>
-    <p>
-      The result is clarity: a unified structure where <strong>strategy becomes measurable</strong>, and execution becomes
-      predictable.
+      From there, we co-build a unified structure that transforms chaos into clarity.  
+      Our frameworks are practical, built on years of experience leading high-performance growth teams.  
+      We believe that when systems are aligned, execution becomes predictable — and growth becomes inevitable.
     </p>
   </section>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/company/caugia" target="_blank" style="color:inherit;text-decoration:none;">LinkedIn</a>
+    © 2025 Caugia Studio ·
+    <a href="https://www.linkedin.com/company/caugia" target="_blank" style="color:inherit;text-decoration:none;">LinkedIn</a>
   </footer>
 
   <script>
