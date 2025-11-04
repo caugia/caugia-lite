@@ -23,7 +23,7 @@
       text-align:left;
     }
 
-    /* Header (gefixte uitlijning) */
+    /* Header: UNIFORM OP ALLE PAGINA'S */
     header{
       position:fixed; inset:0 0 auto 0; height:var(--header-h);
       background:rgba(255,255,255,.98);
@@ -33,10 +33,10 @@
     }
     .container{
       max-width:var(--maxw); height:100%;
-      margin:0 auto; padding:0 20px 0 20px; /* iets minder padding links */
+      margin:0 auto; padding:0 24px;
       display:flex; align-items:center; justify-content:space-between;
     }
-    a.brand{display:flex; align-items:center; gap:8px; text-decoration:none}
+    a.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .brand img{height:28px; vertical-align:middle}
     .brand span{font-weight:600; color:var(--ink); white-space:nowrap}
     a.brand:visited span{color:var(--ink)}
@@ -51,7 +51,6 @@
       transition:background .25s ease, color .25s ease;
     }
     .cta:hover{background:var(--blue-d); color:var(--accent)}
-
     /* Hamburger */
     .menu-toggle{display:none; flex-direction:column; justify-content:space-between; width:24px; height:18px; background:none; border:none; cursor:pointer}
     .menu-toggle span{height:2px; width:24px; background:var(--ink); border-radius:1px; display:block; transition:transform .25s, opacity .25s}
