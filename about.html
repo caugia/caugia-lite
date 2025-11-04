@@ -3,35 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caugia Studio | From Chaos to Clarity</title>
-  <link rel="icon" href="/logo.png" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>About | Caugia Studio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
+
+  <style>
+    :root{
+      --ink:#0b132b; --blue:#0b66ff; --blue-d:#094fc7; --accent:#ff7700;
+      --maxw:1180px; --header-h:64px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;height:100%}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink); background:#fff;
+      display:flex; flex-direction:column; min-height:100vh;
+    }
+
+    header{
+      position:fixed; top:0; left:0; right:0; height:var(--header-h);
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      backdrop-filter:saturate(140%) blur(6px);
+      z-index:10;
+    }
+    .container{
+      max-width:var(--maxw); margin:0 auto; padding:0 24px; height:100%;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand img{height:28px}
+    .brand span{font-weight:600; white-space:nowrap}
+    nav{display:flex; align-items:center; gap:20px}
+    nav a{color:var(--ink); text-decoration:none; font-weight:500}
+    nav a:hover{color:var(--blue)}
+    .cta{
+      background:var(--blue);
+      color:#fff;
+      text-decoration:none;
+      padding:.55rem 1.1rem;
+      border-radius:8px;
+      font-weight:600;
+      transition:background .25s ease, color .25s ease;
+    }
+    .cta:hover{
+      background:var(--blue-d);
+      color:var(--accent);
+    }
+
+    main{
+      flex:1; display:block; padding:120px 24px 80px 24px;
+      max-width:var(--maxw); margin:0 auto; text-align:left;
+    }
+    h1{font-size:2.4rem; font-weight:800; margin-bottom:24px;}
+    h2{font-size:1.5rem; font-weight:700; margin:48px 0 16px 0;}
+    p{
+      font-size:1.05rem; line-height:1.7; color:#1b1b1b; margin-bottom:20px;
+      max-width:880px;
+    }
+    strong{color:var(--ink)}
+    .accent{color:var(--accent); font-weight:600}
+    footer{
+      margin-top:auto; padding:24px 0 32px 0; font-size:.9rem; color:#777;
+      text-align:center; border-top:1px solid rgba(0,0,0,.06);
+    }
+    footer a{color:var(--ink); text-decoration:none; font-weight:500}
+    footer a:hover{text-decoration:underline}
+
+    @media (prefers-color-scheme: dark){
+      body{background:#0b132b; color:#f5f5f5}
+      header{background:rgba(15,20,35,.9); border-bottom-color:rgba(255,255,255,.08)}
+      .brand span, nav a, footer a{color:#f5f5f5}
+      .cta{background:var(--accent)} .cta:hover{background:#e56b00; color:#fff}
+      p{color:#e9e9e9} footer{border-top-color:rgba(255,255,255,.08)}
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-900 font-sans">
-  <!-- HEADER -->
-  <header class="flex justify-between items-center px-8 py-6 border-b border-gray-200">
-    <a href="/" class="flex items-center space-x-3">
-      <img src="/logo.png" alt="Caugia Logo" class="h-8 w-auto">
-      <span class="font-semibold text-xl tracking-tight">Caugia Studio</span>
-    </a>
-    <nav class="space-x-6 text-sm font-medium">
-      <a href="/" class="hover:text-orange-600">Home</a>
-      <a href="/about" class="text-orange-600">About</a>
-      <a href="/product" class="hover:text-orange-600">Product</a>
-      <a href="/playbook" class="hover:text-orange-600">Playbook</a>
-      <a href="/pricing" class="hover:text-orange-600">Pricing</a>
-      <a href="/contact" class="hover:text-orange-600">Contact</a>
-    </nav>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="C-logo.png" alt="Caugia C logo">
+        <span>Caugia Studio</span>
+      </div>
+      <nav>
+        <a href="/about.html" style="color:var(--blue)">About</a>
+        <a href="#">Approach</a>
+        <a href="#">Work</a>
+        <a href="#">Signals</a>
+        <a href="#">Clients</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO / INTRO -->
-  <section class="max-w-4xl mx-auto px-6 py-16 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">About Caugia Studio</h1>
-    <p class="text-lg md:text-xl text-gray-600 leading-relaxed">From chaos to clarity. From noise to systems that think before they move.</p>
-  </section>
+  <main>
+    <h1>About Caugia Studio</h1>
 
-  <!-- MAIN ABOUT SECTION -->
-  <section class="max-w-3xl mx-auto px-6 py-12 space-y-8">
     <p>Caugia Studio began with a question I could not stop asking: why do so many brilliant teams, armed with data, ambition, and technology, still move in circles?</p>
 
     <p>For years I built revenue systems at Contentsquare and Greenly, working with teams across continents. Everywhere I went, I saw the same paradox. People worked hard, dashboards multiplied, tools piled up, and yet clarity slipped away. Growth happened, but never calmly.</p>
@@ -42,52 +113,32 @@
 
     <p>The work begins with perspective. Once you can see the system, the noise fades. Decisions sharpen. Teams align. Growth becomes predictable instead of accidental.</p>
 
-    <p class="font-semibold text-gray-700">Caugia is about bringing calm intelligence to complex systems so that leaders can stop chasing control and start leading with clarity.</p>
-  </section>
+    <p><strong>Caugia is about bringing calm intelligence to complex systems so that leaders can stop chasing control and start leading with clarity.</strong></p>
 
-  <!-- BELIEFS -->
-  <section class="bg-gray-50 py-16 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-8">What We Believe</h2>
-      <div class="grid md:grid-cols-3 gap-8 text-left md:text-center">
-        <div>
-          <h3 class="font-semibold text-lg mb-2 text-orange-600">Clarity beats complexity</h3>
-          <p>The strongest organizations are not the loudest, but the most aligned.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg mb-2 text-orange-600">Technology follows intent</h3>
-          <p>AI and automation amplify what already exists. Without alignment, they only magnify the chaos.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg mb-2 text-orange-600">Less, not more</h3>
-          <p>Change is meaningful only when it is focused, deliberate, and sustained.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <h2>What We Believe</h2>
 
-  <!-- THREE RINGS SECTION -->
-  <section class="max-w-4xl mx-auto px-6 py-16 text-center">
-    <h2 class="text-2xl font-bold mb-6">The Three Rings</h2>
-    <p class="mb-6 text-gray-700">Every organization can be seen through three circles: <span class="font-semibold text-orange-600">People</span>, <span class="font-semibold text-orange-600">Process</span>, and <span class="font-semibold text-orange-600">Performance</span>.</p>
-    <p class="mb-6">They overlap in a small, central space. That is where change truly takes hold, the moment when behavior, structure, and results begin to reinforce one another.</p>
+    <p><span class="accent">Clarity beats complexity.</span> The strongest organizations are not the loudest, but the most aligned.</p>
+
+    <p><span class="accent">Technology follows intent.</span> AI and automation amplify what already exists. Without alignment, they only magnify the chaos.</p>
+
+    <p><span class="accent">Less, not more.</span> Change is meaningful only when it is focused, deliberate, and sustained.</p>
+
+    <h2>The Three Rings</h2>
+
+    <p>Every organization can be seen through three circles: <strong>People</strong>, <strong>Process</strong>, and <strong>Performance</strong>. They overlap in a small, central space. That is where change truly takes hold, the moment when behavior, structure, and results begin to reinforce one another.</p>
+
     <p>Each year, you can transform one thing in that center, and one thing in each ring. More than that, and the system slips back into noise. Real progress is not made by doing more. It is made by finally doing the right thing, together.</p>
-  </section>
 
-  <!-- FOUNDER SECTION -->
-  <section class="bg-gray-100 py-16 px-6 text-center">
-    <div class="max-w-3xl mx-auto">
-      <img src="/tom-meijer.jpg" alt="Tom Meijer" class="mx-auto rounded-full h-24 w-24 mb-6 object-cover">
-      <h2 class="text-xl font-bold mb-2">Tom Meijer</h2>
-      <p class="text-gray-700 mb-4">Founder and Revenue Systems Architect</p>
-      <p class="text-gray-600 leading-relaxed">After fifteen years building and leading global GTM organizations, Tom founded Caugia Studio to help growth companies replace chaos with clarity and design systems that think before they move.</p>
-    </div>
-  </section>
+    <h2>Founder</h2>
 
-  <!-- FOOTER -->
-  <footer class="text-center py-6 border-t border-gray-200 text-sm text-gray-500">
-    <p>© 2025 Caugia Studio · <a href="https://linkedin.com/in/tommeijer" class="hover:text-orange-600">LinkedIn</a></p>
+    <p><strong>Tom Meijer</strong><br>
+    Founder and Revenue Systems Architect at Caugia Studio.</p>
+
+    <p>After fifteen years building and leading global GTM organizations, Tom founded Caugia to help growth companies replace chaos with clarity and design systems that think before they move.</p>
+  </main>
+
+  <footer>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
-
