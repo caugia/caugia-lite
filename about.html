@@ -20,8 +20,10 @@
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink); background:#fff;
       display:flex; flex-direction:column; min-height:100vh;
+      text-align:left;
     }
 
+    /* Header */
     header{
       position:fixed; top:0; left:0; right:0; height:var(--header-h);
       background:rgba(255,255,255,.98);
@@ -39,6 +41,7 @@
     nav{display:flex; align-items:center; gap:20px}
     nav a{color:var(--ink); text-decoration:none; font-weight:500}
     nav a:hover{color:var(--blue)}
+    .active{color:var(--blue)}
     .cta{
       background:var(--blue);
       color:#fff;
@@ -53,18 +56,18 @@
       color:var(--accent);
     }
 
+    /* Main */
     main{
       flex:1; display:block; padding:120px 24px 80px 24px;
-      max-width:var(--maxw); margin:0 auto; text-align:left;
+      max-width:var(--maxw); margin:0 auto;
     }
-    h1{font-size:2.4rem; font-weight:800; margin-bottom:24px;}
-    h2{font-size:1.5rem; font-weight:700; margin:48px 0 16px 0;}
-    p{
-      font-size:1.05rem; line-height:1.7; color:#1b1b1b; margin-bottom:20px;
-      max-width:880px;
-    }
-    strong{color:var(--ink)}
+    h1{font-size:2.4rem; font-weight:800; margin:0 0 12px 0;}
+    h2{font-size:1.5rem; font-weight:700; margin:40px 0 12px 0;}
+    p{font-size:1.05rem; line-height:1.7; color:#1b1b1b; margin:0 0 18px 0; max-width:880px;}
+    .lead{font-size:1.15rem; color:#222}
     .accent{color:var(--accent); font-weight:600}
+
+    /* Footer */
     footer{
       margin-top:auto; padding:24px 0 32px 0; font-size:.9rem; color:#777;
       text-align:center; border-top:1px solid rgba(0,0,0,.06);
@@ -72,12 +75,20 @@
     footer a{color:var(--ink); text-decoration:none; font-weight:500}
     footer a:hover{text-decoration:underline}
 
+    /* Dark mode */
     @media (prefers-color-scheme: dark){
       body{background:#0b132b; color:#f5f5f5}
       header{background:rgba(15,20,35,.9); border-bottom-color:rgba(255,255,255,.08)}
       .brand span, nav a, footer a{color:#f5f5f5}
+      .active{color:#7aa8ff}
       .cta{background:var(--accent)} .cta:hover{background:#e56b00; color:#fff}
-      p{color:#e9e9e9} footer{border-top-color:rgba(255,255,255,.08)}
+      p{color:#e9e9e9}
+      footer{border-top-color:rgba(255,255,255,.08)}
+    }
+
+    /* Responsive */
+    @media (max-width:960px){
+      h1{font-size:2rem;}
     }
   </style>
 </head>
@@ -86,16 +97,16 @@
   <header>
     <div class="container">
       <div class="brand">
-        <img src="C-logo.png" alt="Caugia C logo">
+        <img src="/C-logo.png" alt="Caugia C logo">
         <span>Caugia Studio</span>
       </div>
       <nav>
-        <a href="/about.html" style="color:var(--blue)">About</a>
-        <a href="#">Approach</a>
+        <a href="/about.html" class="active">About</a>
+        <a href="/approach.html">Approach</a>
         <a href="#">Work</a>
         <a href="#">Signals</a>
         <a href="#">Clients</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
       </nav>
     </div>
   </header>
@@ -103,42 +114,30 @@
   <main>
     <h1>About Caugia Studio</h1>
 
-    <p>Caugia Studio began with a question I could not stop asking: why do so many brilliant teams, armed with data, ambition, and technology, still move in circles?</p>
+    <p class="lead">Caugia Studio helps organizations bring clarity back to their growth systems, combining speed, structure, and focus to create revenue engines that perform with intent.</p>
 
-    <p>For years I built revenue systems at Contentsquare and Greenly, working with teams across continents. Everywhere I went, I saw the same paradox. People worked hard, dashboards multiplied, tools piled up, and yet clarity slipped away. Growth happened, but never calmly.</p>
+    <p>Caugia Studio was founded on a simple observation. Most companies do not fail because they lack talent or technology. They struggle because growth happens faster than structure, and complexity grows faster than clarity.</p>
 
-    <p>The rise of AI has made that pattern even sharper. New tools appear every week, promising transformation but often adding more noise than direction. Inexperienced teams rush to automate before they align. Departments experiment in isolation. The result is speed without structure, and activity without understanding.</p>
+    <p>After fifteen years building revenue systems at Contentsquare and Greenly, I saw the same pattern across industries and continents. Brilliant teams, ambitious targets, modern tools, and yet a constant sense of noise. Everyone was busy, but not always in the same direction.</p>
 
-    <p>Caugia was created to change that. Not as a consultancy or another software platform, but as a way of seeing. To help organizations understand how their people, processes, and performance interact, and how easily those connections fray when growth outpaces coherence.</p>
+    <p>Today, that challenge has only intensified. The rise of AI, tighter budgets, and investor pressure have created a new paradox. Companies are expected to grow and cut costs at the same time. They consolidate tools, reduce headcount, and search for efficiency without slowing momentum.</p>
 
-    <p>The work begins with perspective. Once you can see the system, the noise fades. Decisions sharpen. Teams align. Growth becomes predictable instead of accidental.</p>
+    <p>Caugia helps leaders navigate that tension. We design go-to-market systems that balance ambition with discipline, speed with control, and creativity with accountability. The goal is not to do more, but to make the right things work together.</p>
 
-    <p><strong>Caugia is about bringing calm intelligence to complex systems so that leaders can stop chasing control and start leading with clarity.</strong></p>
+    <p>Our work starts by seeing the whole system — how people, processes, and performance interact, where they reinforce one another, and where they break. Once that system becomes visible, decisions become clear, and growth regains direction.</p>
 
-    <h2>What We Believe</h2>
-
-    <p><span class="accent">Clarity beats complexity.</span> The strongest organizations are not the loudest, but the most aligned.</p>
-
-    <p><span class="accent">Technology follows intent.</span> AI and automation amplify what already exists. Without alignment, they only magnify the chaos.</p>
-
-    <p><span class="accent">Less, not more.</span> Change is meaningful only when it is focused, deliberate, and sustained.</p>
-
-    <h2>The Three Rings</h2>
-
-    <p>Every organization can be seen through three circles: <strong>People</strong>, <strong>Process</strong>, and <strong>Performance</strong>. They overlap in a small, central space. That is where change truly takes hold, the moment when behavior, structure, and results begin to reinforce one another.</p>
-
-    <p>Each year, you can transform one thing in that center, and one thing in each ring. More than that, and the system slips back into noise. Real progress is not made by doing more. It is made by finally doing the right thing, together.</p>
+    <p>Caugia exists to bring calm intelligence to commercial operations. We turn complexity into coherence so that growth, efficiency, and profitability can move forward together.</p>
 
     <h2>Founder</h2>
 
     <p><strong>Tom Meijer</strong><br>
     Founder and Revenue Systems Architect at Caugia Studio.</p>
 
-    <p>After fifteen years building and leading global GTM organizations, Tom founded Caugia to help growth companies replace chaos with clarity and design systems that think before they move.</p>
+    <p>Tom built and led global GTM organizations at Contentsquare and Greenly, helping teams move from reactive growth to structured performance. With Caugia Studio, he now helps leadership teams design systems that grow predictably and operate efficiently in a world where both speed and control matter.</p>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </body>
 </html>
