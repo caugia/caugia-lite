@@ -14,14 +14,14 @@
       --bg-light:#f9f9fb; --border:#e5e5e5;
       --maxw:1180px; --header-h:64px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;height:100%}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink); background:#fff;
       display:flex; flex-direction:column; min-height:100vh;
     }
 
+    /* Header (identiek aan andere pagina's) */
     header{
       position:fixed; top:0; left:0; right:0; height:var(--header-h);
       background:rgba(255,255,255,.98);
@@ -31,15 +31,16 @@
     }
     .container{
       max-width:var(--maxw); margin:0 auto; padding:0 24px; height:100%;
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
     a.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
-    .brand img{height:28px}
-    .brand span{font-weight:600; white-space:nowrap; color:var(--ink)}
+    .brand img{height:28px; vertical-align:middle;}
+    .brand span{font-weight:600; color:var(--ink); white-space:nowrap}
     a.brand:visited span{color:var(--ink)}
-    nav{display:flex; align-items:center; gap:20px}
-    nav a{color:var(--ink); text-decoration:none; font-weight:500}
-    nav a:hover{color:var(--blue)}
+
+    nav.nav-desktop{display:flex; align-items:center; gap:20px}
+    nav.nav-desktop a{color:var(--ink); text-decoration:none; font-weight:500}
+    nav.nav-desktop a:hover{color:var(--blue)}
     .active{color:var(--blue)}
     .cta{
       background:var(--blue); color:#fff; text-decoration:none;
@@ -48,23 +49,42 @@
     }
     .cta:hover{background:var(--blue-d); color:var(--accent)}
 
+    /* Hamburger menu */
+    .menu-toggle{
+      display:none; flex-direction:column; justify-content:space-between;
+      width:24px; height:18px; background:none; border:none; cursor:pointer; padding:0;
+    }
+    .menu-toggle span{
+      display:block; height:2px; width:100%; background:var(--ink);
+      border-radius:1px; transition:transform .25s ease, opacity .25s ease;
+    }
+    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+    .nav-mobile{
+      display:none; flex-direction:column; align-items:flex-start;
+      padding:16px 24px 32px 24px;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav-mobile a{padding:10px 0; text-decoration:none; font-weight:500; color:var(--ink);}
+    .nav-mobile a:hover{color:var(--blue)}
+    .nav-mobile.open{display:flex}
+
+    /* Content */
     main{
       flex:1; padding:120px 24px 80px 24px;
       max-width:var(--maxw); margin:0 auto;
     }
-
-    h1{font-size:2.6rem; font-weight:800; margin:0 0 20px 0;}
+    h1{font-size:2.6rem; font-weight:800; margin-bottom:20px;}
     .intro{
       font-size:1.2rem; line-height:1.7; color:#1b1b1b;
       max-width:850px; margin-bottom:50px;
     }
-
     section{
-      background:var(--bg-light);
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:40px 48px;
-      margin-bottom:60px;
+      background:var(--bg-light); border:1px solid var(--border);
+      border-radius:16px; padding:40px 48px; margin-bottom:60px;
     }
     h2{font-size:1.7rem; margin:0 0 18px 0; font-weight:700; color:var(--blue-d);}
     h3{font-size:1.2rem; font-weight:600; margin-top:24px; margin-bottom:6px; color:var(--accent);}
@@ -79,20 +99,24 @@
     footer a{color:var(--ink); text-decoration:none; font-weight:500}
     footer a:hover{text-decoration:underline}
 
+    /* Dark mode */
     @media (prefers-color-scheme: dark){
       body{background:#0b132b; color:#f5f5f5}
       header{background:rgba(15,20,35,.9); border-bottom-color:rgba(255,255,255,.08)}
       .brand span, nav a, footer a{color:#f5f5f5}
       a.brand:visited span{color:#f5f5f5}
-      .active{color:#7aa8ff}
-      section{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1)}
       .cta{background:var(--accent)} .cta:hover{background:#e56b00; color:#fff}
       p{color:#e9e9e9}
       footer{border-top-color:rgba(255,255,255,.08)}
+      .menu-toggle span{background:#f5f5f5}
+      .nav-mobile{background:rgba(15,20,35,.95); border-bottom-color:rgba(255,255,255,.08)}
+      .nav-mobile a{color:#f5f5f5} .nav-mobile a:hover{color:#7aa8ff}
+      section{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1)}
     }
-
-    @media (max-width:800px){
-      h1{font-size:2rem;}
+    @media(max-width:800px){
+      nav.nav-desktop{display:none}
+      .menu-toggle{display:flex}
+      h1{font-size:2rem}
       section{padding:28px 24px;}
     }
   </style>
@@ -105,7 +129,7 @@
         <img src="/C-logo.png" alt="Caugia C logo">
         <span>Caugia Studio</span>
       </a>
-      <nav>
+      <nav class="nav-desktop">
         <a href="/about.html">About</a>
         <a href="/approach.html" class="active">Approach</a>
         <a href="/work.html">Work</a>
@@ -113,7 +137,17 @@
         <a href="#">Clients</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
       </nav>
+      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
+
+    <nav class="nav-mobile">
+      <a href="/about.html">About</a>
+      <a href="/approach.html" class="active">Approach</a>
+      <a href="/work.html">Work</a>
+      <a href="#">Signals</a>
+      <a href="#">Clients</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+    </nav>
   </header>
 
   <main>
@@ -122,7 +156,7 @@
 
     <section>
       <h2>How We Work</h2>
-      <p>First, we slow things down to see what is really happening. Who owns what? Where does data stop flowing? Which handoff breaks the rhythm? Then we design the architecture that puts everything back in sync.</p>
+      <p>We start by slowing down the noise. Who owns what? Where does data stop flowing? Which handoff breaks the rhythm? Once we see clearly, we design the architecture that puts everything back in sync.</p>
       <p>The result is not another process to follow but a system that helps people do their best work with clarity and focus.</p>
       <p>When teams know their roles, when tools support instead of distract, and when success is measured in the same language, performance stops being random — it becomes repeatable.</p>
     </section>
@@ -147,13 +181,18 @@
         <li><strong>Design</strong> — We create your GTM System Blueprint, showing how teams, tools, and data fit together.</li>
         <li><strong>Direction</strong> — We leave you with a Focus Plan for the next twelve months — a small number of changes that make a large difference.</li>
       </ul>
-      <p>This rhythm is simple, but powerful. It creates calm inside complexity.</p>
-      <p>By the end, your GTM engine runs smoothly, your people move with purpose, and growth feels less like a sprint and more like a system that actually works.</p>
+      <p>This rhythm is simple, but powerful. It creates calm inside complexity. By the end, your GTM engine runs smoothly, your people move with purpose, and growth feels less like a sprint and more like a system that actually works.</p>
     </section>
   </main>
 
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
+
+  <script>
+    const toggle=document.querySelector('.menu-toggle');
+    const navMobile=document.querySelector('.nav-mobile');
+    toggle.addEventListener('click',()=>{toggle.classList.toggle('active');navMobile.classList.toggle('open');});
+  </script>
 </body>
 </html>
