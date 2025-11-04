@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Approach | Caugia Studio</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
   <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
 
@@ -19,11 +18,8 @@
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink); background:#fff;
-      display:flex; flex-direction:column; min-height:100vh;
-      text-align:left;
+      display:flex; flex-direction:column; min-height:100vh; text-align:left;
     }
-
-    /* Header */
     header{
       position:fixed; top:0; left:0; right:0; height:var(--header-h);
       background:rgba(255,255,255,.98);
@@ -35,7 +31,7 @@
       max-width:var(--maxw); margin:0 auto; padding:0 24px; height:100%;
       display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
-    .brand{display:flex; align-items:center; gap:10px}
+    a.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .brand img{height:28px}
     .brand span{font-weight:600; white-space:nowrap}
     nav{display:flex; align-items:center; gap:20px}
@@ -43,42 +39,21 @@
     nav a:hover{color:var(--blue)}
     .active{color:var(--blue)}
     .cta{
-      background:var(--blue);
-      color:#fff;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue); color:#fff; text-decoration:none;
+      padding:.55rem 1.1rem; border-radius:8px; font-weight:600;
       transition:background .25s ease, color .25s ease;
     }
-    .cta:hover{
-      background:var(--blue-d);
-      color:var(--accent);
-    }
+    .cta:hover{background:var(--blue-d); color:var(--accent)}
 
-    /* Main */
     main{
       flex:1; display:block; padding:120px 24px 80px 24px;
       max-width:var(--maxw); margin:0 auto;
     }
-    h1{font-size:2.4rem; font-weight:800; margin:0 0 12px 0;}
+    h1{font-size:2.4rem; font-weight:800; margin:0 0 20px 0;}
     h2{font-size:1.5rem; font-weight:700; margin:40px 0 12px 0;}
     p{font-size:1.05rem; line-height:1.7; color:#1b1b1b; margin:0 0 18px 0; max-width:880px;}
     .lead{font-size:1.15rem; color:#222}
-    .accent{color:var(--accent); font-weight:600}
 
-    /* Sections */
-    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1100px}
-    .card{
-      border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:18px 18px;
-      background:#fff;
-    }
-    .card h3{margin:0 0 8px 0; font-size:1.1rem}
-    .deliv{display:grid; grid-template-columns:1fr; gap:16px; max-width:900px}
-    .deliv .row{border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:16px 18px; background:#fff}
-    .row h3{margin:0 0 6px 0; font-size:1.1rem}
-
-    /* Footer */
     footer{
       margin-top:auto; padding:24px 0 32px 0; font-size:.9rem; color:#777;
       text-align:center; border-top:1px solid rgba(0,0,0,.06);
@@ -86,7 +61,6 @@
     footer a{color:var(--ink); text-decoration:none; font-weight:500}
     footer a:hover{text-decoration:underline}
 
-    /* Dark mode */
     @media (prefers-color-scheme: dark){
       body{background:#0b132b; color:#f5f5f5}
       header{background:rgba(15,20,35,.9); border-bottom-color:rgba(255,255,255,.08)}
@@ -94,21 +68,18 @@
       .active{color:#7aa8ff}
       .cta{background:var(--accent)} .cta:hover{background:#e56b00; color:#fff}
       p{color:#e9e9e9}
-      .card, .row{background:#101733; border-color:rgba(255,255,255,.08)}
       footer{border-top-color:rgba(255,255,255,.08)}
     }
-
-    /* Responsive */
-    @media (max-width:960px){ .grid-3{grid-template-columns:1fr} }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
-      <div class="brand">
+      <a href="/index.html" class="brand">
         <img src="/C-logo.png" alt="Caugia C logo">
         <span>Caugia Studio</span>
-      </div>
+      </a>
       <nav>
         <a href="/about.html">About</a>
         <a href="/approach.html" class="active">Approach</a>
@@ -122,66 +93,37 @@
 
   <main>
     <h1>Approach</h1>
-    <p class="lead">We design go to market systems that make growth and efficiency compatible. The result is a commercial engine that scales with control and performs without waste.</p>
+
+    <p class="lead">At Caugia Studio, we turn GTM chaos into predictable revenue engines. Our approach is built on one principle: growth is a system, not a series of actions.</p>
+
+    <p>Every engagement begins by understanding how your GTM engine truly works. We look across people, processes, and performance to identify where connection is lost, where data fails to inform action, and where friction slows momentum. Then we design a structure that restores clarity and alignment.</p>
 
     <h2>How We Work</h2>
-    <p>Every company reaches a point where growth and efficiency begin to compete. Leaders are asked to scale faster while spending less. Caugia helps resolve that tension by rebuilding clarity inside the system. We examine how work, data, and accountability move through the organization and design a way to bring them back together.</p>
-    <p>We look for small structural changes that have a large effect. The handoffs that remove friction, the data flows that reveal insight, the rhythms that keep teams moving together. The goal is predictability.</p>
+    <p>We translate complexity into systems that can be measured, managed, and improved. This means defining ownership, simplifying workflows, aligning tools, and establishing metrics that link every team to shared outcomes. The goal is not more activity but more predictability, a GTM engine that runs smoothly, scales efficiently, and performs consistently.</p>
 
     <h2>The Caugia Lens</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3><span class="accent">People</span></h3>
-        <p>How teams collaborate across marketing, sales, customer success, and operations. We clarify roles, ownership, and communication so that accountability becomes natural.</p>
-      </div>
-      <div class="card">
-        <h3><span class="accent">Process</span></h3>
-        <p>How work and information move through the funnel. We simplify complex systems and align tools to support efficiency instead of adding noise.</p>
-      </div>
-      <div class="card">
-        <h3><span class="accent">Performance</span></h3>
-        <p>How results are defined, measured, and improved. We ensure data tells a consistent story so that leadership can act with confidence.</p>
-      </div>
-    </div>
+    <p>We analyze every organization through three dimensions: <strong>People</strong>, <strong>Process</strong>, and <strong>Performance</strong>.</p>
+
+    <p><strong>People</strong><br>We clarify roles and collaboration across marketing, sales, customer success, and operations so that accountability is shared, not scattered.</p>
+    <p><strong>Process</strong><br>We redesign the flow of work and data through the funnel, ensuring each tool and handoff serves the system instead of complicating it.</p>
+    <p><strong>Performance</strong><br>We define clear metrics that measure what matters — conversion, efficiency, and customer impact — creating a single source of truth for leadership.</p>
+
+    <p>When these three dimensions align, growth becomes repeatable and efficiency becomes sustainable.</p>
 
     <h2>Our Method</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Diagnose</h3>
-        <p>We map how leads, deals, and insights move through the organization and identify where effort, data, or ownership breaks down.</p>
-      </div>
-      <div class="card">
-        <h3>Design</h3>
-        <p>We create your GTM System Blueprint, a complete model of how people, processes, and technology should connect. It defines roles, workflows, and metrics that enable both speed and control.</p>
-      </div>
-      <div class="card">
-        <h3>Direction</h3>
-        <p>We turn the blueprint into a practical focus plan for the next twelve months. It highlights a small number of strategic changes that deliver measurable impact on growth and efficiency.</p>
-      </div>
-    </div>
+    <p><strong>Diagnose</strong><br>We start with a full system audit. We map how leads, data, and ownership move through your GTM organization to uncover inefficiencies and misalignment.</p>
+    <p><strong>Design</strong><br>We create your GTM System Blueprint: a visual and operational model of how people, processes, and technology should connect to deliver predictable growth.</p>
+    <p><strong>Direction</strong><br>We translate that blueprint into a one-year Focus Plan that outlines the key changes with the highest impact on performance and efficiency.</p>
 
     <h2>What You Get</h2>
-    <div class="deliv">
-      <div class="row">
-        <h3>GTM System Blueprint</h3>
-        <p>A clear and visual model of your revenue organization that connects teams, tools, and data around shared outcomes.</p>
-      </div>
-      <div class="row">
-        <h3>Tools Matrix</h3>
-        <p>A simplified view of your technology stack with practical recommendations on consolidation, automation, and the use of AI.</p>
-      </div>
-      <div class="row">
-        <h3>Focus Plan</h3>
-        <p>A one year roadmap that defines what to change, why it matters, and how to measure success.</p>
-      </div>
-      <div class="row">
-        <h3>Alignment Session</h3>
-        <p>A leadership session that aligns priorities, metrics, and communication across all GTM functions.</p>
-      </div>
-    </div>
+    <p><strong>GTM System Blueprint</strong><br>A strategic and visual model that connects all GTM functions into one cohesive revenue engine.</p>
+    <p><strong>Tools Matrix</strong><br>A complete view of your tech stack with clear recommendations on consolidation, automation, and AI integration.</p>
+    <p><strong>Focus Plan</strong><br>A one-year roadmap that links system improvements to measurable business outcomes.</p>
+    <p><strong>Alignment Session</strong><br>A leadership workshop that unifies priorities, metrics, and communication across the entire organization.</p>
 
     <h2>The Outcome</h2>
-    <p>By the end of the process, your organization operates as one integrated system. Growth becomes intentional. Efficiency becomes natural. Teams understand where to focus, tools work together, and results compound over time.</p>
+    <p>By the end of the process, your GTM organization functions as one integrated engine. Teams move in sync, data informs action, and results compound over time.</p>
+    <p>Caugia replaces noise with structure and helps leaders build revenue systems that grow with precision and purpose.</p>
   </main>
 
   <footer>
@@ -189,4 +131,3 @@
   </footer>
 </body>
 </html>
-
