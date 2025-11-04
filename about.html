@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Caugia Studio</title>
-  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
-  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
 
   <style>
     :root{
-      --ink:#0b132b;--blue:#0b66ff;--blue-d:#094fc7;--accent:#ff7700;
-      --bg-light:#f9f9fb;--border:#e5e5e5;
-      --maxw:1180px;--header-h:64px;
+      --ink:#0b132b; --blue:#0b66ff; --accent:#ff7700;
+      --bg-light:#f9f9fb; --border:#e5e5e5;
+      --maxw:1180px; --header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
     html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;text-align:left;
-      opacity:0;transition:opacity .6s ease;
+      display:flex;flex-direction:column;min-height:100vh;
+      overflow-y:auto;
+      text-align:left;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
@@ -35,26 +35,17 @@
     .brand img{height:28px;vertical-align:middle}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s ease;}
     nav.nav-desktop a:hover{color:var(--blue)}
     .active{color:var(--blue)}
-
     .cta{
-      background:var(--blue);
-      color:#fff !important;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue);color:#fff !important;text-decoration:none;
+      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
       transition:background .25s ease,transform .25s ease;
     }
-    .cta:hover{
-      background:var(--accent);
-      color:#fff !important;
-      transform:scale(1.03);
-    }
+    .cta:hover{background:var(--accent);color:#fff !important;transform:scale(1.03);}
 
-    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;}
     .wrap{max-width:var(--maxw);margin:0 auto}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 20px 0}
     .lead{font-size:1.2rem;color:#111;margin-bottom:40px;max-width:880px}
@@ -79,7 +70,6 @@
 
     @media (max-width:800px){
       nav.nav-desktop{display:none}
-      .menu-toggle{display:flex}
       h1{font-size:2rem}
       section{padding:28px 24px}
     }
@@ -88,11 +78,13 @@
 <body>
   <header>
     <div class="container">
-      <a href="/index.html" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <a href="index.html" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
-        <a href="/about.html" class="active">About</a>
-        <a href="/approach.html">Approach</a>
-        <a href="/work.html">Work</a>
+        <a href="about.html" class="active">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="method.html">Method</a>
+        <a href="work.html">Work</a>
+        <a href="studio.html">Studio</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
