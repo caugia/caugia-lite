@@ -19,8 +19,7 @@
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink); background:#fff;
-      display:flex; flex-direction:column; min-height:100vh;
-      text-align:left;
+      display:flex; flex-direction:column; min-height:100vh; text-align:left;
     }
 
     /* Header */
@@ -35,7 +34,7 @@
       max-width:var(--maxw); margin:0 auto; padding:0 24px; height:100%;
       display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
-    .brand{display:flex; align-items:center; gap:10px}
+    a.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .brand img{height:28px}
     .brand span{font-weight:600; white-space:nowrap}
     nav{display:flex; align-items:center; gap:20px}
@@ -43,25 +42,18 @@
     nav a:hover{color:var(--blue)}
     .active{color:var(--blue)}
     .cta{
-      background:var(--blue);
-      color:#fff;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue); color:#fff; text-decoration:none;
+      padding:.55rem 1.1rem; border-radius:8px; font-weight:600;
       transition:background .25s ease, color .25s ease;
     }
-    .cta:hover{
-      background:var(--blue-d);
-      color:var(--accent);
-    }
+    .cta:hover{background:var(--blue-d); color:var(--accent)}
 
     /* Main */
     main{
       flex:1; display:block; padding:120px 24px 80px 24px;
       max-width:var(--maxw); margin:0 auto;
     }
-    h1{font-size:2.4rem; font-weight:800; margin:0 0 12px 0;}
+    h1{font-size:2.4rem; font-weight:800; margin:0 0 20px 0;}
     h2{font-size:1.5rem; font-weight:700; margin:40px 0 12px 0;}
     p{font-size:1.05rem; line-height:1.7; color:#1b1b1b; margin:0 0 18px 0; max-width:880px;}
     .lead{font-size:1.15rem; color:#222}
@@ -85,21 +77,16 @@
       p{color:#e9e9e9}
       footer{border-top-color:rgba(255,255,255,.08)}
     }
-
-    /* Responsive */
-    @media (max-width:960px){
-      h1{font-size:2rem;}
-    }
   </style>
 </head>
 
 <body>
   <header>
     <div class="container">
-      <div class="brand">
+      <a href="/index.html" class="brand">
         <img src="/C-logo.png" alt="Caugia C logo">
         <span>Caugia Studio</span>
-      </div>
+      </a>
       <nav>
         <a href="/about.html" class="active">About</a>
         <a href="/approach.html">Approach</a>
@@ -114,26 +101,26 @@
   <main>
     <h1>About Caugia Studio</h1>
 
-    <p class="lead">Caugia Studio helps organizations bring clarity back to their growth systems, combining speed, structure, and focus to create revenue engines that perform with intent.</p>
+    <p class="lead">Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue engines. We design integrated systems that align data, teams, and growth so that performance becomes measurable and repeatable.</p>
 
-    <p>Caugia Studio was founded on a simple observation. Most companies do not fail because they lack talent or technology. They struggle because growth happens faster than structure, and complexity grows faster than clarity.</p>
+    <p>The idea behind Caugia is simple: most organizations do not lack ambition or technology, they lack coherence. As they grow, their go-to-market systems become fragmented. Teams chase different metrics, data lives in silos, and leadership loses visibility into what truly drives performance.</p>
 
-    <p>After fifteen years building revenue systems at Contentsquare and Greenly, I saw the same pattern across industries and continents. Brilliant teams, ambitious targets, modern tools, and yet a constant sense of noise. Everyone was busy, but not always in the same direction.</p>
+    <p>After fifteen years building and leading global revenue organizations at Contentsquare and Greenly, I saw the same challenge everywhere. Brilliant people, sophisticated tools, but no shared operating model. Growth felt reactive, not designed.</p>
 
-    <p>Today, that challenge has only intensified. The rise of AI, tighter budgets, and investor pressure have created a new paradox. Companies are expected to grow and cut costs at the same time. They consolidate tools, reduce headcount, and search for efficiency without slowing momentum.</p>
+    <p>The rise of AI has only amplified this complexity. Automation moves faster than alignment, and every new tool adds another layer of noise. At the same time, economic pressure forces companies to search for efficiency, to consolidate, and to achieve more with less.</p>
 
-    <p>Caugia helps leaders navigate that tension. We design go-to-market systems that balance ambition with discipline, speed with control, and creativity with accountability. The goal is not to do more, but to make the right things work together.</p>
+    <p>Caugia was created to bring order back into that reality. We help leadership teams design GTM systems that balance growth and efficiency, where every process, tool, and role supports one connected engine. The goal is not to do more, but to make every part of the system work together.</p>
 
-    <p>Our work starts by seeing the whole system — how people, processes, and performance interact, where they reinforce one another, and where they break. Once that system becomes visible, decisions become clear, and growth regains direction.</p>
+    <p>Once leaders can see the entire system, how people, processes, and performance interact, decisions become clear and growth becomes predictable.</p>
 
-    <p>Caugia exists to bring calm intelligence to commercial operations. We turn complexity into coherence so that growth, efficiency, and profitability can move forward together.</p>
+    <p>Caugia brings calm intelligence to complex organizations, transforming fragmented operations into measurable performance.</p>
 
     <h2>Founder</h2>
 
     <p><strong>Tom Meijer</strong><br>
-    Founder and Revenue Systems Architect at Caugia Studio.</p>
+    Founder and Revenue Systems Architect</p>
 
-    <p>Tom built and led global GTM organizations at Contentsquare and Greenly, helping teams move from reactive growth to structured performance. With Caugia Studio, he now helps leadership teams design systems that grow predictably and operate efficiently in a world where both speed and control matter.</p>
+    <p>Tom built and led global GTM organizations at Contentsquare and Greenly, helping teams evolve from reactive growth to structured, data-driven performance. Through Caugia Studio, he now helps executives design systems that scale with intent and operate with discipline.</p>
   </main>
 
   <footer>
