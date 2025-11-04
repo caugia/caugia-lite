@@ -32,10 +32,15 @@
       z-index:10;
     }
     .container{
-      max-width:var(--maxw); height:100%;
-      margin:0 auto; padding:0 24px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
+  max-width:var(--maxw);
+  height:100%;
+  margin:0 auto;
+  padding:0 28px; /* ✅ iets meer padding rechts/links */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
     a.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .brand img{height:28px; vertical-align:middle}
     .brand span{font-weight:600; color:var(--ink); white-space:nowrap}
@@ -158,3 +163,4 @@
   </script>
 </body>
 </html>
+
