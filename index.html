@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio</title>
 
-  <!-- ✅ Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
 
@@ -17,6 +17,7 @@
       color: #000;
     }
 
+    /* ===== HEADER ===== */
     header {
       display: flex;
       justify-content: space-between;
@@ -24,11 +25,9 @@
       padding: 20px;
       max-width: 1100px;
       margin: 0 auto;
-      position: relative;
-      z-index: 10;
     }
 
-    /* ✅ Logo exact zoals in tabs */
+    /* Logo */
     .logo-container {
       display: flex;
       align-items: center;
@@ -41,7 +40,7 @@
       width: auto;
     }
 
-    /* ✅ Navigatie rechts */
+    /* Menu rechts */
     nav {
       display: flex;
       align-items: center;
@@ -59,7 +58,7 @@
       color: #f97316;
     }
 
-    /* ✅ Get in touch-knop */
+    /* Get in touch */
     .cta {
       padding: 10px 18px;
       border: 1px solid #fff;
@@ -67,15 +66,15 @@
       border-radius: 20px;
       text-decoration: none;
       transition: all 0.3s ease;
+      background-color: transparent;
     }
 
     .cta:hover {
       color: #f97316;
       border-color: #f97316;
-      background-color: transparent;
     }
 
-    /* ✅ Hamburger-menu voor mobiel */
+    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -87,9 +86,9 @@
       width: 25px;
       height: 3px;
       background-color: #000;
-      transition: all 0.3s ease;
     }
 
+    /* Mobiel menu */
     .mobile-menu {
       display: none;
       flex-direction: column;
@@ -99,15 +98,13 @@
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      padding: 15px 25px;
-      min-width: 160px;
+      padding: 10px 20px;
     }
 
     .mobile-menu a {
       text-decoration: none;
       color: #000;
       padding: 10px 0;
-      font-weight: 500;
     }
 
     .mobile-menu a:hover {
@@ -118,13 +115,12 @@
       nav { display: none; }
       .hamburger { display: flex; }
       .mobile-menu.show { display: flex; }
-      .hamburger div { background-color: #000; }
     }
 
-    /* ✅ Hero-section */
+    /* ===== HERO ===== */
     .hero {
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px 100px;
       max-width: 800px;
       margin: 0 auto;
     }
@@ -139,8 +135,11 @@
       font-size: 1.1rem;
       line-height: 1.6;
       color: #555;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -148,7 +147,7 @@
       color: #666;
     }
 
-    /* ✅ Dark mode */
+    /* ===== DARK MODE ===== */
     @media (prefers-color-scheme: dark) {
       body { background-color: #000; color: #fff; }
       .hamburger div { background-color: #fff; }
@@ -176,7 +175,9 @@
     </nav>
 
     <div class="hamburger" id="hamburger">
-      <div></div><div></div><div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
