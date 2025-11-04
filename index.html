@@ -46,20 +46,20 @@
     nav.nav-desktop a:hover{color:var(--blue)}
     .active{color:var(--blue)}
 
-    /* CTA BUTTON - aangepast */
+    /* CTA BUTTON — blauw met witte tekst, oranje hover */
     .cta{
-      background: var(--blue);
-      color: #fff;
-      text-decoration: none;
-      padding: .55rem 1.1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background .25s ease, color .25s ease, transform .25s ease;
+      background:var(--blue);
+      color:#fff;
+      text-decoration:none;
+      padding:.55rem 1.1rem;
+      border-radius:8px;
+      font-weight:600;
+      transition:background .25s ease, transform .25s ease;
     }
     .cta:hover{
-      background: var(--accent);
-      color: #fff;
-      transform: scale(1.03);
+      background:var(--accent);
+      color:#fff;
+      transform:scale(1.03);
     }
 
     /* Hamburger */
@@ -83,7 +83,7 @@
     .wrap{max-width:var(--maxw); margin:0 auto}
 
     /* HERO */
-    .hero{display:flex; flex-direction:column; align-items:center; text-align:center; padding:40px 0 60px}
+    .hero{display:flex; flex-direction:column; align-items:center; text-align:center; padding:60px 0 80px}
     .hero img.logo{width:340px; height:auto; margin:0 0 36px 0; display:block}
     .hero h1{font-size:2.6rem; line-height:1.22; font-weight:800; margin:0 0 12px 0}
     .accent{color:var(--accent)}
@@ -117,6 +117,10 @@
     .highlight h3{font-size:1.4rem; color:var(--accent); margin-bottom:12px}
     .highlight p{font-size:1.05rem; line-height:1.7; color:#222}
 
+    /* CONTACT */
+    #contact{text-align:center; padding:60px 0}
+    #contact p{font-size:1.15rem; max-width:700px; margin:0 auto 30px; color:#1b1b1b}
+
     /* FOOTER */
     footer{margin-top:auto; padding:24px 0 32px 0; font-size:.9rem; color:#777; text-align:center; border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink); text-decoration:none; font-weight:500}
@@ -127,18 +131,15 @@
       body{background:#0b132b; color:#f5f5f5}
       header{background:rgba(15,20,35,.9); border-bottom-color:rgba(255,255,255,.08)}
       .brand span, nav a, footer a{color:#f5f5f5}
-      a.brand:visited span{color:#f5f5f5}
       .menu-toggle span{background:#f5f5f5}
       .nav-mobile{background:rgba(15,20,35,.95); border-bottom-color:rgba(255,255,255,.08)}
-      .nav-mobile a{color:#f5f5f5} .nav-mobile a:hover{color:#7aa8ff}
+      .nav-mobile a{color:#f5f5f5}
       .cta{background:var(--blue); color:#fff}
       .cta:hover{background:var(--accent); color:#fff}
-      .about-wrap section{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1)}
-      .about-wrap p{color:#e9e9e9}
-      .card{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1)}
+      .about-wrap section, .card, section.block{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1)}
+      p, .highlight p{color:#e9e9e9}
       .highlight{background:rgba(255,180,90,.08); border-color:rgba(255,180,90,.2)}
-      .highlight p{color:#eaeaea}
-      section.block{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1)}
+      footer{border-top-color:rgba(255,255,255,.08)}
     }
 
     /* RESPONSIVE */
@@ -146,16 +147,16 @@
       nav.nav-desktop{display:none}
       .menu-toggle{display:flex}
       .hero img.logo{width:200px; margin-bottom:24px}
-      .about-wrap section{padding:28px 24px}
-      .about-wrap h1{font-size:2rem}
-      section.block{padding:28px 24px}
+      .about-wrap section, section.block{padding:28px 24px}
+      .about-wrap h1, h1{font-size:2rem}
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
-      <a href="#top" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <a href="#hero" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
         <a href="#about">About</a>
         <a href="#approach">Approach</a>
@@ -174,8 +175,6 @@
     </nav>
   </header>
 
-  <div id="top"></div>
-
   <main>
     <!-- HERO -->
     <section id="hero" class="hero">
@@ -186,7 +185,67 @@
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
     </section>
 
-    <!-- DE REST VAN DE SECTIES (About, Approach, Work, Contact) BLIJVEN IDENTIEK AAN JE HUIDIGE VERSIE -->
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-wrap">
+        <h1>About Caugia Studio</h1>
+        <p class="lead">Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue engines.
+          We design integrated systems that align data, teams, and growth so that performance becomes measurable and repeatable.</p>
+        <section>
+          <p>The idea behind Caugia is simple: most organizations do not lack ambition or technology, they lack coherence...</p>
+          <p>Caugia brings calm intelligence to complex organizations, transforming fragmented operations into measurable performance.</p>
+        </section>
+        <section>
+          <h2>Founder</h2>
+          <p><strong>Tom Meijer</strong><br>Founder and Revenue Systems Architect</p>
+          <p>Tom built and led global GTM organizations at Contentsquare and Greenly...</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach">
+      <div class="wrap">
+        <h1>Approach</h1>
+        <p class="intro">At Caugia Studio, we help companies turn GTM chaos into predictable revenue engines...</p>
+        <section class="block">
+          <h2 class="section-title">How We Work</h2>
+          <p>We start by slowing down the noise...</p>
+        </section>
+        <section class="block">
+          <h2 class="section-title">The Caugia Lens</h2>
+          <h3 class="sub">People</h3><p>We help teams see each other again...</p>
+          <h3 class="sub">Process</h3><p>We map how information moves...</p>
+          <h3 class="sub">Performance</h3><p>We reconnect metrics to meaning...</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="wrap">
+        <h1>Work</h1>
+        <p class="intro">Every Caugia engagement follows a simple arc — discovery, design, and direction...</p>
+        <div class="grid">
+          <div class="card"><h2>1. Discovery</h2><p>We begin by mapping your GTM landscape...</p></div>
+          <div class="card"><h2>2. Design</h2><p>Here the system takes shape...</p></div>
+          <div class="card"><h2>3. Direction</h2><p>We translate the design into a one-year Focus Plan...</p></div>
+        </div>
+        <div class="highlight">
+          <h3>Deliverables</h3>
+          <p><strong>Blueprint</strong>, <strong>Tools Matrix</strong>, <strong>Focus Plan</strong>, <strong>Alignment Session</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <h1>Contact</h1>
+        <p>Interested in collaborating or exploring how we can help your team design a more predictable revenue engine?</p>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -194,14 +253,9 @@
   </footer>
 
   <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const navMobile = document.querySelector('.nav-mobile');
-    if (toggle) {
-      toggle.addEventListener('click', ()=>{
-        toggle.classList.toggle('active');
-        navMobile.classList.toggle('open');
-      });
-    }
+    const toggle=document.querySelector('.menu-toggle');
+    const navMobile=document.querySelector('.nav-mobile');
+    toggle.addEventListener('click',()=>{toggle.classList.toggle('active');navMobile.classList.toggle('open');});
   </script>
 </body>
 </html>
