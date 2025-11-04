@@ -21,11 +21,12 @@
       margin: 0 auto;
     }
 
+    /* ✅ logo nu exact gelijk met tabs */
     .logo-container {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding-left: 18px;
+      margin-left: 4px; /* subtiele correctie voor pixel-perfecte uitlijning */
     }
 
     .logo-container img {
@@ -54,7 +55,7 @@
       transition: all 0.3s ease;
     }
 
-    /* ✅ Hover-fix: tekst en rand worden oranje */
+    /* ✅ hover fix: oranje tekst + rand */
     .cta:hover {
       color: #f97316;
       border-color: #f97316;
