@@ -1,218 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work · Caugia Studio</title>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work | Caugia Studio</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
   <style>
-    body {
-      margin: 0;
-      font-family: Inter, Arial, sans-serif;
-      background-color: #fff;
-      color: #000;
+    :root{--ink:#0b132b;--blue:#0b66ff;--blue-d:#094fc7;--accent:#ff7700;--bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px}
+    *{box-sizing:border-box;margin:0;padding:0} html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh;text-align:left}
+    header{position:fixed;inset:0 0 auto 0;height:var(--header-h);background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(140%) blur(6px);z-index:10}
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{height:28px;vertical-align:middle}.brand span{font-weight:600;color:var(--ink);white-space:nowrap}
+    a.brand:visited span{color:var(--ink)} nav.nav-desktop{display:flex;align-items:center;gap:20px}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
+    nav.nav-desktop a:hover{color:var(--blue)} .active{color:var(--blue)}
+    .cta{background:var(--blue);color:#fff;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s,color .25s}
+    .cta:hover{background:var(--blue-d);color:var(--accent)}
+    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer}
+    .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;display:block;transition:transform .25s,opacity .25s}
+    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)} .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+    .nav-mobile{display:none;flex-direction:column;align-items:flex-start;padding:16px 24px 32px;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)} .nav-mobile a:hover{color:var(--blue)}
+    .nav-mobile.open{display:flex}
+    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 12px 0}
+    .intro{font-size:1.2rem;line-height:1.7;color:#1b1b1b;max-width:840px;margin:0 0 60px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px}
+    .card{background:var(--bg-light);border:1px solid var(--border);border-radius:18px;padding:40px 36px;transition:transform .25s,box-shadow .25s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.05)}
+    .card h2{font-size:1.5rem;font-weight:700;color:var(--blue-d);margin-bottom:16px}
+    .card p{font-size:1.05rem;line-height:1.7;color:#1f1f1f;margin-bottom:18px}
+    .card ul{margin-left:20px;margin-bottom:18px;line-height:1.6}
+    .card ul li{margin-bottom:6px}
+    .highlight{background:linear-gradient(135deg,#fff7f0,#fff);border:1px solid #ffe0c2;border-radius:16px;padding:32px 36px;margin-top:60px}
+    .highlight h3{font-size:1.4rem;color:var(--accent);margin-bottom:12px}
+    .highlight p{font-size:1.05rem;line-height:1.7;color:#222}
+    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
+    footer a{color:var(--ink);text-decoration:none;font-weight:500} footer a:hover{text-decoration:underline}
+    @media (prefers-color-scheme:dark){
+      body{background:#0b132b;color:#f5f5f5} header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
+      .brand span,nav a,footer a{color:#f5f5f5} a.brand:visited span{color:#f5f5f5}
+      .menu-toggle span{background:#f5f5f5} .nav-mobile{background:rgba(15,20,35,.95);border-bottom-color:rgba(255,255,255,.08)}
+      .nav-mobile a{color:#f5f5f5} .nav-mobile a:hover{color:#7aa8ff}
+      .cta{background:var(--accent)} .cta:hover{background:#e56b00;color:#fff}
+      .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+      .highlight{background:rgba(255,180,90,.08);border-color:rgba(255,180,90,.2)}
+      .highlight p{color:#eaeaea} footer{border-top-color:rgba(255,255,255,.08)}
     }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding-left: 18px;
-    }
-
-    .logo-container img {
-      height: 34px;
-      width: auto;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: inherit;
-      font-weight: 500;
-    }
-
-    .cta {
-      padding: 10px 18px;
-      border: 1px solid #fff;
-      color: #fff;
-      border-radius: 20px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .cta:hover {
-      color: #f97316;
-      border-color: #f97316;
-    }
-
-    /* Hamburger menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #000;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      right: 20px;
-      top: 60px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      padding: 10px 20px;
-    }
-
-    .mobile-menu a {
-      text-decoration: none;
-      color: #000;
-      padding: 10px 0;
-    }
-
-    @media (max-width: 768px) {
-      nav { display: none; }
-      .hamburger { display: flex; }
-      .mobile-menu.show { display: flex; }
-    }
-
-    /* Work section */
-    .work {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 100px 20px;
-      line-height: 1.7;
-    }
-
-    .work h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .work h2 {
-      font-size: 1.3rem;
-      margin-top: 2rem;
-      margin-bottom: 0.6rem;
-      color: #f97316;
-    }
-
-    .work p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-      color: #555;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body { background-color: #000; color: #fff; }
-      .mobile-menu { background: #111; }
-      .hamburger div { background-color: #fff; }
-      .work p, ul { color: #ccc; }
+    @media (max-width:800px){
+      nav.nav-desktop{display:none} .menu-toggle{display:flex}
+      h1{font-size:2rem} .card{padding:32px 24px}
     }
   </style>
 </head>
-
 <body>
   <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Caugia Studio Logo" />
-      <span>Caugia Studio</span>
+    <div class="container">
+      <a href="/index.html" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <nav class="nav-desktop">
+        <a href="/about.html">About</a>
+        <a href="/approach.html">Approach</a>
+        <a href="/work.html" class="active">Work</a>
+        <a href="#">Signals</a>
+        <a href="#">Clients</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
-
-    <nav>
-      <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
-      <a href="work.html">Work</a>
-      <a href="contact.html" class="cta">Get in touch</a>
+    <nav class="nav-mobile">
+      <a href="/about.html">About</a>
+      <a href="/approach.html">Approach</a>
+      <a href="/work.html" class="active">Work</a>
+      <a href="#">Signals</a>
+      <a href="#">Clients</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
     </nav>
-
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
-      <a href="work.html">Work</a>
-      <a href="contact.html">Contact</a>
-    </div>
   </header>
 
-  <section class="work">
-    <h1>Our Work</h1>
-    <p>
-      Caugia Studio collaborates with GTM leaders to design systems that connect strategy to execution.  
-      We work through a mix of structured deliverables and adaptive engagement models tailored to each client.
-    </p>
+  <main>
+    <div class="wrap">
+      <h1>Work</h1>
+      <p class="intro">Every Caugia engagement follows a simple arc — discovery, design, and direction. Each phase delivers clarity, structure, and measurable progress toward one goal: a GTM system that runs predictably.</p>
 
-    <h2>Deliverables:</h2>
-    <ul>
-      <li>Revenue Architecture Maps</li>
-      <li>Data System Blueprints</li>
-      <li>Pipeline Diagnostic Reports</li>
-      <li>GTM Intelligence Dashboards</li>
-      <li>Measurement Frameworks</li>
-    </ul>
+      <div class="grid">
+        <div class="card">
+          <h2>1. Discovery</h2>
+          <p>We begin by mapping your current GTM landscape. How do leads, data, and accountability flow today — and where do they stall? The goal is to see clearly before changing anything.</p>
+          <ul>
+            <li>Current-state architecture mapping</li>
+            <li>Tool inventory and usage audit</li>
+            <li>Gap analysis across teams and data</li>
+            <li>Executive summary of pain points</li>
+          </ul>
+        </div>
 
-    <h2>Engagement Models:</h2>
-    <ul>
-      <li>Advisory Sprints (2–6 weeks)</li>
-      <li>System Implementation (3–4 months)</li>
-      <li>Fractional RevOps Leadership</li>
-      <li>Custom Strategy Workshops</li>
-    </ul>
-  </section>
+        <div class="card">
+          <h2>2. Design</h2>
+          <p>Here the system takes shape. We build your <strong>GTM System Blueprint</strong> — a visual and operational model showing how people, processes, and technology connect.</p>
+          <ul>
+            <li>Custom architecture (as-is and to-be)</li>
+            <li>Tools matrix with consolidation & AI recommendations</li>
+            <li>Team structure and collaboration model</li>
+            <li>Prioritized roadmap with dependencies</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>3. Direction</h2>
+          <p>We translate the design into a <strong>one-year Focus Plan</strong> that drives execution with intent. The plan balances efficiency and growth, keeping your system stable as it scales.</p>
+          <ul>
+            <li>ROI and productivity projections</li>
+            <li>Implementation milestones by quarter</li>
+            <li>Leadership alignment workshop</li>
+            <li>Optional partner support for rollout</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <h3>Deliverables</h3>
+        <p><strong>GTM System Blueprint</strong> — the foundation of your predictable revenue engine.<br>
+           <strong>Tools Matrix</strong> — a clear view of your technology ecosystem.<br>
+           <strong>Focus Plan</strong> — one year of direction and measurable progress.<br>
+           <strong>Alignment Session</strong> — executive clarity and shared accountability.</p>
+      </div>
+
+      <div class="highlight">
+        <h3>Engagement Models</h3>
+        <p>
+          <strong>Assessment (1–2 weeks)</strong> — Rapid diagnostic and recommendations (€5K–15K)<br>
+          <strong>System Design (4–6 weeks)</strong> — Full architecture, playbooks, and roadmap (€25K–50K)<br>
+          <strong>Implementation Partner (3–6 months)</strong> — Hands-on delivery and training (€10K–25K/month)
+        </p>
+        <p>Each engagement is visual, data-driven, and tool-agnostic. We don’t sell software — we build the system that makes software work for you.</p>
+      </div>
+    </div>
+  </main>
 
   <footer>
-    © 2025 Caugia Studio ·
-    <a href="https://www.linkedin.com/company/caugia" target="_blank" style="color:inherit;text-decoration:none;">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 
   <script>
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobileMenu");
-    hamburger.addEventListener("click", () => {
-      mobileMenu.classList.toggle("show");
-    });
+    const toggle=document.querySelector('.menu-toggle');
+    const navMobile=document.querySelector('.nav-mobile');
+    toggle.addEventListener('click',()=>{toggle.classList.toggle('active');navMobile.classList.toggle('open');});
   </script>
 </body>
 </html>
