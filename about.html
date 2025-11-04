@@ -8,30 +8,24 @@
     body {
       margin: 0;
       font-family: Inter, Arial, sans-serif;
-      background-color: var(--bg-color, #fff);
-      color: var(--text-color, #000);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      background-color: #fff;
+      color: #000;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 20px;
-      position: relative;
-    }
-
-    .container {
+      padding: 20px;
       max-width: 1100px;
       margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
       gap: 8px;
+      padding-left: 18px;
     }
 
     .logo-container img {
@@ -41,8 +35,8 @@
 
     nav {
       display: flex;
-      gap: 32px;
       align-items: center;
+      gap: 32px;
     }
 
     nav a {
@@ -65,68 +59,61 @@
       border-color: #f97316;
     }
 
-    /* Hamburger */
+    /* Hamburger menu */
     .hamburger {
       display: none;
       flex-direction: column;
-      cursor: pointer;
       gap: 4px;
+      cursor: pointer;
     }
 
     .hamburger div {
       width: 25px;
       height: 3px;
-      background-color: currentColor;
+      background-color: #000;
     }
 
     .mobile-menu {
       display: none;
       flex-direction: column;
-      background: var(--bg-color, #fff);
       position: absolute;
-      top: 60px;
       right: 20px;
+      top: 60px;
+      background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-      padding: 10px;
-      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      padding: 10px 20px;
     }
 
     .mobile-menu a {
       text-decoration: none;
-      color: inherit;
+      color: #000;
       padding: 10px 0;
     }
 
     @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .mobile-menu.show {
-        display: flex;
-      }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu.show { display: flex; }
     }
 
-    /* About Section */
+    /* About section */
     .about {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 40px;
-      padding: 100px 20px;
       max-width: 1000px;
       margin: 0 auto;
+      padding: 100px 20px;
+      gap: 40px;
     }
 
     .about img {
       width: 260px;
       height: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     .about-text {
@@ -140,9 +127,10 @@
     }
 
     .about-text p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.6;
       color: #555;
+      margin-bottom: 1rem;
     }
 
     footer {
@@ -153,22 +141,16 @@
     }
 
     @media (prefers-color-scheme: dark) {
-      body {
-        --bg-color: #000;
-        --text-color: #fff;
-      }
-      .mobile-menu {
-        background: #111;
-      }
-      .about-text p {
-        color: #ccc;
-      }
+      body { background-color: #000; color: #fff; }
+      .mobile-menu { background: #111; }
+      .hamburger div { background-color: #fff; }
+      .about-text p { color: #ccc; }
     }
   </style>
 </head>
 
 <body>
-  <header class="container">
+  <header>
     <div class="logo-container">
       <img src="logo.png" alt="Caugia Studio Logo" />
       <span>Caugia Studio</span>
@@ -200,19 +182,20 @@
     <div class="about-text">
       <h1>About Caugia Studio</h1>
       <p>
-        Founded by <strong>Tom Meijer</strong>, Caugia Studio helps GTM and revenue leaders turn complexity into clarity.
-        After years leading global growth and revenue teams, Tom saw that most organizations don’t lack talent—they lack
+        Founded by <strong>Tom Meijer</strong>, Caugia Studio helps GTM and revenue leaders turn complexity into clarity.  
+        After years leading global growth and revenue teams, Tom saw that most organizations don’t lack talent — they lack
         systems that align strategy, data, and execution.
       </p>
       <p>
         Caugia was born from that insight: a studio that designs integrated revenue architectures.  
-        Each project blends analytical rigor with creative systems thinking—bridging the gap between data and direction.
+        Each project blends analytical rigor with creative systems thinking — bridging the gap between data and direction.
       </p>
     </div>
   </section>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/company/caugia" target="_blank" style="color:inherit;text-decoration:none;">LinkedIn</a>
+    © 2025 Caugia Studio ·
+    <a href="https://www.linkedin.com/company/caugia" target="_blank" style="color:inherit;text-decoration:none;">LinkedIn</a>
   </footer>
 
   <script>
