@@ -30,7 +30,7 @@
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s ease}
     nav.nav-desktop a:hover{color:var(--blue)}nav.nav-desktop a.active{color:var(--blue)}
-    .cta{background:var(--blue);color:#fff;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
+    .cta{background:var(--blue);color:#fff!important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
     .cta:hover{background:var(--accent);transform:scale(1.03)}
     .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer}
     .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;display:block;transition:transform .25s,opacity .25s}
@@ -52,8 +52,10 @@
     .card ul{margin-left:20px;margin-bottom:18px;line-height:1.6}
     .card ul li{margin-bottom:6px}
     .highlight{background:linear-gradient(135deg,#fff7f0,#fff);border:1px solid #ffe0c2;border-radius:16px;padding:32px 36px;margin-top:60px}
-    .highlight h3{font-size:1.4rem;color:var(--accent);margin-bottom:12px}
-    .highlight p{font-size:1.05rem;line-height:1.7;color:#222}
+    .highlight h3{font-size:1.4rem;color:var(--accent);margin-bottom:18px}
+    .deliverable, .engagement-item{margin-bottom:24px}
+    .deliverable strong, .engagement-item strong{display:block;font-size:1.05rem;color:var(--blue-d);margin-bottom:4px}
+    .deliverable p, .engagement-item p{margin:0;color:#222;font-size:1.05rem;line-height:1.7}
     footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{text-decoration:underline}
     @media (prefers-color-scheme:dark){
@@ -79,20 +81,20 @@
     <div class="container">
       <a href="index.html" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="approach.html">Approach</a>
-        <a href="work.html">Work</a>
-        <a href="use-cases.html">Use Cases</a>
+        <a href="work.html" class="active">Work</a>
         <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
       <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
     <nav class="nav-mobile">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="approach.html">Approach</a>
-      <a href="work.html">Work</a>
-      <a href="use-cases.html">Use Cases</a>
+      <a href="work.html" class="active">Work</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </nav>
@@ -140,20 +142,38 @@
 
       <div class="highlight">
         <h3>Deliverables</h3>
-        <p><strong>GTM System Blueprint</strong> — the foundation of your predictable revenue engine.<br>
-           <strong>Tools Matrix</strong> — a clear view of your technology ecosystem.<br>
-           <strong>Focus Plan</strong> — one year of direction and measurable progress.<br>
-           <strong>Alignment Session</strong> — executive clarity and shared accountability.</p>
+        <div class="deliverable">
+          <strong>GTM System Blueprint:</strong>
+          <p>The foundation of your predictable revenue engine.</p>
+        </div>
+        <div class="deliverable">
+          <strong>Tools Matrix:</strong>
+          <p>A clear view of your technology ecosystem.</p>
+        </div>
+        <div class="deliverable">
+          <strong>Focus Plan:</strong>
+          <p>One year of direction and measurable progress.</p>
+        </div>
+        <div class="deliverable">
+          <strong>Alignment Session:</strong>
+          <p>Executive clarity and shared accountability.</p>
+        </div>
       </div>
 
       <div class="highlight">
         <h3>Engagement Models</h3>
-        <p>
-          <strong>Assessment (1–2 weeks)</strong> — Rapid diagnostic and recommendations (€5K–15K)<br>
-          <strong>System Design (4–6 weeks)</strong> — Full architecture, playbooks, and roadmap (€25K–50K)<br>
-          <strong>Implementation Partner (3–6 months)</strong> — Hands-on delivery and training (€10K–25K/month)
-        </p>
-        <p>Each engagement is visual, data-driven, and tool-agnostic. We don’t sell software — we build the system that makes software work for you.</p>
+        <div class="engagement-item">
+          <strong>Assessment (1–2 weeks):</strong>
+          <p>Rapid diagnostic and roadmap for clarity.</p>
+        </div>
+        <div class="engagement-item">
+          <strong>System Design (4–6 weeks):</strong>
+          <p>Complete architecture and playbooks for scale.</p>
+        </div>
+        <div class="engagement-item">
+          <strong>Implementation Partner (3–6 months):</strong>
+          <p>Continuous delivery and enablement support.</p>
+        </div>
       </div>
     </div>
   </main>
