@@ -72,7 +72,6 @@
     .wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:1}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 36px 0}
     h2{font-size:1.6rem;font-weight:700;margin:60px 0 20px 0;color:var(--blue)}
-    h3{font-size:1.1rem;font-weight:700;margin:22px 0 8px 0;color:var(--ink)}
     p{
       font-size:1.05rem;
       line-height:1.7;
@@ -83,17 +82,17 @@
 
     section.block{margin-bottom:80px}
 
-    /* Verbeterde, duidelijk zichtbare animatie rechtsboven */
+    /* Verbeterde, subtiel zichtbare animatie rechtsboven */
     #nodeFloat{
       position:fixed;
       top:100px;
       right:60px;
       width:300px;
       height:300px;
-      opacity:.4;
+      opacity:.45;
       pointer-events:none;
       z-index:0;
-      filter:drop-shadow(0 0 12px rgba(11,102,255,0.25));
+      filter:drop-shadow(0 0 14px rgba(11,102,255,0.3));
     }
 
     footer{
@@ -137,45 +136,42 @@
 
     <div class="wrap">
       <h1>Our Approach</h1>
-      <p>At Caugia Studio, we help organizations turn motion into progress. We believe clarity begins where complexity ends. Our approach is not about adding layers of process but about designing systems that bring alignment to data, teams, and performance. When everything works in rhythm, growth becomes predictable and calm replaces chaos.</p>
+      <p>At Caugia Studio, we help organizations turn movement into direction. We believe that when structure, intent, and intelligence come together, growth stops being chaotic and starts becoming predictable. Our approach brings alignment to teams, data, and technology — so progress feels calm and deliberate.</p>
 
       <section class="block">
-        <h2>How We Work</h2>
-        <p>We start with silence before strategy. Before suggesting any change, we observe. Where does data stop flowing? Which handoff slows the rhythm? Once the system becomes visible, we design architecture that restores coherence. Our goal is structure that liberates people rather than constrains them.</p>
-        <p>When teams understand their role and leadership acts on shared truth, performance stops being accidental. It becomes a result of design.</p>
+        <h2>The Caugia Philosophy</h2>
+        <p><strong>Clarity Beats Complexity.</strong> Progress is not the same as growth. Complexity often masquerades as innovation. True progress comes from seeing what matters and removing what does not.</p>
+
+        <p><strong>Systems Create Freedom.</strong> Systems do not constrain people — they free them. When structure and purpose align, creativity finds its rhythm and performance becomes sustainable.</p>
+
+        <p><strong>Technology Should Serve Strategy.</strong> Technology has become the stage instead of the support. Caugia brings it back to its rightful place: serving strategy, not replacing it.</p>
       </section>
 
       <section class="block">
         <h2>The Caugia Lens</h2>
-        <p>The Caugia Lens is how we see every organization — through three principles that guide modern GTM systems.</p>
+        <p>We use a simple but powerful lens to understand how your organization works: People, Process, and Performance. When these three connect, growth becomes predictable and scalable.</p>
 
-        <h3>Clarity Beats Complexity</h3>
-        <p>Progress is not the same as growth. Complexity often hides behind innovation. True progress comes from removing what doesn’t matter and reinforcing what does. We help companies simplify without losing depth, creating systems that everyone can trust.</p>
+        <p><strong>People.</strong> We help teams see each other again. Marketing understands Sales, Sales understands Customer Success. Clarity replaces friction, and collaboration becomes natural.</p>
 
-        <h3>Systems Create Freedom</h3>
-        <p>Structure is not control — it’s freedom. When roles, tools, and workflows align, creativity flourishes because confusion disappears. Caugia designs frameworks that give teams the clarity to perform at their best.</p>
+        <p><strong>Process.</strong> We map how information moves from lead to renewal and remove the friction that slows progress. The goal is not more automation but better flow — smarter movement instead of constant motion.</p>
 
-        <h3>Technology Should Serve Strategy</h3>
-        <p>Technology has become the stage instead of the support. We bring it back to its rightful place: serving strategy, not defining it. When tools follow purpose, organizations move with intention instead of impulse.</p>
+        <p><strong>Performance.</strong> We reconnect metrics to meaning. Data becomes a narrative, dashboards reveal context, and decisions are made with shared understanding.</p>
       </section>
 
       <section class="block">
         <h2>Our Rhythm</h2>
-        <p>Every engagement follows a natural rhythm. Diagnose reveals truth. Design builds alignment. Direction brings focus. Together they create lasting momentum.</p>
+        <p>Each engagement follows a rhythm that balances insight with execution. Diagnose uncovers truth. Design creates structure. Direction provides focus. Together they form the operating cadence of clarity.</p>
 
-        <h3>Diagnose</h3>
-        <p>We take a complete snapshot of your GTM system, identifying gaps, duplication, and areas where energy is wasted. Truth before action.</p>
+        <p><strong>Diagnose.</strong> We take a complete snapshot of your GTM system, identifying duplication, gaps, and misalignment. Truth before action.</p>
 
-        <h3>Design</h3>
-        <p>We create your GTM System Blueprint — a visual and operational map of how people, tools, and data connect. It becomes the foundation for clarity and scalability.</p>
+        <p><strong>Design.</strong> We create your GTM System Blueprint — a visual and operational model showing how teams, tools, and data connect. It becomes the foundation for clarity and scalability.</p>
 
-        <h3>Direction</h3>
-        <p>We transform insight into a one-year Focus Plan. It defines priorities, connects them to outcomes, and aligns leadership behind one shared direction.</p>
+        <p><strong>Direction.</strong> We turn the blueprint into a one-year Focus Plan that translates design into measurable results. Every action supports a single shared objective.</p>
       </section>
 
       <section class="block">
         <h2>Our Change</h2>
-        <p>The outcome is not another process or platform but a living, breathing system that evolves with you. Caugia Studio helps leadership teams turn complexity into clarity and motion into measurable progress. The result is a GTM engine built on intelligence, not intensity.</p>
+        <p>The outcome is not another process or platform but a living system that evolves with you. Caugia Studio helps leadership teams transform complexity into clarity and motion into measurable progress. The result is a GTM engine powered by intelligence, not intensity.</p>
       </section>
     </div>
   </main>
@@ -187,7 +183,7 @@
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
 
-    // Verbeterde node-animatie
+    // Heldere, zichtbare node-animatie
     const canvas=document.getElementById('nodeFloat');
     const ctx=canvas.getContext('2d');
     let nodes=[],w,h;
@@ -196,12 +192,12 @@
       w=canvas.width=canvas.offsetWidth;
       h=canvas.height=canvas.offsetHeight;
       nodes=[];
-      for(let i=0;i<26;i++){
+      for(let i=0;i<28;i++){
         nodes.push({
           x:Math.random()*w,
           y:Math.random()*h,
-          vx:(Math.random()-0.5)*0.3,
-          vy:(Math.random()-0.5)*0.3
+          vx:(Math.random()-0.5)*0.25,
+          vy:(Math.random()-0.5)*0.25
         });
       }
     }
@@ -211,21 +207,21 @@
       for(let i=0;i<nodes.length;i++){
         const n1=nodes[i];
         ctx.beginPath();
-        ctx.arc(n1.x,n1.y,2.8,0,Math.PI*2);
-        ctx.fillStyle='rgba(11,102,255,0.85)';
-        ctx.shadowColor='rgba(11,102,255,0.3)';
-        ctx.shadowBlur=6;
+        ctx.arc(n1.x,n1.y,3,0,Math.PI*2);
+        ctx.fillStyle='rgba(11,102,255,0.9)';
+        ctx.shadowColor='rgba(11,102,255,0.4)';
+        ctx.shadowBlur=8;
         ctx.fill();
 
         for(let j=i+1;j<nodes.length;j++){
           const n2=nodes[j];
           const dx=n1.x-n2.x,dy=n1.y-n2.y,dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<130){
+          if(dist<140){
             ctx.beginPath();
             ctx.moveTo(n1.x,n1.y);
             ctx.lineTo(n2.x,n2.y);
-            ctx.strokeStyle=`rgba(11,102,255,${0.3 - dist/450})`;
-            ctx.lineWidth=1.1;
+            ctx.strokeStyle=`rgba(11,102,255,${0.35 - dist/400})`;
+            ctx.lineWidth=1.2;
             ctx.stroke();
           }
         }
