@@ -4,92 +4,116 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Caugia Studio — Clarity in the Age of Complexity</title>
-  <meta name="description" content="Caugia Studio was founded by Tom Meijer to bring clarity to modern go-to-market systems. With deep experience in machine learning and AI since 2012, Tom has helped global teams turn data and tools into alignment and measurable performance." />
-  <link rel="canonical" href="https://www.caugia.com/about.html" />
-  <meta property="og:title" content="About Caugia Studio" />
-  <meta property="og:description" content="Founded by Tom Meijer, Caugia Studio helps organizations turn commercial chaos into clarity through integrated system design and pragmatic AI alignment." />
-  <meta property="og:image" content="https://www.caugia.com/logo.png" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.caugia.com/about.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
-  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
+  <meta name="description" content="Caugia Studio helps organizations move from fragmented growth to calm, measurable performance. Founded by Tom Meijer, with over 15 years of experience in data, machine learning, and global GTM leadership." />
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
   <style>
-    :root{
-      --ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;
-      --bg-light:#f9f9fb;--border:#e5e5e5;
-      --maxw:1180px;--header-h:64px;
+    :root {
+      --ink:#0b132b;
+      --blue:#0b66ff;
+      --accent:#ff7700;
+      --bg-light:#f9f9fb;
+      --border:#e5e5e5;
+      --maxw:1180px;
+      --header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;display:flex;flex-direction:column;
-      min-height:100vh;text-align:left;opacity:0;transition:opacity .6s ease;
+      color:var(--ink);
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+      text-align:left;
+      opacity:0;
+      transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
     header{
-      position:fixed;inset:0 0 auto 0;height:var(--header-h);
+      position:fixed;
+      inset:0 0 auto 0;
+      height:var(--header-h);
       background:rgba(255,255,255,.98);
       border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);
       z-index:10;
     }
-    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
-      display:flex;align-items:center;justify-content:space-between}
+    .container{
+      max-width:var(--maxw);
+      height:100%;
+      margin:0 auto;
+      padding:0 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px;vertical-align:middle}
+    .brand img{height:28px}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
     nav.nav-desktop a:hover{color:var(--blue)}nav.nav-desktop a.active{color:var(--blue)}
-    .cta{background:var(--blue);color:#fff!important;text-decoration:none;
-      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
-      transition:background .25s ease,transform .25s ease;}
+    .cta{
+      background:var(--blue);
+      color:#fff!important;
+      text-decoration:none;
+      padding:.55rem 1.1rem;
+      border-radius:8px;
+      font-weight:600;
+      transition:background .25s ease,transform .25s ease;
+    }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
-    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;
-      width:24px;height:18px;background:none;border:none;cursor:pointer}
-    .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;
-      display:block;transition:transform .25s,opacity .25s}
-    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-    .menu-toggle.active span:nth-child(2){opacity:0}
-    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-    .nav-mobile{display:none;flex-direction:column;align-items:flex-start;
-      padding:16px 24px 32px;background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.06)}
-    .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)}
-    .nav-mobile a:hover{color:var(--blue)}.nav-mobile.open{display:flex}
-
     main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:880px}
-    section{background:var(--bg-light);border:1px solid var(--border);
-      border-radius:16px;padding:40px 48px;margin-bottom:60px}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
+    section{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:80px;
+    }
+    .text{flex:0 0 65%;}
+    .anim{
+      flex:0 0 35%;
+      position:relative;
+      height:200px;
+      background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .shape{
+      position:absolute;
+      width:80px;
+      height:80px;
+      border:2px solid rgba(11,102,255,0.15);
+      border-radius:50%;
+      animation:pulse 6s infinite ease-in-out;
+    }
+    .shape:nth-child(2){width:100px;height:100px;left:40px;top:60px;animation-delay:2s;}
+    .shape:nth-child(3){width:60px;height:60px;left:120px;top:20px;animation-delay:4s;}
+    @keyframes pulse{
+      0%,100%{transform:scale(1);opacity:.3}
+      50%{transform:scale(1.3);opacity:.6}
+    }
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    .item strong{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
-    .item span{color:#1f1f1f;font-size:1.05rem}
-    .list-block{display:grid;gap:14px;margin-top:20px}
-    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
-      border-top:1px solid rgba(0,0,0,.06)}
+    footer{
+      margin-top:auto;
+      padding:24px 0 32px 0;
+      font-size:.9rem;
+      color:#777;
+      text-align:center;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
-
-    @media (prefers-color-scheme:dark){
-      body{background:#0b132b;color:#f5f5f5}
-      header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
-      .brand span,nav a,footer a{color:#f5f5f5}
-      .menu-toggle span{background:#f5f5f5}
-      .cta{background:var(--blue)}
-      .cta:hover{background:var(--accent)}
-      section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
-      p,span{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
-    }
-
-    @media (max-width:800px){
-      nav.nav-desktop{display:none}.menu-toggle{display:flex}
-      h1{font-size:2rem}section{padding:28px 24px}
+    @media (max-width:900px){
+      section{flex-direction:column}
+      .anim{width:100%;height:160px;margin-top:20px}
     }
   </style>
 </head>
@@ -107,18 +131,9 @@
         <a href="approach.html">Approach</a>
         <a href="work.html">Work Together</a>
         <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
-    <nav class="nav-mobile">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="approach.html">Approach</a>
-      <a href="work.html">Work Together</a>
-      <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
-    </nav>
   </header>
 
   <main>
@@ -126,73 +141,64 @@
       <h1>About Caugia Studio</h1>
 
       <section>
-        <p>
-          Over the last decade, organizations have become overwhelmed by their own progress.  
-          Every new tool promises efficiency, every AI model promises intelligence, yet most teams end up managing noise instead of progress.  
-          The result is accidental complexity — systems that grow faster than people can understand them.  
-          Caugia Studio was founded to restore clarity: helping leaders see, align, and measure what truly drives growth.
-        </p>
-        <p>
-          We believe clarity is not a luxury but a design principle.  
-          Our mission is to help companies move from scattered data and disconnected systems to a state of calm intelligence — where technology serves strategy, and teams move with purpose.
-        </p>
-      </section>
-
-      <section>
-        <h2>From Machine Learning to Meaning</h2>
-        <p>
-          Tom Meijer’s career began in France, inside the intersection of data, technology, and go-to-market growth.  
-          Since 2012, he has worked with machine learning systems at Twenga, Tinyclues, Contentsquare, and Greenly — long before AI became a buzzword.  
-          From early algorithmic models to today’s large-scale AI environments, he has seen how automation amplifies both intelligence and confusion.
-        </p>
-        <p>
-          After leading international GTM and revenue teams across Europe, the US, and Asia, Tom realized that technology itself wasn’t the issue.  
-          The real problem was alignment — between people, processes, and performance.  
-          Caugia is his response to that insight: a studio dedicated to designing revenue systems that bring back coherence, focus, and measurable growth.
-        </p>
-      </section>
-
-      <section>
-        <h2>The Caugia Philosophy</h2>
-        <div class="list-block">
-          <div class="item">
-            <strong>Clarity Beats Complexity</strong>
-            <span>Technology moves faster than alignment. Most organizations don’t lack ambition — they lack shared understanding. Clarity turns ambition into execution.</span>
-          </div>
-          <div class="item">
-            <strong>Systems Create Freedom</strong>
-            <span>Structure doesn’t limit creativity; it enables it. When teams trust the system, they gain the freedom to focus on what matters most.</span>
-          </div>
-          <div class="item">
-            <strong>Technology Should Serve Strategy</strong>
-            <span>AI doesn’t replace human thinking — it exposes where it’s missing. The goal isn’t to automate everything, but to make what matters visible.</span>
-          </div>
+        <div class="text">
+          <p>Over the past 15 years I have worked in organizations filled with brilliant people and powerful products. Yet progress often broke down in silos. Each team built its own stack, measured its own success, and spoke its own language. Growth was fast, but rarely coherent. For years, companies chased scale at any cost. Today, the philosophy has changed. Profitability and sustainability have replaced blind expansion.</p>
+          <p>Many organizations now turn to AI as a shortcut. They install new tools without design, often while letting go of the people who understand their systems best. The result is not progress but deeper chaos. Caugia exists to bring calm into that environment, turning confusion into clarity and technology into alignment.</p>
+        </div>
+        <div class="anim">
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
         </div>
       </section>
 
       <section>
-        <h2>The Caugia Promise</h2>
-        <p>
-          At Caugia Studio, we don’t add more layers of complexity — we remove them.  
-          Every engagement is designed to connect what already exists: people, processes, and performance.  
-          The result is calm intelligence — a system that finally makes sense.
-        </p>
+        <div class="text">
+          <h2>From Machine Learning to Meaning</h2>
+          <p>My career began in France, where technology and commerce meet. Since 2010 I have worked with machine learning systems at Twenga, Tinyclues, Contentsquare, and Greenly. I saw how algorithms could predict intent, automate insight, and scale performance — but also how every new layer of automation created new silos of its own.</p>
+          <p>AI is not the problem. The problem is the absence of design — the lack of an operating system that helps people and technology move together. Caugia was built to restore that design. To connect intelligence with intention.</p>
+        </div>
+        <div class="anim">
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="text">
+          <h2>The Caugia Philosophy</h2>
+          <p><strong>Clarity Beats Complexity.</strong> Progress is not the same as growth. Complexity often masquerades as innovation. True progress comes from seeing what matters and removing what does not.</p>
+          <p><strong>Systems Create Freedom.</strong> Systems do not constrain people. They free them. When structure and purpose align, creativity finds its rhythm.</p>
+          <p><strong>Technology Should Serve Strategy.</strong> Technology has become the stage instead of the support. Caugia brings it back to its rightful place: serving strategy, not replacing it.</p>
+        </div>
+        <div class="anim">
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="text">
+          <h2>The Caugia Promise</h2>
+          <p>At Caugia Studio, clarity is the product. We help companies remove friction and connect what already exists: people, process, and performance. What follows is calm intelligence — a system that finally makes sense.</p>
+        </div>
+        <div class="anim">
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
       </section>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
 
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
-    const toggle=document.querySelector('.menu-toggle');
-    const navMobile=document.querySelector('.nav-mobile');
-    toggle.addEventListener('click',()=>{
-      toggle.classList.toggle('active');
-      navMobile.classList.toggle('open');
-    });
   </script>
 </body>
 </html>
