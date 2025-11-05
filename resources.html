@@ -3,90 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | Caugia Studio — Frameworks, Use Cases, and Insights</title>
-  <meta name="description" content="Explore frameworks, whitepapers, and articles by Caugia Studio. Learn how to design predictable GTM systems that align people, processes, and performance." />
-  <link rel="canonical" href="https://www.caugia.com/resources.html" />
-  <meta property="og:title" content="Resources | Caugia Studio" />
-  <meta property="og:description" content="Explore frameworks, whitepapers, and insights that help you build predictable revenue systems." />
-  <meta property="og:image" content="https://www.caugia.com/logo.png" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.caugia.com/resources.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
-  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
+  <title>Resources | Caugia Studio — Knowledge that Drives Clarity</title>
+  <meta name="description" content="Explore Caugia Studio’s resources: real use cases, whitepapers, and articles that show how systems thinking and AI can bring clarity to modern go-to-market organizations." />
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
+  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
   <style>
-    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;
-      --bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px;}
+    :root{
+      --ink:#0b132b;
+      --blue:#0b66ff;
+      --accent:#ff7700;
+      --bg-light:#f9f9fb;
+      --border:#e5e5e5;
+      --maxw:1180px;
+      --header-h:64px;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;display:flex;flex-direction:column;
-      min-height:100vh;text-align:left;opacity:0;transition:opacity .6s ease;
+      color:var(--ink);
+      background:#fff;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+      text-align:left;
+      opacity:0;
+      transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
+
     header{
-      position:fixed;inset:0 0 auto 0;height:var(--header-h);
+      position:fixed;
+      inset:0 0 auto 0;
+      height:var(--header-h);
       background:rgba(255,255,255,.98);
       border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);
       z-index:10;
     }
-    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
-      display:flex;align-items:center;justify-content:space-between}
+    .container{
+      max-width:var(--maxw);
+      height:100%;
+      margin:0 auto;
+      padding:0 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:28px}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
-    nav.nav-desktop a:hover{color:var(--blue)}nav.nav-desktop a.active{color:var(--blue)}
-    .cta{background:var(--blue);color:#fff!important;text-decoration:none;
-      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
-      transition:background .25s ease,transform .25s ease;}
+    nav.nav-desktop a:hover{color:var(--blue)}
+    nav.nav-desktop a.active{color:var(--blue)}
+    .cta{
+      background:var(--blue);
+      color:#fff!important;
+      text-decoration:none;
+      padding:.55rem 1.1rem;
+      border-radius:8px;
+      font-weight:600;
+      transition:background .25s ease,transform .25s ease;
+    }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
-    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;
-      width:24px;height:18px;background:none;border:none;cursor:pointer}
-    .menu-toggle span{height:2px;width:24px;background:var(--ink);
-      border-radius:1px;display:block;transition:transform .25s,opacity .25s}
-    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-    .menu-toggle.active span:nth-child(2){opacity:0}
-    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-    .nav-mobile{display:none;flex-direction:column;align-items:flex-start;
-      padding:16px 24px 32px;background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.06)}
-    .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)}
-    .nav-mobile a:hover{color:var(--blue)}.nav-mobile.open{display:flex}
 
     main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:880px}
-    section{background:var(--bg-light);border:1px solid var(--border);
-      border-radius:16px;padding:40px 48px;margin-bottom:60px}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    .item strong{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
-    .item span{color:#1f1f1f;font-size:1.05rem}
-    .list-block{display:grid;gap:14px;margin-top:20px}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
 
-    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
-      border-top:1px solid rgba(0,0,0,.06)}
+    /* Layout secties */
+    section.block{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:40px;
+      margin-bottom:80px;
+    }
+    .text{flex:0 0 65%}
+    .anim{
+      flex:0 0 35%;
+      position:relative;
+      height:220px;
+      border-radius:12px;
+      overflow:hidden;
+      background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
+    }
+    /* Nieuwe Caugia Orb animatie */
+    .orb{
+      position:absolute;
+      width:160px;
+      height:160px;
+      border-radius:50%;
+      background:radial-gradient(circle at center,var(--accent),rgba(11,102,255,0.4));
+      filter:blur(30px);
+      animation:float 10s infinite ease-in-out alternate;
+      opacity:0.6;
+      left:30%;
+      top:20%;
+    }
+    @keyframes float{
+      0%{transform:translate(0,0) scale(1)}
+      50%{transform:translate(40px,20px) scale(1.2)}
+      100%{transform:translate(-20px,-30px) scale(1)}
+    }
+
+    footer{
+      margin-top:auto;
+      padding:24px 0 32px 0;
+      font-size:.9rem;
+      color:#777;
+      text-align:center;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
 
-    @media (prefers-color-scheme:dark){
-      body{background:#0b132b;color:#f5f5f5}
-      header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
-      .brand span,nav a,footer a{color:#f5f5f5}
-      .menu-toggle span{background:#f5f5f5}
-      .cta{background:var(--blue)}
-      .cta:hover{background:var(--accent)}
-      section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
-      p,span{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
-    }
-    @media (max-width:800px){
-      nav.nav-desktop{display:none}.menu-toggle{display:flex}
-      h1{font-size:2rem}section{padding:28px 24px}
+    @media (max-width:900px){
+      section.block{flex-direction:column}
+      .anim{width:100%;height:160px;margin-top:12px}
     }
   </style>
 </head>
@@ -106,54 +144,64 @@
         <a href="resources.html" class="active">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
       </nav>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
-    <nav class="nav-mobile">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
-      <a href="work.html">Work Together</a>
-      <a href="resources.html" class="active">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
-    </nav>
   </header>
 
   <main>
     <div class="wrap">
       <h1>Resources</h1>
-      <p>
-        Explore Caugia’s frameworks, case studies, and research papers designed to help GTM and revenue leaders bring clarity to growth.  
-        Each resource reflects our commitment to calm, measurable, and intelligent design in business systems.
-      </p>
 
-      <section>
-        <h2>Use Cases</h2>
-        <div class="list-block">
-          <div class="item"><strong>Unpredictable Pipeline</strong><span>How Caugia systems strengthen forecasting accuracy by connecting marketing intent with sales reality.</span></div>
-          <div class="item"><strong>Disconnected Teams</strong><span>How structured handoffs between SDRs, AEs, and CS reduce friction and create a single flow of accountability.</span></div>
-          <div class="item"><strong>AI Integration</strong><span>How leadership can adopt AI in GTM without chaos — mapping automation to process and value creation.</span></div>
-          <div class="item"><strong>High Churn</strong><span>How system-based customer success models identify risk early and increase lifetime value.</span></div>
+      <!-- 1. Storytelling: waarom Resources bestaan -->
+      <section class="block">
+        <div class="text">
+          <p>Knowledge should create clarity, not noise. At Caugia, every resource we share is designed to help leaders think more clearly about growth, systems, and technology. These materials are not marketing assets. They are working documents — written from experience, refined by clients, and updated with every new lesson we learn.</p>
+          <p>The goal is simple: to turn complexity into understanding. Whether it is a use case, a whitepaper, or a short article, each piece is built to make one idea visible. When knowledge becomes clear, action follows naturally.</p>
+        </div>
+        <div class="anim" aria-hidden="true">
+          <div class="orb"></div>
         </div>
       </section>
 
-      <section>
-        <h2>Whitepapers</h2>
-        <div class="list-block">
-          <div class="item"><strong>The Five Pillars of a Scalable GTM System</strong><span>A deep dive into the structural design that supports growth at every stage of company maturity.</span></div>
-          <div class="item"><strong>AI and Human Alignment</strong><span>How to integrate artificial intelligence into GTM processes without losing human judgment or trust.</span></div>
-          <div class="item"><strong>Predictability Architecture</strong><span>Building data-driven foundations that make performance measurable and repeatable.</span></div>
-          <div class="item"><strong>Revenue System Maturity Model</strong><span>A practical framework for assessing the health of your GTM system and identifying key next steps.</span></div>
-          <div class="item"><strong>The Future of RevOps</strong><span>Where strategy, structure, and technology meet — and how to prepare your organization for what’s next.</span></div>
+      <!-- 2. Use Cases -->
+      <section class="block">
+        <div class="text">
+          <h2>Use Cases</h2>
+          <p><strong>Forecasting with Precision.</strong> Many teams complain about unpredictable pipeline. We help them design forecasting systems that merge data discipline with human judgment. The result is predictability that feels earned, not automated.</p>
+          <p><strong>Connecting Teams.</strong> When Marketing and Sales work in isolation, friction grows. We build shared processes that replace handoffs with collaboration, creating one flow of accountability.</p>
+          <p><strong>Integrating AI Intelligently.</strong> AI is powerful when it fits inside a clear process. We show leaders where automation supports value creation and where it distracts from it.</p>
+          <p><strong>Reducing Churn.</strong> Success is a system, not a department. Our models help Customer Success teams detect risk early and act with precision before churn becomes visible.</p>
+        </div>
+        <div class="anim" aria-hidden="true">
+          <div class="orb"></div>
         </div>
       </section>
 
-      <section>
-        <h2>Blog & Articles</h2>
-        <div class="list-block">
-          <div class="item"><strong>How to Build a Predictable Revenue Engine</strong><span>Why predictability starts with system clarity, not quota pressure.</span></div>
-          <div class="item"><strong>The Cost of Misalignment</strong><span>Understanding the hidden friction between Marketing, Sales, and Success — and how to remove it.</span></div>
-          <div class="item"><strong>Designing the Modern GTM Stack</strong><span>How tool consolidation and intentional process flow reduce waste and accelerate decisions.</span></div>
-          <div class="item"><strong>Leadership in the Age of AI</strong><span>Why great leaders design systems that think — and let their people focus on what matters most.</span></div>
+      <!-- 3. Whitepapers -->
+      <section class="block">
+        <div class="text">
+          <h2>Whitepapers</h2>
+          <p><strong>The Five Pillars of a Scalable GTM System.</strong> Growth depends on five elements: clarity, structure, rhythm, data, and accountability. This paper explores how to balance them in complex organizations.</p>
+          <p><strong>AI and Human Alignment.</strong> Technology should extend judgment, not replace it. We explore how to integrate AI into GTM without losing the human understanding that drives trust.</p>
+          <p><strong>Predictability Architecture.</strong> Predictability does not emerge from dashboards. It is built into the system. This paper shows how to create the structure that makes performance repeatable.</p>
+          <p><strong>The Future of RevOps.</strong> RevOps is not a role but an evolution of how companies align data, tools, and decisions. We describe what mature revenue systems look like and how to build one.</p>
+        </div>
+        <div class="anim" aria-hidden="true">
+          <div class="orb"></div>
+        </div>
+      </section>
+
+      <!-- 4. Articles -->
+      <section class="block">
+        <div class="text">
+          <h2>Articles</h2>
+          <p><strong>How to Build a Predictable Revenue Engine.</strong> Predictability starts with clarity, not pressure. We explain how disciplined design leads to reliable growth.</p>
+          <p><strong>The Cost of Misalignment.</strong> Hidden friction between departments destroys progress. This article explores how small misalignments scale into big inefficiencies.</p>
+          <p><strong>Designing the Modern GTM Stack.</strong> Tool consolidation is not about cutting cost but reducing noise. We show how to create a stack that reflects strategy, not history.</p>
+          <p><strong>Leadership in the Age of AI.</strong> Great leaders design systems that think so their teams can focus on what matters most. We discuss how clarity leads to trust in an age of acceleration.</p>
+          <p>Each article is written to translate complexity into context. They are not opinions but reflections from real systems, tested in practice and refined over time.</p>
+        </div>
+        <div class="anim" aria-hidden="true">
+          <div class="orb"></div>
         </div>
       </section>
     </div>
@@ -165,12 +213,6 @@
 
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
-    const toggle=document.querySelector('.menu-toggle');
-    const navMobile=document.querySelector('.nav-mobile');
-    toggle.addEventListener('click',()=>{
-      toggle.classList.toggle('active');
-      navMobile.classList.toggle('open');
-    });
   </script>
 </body>
 </html>
