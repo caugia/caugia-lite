@@ -9,7 +9,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Work Together | Caugia Studio" />
-  <meta property="og:description" content="Every engagement follows a simple arc — discovery, design, and direction — to create predictable GTM systems." />
+  <meta property="og:description" content="Every engagement follows three clear phases — discovery, design and direction — to create predictable GTM systems." />
   <meta property="og:image" content="https://www.caugia.com/logo.png" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.caugia.com/work.html" />
@@ -70,6 +70,16 @@
     h2{font-size:1.7rem;font-weight:700;margin:0 0 18px 0;color:var(--blue-d)}
     p{font-size:1.05rem;line-height:1.7;color:#1f1f1f;margin-bottom:18px;max-width:880px}
     ul{margin:10px 0 25px 20px;line-height:1.7}ul li{margin-bottom:6px}
+
+    .three-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:24px}
+    .col{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px 24px}
+    .col h3{font-size:1.2rem;color:var(--accent);margin-bottom:8px}
+    .col p{margin-bottom:0}
+
+    .list-block{display:grid;gap:14px;margin-top:20px}
+    .item strong{display:block;color:var(--blue-d);font-weight:700;margin-bottom:4px}
+    .item span{color:#1f1f1f;font-size:1.05rem}
+
     footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
       border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
@@ -82,7 +92,8 @@
       .cta{background:var(--blue);color:#fff!important}
       .cta:hover{background:var(--accent)}
       section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
-      p{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
+      p,span{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
+      .col{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
     }
     @media (max-width:800px){
       nav.nav-desktop{display:none}.menu-toggle{display:flex}
@@ -124,52 +135,41 @@
       <p class="intro">Every Caugia engagement follows a simple arc — discovery, design, and direction. Each phase delivers clarity, structure, and measurable progress toward one goal: a GTM system that runs predictably.</p>
 
       <section>
-        <h2>1. Discovery</h2>
-        <p>We begin by mapping your current GTM landscape. How do leads, data, and accountability flow today — and where do they stall? The goal is to see clearly before changing anything.</p>
-        <ul>
-          <li>Current-state architecture mapping</li>
-          <li>Tool inventory and usage audit</li>
-          <li>Gap analysis across teams and data</li>
-          <li>Executive summary of pain points</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>2. Design</h2>
-        <p>Here the system takes shape. We build your <strong>GTM System Blueprint</strong> — a visual and operational model showing how people, processes, and technology connect.</p>
-        <ul>
-          <li>Custom architecture (as-is and to-be)</li>
-          <li>Tools matrix with consolidation & AI recommendations</li>
-          <li>Team structure and collaboration model</li>
-          <li>Prioritized roadmap with dependencies</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>3. Direction</h2>
-        <p>We translate the design into a <strong>one-year Focus Plan</strong> that drives execution with intent. The plan balances efficiency and growth, keeping your system stable as it scales.</p>
-        <ul>
-          <li>ROI and productivity projections</li>
-          <li>Implementation milestones by quarter</li>
-          <li>Leadership alignment workshop</li>
-          <li>Optional partner support for rollout</li>
-        </ul>
+        <h2>Our Process</h2>
+        <div class="three-cols">
+          <div class="col">
+            <h3>Discovery</h3>
+            <p>We start by mapping your current GTM landscape to understand how data, leads, and accountability flow today. The goal is to see clearly before changing anything.</p>
+          </div>
+          <div class="col">
+            <h3>Design</h3>
+            <p>We create your GTM System Blueprint — a visual and operational model that connects people, processes, and technology in one coherent system.</p>
+          </div>
+          <div class="col">
+            <h3>Direction</h3>
+            <p>We translate design into a one-year Focus Plan that balances growth and efficiency, ensuring your system remains stable as it scales.</p>
+          </div>
+        </div>
       </section>
 
       <section>
         <h2>Deliverables</h2>
-        <p><strong>GTM System Blueprint:</strong> The foundation of your predictable revenue engine.<br>
-           <strong>Tools Matrix:</strong> A clear view of your technology ecosystem.<br>
-           <strong>Focus Plan:</strong> One year of direction and measurable progress.<br>
-           <strong>Alignment Session:</strong> Executive clarity and shared accountability.</p>
+        <div class="list-block">
+          <div class="item"><strong>GTM System Blueprint</strong><span>The foundation of your predictable revenue engine.</span></div>
+          <div class="item"><strong>Tools Matrix</strong><span>A clear view of your technology ecosystem.</span></div>
+          <div class="item"><strong>Focus Plan</strong><span>One year of direction and measurable progress.</span></div>
+          <div class="item"><strong>Alignment Session</strong><span>Executive clarity and shared accountability.</span></div>
+        </div>
       </section>
 
       <section>
         <h2>Engagement Models</h2>
-        <p><strong>Assessment:</strong> Rapid diagnostic and recommendations.<br>
-           <strong>System Design:</strong> Full architecture, playbooks, and roadmap.<br>
-           <strong>Implementation Partner:</strong> Hands-on delivery and training.</p>
-        <p>Each engagement is visual, data-driven, and tool-agnostic. We don’t sell software — we build the system that makes software work for you.</p>
+        <div class="list-block">
+          <div class="item"><strong>Assessment</strong><span>Rapid diagnostic and recommendations to identify your key system gaps.</span></div>
+          <div class="item"><strong>System Design</strong><span>Full GTM architecture, playbooks, and roadmap to connect people, process, and data.</span></div>
+          <div class="item"><strong>Implementation Partner</strong><span>Hands-on delivery, change management, and training to embed the system within your teams.</span></div>
+        </div>
+        <p style="margin-top:18px;">Each engagement is visual, data-driven, and tool-agnostic. We don’t sell software — we build the system that makes software work for you.</p>
       </section>
     </div>
   </main>
