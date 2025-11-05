@@ -13,17 +13,19 @@
       --ink:#0b132b;
       --blue:#0b66ff;
       --accent:#ff7700;
-      --bg-light:#f9f9fb;
       --maxw:1180px;
       --header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;
+      color:var(--ink);
+      background:#fff;
+      display:flex;flex-direction:column;
+      min-height:100vh;
       text-align:left;
-      opacity:0;transition:opacity .6s ease;
+      opacity:0;
+      transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
@@ -43,40 +45,65 @@
     .brand img{height:28px}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
+    nav.nav-desktop a{
+      color:var(--ink);
+      text-decoration:none;
+      font-weight:500;
+      transition:color .25s;
+    }
     nav.nav-desktop a:hover{color:var(--blue)}
     nav.nav-desktop a.active{color:var(--blue)}
     .cta{
-      background:var(--blue);color:#fff!important;text-decoration:none;
-      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
+      background:var(--blue);
+      color:#fff!important;
+      text-decoration:none;
+      padding:.55rem 1.1rem;
+      border-radius:8px;
+      font-weight:600;
       transition:background .25s ease,transform .25s ease;
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
-    main{flex:1;padding:calc(var(--header-h) + 60px) 24px 80px}
-    .wrap{max-width:var(--maxw);margin:0 auto;position:relative}
+    main{
+      flex:1;
+      padding:calc(var(--header-h) + 60px) 24px 80px;
+      position:relative;
+    }
+    .wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:1}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 36px 0}
     h2{font-size:1.6rem;font-weight:700;margin:60px 0 20px 0;color:var(--blue)}
-    h3{font-size:1.2rem;font-weight:600;margin:24px 0 6px 0;color:var(--accent)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 20px 0;max-width:880px}
+    h3{font-size:1.1rem;font-weight:700;margin:22px 0 8px 0;color:var(--ink)}
+    p{
+      font-size:1.05rem;
+      line-height:1.7;
+      color:#1b1b1b;
+      margin:0 0 20px 0;
+      max-width:880px;
+    }
 
     section.block{margin-bottom:80px}
 
-    /* Subtiele animatie rechtsboven */
+    /* Vergrote, subtiele animatie rechtsboven */
     #nodeFloat{
       position:fixed;
-      top:120px;
-      right:80px;
-      width:180px;
-      height:180px;
-      opacity:.15;
+      top:110px;
+      right:70px;
+      width:240px;    /* groter */
+      height:240px;
+      opacity:.2;
       pointer-events:none;
       z-index:0;
     }
 
     footer{
-      margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
-      border-top:1px solid rgba(0,0,0,.06)
+      margin-top:auto;
+      padding:24px 0 32px 0;
+      font-size:.9rem;
+      color:#777;
+      text-align:center;
+      border-top:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      z-index:2;
     }
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
@@ -110,45 +137,45 @@
 
     <div class="wrap">
       <h1>Our Approach</h1>
-      <p>Every organization already holds the ingredients for growth: people, process, and performance. What often gets lost is coherence. Caugia Studio helps companies rediscover alignment and design revenue systems that work in rhythm. Our approach transforms confusion into clarity and replaces effort with direction.</p>
+      <p>At Caugia Studio, we help companies turn GTM chaos into predictable systems of growth. Every organization already holds the ingredients for success: people, process, and performance. The challenge lies in alignment. We bring these elements together, creating structure that allows clarity to replace confusion and progress to become measurable.</p>
 
       <section class="block">
         <h2>How We Work</h2>
-        <p>We begin by seeing clearly. Before changing anything, we listen, map, and diagnose. The goal is not to add complexity but to understand where it hides. Once the system becomes visible, we bring structure and calm. Each recommendation is built to reduce friction and make decisions easier.</p>
-        <p>Our work is quiet, deliberate, and measurable. We help teams replace reactive motion with intentional progress.</p>
+        <p>We start by observing before changing. Most organizations move quickly but without visibility. We slow the noise, uncover how work really flows, and identify where energy is being lost. Once we see the full system, we design the architecture that brings everything back into sync.</p>
+        <p>The goal is simplicity with intention. Our approach helps teams work with confidence, supported by tools and processes that amplify rather than distract.</p>
       </section>
 
       <section class="block">
         <h2>The Caugia Lens</h2>
-        <p>The Caugia Lens is a way of seeing. It brings three perspectives into one frame: People, Process, and Performance. When these align, growth becomes predictable.</p>
+        <p>The Caugia Lens is how we understand every organization — through the balance of People, Process, and Performance. When these three align, growth stops being random and starts becoming repeatable.</p>
 
         <h3>People</h3>
-        <p>Teams rediscover how their work connects. Marketing understands Sales. Sales appreciates Customer Success. Collaboration replaces friction and accountability becomes shared.</p>
+        <p>We help teams see each other again. Marketing understands Sales, Sales understands Customer Success. Collaboration replaces friction and goals align naturally.</p>
 
         <h3>Process</h3>
-        <p>We map how information moves from lead to renewal. Bottlenecks disappear as clarity replaces assumptions. The result is a flow that supports purpose, not bureaucracy.</p>
+        <p>We map how information travels from lead to renewal. Bottlenecks are removed and automation supports human focus instead of replacing it. The system begins to breathe again.</p>
 
         <h3>Performance</h3>
-        <p>Metrics regain meaning. Dashboards stop shouting and start explaining. Leaders see what drives results and can finally act with confidence.</p>
+        <p>We reconnect metrics to meaning. Data becomes context, dashboards tell a story, and leadership gains the visibility needed to act with clarity.</p>
       </section>
 
       <section class="block">
         <h2>Our Rhythm</h2>
-        <p>We follow a rhythm of Diagnose, Design, and Direction. Each step is designed to move a company from discovery to clarity, from plan to momentum.</p>
+        <p>Every project follows a rhythm that guides transformation from discovery to execution. Diagnose reveals truth, Design builds the blueprint, and Direction drives momentum.</p>
 
         <h3>Diagnose</h3>
-        <p>We take a complete snapshot of your GTM system. It reveals what works, what doesn’t, and what’s missing. The truth is the beginning of all progress.</p>
+        <p>We capture a complete picture of your GTM system. This diagnostic phase defines where effort creates impact and where it is being wasted.</p>
 
         <h3>Design</h3>
-        <p>We shape the GTM System Blueprint: a clear model of how people, tools, and data interact. It shows how to scale what matters and stop what doesn’t.</p>
+        <p>We build your GTM System Blueprint — a clear, visual model showing how teams, tools, and data interconnect. It becomes the foundation for scalable growth.</p>
 
         <h3>Direction</h3>
-        <p>We turn the blueprint into a one-year Focus Plan. It gives your leadership a shared compass, ensuring every action supports the same goal.</p>
+        <p>We turn the design into a one-year Focus Plan. It clarifies priorities, connects actions to outcomes, and gives leadership shared direction.</p>
       </section>
 
       <section class="block">
         <h2>Our Change</h2>
-        <p>The result of our work is not a slide deck or process diagram. It is a living system that connects your teams and your technology. Caugia Studio helps leaders design organizations that grow with intent. Calm replaces chaos, and progress becomes measurable.</p>
+        <p>The outcome is not another process or tool but a connected system that evolves with you. Caugia Studio helps leadership teams find calm inside complexity. Technology serves strategy again, and progress becomes sustainable.</p>
       </section>
     </div>
   </main>
@@ -160,7 +187,7 @@
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
 
-    // Compact node float animation rechtsboven
+    // Node Float Animation - larger and smoother
     const canvas=document.getElementById('nodeFloat');
     const ctx=canvas.getContext('2d');
     let nodes=[],w,h;
@@ -169,12 +196,12 @@
       w=canvas.width=canvas.offsetWidth;
       h=canvas.height=canvas.offsetHeight;
       nodes=[];
-      for(let i=0;i<18;i++){
+      for(let i=0;i<20;i++){
         nodes.push({
           x:Math.random()*w,
           y:Math.random()*h,
-          vx:(Math.random()-0.5)*0.3,
-          vy:(Math.random()-0.5)*0.3
+          vx:(Math.random()-0.5)*0.25,
+          vy:(Math.random()-0.5)*0.25
         });
       }
     }
@@ -184,18 +211,18 @@
       for(let i=0;i<nodes.length;i++){
         const n1=nodes[i];
         ctx.beginPath();
-        ctx.arc(n1.x,n1.y,2,0,Math.PI*2);
-        ctx.fillStyle='rgba(11,102,255,0.5)';
+        ctx.arc(n1.x,n1.y,2.4,0,Math.PI*2);
+        ctx.fillStyle='rgba(11,102,255,0.6)';
         ctx.fill();
 
         for(let j=i+1;j<nodes.length;j++){
           const n2=nodes[j];
           const dx=n1.x-n2.x,dy=n1.y-n2.y,dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<100){
+          if(dist<120){
             ctx.beginPath();
             ctx.moveTo(n1.x,n1.y);
             ctx.lineTo(n2.x,n2.y);
-            ctx.strokeStyle=`rgba(11,102,255,${0.18 - dist/550})`;
+            ctx.strokeStyle=`rgba(11,102,255,${0.22 - dist/500})`;
             ctx.lineWidth=1;
             ctx.stroke();
           }
