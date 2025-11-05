@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Approach | Caugia Studio — How We Bring Clarity to Growth</title>
-  <meta name="description" content="The Caugia Approach helps organizations turn go-to-market chaos into predictable revenue systems through clarity, structure, and intelligent design." />
+  <title>Approach | Caugia Studio</title>
+  <meta name="description" content="Caugia Studio helps organizations turn commercial complexity into predictable systems of growth by aligning people, process, and performance." />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
@@ -14,16 +14,15 @@
       --blue:#0b66ff;
       --accent:#ff7700;
       --bg-light:#f9f9fb;
-      --border:#e5e5e5;
       --maxw:1180px;
       --header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;text-align:left;
+      display:flex;flex-direction:column;min-height:100vh;
+      text-align:left;
       opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
@@ -44,7 +43,7 @@
     .brand img{height:28px}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
     nav.nav-desktop a:hover{color:var(--blue)}
     nav.nav-desktop a.active{color:var(--blue)}
     .cta{
@@ -54,56 +53,41 @@
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
-    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    main{
+      flex:1;
+      padding:calc(var(--header-h) + 60px) 24px 80px;
+    }
     .wrap{max-width:var(--maxw);margin:0 auto}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
-    h2{font-size:1.6rem;font-weight:700;margin:32px 0 16px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:720px}
-    strong{font-weight:700;color:var(--ink)}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 36px 0}
+    h2{font-size:1.6rem;font-weight:700;margin:60px 0 20px 0;color:var(--blue)}
+    h3{font-size:1.2rem;font-weight:600;margin:24px 0 6px 0;color:var(--accent)}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 20px 0;max-width:880px}
 
     section.block{
       display:flex;justify-content:space-between;align-items:flex-start;
       gap:40px;margin-bottom:80px;
     }
     .text{flex:0 0 65%}
-    .anim{
-      flex:0 0 35%;
-      position:relative;
-      height:220px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+    .anim{flex:0 0 35%;position:relative;height:240px}
 
-    /* C-Motion animation (soft) */
-    svg.c-motion{
-      width:180px;height:180px;
-      overflow:visible;opacity:.18;
+    /* Node Network Animation */
+    #nodeNetwork{
+      width:100%;height:100%;
+      position:absolute;inset:0;
+      background:transparent;
+      display:block;
     }
-    .c-path{
-      fill:none;
-      stroke-width:8;
-      stroke-linecap:round;
-      stroke-dasharray:260 100;
-      animation:rotateC 22s linear infinite;
-      transform-origin:center;
-    }
-    .c-path:nth-child(1){stroke:rgba(11,102,255,0.3);}
-    .c-path:nth-child(2){stroke:rgba(255,119,0,0.25);animation-direction:reverse;animation-duration:28s;}
-    .c-path:nth-child(3){stroke:rgba(102,163,255,0.2);animation-duration:18s;}
-    @keyframes rotateC{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
     footer{
-      margin-top:auto;padding:24px 0 32px 0;
-      font-size:.9rem;color:#777;text-align:center;
-      border-top:1px solid rgba(0,0,0,.06);
+      margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
+      border-top:1px solid rgba(0,0,0,.06)
     }
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
 
     @media (max-width:900px){
       section.block{flex-direction:column}
-      .anim{width:100%;height:160px;margin-top:12px}
+      .anim{width:100%;height:180px;margin-top:12px}
     }
   </style>
 </head>
@@ -112,75 +96,75 @@
   <header>
     <div class="container">
       <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Studio logo">
-        <span>Caugia Studio</span>
+        <img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span>
       </a>
       <nav class="nav-desktop">
         <a href="about.html">About</a>
         <a href="approach.html" class="active">Approach</a>
         <a href="work.html">Work Together</a>
         <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="wrap">
+
       <h1>Our Approach</h1>
-      <p>Every organization already has the ingredients for growth — people, processes, and performance. What’s often missing is coherence. The Caugia Approach brings these forces back into alignment, transforming fragmented operations into one connected system that performs with intention and clarity.</p>
+      <p>At Caugia Studio we help companies turn GTM chaos into predictable revenue systems. Our approach begins by creating clarity where there is confusion. Every organization already holds the ingredients for growth: people, process, and performance. The problem is not a lack of effort but a lack of coherence. We uncover how these elements interact, and then design systems that move as one. What follows is a transformation from reactivity to rhythm, from scattered actions to structured progress.</p>
+
+      <section class="block">
+        <div class="text">
+          <h2>How We Work</h2>
+          <p>We start by slowing everything down to see clearly. Who owns what? Where does data stop? Which handoff breaks the rhythm? Once we can see the system, we redesign it for alignment and efficiency. The goal is not more processes but better flow. When teams move together and understand their roles, performance becomes repeatable and confidence returns.</p>
+          <p>We believe that clarity beats complexity. Every change we propose reduces friction and brings energy back to the work that matters. Simplicity is not the opposite of sophistication — it is the sign of mastery.</p>
+        </div>
+        <div class="anim">
+          <canvas id="nodeNetwork"></canvas>
+        </div>
+      </section>
 
       <section class="block">
         <div class="text">
           <h2>The Caugia Lens</h2>
-          <p>We look at every organization through three connected dimensions: <strong>People.</strong> <strong>Process.</strong> and <strong>Performance.</strong> Each reveals a different truth about how growth really happens.</p>
-          <p><strong>People.</strong> We help teams see each other again. Marketing understands Sales. Sales understands Customer Success. Clarity replaces blame, and collaboration becomes natural.</p>
-          <p><strong>Process.</strong> We map how information moves — from lead to renewal — and remove the friction that slows progress. The goal is not more automation, but smarter flow.</p>
-          <p><strong>Performance.</strong> We reconnect metrics to meaning. Dashboards stop being noise, data becomes a story, and decisions are made with confidence.</p>
-          <p>When these three dimensions align, chaos gives way to coherence, and growth starts to compound.</p>
+          <p>Our philosophy rests on three dimensions that shape every healthy GTM system: People, Process, and Performance. Together they form what we call the Caugia Lens — a way of seeing how organizations truly function.</p>
+          <h3>People</h3>
+          <p>We rebuild understanding across teams. Marketing sees what Sales needs. Sales appreciates what Customer Success protects. This shared view turns friction into flow and helps individuals act with purpose.</p>
+          <h3>Process</h3>
+          <p>We analyze how information moves from lead to renewal. Every step is redesigned to remove friction and encourage accountability. The aim is not automation for its own sake but movement that supports value creation.</p>
+          <h3>Performance</h3>
+          <p>We reconnect metrics to meaning. Dashboards stop being noise and become insight. Data tells a story that people can trust, and leadership decisions become calm and deliberate.</p>
         </div>
         <div class="anim">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
+          <canvas id="nodeNetwork2"></canvas>
         </div>
       </section>
 
       <section class="block">
         <div class="text">
           <h2>Our Rhythm</h2>
-          <p>Each engagement follows a rhythm that brings order to complexity. We don’t impose process — we design flow. Every project evolves through three phases that connect clarity to action.</p>
-          <p><strong>Diagnose.</strong> We take a clear picture of your GTM system, the way a doctor reads an X-ray. Seeing the structure behind the symptoms reveals the real problems to solve.</p>
-          <p><strong>Design.</strong> We create your GTM System Blueprint — showing how teams, tools, and data fit together to support predictable growth.</p>
-          <p><strong>Direction.</strong> We leave you with a Focus Plan for the next twelve months — a small number of meaningful changes that create lasting improvement.</p>
-          <p>This rhythm builds calm inside complexity. By the end, your GTM engine runs smoothly, your people move with purpose, and growth feels less like a sprint and more like a system that works.</p>
+          <p>Every engagement follows a rhythm that combines discipline with creativity. It begins with truth, grows through design, and ends with direction.</p>
+          <h3>Diagnose</h3>
+          <p>We take an honest snapshot of your GTM system. It is not about judgment but understanding. Seeing the whole picture is the foundation of all progress.</p>
+          <h3>Design</h3>
+          <p>We create a GTM System Blueprint that shows how teams, tools, and data connect. This design is visual and actionable, guiding both strategy and daily execution.</p>
+          <h3>Direction</h3>
+          <p>We translate the blueprint into a clear one-year Focus Plan. It defines where to act, what to measure, and how to sustain momentum. Direction replaces pressure with purpose.</p>
+          <p>Together these steps create structure without rigidity and clarity without confusion. By the end, your organization does not just move faster — it moves with intent.</p>
         </div>
         <div class="anim">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
+          <canvas id="nodeNetwork3"></canvas>
         </div>
       </section>
 
       <section class="block">
         <div class="text">
           <h2>Our Changes</h2>
-          <p>True progress is not about doing more, but about doing the right things with consistency and visibility. Caugia helps companies evolve with precision — making performance sustainable.</p>
-          <p><strong>Visibility.</strong> When everyone sees the same truth, decisions become faster and better. Transparency removes confusion and empowers collaboration.</p>
-          <p><strong>Consistency.</strong> Systems create habits. Habits create results. We design structures that turn clarity into daily behavior, so progress no longer depends on willpower.</p>
-          <p><strong>Predictability.</strong> Growth stops feeling random when the system supports it. We give leaders the ability to forecast with confidence and act with discipline.</p>
-          <p>By aligning visibility, consistency, and predictability, organizations gain something rare: calm control. That’s the foundation of sustainable growth.</p>
+          <p>The outcome of our work is not a document or dashboard but a system that grows with you. Caugia Studio helps leadership teams rediscover control in a world of automation. Technology becomes a servant of strategy again. People focus on what matters and progress becomes measurable. The change is structural, sustainable, and calm.</p>
         </div>
         <div class="anim">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
+          <canvas id="nodeNetwork4"></canvas>
         </div>
       </section>
     </div>
@@ -192,6 +176,58 @@
 
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
+
+    // Node Network animation reused for each canvas
+    function createNodeNetwork(canvasId){
+      const canvas = document.getElementById(canvasId);
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let nodes=[], w, h;
+      function resize(){
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+        nodes = [];
+        for(let i=0;i<25;i++){
+          nodes.push({
+            x:Math.random()*w,
+            y:Math.random()*h,
+            vx:(Math.random()-0.5)*0.4,
+            vy:(Math.random()-0.5)*0.4
+          });
+        }
+      }
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        for(let i=0;i<nodes.length;i++){
+          const n1=nodes[i];
+          ctx.beginPath();
+          ctx.arc(n1.x,n1.y,2.2,0,Math.PI*2);
+          ctx.fillStyle='rgba(11,102,255,0.5)';
+          ctx.fill();
+          for(let j=i+1;j<nodes.length;j++){
+            const n2=nodes[j];
+            const dx=n1.x-n2.x,dy=n1.y-n2.y,dist=Math.sqrt(dx*dx+dy*dy);
+            if(dist<120){
+              ctx.beginPath();
+              ctx.moveTo(n1.x,n1.y);
+              ctx.lineTo(n2.x,n2.y);
+              ctx.strokeStyle=`rgba(11,102,255,${0.2 - dist/600})`;
+              ctx.lineWidth=1;
+              ctx.stroke();
+            }
+          }
+          n1.x+=n1.vx;n1.y+=n1.vy;
+          if(n1.x<0||n1.x>w)n1.vx*=-1;
+          if(n1.y<0||n1.y>h)n1.vy*=-1;
+        }
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize',resize);
+      resize();
+      draw();
+    }
+
+    ['nodeNetwork','nodeNetwork2','nodeNetwork3','nodeNetwork4'].forEach(createNodeNetwork);
   </script>
 </body>
 </html>
