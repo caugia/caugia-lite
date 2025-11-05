@@ -6,14 +6,15 @@
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
   <style>
-    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px}
+    :root{--ink:#0b132b;--blue:#0b66ff;--blue-d:#094fc7;--accent:#ff7700;
+      --bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px}
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;
       display:flex;flex-direction:column;min-height:100vh;
-      overflow-y:auto;text-align:left;opacity:0;transition:opacity .6s ease;
+      text-align:left;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
     header{
@@ -70,20 +71,20 @@
     <div class="container">
       <a href="index.html" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
-        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
         <a href="approach.html">Approach</a>
         <a href="work.html">Work</a>
-        <a href="use-cases.html">Use Cases</a>
         <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
       <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
     <nav class="nav-mobile">
-      <a href="about.html">About</a>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
       <a href="approach.html">Approach</a>
       <a href="work.html">Work</a>
-      <a href="use-cases.html">Use Cases</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </nav>
@@ -112,7 +113,7 @@
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 
   <script>
