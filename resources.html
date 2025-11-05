@@ -75,7 +75,6 @@
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
     p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
 
-    /* Layout secties */
     section.block{
       display:flex;
       justify-content:space-between;
@@ -84,31 +83,42 @@
       margin-bottom:80px;
     }
     .text{flex:0 0 65%}
+
+    /* Caugia Logo Animation */
     .anim{
       flex:0 0 35%;
       position:relative;
       height:220px;
       border-radius:12px;
       overflow:hidden;
-      background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
+      background:radial-gradient(circle at center,rgba(11,102,255,0.04),transparent);
     }
-    /* Nieuwe Caugia Orb animatie */
-    .orb{
+    .ring{
       position:absolute;
-      width:160px;
-      height:160px;
       border-radius:50%;
-      background:radial-gradient(circle at center,var(--accent),rgba(11,102,255,0.4));
-      filter:blur(30px);
-      animation:float 10s infinite ease-in-out alternate;
-      opacity:0.6;
-      left:30%;
-      top:20%;
+      border:2px solid rgba(11,102,255,0.3);
+      animation:spin 12s linear infinite;
+      opacity:.6;
     }
-    @keyframes float{
-      0%{transform:translate(0,0) scale(1)}
-      50%{transform:translate(40px,20px) scale(1.2)}
-      100%{transform:translate(-20px,-30px) scale(1)}
+    .ring:nth-child(1){width:120px;height:120px;top:40px;left:60px}
+    .ring:nth-child(2){width:160px;height:160px;top:20px;left:40px;animation-duration:16s;opacity:.4}
+    .ring:nth-child(3){width:200px;height:200px;top:0;left:20px;animation-duration:20s;opacity:.3}
+    .pulse{
+      position:absolute;
+      width:20px;height:20px;
+      border-radius:50%;
+      background:var(--accent);
+      animation:pulse 4s ease-in-out infinite;
+      top:100px;left:100px;
+      box-shadow:0 0 15px rgba(255,119,0,0.6);
+    }
+    @keyframes spin{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
+    }
+    @keyframes pulse{
+      0%,100%{transform:scale(1);opacity:.6}
+      50%{transform:scale(1.6);opacity:.2}
     }
 
     footer{
@@ -151,18 +161,20 @@
     <div class="wrap">
       <h1>Resources</h1>
 
-      <!-- 1. Storytelling: waarom Resources bestaan -->
       <section class="block">
         <div class="text">
           <p>Knowledge should create clarity, not noise. At Caugia, every resource we share is designed to help leaders think more clearly about growth, systems, and technology. These materials are not marketing assets. They are working documents — written from experience, refined by clients, and updated with every new lesson we learn.</p>
           <p>The goal is simple: to turn complexity into understanding. Whether it is a use case, a whitepaper, or a short article, each piece is built to make one idea visible. When knowledge becomes clear, action follows naturally.</p>
         </div>
         <div class="anim" aria-hidden="true">
-          <div class="orb"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="pulse"></div>
         </div>
       </section>
 
-      <!-- 2. Use Cases -->
+      <!-- De rest van de content blijft identiek -->
       <section class="block">
         <div class="text">
           <h2>Use Cases</h2>
@@ -172,11 +184,13 @@
           <p><strong>Reducing Churn.</strong> Success is a system, not a department. Our models help Customer Success teams detect risk early and act with precision before churn becomes visible.</p>
         </div>
         <div class="anim" aria-hidden="true">
-          <div class="orb"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="pulse"></div>
         </div>
       </section>
 
-      <!-- 3. Whitepapers -->
       <section class="block">
         <div class="text">
           <h2>Whitepapers</h2>
@@ -186,11 +200,13 @@
           <p><strong>The Future of RevOps.</strong> RevOps is not a role but an evolution of how companies align data, tools, and decisions. We describe what mature revenue systems look like and how to build one.</p>
         </div>
         <div class="anim" aria-hidden="true">
-          <div class="orb"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="pulse"></div>
         </div>
       </section>
 
-      <!-- 4. Articles -->
       <section class="block">
         <div class="text">
           <h2>Articles</h2>
@@ -201,7 +217,10 @@
           <p>Each article is written to translate complexity into context. They are not opinions but reflections from real systems, tested in practice and refined over time.</p>
         </div>
         <div class="anim" aria-hidden="true">
-          <div class="orb"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="ring"></div>
+          <div class="pulse"></div>
         </div>
       </section>
     </div>
