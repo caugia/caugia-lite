@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caugia Studio | Turn GTM Chaos Into Predictable Revenue Engines</title>
-  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance." />
-  <link rel="canonical" href="https://www.caugia.com/" />
-  <meta property="og:title" content="Caugia Studio | GTM System Design for Predictable Revenue" />
-  <meta property="og:description" content="Caugia Studio builds revenue systems that turn go-to-market chaos into clarity. Discover how we align data, teams, and growth for measurable performance." />
+  <title>About | Caugia Studio — From GTM Chaos to Predictable Revenue Systems</title>
+  <meta name="description" content="Caugia Studio helps executives and GTM leaders align data, teams, and growth through integrated revenue system design. Founded by Tom Meijer, a revenue systems architect with 15 years of GTM leadership experience." />
+  <link rel="canonical" href="https://www.caugia.com/about.html" />
+  <meta property="og:title" content="About Caugia Studio" />
+  <meta property="og:description" content="Founded by Tom Meijer, Caugia Studio designs GTM systems that bring order and clarity to complex organizations." />
   <meta property="og:image" content="https://www.caugia.com/logo.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.caugia.com/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.caugia.com/about.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
 
   <style>
-    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;
-      --border:#e5e5e5;--maxw:1180px;--header-h:64px}
+    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;
+      --bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px;}
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+    html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;display:flex;flex-direction:column;
-      min-height:100vh;opacity:0;transition:opacity .6s ease;
+      min-height:100vh;text-align:left;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
     header{
-      position:fixed;top:0;left:0;right:0;height:var(--header-h);
+      position:fixed;inset:0 0 auto 0;height:var(--header-h);
       background:rgba(255,255,255,.98);
       border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);
@@ -36,19 +36,19 @@
     .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
       display:flex;align-items:center;justify-content:space-between}
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px}
-    .brand span{font-weight:600;color:var(--ink)}
+    .brand img{height:28px;vertical-align:middle}
+    .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
-    nav.nav-desktop a:hover,nav.nav-desktop a.active{color:var(--blue)}
+    nav.nav-desktop a:hover{color:var(--blue)}nav.nav-desktop a.active{color:var(--blue)}
     .cta{background:var(--blue);color:#fff!important;text-decoration:none;
       padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
-      transition:background .25s ease,transform .25s ease}
+      transition:background .25s ease,transform .25s ease;}
     .cta:hover{background:var(--accent);transform:scale(1.03)}
     .menu-toggle{display:none;flex-direction:column;justify-content:space-between;
       width:24px;height:18px;background:none;border:none;cursor:pointer}
-    .menu-toggle span{height:2px;width:24px;background:var(--ink);
-      border-radius:1px;display:block;transition:transform .25s,opacity .25s}
+    .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;
+      display:block;transition:transform .25s,opacity .25s}
     .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
     .menu-toggle.active span:nth-child(2){opacity:0}
     .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
@@ -58,22 +58,16 @@
     .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)}
     .nav-mobile a:hover{color:var(--blue)}.nav-mobile.open{display:flex}
 
-    section{scroll-snap-align:start;min-height:100vh;
-      display:flex;flex-direction:column;justify-content:center;
-      padding:calc(var(--header-h)+40px) 24px 60px}
+    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
-    h1{font-size:2.6rem;font-weight:800;margin-bottom:20px}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:880px}
+    section{background:var(--bg-light);border:1px solid var(--border);
+      border-radius:16px;padding:40px 48px;margin-bottom:60px}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    p{font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:18px}
-    a.more-link{color:var(--accent);font-weight:600;text-decoration:none}
-    a.more-link:hover{text-decoration:underline}
-
-    .list-block{display:grid;gap:14px;margin-top:14px}
     .item strong{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
     .item span{color:#1f1f1f;font-size:1.05rem}
-
-    footer{scroll-snap-align:start;margin-top:auto;padding:24px 0 32px;
-      text-align:center;color:#777;font-size:.9rem;
+    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
       border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
@@ -83,15 +77,15 @@
       header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
       .brand span,nav a,footer a{color:#f5f5f5}
       .menu-toggle span{background:#f5f5f5}
-      .nav-mobile{background:rgba(15,20,35,.95);
-        border-bottom-color:rgba(255,255,255,.08)}
       .cta{background:var(--blue)}
       .cta:hover{background:var(--accent)}
+      section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
       p,span{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
     }
-    @media(max-width:800px){
+
+    @media (max-width:800px){
       nav.nav-desktop{display:none}.menu-toggle{display:flex}
-      h1{font-size:2rem}section{padding:calc(var(--header-h)+24px) 24px 40px}
+      h1{font-size:2rem}section{padding:28px 24px}
     }
   </style>
 </head>
@@ -104,8 +98,8 @@
         <span>Caugia Studio</span>
       </a>
       <nav class="nav-desktop">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
         <a href="approach.html">Approach</a>
         <a href="work.html">Work Together</a>
         <a href="resources.html">Resources</a>
@@ -115,7 +109,7 @@
     </div>
     <nav class="nav-mobile">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="approach.html">Approach</a>
       <a href="work.html">Work Together</a>
       <a href="resources.html">Resources</a>
@@ -123,82 +117,47 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="wrap" style="text-align:center">
-      <img src="logo.png" alt="Caugia Studio full logo" style="width:340px;margin-bottom:36px">
-      <h1>Turn <span style="color:var(--accent)">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-      <p style="max-width:760px;margin:0 auto 28px">
-        Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth.
-        We transform fragmented operations into measurable performance by building systems that bring calm, clarity and momentum.
-      </p>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
+  <main>
     <div class="wrap">
-      <h2>About</h2>
-      <p>
-        Caugia Studio helps executives and GTM leaders bring order to commercial complexity.
-        We believe that sustainable growth is not about adding more tools or people, but about aligning what you already have.
-        When data, teams, and direction move in rhythm, performance becomes predictable.
-      </p>
-      <p><a href="about.html" class="more-link">Read more about Caugia Studio →</a></p>
-    </div>
-  </section>
+      <h1>About Caugia Studio</h1>
 
-  <!-- APPROACH -->
-  <section id="approach">
-    <div class="wrap">
-      <h2>Approach</h2>
-      <p>
-        Our method starts with clarity. We uncover where your GTM system loses flow, then redesign it so people, processes, and metrics work as one.
-        It’s not another framework but a way of seeing your organization as a connected engine.
-      </p>
-      <div class="list-block">
-        <div class="item"><strong>Diagnose</strong><span>We analyze your current GTM landscape and identify bottlenecks and blind spots.</span></div>
-        <div class="item"><strong>Design</strong><span>We create your GTM System Blueprint and map how data, teams, and technology align.</span></div>
-        <div class="item"><strong>Direction</strong><span>We provide a one-year Focus Plan to maintain alignment and drive measurable progress.</span></div>
-      </div>
-      <p><a href="approach.html" class="more-link">Read the full approach →</a></p>
-    </div>
-  </section>
+      <section>
+        <p>
+          Caugia Studio was founded with a simple conviction: most organizations do not suffer from a lack of ambition or technology, but from a lack of coherence.  
+          As companies grow, their go-to-market systems often fragment. Teams chase different metrics, data lives in silos, and leadership loses visibility into what truly drives performance.
+        </p>
+        <p>
+          Caugia was created to restore clarity and alignment.  
+          We design revenue systems that balance growth with efficiency — where every process, role, and tool supports one connected engine.  
+          The goal is not to do more, but to make every part of your commercial organization work together in harmony.
+        </p>
+      </section>
 
-  <!-- WORK TOGETHER -->
-  <section id="work">
-    <div class="wrap">
-      <h2>Work Together</h2>
-      <p>
-        Every engagement follows a clear rhythm that balances discovery, design, and direction.
-        We bring structure without rigidity, ensuring your team works in sync and your growth becomes a repeatable system.
-      </p>
-      <div class="list-block">
-        <div class="item"><strong>Discovery</strong><span>We understand your current GTM flow to clarify where performance breaks down.</span></div>
-        <div class="item"><strong>Design</strong><span>We model a GTM system that connects your data, people, and processes.</span></div>
-        <div class="item"><strong>Direction</strong><span>We define a Focus Plan that turns architecture into action and accountability.</span></div>
-      </div>
-      <p><a href="work.html" class="more-link">See how we work together →</a></p>
-    </div>
-  </section>
+      <section>
+        <h2>Founder</h2>
+        <p><strong>Tom Meijer</strong><br>Founder & Revenue Systems Architect</p>
+        <p>
+          Tom built and led global GTM organizations at companies such as Contentsquare and Greenly, helping teams evolve from reactive growth to structured, data-driven performance.  
+          After fifteen years of working across sales, operations, and revenue strategy, he saw a pattern repeat itself everywhere: brilliant people, strong technology, but no shared operating model.  
+          Growth felt reactive, not designed.
+        </p>
+        <p>
+          Caugia Studio was founded to change that pattern.  
+          Tom’s philosophy is simple — treat revenue generation as an engineered system, not an act of hope.  
+          Every company already has the ingredients for growth; they just need to be connected by design.
+        </p>
+      </section>
 
-  <!-- RESOURCES -->
-  <section id="resources">
-    <div class="wrap">
-      <h2>Resources</h2>
-      <p>
-        Explore frameworks, insights, and practical examples that help GTM and revenue leaders align their operations.
-        Our content is built for those who value clarity, structure, and measurable progress.
-      </p>
-      <div class="list-block">
-        <div class="item"><strong>Use Cases</strong><span>Real situations showing how predictable growth is achieved by aligning people, data, and tools.</span></div>
-        <div class="item"><strong>Whitepapers</strong><span>Deep dives into GTM strategy, AI integration, and scalable revenue systems.</span></div>
-        <div class="item"><strong>Articles</strong><span>Short, actionable insights for leaders who want to run growth as a designed system, not an accident.</span></div>
-      </div>
-      <p><a href="resources.html" class="more-link">Browse all resources →</a></p>
+      <section>
+        <h2>What We Believe</h2>
+        <div class="list-block">
+          <div class="item"><strong>Alignment Over Activity</strong><span>Busy teams don’t always create results. Alignment turns effort into measurable progress.</span></div>
+          <div class="item"><strong>Systems Over Slogans</strong><span>We believe in architecture, not hype. Sustainable growth comes from clear design, not reactive motion.</span></div>
+          <div class="item"><strong>Clarity Over Complexity</strong><span>When everyone sees how their work connects to the bigger system, decisions become simple and fast.</span></div>
+        </div>
+      </section>
     </div>
-  </section>
+  </main>
 
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
