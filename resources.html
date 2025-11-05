@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | Caugia Studio — Use Cases & Whitepapers for Revenue Leaders</title>
-  <meta name="description" content="Explore Caugia Studio resources: GTM use cases, whitepapers, and articles that help revenue leaders build predictable, scalable growth systems." />
+  <title>Resources | Caugia Studio — Frameworks, Use Cases, and Insights</title>
+  <meta name="description" content="Explore frameworks, whitepapers, and articles by Caugia Studio. Learn how to design predictable GTM systems that align people, processes, and performance." />
   <link rel="canonical" href="https://www.caugia.com/resources.html" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Caugia Studio Resources" />
-  <meta property="og:description" content="Explore our use cases, whitepapers, and articles — practical frameworks to align data, teams, and growth." />
+  <meta property="og:title" content="Resources | Caugia Studio" />
+  <meta property="og:description" content="Explore frameworks, whitepapers, and insights that help you build predictable revenue systems." />
   <meta property="og:image" content="https://www.caugia.com/logo.png" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.caugia.com/resources.html" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
 
   <style>
-    :root{--ink:#0b132b;--blue:#0b66ff;--blue-d:#094fc7;--accent:#ff7700;
+    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;
       --bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px;}
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -39,7 +36,7 @@
     .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
       display:flex;align-items:center;justify-content:space-between}
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px;vertical-align:middle}
+    .brand img{height:28px}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
@@ -50,8 +47,8 @@
     .cta:hover{background:var(--accent);transform:scale(1.03)}
     .menu-toggle{display:none;flex-direction:column;justify-content:space-between;
       width:24px;height:18px;background:none;border:none;cursor:pointer}
-    .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;
-      display:block;transition:transform .25s,opacity .25s}
+    .menu-toggle span{height:2px;width:24px;background:var(--ink);
+      border-radius:1px;display:block;transition:transform .25s,opacity .25s}
     .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
     .menu-toggle.active span:nth-child(2){opacity:0}
     .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
@@ -63,27 +60,29 @@
 
     main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 20px 0}
-    .intro{font-size:1.2rem;line-height:1.7;color:#1b1b1b;max-width:850px;margin:0 0 50px 0}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:880px}
     section{background:var(--bg-light);border:1px solid var(--border);
       border-radius:16px;padding:40px 48px;margin-bottom:60px}
-    h2{font-size:1.7rem;font-weight:700;margin:0 0 18px 0;color:var(--blue-d)}
-    h3{font-size:1.2rem;font-weight:600;margin-top:18px;margin-bottom:6px;color:var(--accent)}
-    p,li{font-size:1.05rem;line-height:1.7;color:#1f1f1f;margin-bottom:18px;max-width:880px}
-    ul{margin:10px 0 25px 20px;line-height:1.7}ul li{margin-bottom:6px}
+    h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
+    .item strong{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
+    .item span{color:#1f1f1f;font-size:1.05rem}
+    .list-block{display:grid;gap:14px;margin-top:20px}
+
     footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
       border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
+
     @media (prefers-color-scheme:dark){
       body{background:#0b132b;color:#f5f5f5}
       header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
       .brand span,nav a,footer a{color:#f5f5f5}
       .menu-toggle span{background:#f5f5f5}
-      .cta{background:var(--blue);color:#fff!important}
+      .cta{background:var(--blue)}
       .cta:hover{background:var(--accent)}
       section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
-      p,li{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
+      p,span{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
     }
     @media (max-width:800px){
       nav.nav-desktop{display:none}.menu-toggle{display:flex}
@@ -122,42 +121,40 @@
   <main>
     <div class="wrap">
       <h1>Resources</h1>
-      <p class="intro">Caugia Studio provides GTM leaders with frameworks and insights to build measurable growth — from real-world use cases to whitepapers and articles.</p>
+      <p>
+        Explore Caugia’s frameworks, case studies, and research papers designed to help GTM and revenue leaders bring clarity to growth.  
+        Each resource reflects our commitment to calm, measurable, and intelligent design in business systems.
+      </p>
 
       <section>
         <h2>Use Cases</h2>
-        <h3>“Our pipeline is unpredictable.”</h3>
-        <p>Revenue leaders often struggle to understand why pipeline fluctuates month to month. Caugia helps teams reconnect forecasting logic to measurable system inputs — aligning definitions, data hygiene, and accountability. Forecast accuracy typically improves by 25–40% once these fundamentals are rebuilt.</p>
-
-        <h3>“Our SDRs and AEs don’t collaborate.”</h3>
-        <p>We design cross-functional handoff frameworks that replace friction with flow — integrating intent data, SLAs, and feedback loops. The result: less lead leakage, faster cycle times, and shared ownership of pipeline creation.</p>
-
-        <h3>“We want to apply AI but don’t know where to start.”</h3>
-        <p>AI brings efficiency when embedded into system design, not bolted on. Caugia identifies where automation amplifies human performance — from enrichment to opportunity scoring — and ensures data and governance stay intact.</p>
-
-        <h3>“Our churn is too high.”</h3>
-        <p>Retention is a system problem. We help customer success teams align product usage data, feedback signals, and renewal motion to reduce blind spots and stabilize revenue.</p>
+        <div class="list-block">
+          <div class="item"><strong>Unpredictable Pipeline</strong><span>How Caugia systems strengthen forecasting accuracy by connecting marketing intent with sales reality.</span></div>
+          <div class="item"><strong>Disconnected Teams</strong><span>How structured handoffs between SDRs, AEs, and CS reduce friction and create a single flow of accountability.</span></div>
+          <div class="item"><strong>AI Integration</strong><span>How leadership can adopt AI in GTM without chaos — mapping automation to process and value creation.</span></div>
+          <div class="item"><strong>High Churn</strong><span>How system-based customer success models identify risk early and increase lifetime value.</span></div>
+        </div>
       </section>
 
       <section>
         <h2>Whitepapers</h2>
-        <ul>
-          <li><strong>The Five Pillars of a Scalable GTM Strategy:</strong> Move from reactive to repeatable growth.</li>
-          <li><strong>Building Predictable Revenue Systems:</strong> Why forecasting fails — and how unified architecture fixes it.</li>
-          <li><strong>Designing the Modern Revenue Engine:</strong> Map people, process, and platform for consistency.</li>
-          <li><strong>The AI-Augmented GTM Organization:</strong> Integrate AI into RevOps without adding noise.</li>
-          <li><strong>From Data to Direction:</strong> Turn insights into an operating rhythm that drives accountability.</li>
-        </ul>
+        <div class="list-block">
+          <div class="item"><strong>The Five Pillars of a Scalable GTM System</strong><span>A deep dive into the structural design that supports growth at every stage of company maturity.</span></div>
+          <div class="item"><strong>AI and Human Alignment</strong><span>How to integrate artificial intelligence into GTM processes without losing human judgment or trust.</span></div>
+          <div class="item"><strong>Predictability Architecture</strong><span>Building data-driven foundations that make performance measurable and repeatable.</span></div>
+          <div class="item"><strong>Revenue System Maturity Model</strong><span>A practical framework for assessing the health of your GTM system and identifying key next steps.</span></div>
+          <div class="item"><strong>The Future of RevOps</strong><span>Where strategy, structure, and technology meet — and how to prepare your organization for what’s next.</span></div>
+        </div>
       </section>
 
       <section>
-        <h2>Blogs & Articles</h2>
-        <ul>
-          <li><strong>How to Build a Predictable Revenue Engine:</strong> Practical steps for leadership alignment.</li>
-          <li><strong>The Five Signals of Systemic GTM Drift:</strong> Early warning signs your system needs redesign.</li>
-          <li><strong>Why Forecasting Is a Design Problem, Not a Sales Problem:</strong> Understanding systemic bias in GTM measurement.</li>
-          <li><strong>From Chaos to Coherence:</strong> What healthy RevOps architecture looks like in practice.</li>
-        </ul>
+        <h2>Blog & Articles</h2>
+        <div class="list-block">
+          <div class="item"><strong>How to Build a Predictable Revenue Engine</strong><span>Why predictability starts with system clarity, not quota pressure.</span></div>
+          <div class="item"><strong>The Cost of Misalignment</strong><span>Understanding the hidden friction between Marketing, Sales, and Success — and how to remove it.</span></div>
+          <div class="item"><strong>Designing the Modern GTM Stack</strong><span>How tool consolidation and intentional process flow reduce waste and accelerate decisions.</span></div>
+          <div class="item"><strong>Leadership in the Age of AI</strong><span>Why great leaders design systems that think — and let their people focus on what matters most.</span></div>
+        </div>
       </section>
     </div>
   </main>
