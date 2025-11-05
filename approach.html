@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Approach | Caugia Studio — From Insight to System</title>
-  <meta name="description" content="How Caugia Studio turns GTM complexity into clarity. A calm, structured approach that aligns people, process, and performance into one predictable system." />
+  <meta name="description" content="Caugia Studio turns complexity into clarity with a calm and structured approach. From the Caugia Lens to a steady operating rhythm, we build systems that teams can trust." />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
   <style>
-    :root {
+    :root{
       --ink:#0b132b;
       --blue:#0b66ff;
       --accent:#ff7700;
@@ -18,38 +18,31 @@
       --maxw:1180px;
       --header-h:64px;
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
+
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);
       background:#fff;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-      text-align:left;
-      opacity:0;
-      transition:opacity .6s ease;
+      display:flex;flex-direction:column;
+      min-height:100vh;text-align:left;
+      opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
     header{
-      position:fixed;
-      inset:0 0 auto 0;
-      height:var(--header-h);
+      position:fixed;inset:0 0 auto 0;height:var(--header-h);
       background:rgba(255,255,255,.98);
       border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);
       z-index:10;
     }
     .container{
-      max-width:var(--maxw);
-      height:100%;
-      margin:0 auto;
-      padding:0 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      max-width:var(--maxw);height:100%;
+      margin:0 auto;padding:0 24px;
+      display:flex;align-items:center;justify-content:space-between;
     }
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:28px}
@@ -59,78 +52,52 @@
     nav.nav-desktop a:hover{color:var(--blue)}
     nav.nav-desktop a.active{color:var(--blue)}
     .cta{
-      background:var(--blue);
-      color:#fff!important;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue);color:#fff!important;text-decoration:none;
+      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
       transition:background .25s ease,transform .25s ease;
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
     main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
+
     h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
 
-    /* Sectie lay-out: links tekst, rechts animatie */
+    /* Consistente typografie */
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
+    .list{display:grid;gap:14px;margin-top:8px}
+    .item strong{display:block;color:var(--blue);font-weight:700;margin:0 0 6px 0}
+    .item span{font-size:1.05rem;line-height:1.7;color:#1f1f1f}
+
+    /* Sectielay-out: tekst links, animatie rechts */
     section.block{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:40px;
-      margin-bottom:80px;
+      display:flex;justify-content:space-between;align-items:flex-start;
+      gap:40px;margin-bottom:80px;
     }
     .text{flex:0 0 65%}
     .anim{
       flex:0 0 35%;
-      position:relative;
-      height:200px;
+      position:relative;height:200px;border-radius:12px;overflow:hidden;
       background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
-      border-radius:12px;
-      overflow:hidden;
     }
     .shape{
-      position:absolute;
-      width:80px;
-      height:80px;
+      position:absolute;width:80px;height:80px;border-radius:50%;
       border:2px solid rgba(11,102,255,0.15);
-      border-radius:50%;
       animation:pulse 6s infinite ease-in-out;
     }
-    .shape:nth-child(2){width:100px;height:100px;left:40px;top:60px;animation-delay:2s}
-    .shape:nth-child(3){width:60px;height:60px;left:120px;top:20px;animation-delay:4s}
+    .shape:nth-child(1){left:18px;top:18px}
+    .shape:nth-child(2){width:100px;height:100px;left:48px;top:72px;animation-delay:2s}
+    .shape:nth-child(3){width:60px;height:60px;left:128px;top:26px;animation-delay:4s}
 
     @keyframes pulse{
       0%,100%{transform:scale(1);opacity:.3}
       50%{transform:scale(1.3);opacity:.6}
     }
 
-    /* Item-stijl voor korte, nette opsommingen zonder bullets of streepjes */
-    .list{
-      display:grid;
-      gap:14px;
-      margin-top:8px;
-    }
-    .item strong{
-      display:block;
-      color:var(--blue);
-      font-weight:700;
-      margin-bottom:4px;
-    }
-    .item span{
-      color:#1f1f1f;
-      font-size:1.05rem;
-    }
-
     footer{
-      margin-top:auto;
-      padding:24px 0 32px 0;
-      font-size:.9rem;
-      color:#777;
-      text-align:center;
+      margin-top:auto;padding:24px 0 32px 0;
+      font-size:.9rem;color:#777;text-align:center;
       border-top:1px solid rgba(0,0,0,.06);
     }
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
@@ -165,89 +132,89 @@
     <div class="wrap">
       <h1>Our Approach</h1>
 
-      <!-- 1. Context: van inzicht naar ontwerp -->
+      <!-- 1. Storytelling: van verwarring naar systeem -->
       <section class="block">
         <div class="text">
-          <p>Teams want growth that is steady and measurable. What they often have is a stack of tools, parallel processes, and metrics that do not speak the same language. Our approach brings these elements back into one clear system. We start with understanding, then we design a way of working that turns effort into momentum.</p>
-          <p>Each step has a purpose. We listen to what the business is trying to achieve. We map where information moves and where it stops. We show the path from scattered initiatives to a system that leaders can trust. This is not about adding more, it is about making what matters visible and removing what does not.</p>
+          <p>Most organizations want the same thing. They want steady growth that leaders can trust and teams can sustain. What they face is a maze of tools, parallel processes, and metrics that do not speak the same language. Effort is everywhere, progress feels uneven. The first step is not action. The first step is clarity.</p>
+          <p>Our work begins with a calm review of reality. We listen to the goals of the business. We map how information moves and where it slows. We reveal where handoffs break and where accountability fades. From that picture the rest follows in a natural line. The Caugia Lens explains what you should look at. Our Rhythm explains how you move from picture to practice. Our Changes explains what becomes different once the system is in place.</p>
         </div>
         <div class="anim" aria-hidden="true">
           <div class="shape"></div><div class="shape"></div><div class="shape"></div>
         </div>
       </section>
 
-      <!-- 2. The Caugia Lens: People, Process, Performance -->
+      <!-- 2. The Caugia Lens -->
       <section class="block">
         <div class="text">
           <h2>The Caugia Lens</h2>
-          <p>We look at organizations through three connected dimensions. People carry intent and accountability. Process shapes how work moves from start to value. Performance makes progress observable and repeatable. When these three come together, growth stops feeling accidental and starts feeling designed.</p>
+          <p>We see every organization through three connected dimensions. People bring intent and accountability. Process turns intent into flow. Performance makes that flow visible and repeatable. When these dimensions align, growth becomes designed rather than accidental.</p>
           <div class="list">
             <div class="item">
               <strong>People</strong>
-              <span>Roles are clarified and trust returns. Sales understands Marketing. Marketing understands Customer Success. Teams share context and move in the same rhythm.</span>
+              <span>Roles are clear and context is shared. Sales understands how Marketing creates demand. Marketing understands how Customer Success protects value. Trust returns because work is visible.</span>
             </div>
             <div class="item">
               <strong>Process</strong>
-              <span>Work flows from lead to renewal without unnecessary friction. We remove duplicate steps, close handoff gaps, and make room for thoughtful automation.</span>
+              <span>Work moves from lead to renewal without unnecessary friction. Duplicate steps are removed. Handoffs are precise. Automation supports decisions instead of replacing judgment.</span>
             </div>
             <div class="item">
               <strong>Performance</strong>
-              <span>Metrics align with meaning. Dashboards stop creating noise and start telling a story that leaders can act on with confidence.</span>
+              <span>Metrics carry meaning. Dashboards tell one story across teams. Leaders can act with confidence because signals are clean and progress is measurable.</span>
             </div>
           </div>
-          <p>This lens frames everything that follows. It is how we translate ambition into structure and structure into results.</p>
+          <p>This lens is the frame for everything we design. It keeps attention on what creates value and it prevents new complexity from creeping in.</p>
         </div>
         <div class="anim" aria-hidden="true">
           <div class="shape"></div><div class="shape"></div><div class="shape"></div>
         </div>
       </section>
 
-      <!-- 3. Our Rhythm: Diagnose, Design, Direction -->
+      <!-- 3. Our Rhythm -->
       <section class="block">
         <div class="text">
           <h2>Our Rhythm</h2>
-          <p>We use a rhythm that is simple and calm. It reduces guesswork and keeps teams aligned while we move from a clear picture to a working system. Each phase builds on the previous one so progress feels natural rather than forced.</p>
+          <p>Progress comes from a steady rhythm. We use three phases that build on one another. Each phase reduces guesswork and gives teams the space to adapt. The goal is a system that your people can run with calm and focus.</p>
           <div class="list">
             <div class="item">
               <strong>Diagnose</strong>
-              <span>We capture a precise view of your current GTM system. We map the architecture, the data paths, and the places where momentum is lost.</span>
+              <span>We capture a precise view of your current GTM system. We map the architecture, the data paths, and the points where momentum is lost. You get a single source of truth for what is happening now.</span>
             </div>
             <div class="item">
               <strong>Design</strong>
-              <span>We create your GTM System Blueprint. It shows how teams, tools, and processes connect and how they will support one another in daily work.</span>
+              <span>We create your GTM System Blueprint. It shows how people, tools, and processes connect. It translates strategy into an operating model that teams can follow in daily work.</span>
             </div>
             <div class="item">
               <strong>Direction</strong>
-              <span>We translate the blueprint into a one year Focus Plan. It is practical and measurable. It gives leaders a way to make consistent progress without stress.</span>
+              <span>We turn the blueprint into a one year Focus Plan. Reviews and rituals keep progress visible. Leaders see what matters. Teams move in the same rhythm without stress.</span>
             </div>
           </div>
-          <p>The rhythm is steady by intent. It gives people time to adapt, and it gives leaders the visibility they need to make good decisions.</p>
+          <p>This rhythm is simple by design. It replaces pressure with clarity and turns effort into momentum.</p>
         </div>
         <div class="anim" aria-hidden="true">
           <div class="shape"></div><div class="shape"></div><div class="shape"></div>
         </div>
       </section>
 
-      <!-- 4. Outcomes: wat verandert er concreet -->
+      <!-- 4. Our Changes -->
       <section class="block">
         <div class="text">
-          <h2>What Changes</h2>
-          <p>The outcome is a system that works with your reality. You get a blueprint that fits your stage and your goals. You get alignment on who does what and how success is measured. Most important, your teams can focus again because the system carries the weight.</p>
+          <h2>Our Changes</h2>
+          <p>The outcome is a system that fits your stage and your goals. It reduces noise and raises confidence. It makes work predictable because everyone moves within one clear design.</p>
           <div class="list">
             <div class="item">
               <strong>Visibility</strong>
-              <span>Leaders see the whole system and the few actions that matter now. Decisions become easier and faster.</span>
+              <span>Leaders see the full system and the few actions that matter now. Decisions become faster and less political because facts are shared.</span>
             </div>
             <div class="item">
               <strong>Consistency</strong>
-              <span>Teams follow the same rhythm. Handoffs are clear. Work stops falling through the cracks.</span>
+              <span>Teams follow the same path from intent to value. Handoffs are reliable. Work no longer falls through the gaps between roles and tools.</span>
             </div>
             <div class="item">
               <strong>Predictability</strong>
-              <span>Pipeline and productivity stop swinging. Results become steady because the system is coherent.</span>
+              <span>Pipeline and productivity stop swinging. Outcomes become steady because the operating model is coherent and the signals are clean.</span>
             </div>
           </div>
-          <p>This is why we design first. Once the system is clear, technology and AI start to amplify value instead of noise.</p>
+          <p>This is why we design first. Once the system is clear, technology and AI amplify value instead of adding noise.</p>
         </div>
         <div class="anim" aria-hidden="true">
           <div class="shape"></div><div class="shape"></div><div class="shape"></div>
