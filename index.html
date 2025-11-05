@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio</title>
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
-  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
   <style>
-    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;--border:#e5e5e5;--maxw:1180px;--header-h:64px}
+    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;--border:#e5e5e5;
+      --maxw:1180px;--header-h:64px}
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;scroll-snap-type:y mandatory;overflow-y:scroll}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;
-      overflow-y:auto;text-align:left;opacity:0;transition:opacity .6s ease;
+      color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh;
+      opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
     header{
-      position:fixed;inset:0 0 auto 0;height:var(--header-h);
-      background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      backdrop-filter:saturate(140%) blur(6px);
-      z-index:10;
+      position:fixed;top:0;left:0;right:0;height:var(--header-h);
+      background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);
+      backdrop-filter:saturate(140%) blur(6px);z-index:10;
     }
-    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
+      display:flex;align-items:center;justify-content:space-between}
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px;vertical-align:middle}
-    .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
+    .brand img{height:28px}
+    .brand span{font-weight:600;color:var(--ink)}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s ease}
-    nav.nav-desktop a:hover{color:var(--blue)}nav.nav-desktop a.active{color:var(--blue)}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
+    nav.nav-desktop a:hover,nav.nav-desktop a.active{color:var(--blue)}
     .cta{background:var(--blue);color:#fff!important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
     .cta:hover{background:var(--accent);transform:scale(1.03)}
     .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer}
@@ -41,59 +39,105 @@
     .nav-mobile{display:none;flex-direction:column;align-items:flex-start;padding:16px 24px 32px;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06)}
     .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)}
     .nav-mobile a:hover{color:var(--blue)}.nav-mobile.open{display:flex}
-    main{flex:1;padding:calc(var(--header-h)+56px) 24px 80px}
-    .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:60px 0 80px}
-    .hero img.logo{width:340px;height:auto;margin-bottom:36px}
-    h1{font-size:2.6rem;line-height:1.22;font-weight:800;margin:0 0 12px 0}
-    .accent{color:var(--accent)}
-    p.lead{max-width:760px;font-size:1.12rem;line-height:1.6;color:#1b1b1b;margin:0 auto 28px}
-    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
-    footer a{color:var(--ink);text-decoration:none;font-weight:500}footer a:hover{text-decoration:underline}
+
+    section{scroll-snap-align:start;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h)+40px) 24px 60px}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+    h1{font-size:2.6rem;font-weight:800;margin-bottom:20px}
+    h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
+    p{font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:18px}
+    footer{scroll-snap-align:start;margin-top:auto;padding:24px 0 32px;text-align:center;color:#777;font-size:.9rem;border-top:1px solid rgba(0,0,0,.06)}
+    footer a{color:var(--ink);text-decoration:none;font-weight:500}
+    footer a:hover{text-decoration:underline}
+
     @media (prefers-color-scheme:dark){
       body{background:#0b132b;color:#f5f5f5}
       header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
       .brand span,nav a,footer a{color:#f5f5f5}
       .menu-toggle span{background:#f5f5f5}
-      .cta{background:var(--blue);color:#fff!important}.cta:hover{background:var(--accent);color:#fff!important}
+      .nav-mobile{background:rgba(15,20,35,.95);border-bottom-color:rgba(255,255,255,.08)}
+      .cta{background:var(--accent)}.cta:hover{background:#e56b00;color:#fff}
+      p{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
     }
-    @media (max-width:800px){
+    @media(max-width:800px){
       nav.nav-desktop{display:none}.menu-toggle{display:flex}
-      h1{font-size:2rem}
+      h1{font-size:2rem}section{padding:calc(var(--header-h)+24px) 24px 40px}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="index.html" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <a href="#hero" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
-        <a href="about.html">About</a>
-        <a href="approach.html">Approach</a>
-        <a href="work.html">Work</a>
-        <a href="use-cases.html">Use Cases</a>
-        <a href="resources.html">Resources</a>
+        <a href="#hero" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#resources">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
       <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
     <nav class="nav-mobile">
-      <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
-      <a href="work.html">Work</a>
-      <a href="use-cases.html">Use Cases</a>
-      <a href="resources.html">Resources</a>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#approach">Approach</a>
+      <a href="#work">Work</a>
+      <a href="#resources">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <img src="logo.png" alt="Caugia Logo" class="logo">
-      <h1>Turn <span class="accent">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance.</p>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="wrap" style="text-align:center">
+      <img src="logo.png" alt="Caugia logo" style="width:340px;margin-bottom:36px">
+      <h1>Turn <span style="color:var(--accent)">GTM Chaos</span> Into Predictable Revenue Engines</h1>
+      <p style="max-width:760px;margin:0 auto 28px">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance.</p>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <h2>About Caugia Studio</h2>
+      <p>Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue engines. We design integrated systems that align data, teams, and growth so that performance becomes measurable and repeatable.</p>
+      <p>The idea behind Caugia is simple: most organizations do not lack ambition or technology, they lack coherence. As they grow, their go-to-market systems become fragmented. Teams chase different metrics, data lives in silos, and leadership loses visibility into what truly drives performance.</p>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="wrap">
+      <h2>Approach</h2>
+      <p>Our approach is not a formula; it is a way of seeing. Every organization already has the ingredients for growth — people, processes, and performance — they’re just not yet playing the same melody.</p>
+      <p>We look at every organization through three connected dimensions: <strong>People, Process, and Performance.</strong> When these align, chaos gives way to coherence, and growth starts to compound.</p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <h2>Work</h2>
+      <p>Every engagement follows a simple arc — discovery, design, and direction. Each phase delivers clarity, structure, and measurable progress toward one goal: a GTM system that runs predictably.</p>
+      <ul>
+        <li><strong>Discovery:</strong> Mapping your current GTM landscape to identify friction points.</li>
+        <li><strong>Design:</strong> Creating your GTM System Blueprint — a model aligning teams, tools, and data.</li>
+        <li><strong>Direction:</strong> Translating design into a one-year Focus Plan for scalable execution.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="wrap">
+      <h2>Resources</h2>
+      <p>Explore our use cases and whitepapers — practical frameworks to align data, teams, and growth.</p>
+      <p><strong>Use Case:</strong> “Our pipeline is unpredictable.” Forecast accuracy improves by 25–40% once opportunity definitions are unified and data flows seamlessly across teams.</p>
+      <p><strong>Whitepaper:</strong> <em>The Five Pillars of a Scalable GTM Strategy</em> — how to move from reactive growth to a repeatable, data-driven system.</p>
+    </div>
+  </section>
 
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
@@ -102,14 +146,16 @@
   <script>
     window.addEventListener('load',()=>{
       document.body.classList.add('loaded');
-      const current=window.location.pathname.split('/').pop();
-      document.querySelectorAll('nav.nav-desktop a, nav.nav-mobile a').forEach(a=>{
-        if(a.getAttribute('href')===current){a.classList.add('active');}
-      });
     });
     const toggle=document.querySelector('.menu-toggle');
     const navMobile=document.querySelector('.nav-mobile');
     toggle.addEventListener('click',()=>{toggle.classList.toggle('active');navMobile.classList.toggle('open');});
+    document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
   </script>
 </body>
 </html>
