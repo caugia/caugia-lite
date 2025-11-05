@@ -7,7 +7,6 @@
   <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth, bringing calm to complexity and clarity to performance." />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
-
   <style>
     :root{
       --ink:#0b132b;
@@ -17,9 +16,7 @@
       --header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-
-    /* VERPLICHT instant scroll (geen smooth) */
-    :root, html, body{scroll-behavior:auto !important}
+    :root,html,body{scroll-behavior:auto !important}
 
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -29,7 +26,6 @@
     }
     body.loaded{opacity:1}
 
-    /* Header */
     header{
       position:fixed;inset:0 0 auto 0;height:var(--header-h);
       background:rgba(255,255,255,.98);
@@ -55,21 +51,20 @@
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
-    /* SCROLL SNAP */
     main{
       flex:1;
-      scroll-snap-type:y mandatory;     /* hier zit de hop */
-      scroll-padding-top:var(--header-h);/* rekening houden met fixed header */
+      scroll-snap-type:y proximity;   /* licht snap-gedrag */
+      scroll-padding-top:var(--header-h);
+      padding-top:var(--header-h);
     }
-    section.snap{scroll-snap-align:start}
 
-    /* Hero: schermvullend, niets erdoorheen */
+    /* HERO */
     .hero{
       position:relative;
-      padding:0 24px;
       min-height:calc(100vh - var(--header-h));
       display:flex;flex-direction:column;align-items:center;justify-content:center;
       text-align:center;overflow:hidden;
+      scroll-snap-align:start;
     }
     .hero img.logo{width:340px;height:auto;margin:0 0 24px 0}
     h1{font-size:2.6rem;line-height:1.22;font-weight:800;margin:0 0 12px 0}
@@ -79,8 +74,7 @@
       background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));
       filter:blur(60px);opacity:.3;
       animation:orbfloat 14s infinite ease-in-out alternate;
-      top:35%;left:50%;transform:translate(-50%,-35%);
-      pointer-events:none;
+      top:35%;left:50%;transform:translate(-50%,-35%);pointer-events:none;
     }
     @keyframes orbfloat{
       0%{transform:translate(-50%,-35%) scale(1)}
@@ -88,20 +82,22 @@
       100%{transform:translate(-50%,-35%) scale(1)}
     }
 
-    /* Blokken onder de fold */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:64px 24px 80px}
+    /* SAMENVATTINGEN */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px}
     section.block{
       display:flex;justify-content:space-between;align-items:flex-start;
-      gap:40px;margin-bottom:80px;
-      min-height:calc(100vh - var(--header-h)); /* elk blok een “pagina” */
-      padding-top:24px;
+      gap:40px;margin-bottom:48px;       /* compacter ritme */
+      scroll-snap-align:start;           /* begin van elk blok */
+      scroll-snap-stop:always;
+      padding-top:8px;
     }
     .text{flex:0 0 65%}
-    h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:720px}
+    h2{font-size:1.6rem;font-weight:700;margin:0 0 14px 0;color:var(--blue)}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px 0;max-width:720px}
 
-    .anim{flex:0 0 35%;display:flex;align-items:center;justify-content:center;height:220px}
-    svg.c-motion{width:180px;height:180px;overflow:visible;opacity:.15}
+    .anim{flex:0 0 35%;display:flex;align-items:center;justify-content:center;height:180px}
+    /* zachte C-motion (identiek gevoel als resources) */
+    svg.c-motion{width:160px;height:160px;overflow:visible;opacity:.15}
     .c-path{
       fill:none;stroke-width:8;stroke-linecap:round;stroke-dasharray:260 100;
       animation:rotateC 22s linear infinite;transform-origin:center;
@@ -111,7 +107,7 @@
     .c-path:nth-child(3){stroke:rgba(102,163,255,0.12);animation-duration:18s}
     @keyframes rotateC{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 
-    .readmore{display:inline-block;margin-top:10px;font-weight:600;color:var(--blue);text-decoration:none}
+    .readmore{display:inline-block;margin-top:8px;font-weight:600;color:var(--blue);text-decoration:none}
     .readmore:hover{color:var(--accent)}
 
     footer{
@@ -123,9 +119,7 @@
 
     @media (max-width:900px){
       section.block{flex-direction:column}
-      .anim{width:100%;height:160px;margin-top:12px}
-      section.block{min-height:auto} /* op mobiel niet forceren */
-      main{scroll-snap-type:none}     /* mobiel: normale scroll */
+      .anim{width:100%;height:140px;margin-top:6px}
     }
   </style>
 </head>
@@ -138,6 +132,7 @@
         <span>Caugia Studio</span>
       </a>
       <nav class="nav-desktop">
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="approach.html">Approach</a>
         <a href="work.html">Work Together</a>
@@ -148,8 +143,8 @@
   </header>
 
   <main>
-    <!-- HERO: schermvullend en clean -->
-    <section class="hero snap" id="top">
+    <!-- HERO -->
+    <section class="hero" id="top">
       <div class="orb"></div>
       <img src="logo.png" alt="Caugia Logo" class="logo">
       <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
@@ -157,9 +152,9 @@
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
     </section>
 
-    <!-- Alles hieronder staat onder de fold en snapt per sectie -->
     <div class="wrap">
-      <section class="block snap" id="about">
+
+      <section class="block" id="about">
         <div class="text">
           <h2>About</h2>
           <p>After fifteen years building and leading global GTM teams, we saw the same pattern return. Brilliant people in silos, disconnected metrics, and tools that defined the work instead of serving it. Caugia Studio reconnects what growth pulled apart. We design systems that balance technology, structure, and judgment. The result is direction that lasts.</p>
@@ -174,7 +169,7 @@
         </div>
       </section>
 
-      <section class="block snap" id="approach">
+      <section class="block" id="approach">
         <div class="text">
           <h2>Approach</h2>
           <p>We begin by quieting the noise. Where does data stop? Which handoff fails? Once the system becomes visible, we redesign it for clarity. The Caugia Lens aligns people, process, and performance. It turns motion into progress and progress into predictability.</p>
@@ -189,7 +184,7 @@
         </div>
       </section>
 
-      <section class="block snap" id="work">
+      <section class="block" id="work">
         <div class="text">
           <h2>Work Together</h2>
           <p>Working with Caugia means designing flow. We co-build systems your team can own. Diagnose reveals truth, Design shapes the blueprint, Direction turns it into action. The outcome is not more effort, it is better movement. Teams operate with calm precision and leaders act with confidence.</p>
@@ -204,7 +199,7 @@
         </div>
       </section>
 
-      <section class="block snap" id="resources">
+      <section class="block" id="resources">
         <div class="text">
           <h2>Resources</h2>
           <p>Our resources are written for builders. They show how clarity reshapes modern revenue systems. Use cases, whitepapers, and essays explain how structure reduces noise and how AI supports judgment. Each piece comes from real work in real organizations.</p>
@@ -218,6 +213,7 @@
           </svg>
         </div>
       </section>
+
     </div>
   </main>
 
@@ -226,21 +222,34 @@
   </footer>
 
   <script>
-    /* Fade-in na load */
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
 
-    /* Kill eventuele JS-smoothscroll van libraries: forceer instant anchor jumps */
-    document.addEventListener('click', (e)=>{
-      const a = e.target.closest('a[href^="#"]');
-      if(!a) return;
-      const id = a.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if(!el) return;
-      e.preventDefault();
-      const y = el.getBoundingClientRect().top + window.pageYOffset - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
-      window.scrollTo({ top: y, behavior: 'auto' });
-      history.pushState(null, '', '#'+id);
-    }, {capture:true});
+    // Licht “hop” gedrag: spring na scroll naar dichtstbijzijnde sectie
+    (function(){
+      const sections = [...document.querySelectorAll('section.hero, .wrap > section.block')];
+      let ticking = false, lastY = window.pageYOffset;
+
+      function snapToClosest(){
+        const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+        const y = window.pageYOffset;
+        let best = null, bestDelta = Infinity;
+
+        sections.forEach(sec=>{
+          const top = sec.getBoundingClientRect().top + y - headerH;
+          const delta = Math.abs(top - y);
+          if(delta < bestDelta){ bestDelta = delta; best = top; }
+        });
+        window.scrollTo({ top: best, behavior: 'auto' });
+      }
+
+      window.addEventListener('wheel', ()=>{
+        lastY = window.pageYOffset;
+        if(!ticking){
+          ticking = true;
+          setTimeout(()=>{ ticking = false; snapToClosest(); }, 120);
+        }
+      }, { passive:true });
+    })();
   </script>
 </body>
 </html>
