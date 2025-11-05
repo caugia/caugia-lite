@@ -6,33 +6,32 @@
   <title>Caugia Studio | Turn GTM Chaos Into Predictable Revenue Engines</title>
   <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance." />
   <link rel="canonical" href="https://www.caugia.com/" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Caugia Studio | GTM System Design for Predictable Revenue" />
   <meta property="og:description" content="Caugia Studio builds revenue systems that turn go-to-market chaos into clarity. Discover how we align data, teams, and growth for measurable performance." />
   <meta property="og:image" content="https://www.caugia.com/logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.caugia.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
 
   <style>
-    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;--border:#e5e5e5;
-      --maxw:1180px;--header-h:64px}
+    :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;
+      --border:#e5e5e5;--maxw:1180px;--header-h:64px}
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh;
-      opacity:0;transition:opacity .6s ease;
+      color:var(--ink);background:#fff;display:flex;flex-direction:column;
+      min-height:100vh;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
     header{
       position:fixed;top:0;left:0;right:0;height:var(--header-h);
-      background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);
-      backdrop-filter:saturate(140%) blur(6px);z-index:10;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      backdrop-filter:saturate(140%) blur(6px);
+      z-index:10;
     }
     .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
       display:flex;align-items:center;justify-content:space-between}
@@ -42,25 +41,40 @@
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
     nav.nav-desktop a:hover,nav.nav-desktop a.active{color:var(--blue)}
-    .cta{background:var(--blue);color:#fff!important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
+    .cta{background:var(--blue);color:#fff!important;text-decoration:none;
+      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
+      transition:background .25s ease,transform .25s ease}
     .cta:hover{background:var(--accent);transform:scale(1.03)}
-    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer}
-    .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;display:block;transition:transform .25s,opacity .25s}
+    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;
+      width:24px;height:18px;background:none;border:none;cursor:pointer}
+    .menu-toggle span{height:2px;width:24px;background:var(--ink);
+      border-radius:1px;display:block;transition:transform .25s,opacity .25s}
     .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
     .menu-toggle.active span:nth-child(2){opacity:0}
     .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-    .nav-mobile{display:none;flex-direction:column;align-items:flex-start;padding:16px 24px 32px;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav-mobile{display:none;flex-direction:column;align-items:flex-start;
+      padding:16px 24px 32px;background:rgba(255,255,255,.98);
+      border-bottom:1px solid rgba(0,0,0,.06)}
     .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)}
     .nav-mobile a:hover{color:var(--blue)}.nav-mobile.open{display:flex}
 
-    section{scroll-snap-align:start;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h)+40px) 24px 60px}
+    section{scroll-snap-align:start;min-height:100vh;
+      display:flex;flex-direction:column;justify-content:center;
+      padding:calc(var(--header-h)+40px) 24px 60px}
     .wrap{max-width:var(--maxw);margin:0 auto}
     h1{font-size:2.6rem;font-weight:800;margin-bottom:20px}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
     p{font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:18px}
     a.more-link{color:var(--accent);font-weight:600;text-decoration:none}
     a.more-link:hover{text-decoration:underline}
-    footer{scroll-snap-align:start;margin-top:auto;padding:24px 0 32px;text-align:center;color:#777;font-size:.9rem;border-top:1px solid rgba(0,0,0,.06)}
+
+    .list-block{display:grid;gap:14px;margin-top:14px}
+    .item strong{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
+    .item span{color:#1f1f1f;font-size:1.05rem}
+
+    footer{scroll-snap-align:start;margin-top:auto;padding:24px 0 32px;
+      text-align:center;color:#777;font-size:.9rem;
+      border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
 
@@ -69,9 +83,11 @@
       header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
       .brand span,nav a,footer a{color:#f5f5f5}
       .menu-toggle span{background:#f5f5f5}
-      .nav-mobile{background:rgba(15,20,35,.95);border-bottom-color:rgba(255,255,255,.08)}
-      .cta{background:var(--accent)}.cta:hover{background:#e56b00;color:#fff}
-      p{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
+      .nav-mobile{background:rgba(15,20,35,.95);
+        border-bottom-color:rgba(255,255,255,.08)}
+      .cta{background:var(--blue)}
+      .cta:hover{background:var(--accent)}
+      p,span{color:#e9e9e9}footer{border-top-color:rgba(255,255,255,.08)}
     }
     @media(max-width:800px){
       nav.nav-desktop{display:none}.menu-toggle{display:flex}
@@ -79,11 +95,12 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
-      <a href="index.html" class="brand" aria-label="Go to Caugia Studio homepage">
-        <img src="C-logo.png" alt="Caugia Studio C logo" loading="lazy">
+      <a href="index.html" class="brand">
+        <img src="C-logo.png" alt="Caugia Studio logo">
         <span>Caugia Studio</span>
       </a>
       <nav class="nav-desktop">
@@ -109,9 +126,12 @@
   <!-- HERO -->
   <section id="hero">
     <div class="wrap" style="text-align:center">
-      <img src="logo.png" alt="Caugia Studio full logo" style="width:340px;margin-bottom:36px" loading="lazy">
+      <img src="logo.png" alt="Caugia Studio full logo" style="width:340px;margin-bottom:36px">
       <h1>Turn <span style="color:var(--accent)">GTM Chaos</span> Into Predictable Revenue Engines</h1>
-      <p style="max-width:760px;margin:0 auto 28px">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming fragmented operations into measurable performance.</p>
+      <p style="max-width:760px;margin:0 auto 28px">
+        Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth.
+        We transform fragmented operations into measurable performance by building systems that bring calm, clarity and momentum.
+      </p>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
     </div>
   </section>
@@ -119,9 +139,13 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
-      <h2>About Caugia Studio</h2>
-      <p>Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue engines. We design integrated systems that align data, teams, and growth so that performance becomes measurable and repeatable.</p>
-      <p><a href="about.html" class="more-link" aria-label="Read more about Caugia Studio">Read more about Caugia Studio →</a></p>
+      <h2>About</h2>
+      <p>
+        Caugia Studio helps executives and GTM leaders bring order to commercial complexity.
+        We believe that sustainable growth is not about adding more tools or people, but about aligning what you already have.
+        When data, teams, and direction move in rhythm, performance becomes predictable.
+      </p>
+      <p><a href="about.html" class="more-link">Read more about Caugia Studio →</a></p>
     </div>
   </section>
 
@@ -129,8 +153,16 @@
   <section id="approach">
     <div class="wrap">
       <h2>Approach</h2>
-      <p>Our approach is not a formula; it is a way of seeing. Every organization already has the ingredients for growth — people, processes, and performance — they’re just not yet playing the same melody.</p>
-      <p><a href="approach.html" class="more-link" aria-label="Read more about the Caugia Studio Approach">Read the full approach →</a></p>
+      <p>
+        Our method starts with clarity. We uncover where your GTM system loses flow, then redesign it so people, processes, and metrics work as one.
+        It’s not another framework but a way of seeing your organization as a connected engine.
+      </p>
+      <div class="list-block">
+        <div class="item"><strong>Diagnose</strong><span>We analyze your current GTM landscape and identify bottlenecks and blind spots.</span></div>
+        <div class="item"><strong>Design</strong><span>We create your GTM System Blueprint and map how data, teams, and technology align.</span></div>
+        <div class="item"><strong>Direction</strong><span>We provide a one-year Focus Plan to maintain alignment and drive measurable progress.</span></div>
+      </div>
+      <p><a href="approach.html" class="more-link">Read the full approach →</a></p>
     </div>
   </section>
 
@@ -138,8 +170,16 @@
   <section id="work">
     <div class="wrap">
       <h2>Work Together</h2>
-      <p>Each engagement follows a simple arc — discovery, design, and direction. Every phase brings clarity, structure, and measurable progress toward one goal: a GTM system that runs predictably.</p>
-      <p><a href="work.html" class="more-link" aria-label="See how we work together at Caugia Studio">See how we work together →</a></p>
+      <p>
+        Every engagement follows a clear rhythm that balances discovery, design, and direction.
+        We bring structure without rigidity, ensuring your team works in sync and your growth becomes a repeatable system.
+      </p>
+      <div class="list-block">
+        <div class="item"><strong>Discovery</strong><span>We understand your current GTM flow to clarify where performance breaks down.</span></div>
+        <div class="item"><strong>Design</strong><span>We model a GTM system that connects your data, people, and processes.</span></div>
+        <div class="item"><strong>Direction</strong><span>We define a Focus Plan that turns architecture into action and accountability.</span></div>
+      </div>
+      <p><a href="work.html" class="more-link">See how we work together →</a></p>
     </div>
   </section>
 
@@ -147,35 +187,31 @@
   <section id="resources">
     <div class="wrap">
       <h2>Resources</h2>
-      <p>Explore our use cases, whitepapers, and articles — practical frameworks to align data, teams, and growth.</p>
-      <ul>
-        <li><strong>Use Cases:</strong> Real GTM challenges like pipeline unpredictability and system misalignment.</li>
-        <li><strong>Whitepapers:</strong> Deep dives into scalable GTM strategy, AI integration, and predictable growth.</li>
-        <li><strong>Articles:</strong> Short, actionable insights on building measurable revenue systems.</li>
-      </ul>
-      <p><a href="resources.html" class="more-link" aria-label="Browse all Caugia Studio resources">Browse all resources →</a></p>
+      <p>
+        Explore frameworks, insights, and practical examples that help GTM and revenue leaders align their operations.
+        Our content is built for those who value clarity, structure, and measurable progress.
+      </p>
+      <div class="list-block">
+        <div class="item"><strong>Use Cases</strong><span>Real situations showing how predictable growth is achieved by aligning people, data, and tools.</span></div>
+        <div class="item"><strong>Whitepapers</strong><span>Deep dives into GTM strategy, AI integration, and scalable revenue systems.</span></div>
+        <div class="item"><strong>Articles</strong><span>Short, actionable insights for leaders who want to run growth as a designed system, not an accident.</span></div>
+      </div>
+      <p><a href="resources.html" class="more-link">Browse all resources →</a></p>
     </div>
   </section>
 
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Caugia Studio",
-      "url": "https://www.caugia.com",
-      "logo": "https://www.caugia.com/logo.png",
-      "sameAs": ["https://www.linkedin.com/in/meijertom"]
-    }
-    </script>
   </footer>
 
   <script>
-    window.addEventListener('load',()=>{document.body.classList.add('loaded');});
+    window.addEventListener('load',()=>document.body.classList.add('loaded'));
     const toggle=document.querySelector('.menu-toggle');
     const navMobile=document.querySelector('.nav-mobile');
-    toggle.addEventListener('click',()=>{toggle.classList.toggle('active');navMobile.classList.toggle('open');});
+    toggle.addEventListener('click',()=>{
+      toggle.classList.toggle('active');
+      navMobile.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
