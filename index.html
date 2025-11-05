@@ -18,8 +18,8 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
 
-    /* Hopscroll hard afdwingen */
-    html{scroll-behavior:auto !important}
+    /* VERPLICHT instant scroll (geen smooth) */
+    :root, html, body{scroll-behavior:auto !important}
 
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -55,8 +55,15 @@
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
-    /* Hero: schermvullend zodat niets erboven uit piept */
-    main{flex:1}
+    /* SCROLL SNAP */
+    main{
+      flex:1;
+      scroll-snap-type:y mandatory;     /* hier zit de hop */
+      scroll-padding-top:var(--header-h);/* rekening houden met fixed header */
+    }
+    section.snap{scroll-snap-align:start}
+
+    /* Hero: schermvullend, niets erdoorheen */
     .hero{
       position:relative;
       padding:0 24px;
@@ -81,11 +88,13 @@
       100%{transform:translate(-50%,-35%) scale(1)}
     }
 
-    /* Samenvattingsblokken onder de fold */
+    /* Blokken onder de fold */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:64px 24px 80px}
     section.block{
       display:flex;justify-content:space-between;align-items:flex-start;
       gap:40px;margin-bottom:80px;
+      min-height:calc(100vh - var(--header-h)); /* elk blok een “pagina” */
+      padding-top:24px;
     }
     .text{flex:0 0 65%}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
@@ -115,6 +124,8 @@
     @media (max-width:900px){
       section.block{flex-direction:column}
       .anim{width:100%;height:160px;margin-top:12px}
+      section.block{min-height:auto} /* op mobiel niet forceren */
+      main{scroll-snap-type:none}     /* mobiel: normale scroll */
     }
   </style>
 </head>
@@ -138,7 +149,7 @@
 
   <main>
     <!-- HERO: schermvullend en clean -->
-    <section class="hero" id="top">
+    <section class="hero snap" id="top">
       <div class="orb"></div>
       <img src="logo.png" alt="Caugia Logo" class="logo">
       <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
@@ -146,10 +157,9 @@
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
     </section>
 
-    <!-- Alles hieronder begint onder de fold -->
+    <!-- Alles hieronder staat onder de fold en snapt per sectie -->
     <div class="wrap">
-
-      <section class="block" id="about">
+      <section class="block snap" id="about">
         <div class="text">
           <h2>About</h2>
           <p>After fifteen years building and leading global GTM teams, we saw the same pattern return. Brilliant people in silos, disconnected metrics, and tools that defined the work instead of serving it. Caugia Studio reconnects what growth pulled apart. We design systems that balance technology, structure, and judgment. The result is direction that lasts.</p>
@@ -164,7 +174,7 @@
         </div>
       </section>
 
-      <section class="block" id="approach">
+      <section class="block snap" id="approach">
         <div class="text">
           <h2>Approach</h2>
           <p>We begin by quieting the noise. Where does data stop? Which handoff fails? Once the system becomes visible, we redesign it for clarity. The Caugia Lens aligns people, process, and performance. It turns motion into progress and progress into predictability.</p>
@@ -179,7 +189,7 @@
         </div>
       </section>
 
-      <section class="block" id="work">
+      <section class="block snap" id="work">
         <div class="text">
           <h2>Work Together</h2>
           <p>Working with Caugia means designing flow. We co-build systems your team can own. Diagnose reveals truth, Design shapes the blueprint, Direction turns it into action. The outcome is not more effort, it is better movement. Teams operate with calm precision and leaders act with confidence.</p>
@@ -194,7 +204,7 @@
         </div>
       </section>
 
-      <section class="block" id="resources">
+      <section class="block snap" id="resources">
         <div class="text">
           <h2>Resources</h2>
           <p>Our resources are written for builders. They show how clarity reshapes modern revenue systems. Use cases, whitepapers, and essays explain how structure reduces noise and how AI supports judgment. Each piece comes from real work in real organizations.</p>
@@ -208,7 +218,6 @@
           </svg>
         </div>
       </section>
-
     </div>
   </main>
 
@@ -219,6 +228,19 @@
   <script>
     /* Fade-in na load */
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
+
+    /* Kill eventuele JS-smoothscroll van libraries: forceer instant anchor jumps */
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(!el) return;
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.pageYOffset - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+      window.scrollTo({ top: y, behavior: 'auto' });
+      history.pushState(null, '', '#'+id);
+    }, {capture:true});
   </script>
 </body>
 </html>
