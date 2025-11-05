@@ -9,7 +9,7 @@
     :root{--ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;--bg-light:#f9f9fb;--border:#e5e5e5;
       --maxw:1180px;--header-h:64px}
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-snap-type:y mandatory;overflow-y:scroll}
+    html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh;
@@ -45,6 +45,8 @@
     h1{font-size:2.6rem;font-weight:800;margin-bottom:20px}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
     p{font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:18px}
+    a.more-link{color:var(--accent);font-weight:600;text-decoration:none}
+    a.more-link:hover{text-decoration:underline}
     footer{scroll-snap-align:start;margin-top:auto;padding:24px 0 32px;text-align:center;color:#777;font-size:.9rem;border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
@@ -67,23 +69,23 @@
 <body>
   <header>
     <div class="container">
-      <a href="#hero" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <a href="index.html" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
-        <a href="#hero" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#approach">Approach</a>
-        <a href="#work">Work</a>
-        <a href="#resources">Resources</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="work.html">Work Together</a>
+        <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
       <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
     <nav class="nav-mobile">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#approach">Approach</a>
-      <a href="#work">Work</a>
-      <a href="#resources">Resources</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="approach.html">Approach</a>
+      <a href="work.html">Work Together</a>
+      <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </nav>
   </header>
@@ -103,7 +105,7 @@
     <div class="wrap">
       <h2>About Caugia Studio</h2>
       <p>Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue engines. We design integrated systems that align data, teams, and growth so that performance becomes measurable and repeatable.</p>
-      <p>The idea behind Caugia is simple: most organizations do not lack ambition or technology, they lack coherence. As they grow, their go-to-market systems become fragmented. Teams chase different metrics, data lives in silos, and leadership loses visibility into what truly drives performance.</p>
+      <p><a href="about.html" class="more-link">Read more about Caugia Studio →</a></p>
     </div>
   </section>
 
@@ -112,20 +114,16 @@
     <div class="wrap">
       <h2>Approach</h2>
       <p>Our approach is not a formula; it is a way of seeing. Every organization already has the ingredients for growth — people, processes, and performance — they’re just not yet playing the same melody.</p>
-      <p>We look at every organization through three connected dimensions: <strong>People, Process, and Performance.</strong> When these align, chaos gives way to coherence, and growth starts to compound.</p>
+      <p><a href="approach.html" class="more-link">Read the full approach →</a></p>
     </div>
   </section>
 
-  <!-- WORK -->
+  <!-- WORK TOGETHER -->
   <section id="work">
     <div class="wrap">
-      <h2>Work</h2>
-      <p>Every engagement follows a simple arc — discovery, design, and direction. Each phase delivers clarity, structure, and measurable progress toward one goal: a GTM system that runs predictably.</p>
-      <ul>
-        <li><strong>Discovery:</strong> Mapping your current GTM landscape to identify friction points.</li>
-        <li><strong>Design:</strong> Creating your GTM System Blueprint — a model aligning teams, tools, and data.</li>
-        <li><strong>Direction:</strong> Translating design into a one-year Focus Plan for scalable execution.</li>
-      </ul>
+      <h2>Work Together</h2>
+      <p>Each engagement follows a simple arc — discovery, design, and direction. Every phase brings clarity, structure, and measurable progress toward one goal: a GTM system that runs predictably.</p>
+      <p><a href="work.html" class="more-link">See how we work together →</a></p>
     </div>
   </section>
 
@@ -134,8 +132,7 @@
     <div class="wrap">
       <h2>Resources</h2>
       <p>Explore our use cases and whitepapers — practical frameworks to align data, teams, and growth.</p>
-      <p><strong>Use Case:</strong> “Our pipeline is unpredictable.” Forecast accuracy improves by 25–40% once opportunity definitions are unified and data flows seamlessly across teams.</p>
-      <p><strong>Whitepaper:</strong> <em>The Five Pillars of a Scalable GTM Strategy</em> — how to move from reactive growth to a repeatable, data-driven system.</p>
+      <p><a href="resources.html" class="more-link">Browse all resources →</a></p>
     </div>
   </section>
 
@@ -144,18 +141,10 @@
   </footer>
 
   <script>
-    window.addEventListener('load',()=>{
-      document.body.classList.add('loaded');
-    });
+    window.addEventListener('load',()=>{document.body.classList.add('loaded');});
     const toggle=document.querySelector('.menu-toggle');
     const navMobile=document.querySelector('.nav-mobile');
     toggle.addEventListener('click',()=>{toggle.classList.toggle('active');navMobile.classList.toggle('open');});
-    document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        e.preventDefault();
-        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-      });
-    });
   </script>
 </body>
 </html>
