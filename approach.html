@@ -14,7 +14,7 @@
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;
       display:flex;flex-direction:column;min-height:100vh;
-      overflow-y:auto;text-align:left;opacity:0;transition:opacity .6s ease;
+      text-align:left;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
     header{
@@ -22,15 +22,15 @@
       background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);z-index:10;
     }
-    .container{max-width:var(--maxw);height:100%;margin:0 auto;
-      padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;
+      display:flex;align-items:center;justify-content:space-between}
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:28px;vertical-align:middle}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s ease}
     nav.nav-desktop a:hover{color:var(--blue)}nav.nav-desktop a.active{color:var(--blue)}
-    .cta{background:var(--blue);color:#fff;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
+    .cta{background:var(--blue);color:#fff!important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
     .cta:hover{background:var(--accent);transform:scale(1.03)}
     .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer}
     .menu-toggle span{height:2px;width:24px;background:var(--ink);border-radius:1px;display:block;transition:transform .25s,opacity .25s}
@@ -40,7 +40,7 @@
     .nav-mobile{display:none;flex-direction:column;align-items:flex-start;padding:16px 24px 32px;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06)}
     .nav-mobile a{padding:10px 0;text-decoration:none;font-weight:500;color:var(--ink)}
     .nav-mobile a:hover{color:var(--blue)}.nav-mobile.open{display:flex}
-    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    main{flex:1;padding:calc(var(--header-h)+56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 20px 0}
     .intro{font-size:1.2rem;line-height:1.7;color:#1b1b1b;max-width:850px;margin:0 0 50px 0}
@@ -73,20 +73,20 @@
     <div class="container">
       <a href="index.html" class="brand"><img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
       <nav class="nav-desktop">
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="approach.html">Approach</a>
+        <a href="approach.html" class="active">Approach</a>
         <a href="work.html">Work</a>
-        <a href="use-cases.html">Use Cases</a>
         <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
       <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
     <nav class="nav-mobile">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
+      <a href="approach.html" class="active">Approach</a>
       <a href="work.html">Work</a>
-      <a href="use-cases.html">Use Cases</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </nav>
