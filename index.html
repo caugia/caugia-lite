@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio — From Data to Direction</title>
-  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming chaos into predictable performance." />
+  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — bringing calm to complexity and clarity to performance." />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
@@ -19,7 +19,7 @@
       --header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:auto}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;
@@ -57,21 +57,21 @@
     .wrap{max-width:var(--maxw);margin:0 auto}
     h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0;text-align:center}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:720px}
 
     /* Hero */
     .hero{
       display:flex;flex-direction:column;align-items:center;text-align:center;
-      padding:80px 0 100px 0;position:relative;overflow:hidden;
+      padding:80px 0 120px 0;position:relative;overflow:hidden;
     }
     .hero img.logo{width:340px;height:auto;margin-bottom:36px}
     .hero p.lead{max-width:760px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin:0 auto 30px auto}
     .hero .orb{
       position:absolute;width:300px;height:300px;border-radius:50%;
-      background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.3));
+      background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));
       filter:blur(60px);opacity:.3;
       animation:orbfloat 14s infinite ease-in-out alternate;
-      top:20%;left:calc(50% - 150px);
+      top:25%;left:calc(50% - 150px);
     }
     @keyframes orbfloat{
       0%{transform:translateY(0) scale(1)}
@@ -86,25 +86,31 @@
     }
     .text{flex:0 0 65%}
     .anim{
-      flex:0 0 35%;position:relative;height:200px;border-radius:12px;overflow:hidden;
-      background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
+      flex:0 0 35%;
+      position:relative;
+      height:220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    /* Caugia-motion-C animation */
-    .c-ring{
-      position:absolute;
-      border-radius:50%;
-      border:3px solid rgba(11,102,255,0.3);
-      clip-path:polygon(10% 0,100% 0,100% 100%,10% 100%,10% 80%,0 80%,0 20%,10% 20%);
-      animation:spin 16s linear infinite;
+    /* C-Motion animation (soft version) */
+    svg.c-motion{
+      width:180px;height:180px;
+      overflow:visible;opacity:.2;
     }
-    .c-ring:nth-child(1){width:160px;height:160px;top:20px;left:20px;opacity:.6;}
-    .c-ring:nth-child(2){width:200px;height:200px;top:0;left:0;opacity:.4;animation-duration:22s;}
-    .c-ring:nth-child(3){width:120px;height:120px;top:40px;left:40px;border-color:var(--accent);opacity:.5;animation-duration:18s;}
-    @keyframes spin{
-      from{transform:rotate(0deg)}
-      to{transform:rotate(360deg)}
+    .c-path{
+      fill:none;
+      stroke-width:8;
+      stroke-linecap:round;
+      stroke-dasharray:260 100;
+      animation:rotateC 22s linear infinite;
+      transform-origin:center;
     }
+    .c-path:nth-child(1){stroke:rgba(11,102,255,0.4);}
+    .c-path:nth-child(2){stroke:rgba(255,119,0,0.3);animation-direction:reverse;animation-duration:28s;}
+    .c-path:nth-child(3){stroke:rgba(102,163,255,0.25);animation-duration:18s;}
+    @keyframes rotateC{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
     .readmore{display:inline-block;margin-top:10px;font-weight:600;color:var(--blue);text-decoration:none}
     .readmore:hover{color:var(--accent)}
@@ -157,11 +163,16 @@
       <section class="block">
         <div class="text">
           <h2>About</h2>
-          <p>Caugia Studio was built from more than fifteen years of experience in scaling international revenue organizations. We learned that success depends less on tools and more on design — how people, process, and performance connect. We bring order and coherence to fast-moving teams.</p>
+          <p>Over the past fifteen years, we’ve seen companies become trapped by their own progress. Each new system promised alignment but delivered confusion. Caugia Studio was created to restore calm intelligence — systems where people, processes, and data move in harmony.</p>
+          <p>We help executives reconnect vision with execution. Technology becomes a servant to clarity again, not its master. The result is a go-to-market organization that grows deliberately, not reactively.</p>
           <a href="about.html" class="readmore">Read more →</a>
         </div>
         <div class="anim">
-          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+          <svg class="c-motion" viewBox="0 0 200 200">
+            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
+            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
+            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
+          </svg>
         </div>
       </section>
 
@@ -169,11 +180,16 @@
       <section class="block">
         <div class="text">
           <h2>Approach</h2>
-          <p>Every project begins with clarity. We slow down to see where friction lives, and then design systems that turn chaos into rhythm. The Caugia Lens aligns people, process, and performance — so growth becomes structured, sustainable, and measurable.</p>
+          <p>Every engagement begins by slowing down. We look for the blind spots — where data stops flowing, where accountability fades. Once we see clearly, we design systems that connect every part of the revenue engine.</p>
+          <p>The Caugia Lens balances people, process, and performance. It transforms chaos into rhythm and helps leadership teams see growth as a designed outcome, not a lucky accident.</p>
           <a href="approach.html" class="readmore">Read more →</a>
         </div>
         <div class="anim">
-          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+          <svg class="c-motion" viewBox="0 0 200 200">
+            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
+            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
+            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
+          </svg>
         </div>
       </section>
 
@@ -181,11 +197,16 @@
       <section class="block">
         <div class="text">
           <h2>Work Together</h2>
-          <p>Working with Caugia means building a calm, connected system. We move through discovery, design, and direction — phases that create flow, focus, and measurable performance. The outcome is clarity that lasts.</p>
+          <p>Collaboration should not feel chaotic. We work alongside your team to turn scattered tools and roles into one coherent flow. Our process — Discover, Design, and Direct — brings measurable performance without adding complexity.</p>
+          <p>Each engagement is a partnership. We build systems that your people can sustain, not consultants that stay forever. When clarity takes root, results follow naturally.</p>
           <a href="work.html" class="readmore">Read more →</a>
         </div>
         <div class="anim">
-          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+          <svg class="c-motion" viewBox="0 0 200 200">
+            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
+            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
+            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
+          </svg>
         </div>
       </section>
 
@@ -193,11 +214,16 @@
       <section class="block">
         <div class="text">
           <h2>Resources</h2>
-          <p>Our resources share real examples of clarity in action. From use cases to whitepapers, they show how systems thinking and AI can create measurable growth without complexity. Knowledge that leads to calm, not noise.</p>
+          <p>Clarity grows through shared understanding. In our resources, we share how real teams solved real challenges: forecasting accuracy, AI integration, and revenue alignment. These are stories of transformation, not theory.</p>
+          <p>Our use cases, whitepapers, and essays show how to bring structure to complexity — and why calm intelligence will define the next decade of go-to-market leadership.</p>
           <a href="resources.html" class="readmore">Read more →</a>
         </div>
         <div class="anim">
-          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+          <svg class="c-motion" viewBox="0 0 200 200">
+            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
+            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
+            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
+          </svg>
         </div>
       </section>
     </div>
