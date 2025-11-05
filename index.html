@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caugia Studio — From Data to Direction</title>
-  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that turn chaos into clarity. From data to direction, we create predictable growth." />
+  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming chaos into predictable performance." />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
@@ -23,15 +23,17 @@
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;text-align:left;
-      opacity:0;transition:opacity .6s ease;
+      display:flex;flex-direction:column;min-height:100vh;
+      text-align:left;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
     header{
       position:fixed;inset:0 0 auto 0;height:var(--header-h);
-      background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);
-      backdrop-filter:saturate(140%) blur(6px);z-index:10;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      backdrop-filter:saturate(140%) blur(6px);
+      z-index:10;
     }
     .container{
       max-width:var(--maxw);height:100%;
@@ -67,7 +69,8 @@
     .hero .orb{
       position:absolute;width:300px;height:300px;border-radius:50%;
       background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.3));
-      filter:blur(60px);opacity:.3;animation:orbfloat 14s infinite ease-in-out alternate;
+      filter:blur(60px);opacity:.3;
+      animation:orbfloat 14s infinite ease-in-out alternate;
       top:20%;left:calc(50% - 150px);
     }
     @keyframes orbfloat{
@@ -76,27 +79,31 @@
       100%{transform:translateY(10px) scale(1)}
     }
 
-    /* Sections */
+    /* Content blocks */
     section.block{
       display:flex;justify-content:space-between;align-items:flex-start;
       gap:40px;margin-bottom:80px;
     }
     .text{flex:0 0 65%}
     .anim{
-      flex:0 0 35%;
-      position:relative;height:200px;border-radius:12px;overflow:hidden;
+      flex:0 0 35%;position:relative;height:200px;border-radius:12px;overflow:hidden;
       background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
     }
-    .orb-small{
-      position:absolute;width:140px;height:140px;border-radius:50%;
-      background:radial-gradient(circle at center,var(--accent),rgba(11,102,255,0.4));
-      filter:blur(30px);animation:float 10s infinite ease-in-out alternate;opacity:.6;
-      left:25%;top:25%;
+
+    /* Caugia-motion-C animation */
+    .c-ring{
+      position:absolute;
+      border-radius:50%;
+      border:3px solid rgba(11,102,255,0.3);
+      clip-path:polygon(10% 0,100% 0,100% 100%,10% 100%,10% 80%,0 80%,0 20%,10% 20%);
+      animation:spin 16s linear infinite;
     }
-    @keyframes float{
-      0%{transform:translate(0,0) scale(1)}
-      50%{transform:translate(30px,20px) scale(1.2)}
-      100%{transform:translate(-20px,-30px) scale(1)}
+    .c-ring:nth-child(1){width:160px;height:160px;top:20px;left:20px;opacity:.6;}
+    .c-ring:nth-child(2){width:200px;height:200px;top:0;left:0;opacity:.4;animation-duration:22s;}
+    .c-ring:nth-child(3){width:120px;height:120px;top:40px;left:40px;border-color:var(--accent);opacity:.5;animation-duration:18s;}
+    @keyframes spin{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
     }
 
     .readmore{display:inline-block;margin-top:10px;font-weight:600;color:var(--blue);text-decoration:none}
@@ -125,75 +132,79 @@
         <span>Caugia Studio</span>
       </a>
       <nav class="nav-desktop">
-        <a href="#about">About</a>
-        <a href="#approach">Approach</a>
-        <a href="#work">Work Together</a>
-        <a href="#resources">Resources</a>
+        <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="work.html">Work Together</a>
+        <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="orb"></div>
       <img src="logo.png" alt="Caugia Logo" class="logo">
       <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
-      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth. We bring calm to complexity, transforming scattered operations into measurable performance.</p>
+      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — bringing calm to complexity and clarity to performance.</p>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </section>
 
     <div class="wrap">
 
       <!-- About -->
-      <section id="about" class="block">
+      <section class="block">
         <div class="text">
           <h2>About</h2>
-          <p>Caugia Studio was born from fifteen years of building and leading global revenue organizations. We saw the same challenge repeat itself: brilliant people, powerful tools, but no shared design. Growth became reactive, not deliberate. Caugia was created to bring order back into that reality, turning fragmented efforts into one connected system.</p>
-          <p>We help companies see the entire picture — how people, process, and performance interact — so that decisions become clear and growth becomes predictable.</p>
+          <p>Caugia Studio was built from more than fifteen years of experience in scaling international revenue organizations. We learned that success depends less on tools and more on design — how people, process, and performance connect. We bring order and coherence to fast-moving teams.</p>
           <a href="about.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim"><div class="orb-small"></div></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+        </div>
       </section>
 
       <!-- Approach -->
-      <section id="approach" class="block">
+      <section class="block">
         <div class="text">
           <h2>Approach</h2>
-          <p>Our approach begins with clarity. Before we design, we listen. We map how work moves, where friction lives, and what slows momentum. Then we rebuild the system around three dimensions — people, process, and performance — creating flow and focus where there was noise. Through this lens, progress becomes natural.</p>
-          <p>The result is a rhythm that balances structure and creativity, helping teams turn effort into measurable progress. Clarity becomes culture.</p>
+          <p>Every project begins with clarity. We slow down to see where friction lives, and then design systems that turn chaos into rhythm. The Caugia Lens aligns people, process, and performance — so growth becomes structured, sustainable, and measurable.</p>
           <a href="approach.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim"><div class="orb-small"></div></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+        </div>
       </section>
 
       <!-- Work Together -->
-      <section id="work" class="block">
+      <section class="block">
         <div class="text">
           <h2>Work Together</h2>
-          <p>Collaboration with Caugia begins with stillness, not speed. We start by defining what truly matters, then we move in three deliberate phases: Discovery, Design, and Direction. Each step builds on the last, turning complexity into rhythm and rhythm into results.</p>
-          <p>By the end, your teams operate as one system. Performance feels predictable, and growth becomes sustainable. That is what working together means.</p>
+          <p>Working with Caugia means building a calm, connected system. We move through discovery, design, and direction — phases that create flow, focus, and measurable performance. The outcome is clarity that lasts.</p>
           <a href="work.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim"><div class="orb-small"></div></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+        </div>
       </section>
 
       <!-- Resources -->
-      <section id="resources" class="block">
+      <section class="block">
         <div class="text">
           <h2>Resources</h2>
-          <p>Knowledge creates calm. Our resources help leaders make sense of complexity — from use cases and whitepapers to practical articles. Every piece of content is drawn from real work with real organizations, refined by practice and guided by the same principle: clarity leads to better decisions.</p>
-          <p>Explore how systems thinking and AI can shape the future of go-to-market. Every insight is a window into the Caugia way of working.</p>
+          <p>Our resources share real examples of clarity in action. From use cases to whitepapers, they show how systems thinking and AI can create measurable growth without complexity. Knowledge that leads to calm, not noise.</p>
           <a href="resources.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim"><div class="orb-small"></div></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
+        </div>
       </section>
-
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 
   <script>
