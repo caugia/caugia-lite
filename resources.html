@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources | Caugia Studio — Knowledge that Drives Clarity</title>
-  <meta name="description" content="Explore Caugia Studio’s resources: real use cases, whitepapers, and articles that show how systems thinking and AI can bring clarity to modern go-to-market organizations." />
+  <title>Caugia Studio — From Data to Direction</title>
+  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — transforming chaos into predictable performance." />
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
 
@@ -22,34 +22,23 @@
     html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:#fff;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-      text-align:left;
-      opacity:0;
-      transition:opacity .6s ease;
+      color:var(--ink);background:#fff;
+      display:flex;flex-direction:column;min-height:100vh;
+      text-align:left;opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
     header{
-      position:fixed;
-      inset:0 0 auto 0;
-      height:var(--header-h);
+      position:fixed;inset:0 0 auto 0;height:var(--header-h);
       background:rgba(255,255,255,.98);
       border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);
       z-index:10;
     }
     .container{
-      max-width:var(--maxw);
-      height:100%;
-      margin:0 auto;
-      padding:0 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      max-width:var(--maxw);height:100%;
+      margin:0 auto;padding:0 24px;
+      display:flex;align-items:center;justify-content:space-between;
     }
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:28px}
@@ -57,76 +46,72 @@
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
     nav.nav-desktop a:hover{color:var(--blue)}
-    nav.nav-desktop a.active{color:var(--blue)}
     .cta{
-      background:var(--blue);
-      color:#fff!important;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue);color:#fff!important;text-decoration:none;
+      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
       transition:background .25s ease,transform .25s ease;
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
     main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0;text-align:center}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
     p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
 
+    /* Hero */
+    .hero{
+      display:flex;flex-direction:column;align-items:center;text-align:center;
+      padding:80px 0 100px 0;position:relative;overflow:hidden;
+    }
+    .hero img.logo{width:340px;height:auto;margin-bottom:36px}
+    .hero p.lead{max-width:760px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin:0 auto 30px auto}
+    .hero .orb{
+      position:absolute;width:300px;height:300px;border-radius:50%;
+      background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.3));
+      filter:blur(60px);opacity:.3;
+      animation:orbfloat 14s infinite ease-in-out alternate;
+      top:20%;left:calc(50% - 150px);
+    }
+    @keyframes orbfloat{
+      0%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(-30px) scale(1.1)}
+      100%{transform:translateY(10px) scale(1)}
+    }
+
+    /* Content blocks */
     section.block{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:40px;
-      margin-bottom:80px;
+      display:flex;justify-content:space-between;align-items:flex-start;
+      gap:40px;margin-bottom:80px;
     }
     .text{flex:0 0 65%}
-
-    /* Caugia Logo Animation */
     .anim{
-      flex:0 0 35%;
-      position:relative;
-      height:220px;
-      border-radius:12px;
-      overflow:hidden;
-      background:radial-gradient(circle at center,rgba(11,102,255,0.04),transparent);
+      flex:0 0 35%;position:relative;height:200px;border-radius:12px;overflow:hidden;
+      background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
     }
-    .ring{
+
+    /* Caugia-motion-C animation */
+    .c-ring{
       position:absolute;
       border-radius:50%;
-      border:2px solid rgba(11,102,255,0.3);
-      animation:spin 12s linear infinite;
-      opacity:.6;
+      border:3px solid rgba(11,102,255,0.3);
+      clip-path:polygon(10% 0,100% 0,100% 100%,10% 100%,10% 80%,0 80%,0 20%,10% 20%);
+      animation:spin 16s linear infinite;
     }
-    .ring:nth-child(1){width:120px;height:120px;top:40px;left:60px}
-    .ring:nth-child(2){width:160px;height:160px;top:20px;left:40px;animation-duration:16s;opacity:.4}
-    .ring:nth-child(3){width:200px;height:200px;top:0;left:20px;animation-duration:20s;opacity:.3}
-    .pulse{
-      position:absolute;
-      width:20px;height:20px;
-      border-radius:50%;
-      background:var(--accent);
-      animation:pulse 4s ease-in-out infinite;
-      top:100px;left:100px;
-      box-shadow:0 0 15px rgba(255,119,0,0.6);
-    }
+    .c-ring:nth-child(1){width:160px;height:160px;top:20px;left:20px;opacity:.6;}
+    .c-ring:nth-child(2){width:200px;height:200px;top:0;left:0;opacity:.4;animation-duration:22s;}
+    .c-ring:nth-child(3){width:120px;height:120px;top:40px;left:40px;border-color:var(--accent);opacity:.5;animation-duration:18s;}
     @keyframes spin{
       from{transform:rotate(0deg)}
       to{transform:rotate(360deg)}
     }
-    @keyframes pulse{
-      0%,100%{transform:scale(1);opacity:.6}
-      50%{transform:scale(1.6);opacity:.2}
-    }
+
+    .readmore{display:inline-block;margin-top:10px;font-weight:600;color:var(--blue);text-decoration:none}
+    .readmore:hover{color:var(--accent)}
 
     footer{
-      margin-top:auto;
-      padding:24px 0 32px 0;
-      font-size:.9rem;
-      color:#777;
-      text-align:center;
+      margin-top:auto;padding:24px 0 32px 0;
+      font-size:.9rem;color:#777;text-align:center;
       border-top:1px solid rgba(0,0,0,.06);
     }
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
@@ -147,80 +132,72 @@
         <span>Caugia Studio</span>
       </a>
       <nav class="nav-desktop">
-        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="approach.html">Approach</a>
         <a href="work.html">Work Together</a>
-        <a href="resources.html" class="active">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+        <a href="resources.html">Resources</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="orb"></div>
+      <img src="logo.png" alt="Caugia Logo" class="logo">
+      <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
+      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth — bringing calm to complexity and clarity to performance.</p>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
+    </section>
+
     <div class="wrap">
-      <h1>Resources</h1>
 
+      <!-- About -->
       <section class="block">
         <div class="text">
-          <p>Knowledge should create clarity, not noise. At Caugia, every resource we share is designed to help leaders think more clearly about growth, systems, and technology. These materials are not marketing assets. They are working documents — written from experience, refined by clients, and updated with every new lesson we learn.</p>
-          <p>The goal is simple: to turn complexity into understanding. Whether it is a use case, a whitepaper, or a short article, each piece is built to make one idea visible. When knowledge becomes clear, action follows naturally.</p>
+          <h2>About</h2>
+          <p>Caugia Studio was built from more than fifteen years of experience in scaling international revenue organizations. We learned that success depends less on tools and more on design — how people, process, and performance connect. We bring order and coherence to fast-moving teams.</p>
+          <a href="about.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim" aria-hidden="true">
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="pulse"></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
         </div>
       </section>
 
-      <!-- De rest van de content blijft identiek -->
+      <!-- Approach -->
       <section class="block">
         <div class="text">
-          <h2>Use Cases</h2>
-          <p><strong>Forecasting with Precision.</strong> Many teams complain about unpredictable pipeline. We help them design forecasting systems that merge data discipline with human judgment. The result is predictability that feels earned, not automated.</p>
-          <p><strong>Connecting Teams.</strong> When Marketing and Sales work in isolation, friction grows. We build shared processes that replace handoffs with collaboration, creating one flow of accountability.</p>
-          <p><strong>Integrating AI Intelligently.</strong> AI is powerful when it fits inside a clear process. We show leaders where automation supports value creation and where it distracts from it.</p>
-          <p><strong>Reducing Churn.</strong> Success is a system, not a department. Our models help Customer Success teams detect risk early and act with precision before churn becomes visible.</p>
+          <h2>Approach</h2>
+          <p>Every project begins with clarity. We slow down to see where friction lives, and then design systems that turn chaos into rhythm. The Caugia Lens aligns people, process, and performance — so growth becomes structured, sustainable, and measurable.</p>
+          <a href="approach.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim" aria-hidden="true">
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="pulse"></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
         </div>
       </section>
 
+      <!-- Work Together -->
       <section class="block">
         <div class="text">
-          <h2>Whitepapers</h2>
-          <p><strong>The Five Pillars of a Scalable GTM System.</strong> Growth depends on five elements: clarity, structure, rhythm, data, and accountability. This paper explores how to balance them in complex organizations.</p>
-          <p><strong>AI and Human Alignment.</strong> Technology should extend judgment, not replace it. We explore how to integrate AI into GTM without losing the human understanding that drives trust.</p>
-          <p><strong>Predictability Architecture.</strong> Predictability does not emerge from dashboards. It is built into the system. This paper shows how to create the structure that makes performance repeatable.</p>
-          <p><strong>The Future of RevOps.</strong> RevOps is not a role but an evolution of how companies align data, tools, and decisions. We describe what mature revenue systems look like and how to build one.</p>
+          <h2>Work Together</h2>
+          <p>Working with Caugia means building a calm, connected system. We move through discovery, design, and direction — phases that create flow, focus, and measurable performance. The outcome is clarity that lasts.</p>
+          <a href="work.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim" aria-hidden="true">
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="pulse"></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
         </div>
       </section>
 
+      <!-- Resources -->
       <section class="block">
         <div class="text">
-          <h2>Articles</h2>
-          <p><strong>How to Build a Predictable Revenue Engine.</strong> Predictability starts with clarity, not pressure. We explain how disciplined design leads to reliable growth.</p>
-          <p><strong>The Cost of Misalignment.</strong> Hidden friction between departments destroys progress. This article explores how small misalignments scale into big inefficiencies.</p>
-          <p><strong>Designing the Modern GTM Stack.</strong> Tool consolidation is not about cutting cost but reducing noise. We show how to create a stack that reflects strategy, not history.</p>
-          <p><strong>Leadership in the Age of AI.</strong> Great leaders design systems that think so their teams can focus on what matters most. We discuss how clarity leads to trust in an age of acceleration.</p>
-          <p>Each article is written to translate complexity into context. They are not opinions but reflections from real systems, tested in practice and refined over time.</p>
+          <h2>Resources</h2>
+          <p>Our resources share real examples of clarity in action. From use cases to whitepapers, they show how systems thinking and AI can create measurable growth without complexity. Knowledge that leads to calm, not noise.</p>
+          <a href="resources.html" class="readmore">Read more →</a>
         </div>
-        <div class="anim" aria-hidden="true">
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="ring"></div>
-          <div class="pulse"></div>
+        <div class="anim">
+          <div class="c-ring"></div><div class="c-ring"></div><div class="c-ring"></div>
         </div>
       </section>
     </div>
