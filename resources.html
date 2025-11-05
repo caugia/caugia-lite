@@ -52,16 +52,41 @@
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
-    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;position:relative;overflow:hidden;}
-    .wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2;}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
-    h2{font-size:1.6rem;font-weight:700;margin:32px 0 16px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:720px}
+    main{
+      flex:1;
+      padding:calc(var(--header-h) + 60px) 24px 80px;
+      position:relative;
+      overflow:hidden;
+    }
+    .wrap{
+      max-width:var(--maxw);
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+    }
+    h1{
+      font-size:2.6rem;
+      font-weight:800;
+      margin:0 0 36px 0;
+    }
+    h2{
+      font-size:1.6rem;
+      font-weight:700;
+      margin:60px 0 20px 0;
+      color:var(--blue);
+    }
+    p{
+      font-size:1.05rem;
+      line-height:1.7;
+      color:#1b1b1b;
+      margin:0 0 20px 0;
+      max-width:720px;
+    }
 
-    /* --- Sticky C-Motion animation --- */
+    /* Sticky C-Motion animation */
     .c-motion-container{
       position:fixed;
-      right:4%;
+      right:14%;
       top:50%;
       transform:translateY(-50%);
       width:240px;
@@ -83,13 +108,10 @@
       animation:rotateC 22s linear infinite;
       transform-origin:center;
     }
-    .c-path:nth-child(1){stroke:rgba(11,102,255,0.35);}
+    .c-path:nth-child(1){stroke:rgba(11,102,255,0.3);}
     .c-path:nth-child(2){stroke:rgba(255,119,0,0.25);animation-direction:reverse;animation-duration:28s;}
-    .c-path:nth-child(3){stroke:rgba(102,163,255,0.25);animation-duration:18s;}
-    @keyframes rotateC{
-      from{transform:rotate(0deg)}
-      to{transform:rotate(360deg)}
-    }
+    .c-path:nth-child(3){stroke:rgba(102,163,255,0.2);animation-duration:18s;}
+    @keyframes rotateC{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
     footer{
       margin-top:auto;padding:24px 0 32px 0;
