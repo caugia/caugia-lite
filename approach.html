@@ -83,16 +83,17 @@
 
     section.block{margin-bottom:80px}
 
-    /* Vergrote, subtiele animatie rechtsboven */
+    /* Verbeterde, duidelijk zichtbare animatie rechtsboven */
     #nodeFloat{
       position:fixed;
-      top:110px;
-      right:70px;
-      width:240px;    /* groter */
-      height:240px;
-      opacity:.2;
+      top:100px;
+      right:60px;
+      width:300px;
+      height:300px;
+      opacity:.4;
       pointer-events:none;
       z-index:0;
+      filter:drop-shadow(0 0 12px rgba(11,102,255,0.25));
     }
 
     footer{
@@ -132,50 +133,49 @@
   </header>
 
   <main>
-    <!-- Node animatie rechtsboven -->
     <canvas id="nodeFloat"></canvas>
 
     <div class="wrap">
       <h1>Our Approach</h1>
-      <p>At Caugia Studio, we help companies turn GTM chaos into predictable systems of growth. Every organization already holds the ingredients for success: people, process, and performance. The challenge lies in alignment. We bring these elements together, creating structure that allows clarity to replace confusion and progress to become measurable.</p>
+      <p>At Caugia Studio, we help organizations turn motion into progress. We believe clarity begins where complexity ends. Our approach is not about adding layers of process but about designing systems that bring alignment to data, teams, and performance. When everything works in rhythm, growth becomes predictable and calm replaces chaos.</p>
 
       <section class="block">
         <h2>How We Work</h2>
-        <p>We start by observing before changing. Most organizations move quickly but without visibility. We slow the noise, uncover how work really flows, and identify where energy is being lost. Once we see the full system, we design the architecture that brings everything back into sync.</p>
-        <p>The goal is simplicity with intention. Our approach helps teams work with confidence, supported by tools and processes that amplify rather than distract.</p>
+        <p>We start with silence before strategy. Before suggesting any change, we observe. Where does data stop flowing? Which handoff slows the rhythm? Once the system becomes visible, we design architecture that restores coherence. Our goal is structure that liberates people rather than constrains them.</p>
+        <p>When teams understand their role and leadership acts on shared truth, performance stops being accidental. It becomes a result of design.</p>
       </section>
 
       <section class="block">
         <h2>The Caugia Lens</h2>
-        <p>The Caugia Lens is how we understand every organization — through the balance of People, Process, and Performance. When these three align, growth stops being random and starts becoming repeatable.</p>
+        <p>The Caugia Lens is how we see every organization — through three principles that guide modern GTM systems.</p>
 
-        <h3>People</h3>
-        <p>We help teams see each other again. Marketing understands Sales, Sales understands Customer Success. Collaboration replaces friction and goals align naturally.</p>
+        <h3>Clarity Beats Complexity</h3>
+        <p>Progress is not the same as growth. Complexity often hides behind innovation. True progress comes from removing what doesn’t matter and reinforcing what does. We help companies simplify without losing depth, creating systems that everyone can trust.</p>
 
-        <h3>Process</h3>
-        <p>We map how information travels from lead to renewal. Bottlenecks are removed and automation supports human focus instead of replacing it. The system begins to breathe again.</p>
+        <h3>Systems Create Freedom</h3>
+        <p>Structure is not control — it’s freedom. When roles, tools, and workflows align, creativity flourishes because confusion disappears. Caugia designs frameworks that give teams the clarity to perform at their best.</p>
 
-        <h3>Performance</h3>
-        <p>We reconnect metrics to meaning. Data becomes context, dashboards tell a story, and leadership gains the visibility needed to act with clarity.</p>
+        <h3>Technology Should Serve Strategy</h3>
+        <p>Technology has become the stage instead of the support. We bring it back to its rightful place: serving strategy, not defining it. When tools follow purpose, organizations move with intention instead of impulse.</p>
       </section>
 
       <section class="block">
         <h2>Our Rhythm</h2>
-        <p>Every project follows a rhythm that guides transformation from discovery to execution. Diagnose reveals truth, Design builds the blueprint, and Direction drives momentum.</p>
+        <p>Every engagement follows a natural rhythm. Diagnose reveals truth. Design builds alignment. Direction brings focus. Together they create lasting momentum.</p>
 
         <h3>Diagnose</h3>
-        <p>We capture a complete picture of your GTM system. This diagnostic phase defines where effort creates impact and where it is being wasted.</p>
+        <p>We take a complete snapshot of your GTM system, identifying gaps, duplication, and areas where energy is wasted. Truth before action.</p>
 
         <h3>Design</h3>
-        <p>We build your GTM System Blueprint — a clear, visual model showing how teams, tools, and data interconnect. It becomes the foundation for scalable growth.</p>
+        <p>We create your GTM System Blueprint — a visual and operational map of how people, tools, and data connect. It becomes the foundation for clarity and scalability.</p>
 
         <h3>Direction</h3>
-        <p>We turn the design into a one-year Focus Plan. It clarifies priorities, connects actions to outcomes, and gives leadership shared direction.</p>
+        <p>We transform insight into a one-year Focus Plan. It defines priorities, connects them to outcomes, and aligns leadership behind one shared direction.</p>
       </section>
 
       <section class="block">
         <h2>Our Change</h2>
-        <p>The outcome is not another process or tool but a connected system that evolves with you. Caugia Studio helps leadership teams find calm inside complexity. Technology serves strategy again, and progress becomes sustainable.</p>
+        <p>The outcome is not another process or platform but a living, breathing system that evolves with you. Caugia Studio helps leadership teams turn complexity into clarity and motion into measurable progress. The result is a GTM engine built on intelligence, not intensity.</p>
       </section>
     </div>
   </main>
@@ -187,7 +187,7 @@
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
 
-    // Node Float Animation - larger and smoother
+    // Verbeterde node-animatie
     const canvas=document.getElementById('nodeFloat');
     const ctx=canvas.getContext('2d');
     let nodes=[],w,h;
@@ -196,12 +196,12 @@
       w=canvas.width=canvas.offsetWidth;
       h=canvas.height=canvas.offsetHeight;
       nodes=[];
-      for(let i=0;i<20;i++){
+      for(let i=0;i<26;i++){
         nodes.push({
           x:Math.random()*w,
           y:Math.random()*h,
-          vx:(Math.random()-0.5)*0.25,
-          vy:(Math.random()-0.5)*0.25
+          vx:(Math.random()-0.5)*0.3,
+          vy:(Math.random()-0.5)*0.3
         });
       }
     }
@@ -211,19 +211,21 @@
       for(let i=0;i<nodes.length;i++){
         const n1=nodes[i];
         ctx.beginPath();
-        ctx.arc(n1.x,n1.y,2.4,0,Math.PI*2);
-        ctx.fillStyle='rgba(11,102,255,0.6)';
+        ctx.arc(n1.x,n1.y,2.8,0,Math.PI*2);
+        ctx.fillStyle='rgba(11,102,255,0.85)';
+        ctx.shadowColor='rgba(11,102,255,0.3)';
+        ctx.shadowBlur=6;
         ctx.fill();
 
         for(let j=i+1;j<nodes.length;j++){
           const n2=nodes[j];
           const dx=n1.x-n2.x,dy=n1.y-n2.y,dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<120){
+          if(dist<130){
             ctx.beginPath();
             ctx.moveTo(n1.x,n1.y);
             ctx.lineTo(n2.x,n2.y);
-            ctx.strokeStyle=`rgba(11,102,255,${0.22 - dist/500})`;
-            ctx.lineWidth=1;
+            ctx.strokeStyle=`rgba(11,102,255,${0.3 - dist/450})`;
+            ctx.lineWidth=1.1;
             ctx.stroke();
           }
         }
