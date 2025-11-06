@@ -4,28 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Approach | Caugia Studio</title>
-  <meta name="description" content="Caugia Studio helps organizations bring calm and clarity to growth through structured GTM systems that align people, process, and performance." />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
-  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
-
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
   <style>
     :root{
-      --ink:#0b132b;
-      --blue:#0b66ff;
-      --accent:#ff7700;
-      --maxw:1180px;
-      --header-h:64px;
+      --ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;
+      --bg-light:#f9f9fb;--border:#e5e5e5;
+      --maxw:1180px;--header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:#fff;
-      display:flex;flex-direction:column;
-      min-height:100vh;
-      text-align:left;
-      opacity:0;
-      transition:opacity .6s ease;
+      color:var(--ink);background:#fff;
+      display:flex;flex-direction:column;min-height:100vh;text-align:left;
+      opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
@@ -36,80 +30,59 @@
       backdrop-filter:saturate(140%) blur(6px);
       z-index:10;
     }
-    .container{
-      max-width:var(--maxw);height:100%;
-      margin:0 auto;padding:0 24px;
-      display:flex;align-items:center;justify-content:space-between;
-    }
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px}
+    .brand img{height:28px;vertical-align:middle}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{
-      color:var(--ink);
-      text-decoration:none;
-      font-weight:500;
-      transition:color .25s;
-    }
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
     nav.nav-desktop a:hover{color:var(--blue)}
-    nav.nav-desktop a.active{color:var(--blue)}
     .cta{
-      background:var(--blue);
-      color:#fff!important;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue);color:#fff !important;text-decoration:none;
+      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
       transition:background .25s ease,transform .25s ease;
     }
-    .cta:hover{background:var(--accent);transform:scale(1.03)}
+    .cta:hover{background:var(--accent);color:#fff !important;transform:scale(1.03)}
 
-    main{
-      flex:1;
-      padding:calc(var(--header-h) + 60px) 24px 80px;
-      position:relative;
-    }
-    .wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:1}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 36px 0}
-    h2{font-size:1.6rem;font-weight:700;margin:60px 0 20px 0;color:var(--blue)}
-    p{
-      font-size:1.05rem;
-      line-height:1.7;
-      color:#1b1b1b;
-      margin:0 0 20px 0;
-      max-width:880px;
-    }
+    /* MOBIEL MENU */
+    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer;z-index:20}
+    .menu-toggle span{height:2px;width:100%;background:var(--ink);border-radius:1px;transition:transform .3s,opacity .3s}
+    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+    nav.nav-mobile{display:none;flex-direction:column;align-items:flex-start;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:absolute;top:var(--header-h);left:0;width:100%}
+    nav.nav-mobile a{color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;width:100%}
+    nav.nav-mobile a:hover{color:var(--blue)}
+    nav.nav-mobile.open{display:flex;}
 
-    section.block{margin-bottom:80px}
+    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 20px 0}
+    .intro{font-size:1.2rem;line-height:1.7;color:#1b1b1b;max-width:850px;margin:0 0 50px 0}
+    section{background:var(--bg-light);border:1px solid var(--border);border-radius:16px;padding:40px 48px;margin-bottom:60px}
+    h2{font-size:1.7rem;margin:0 0 18px 0;font-weight:700;color:var(--blue)}
+    h3{font-size:1.2rem;font-weight:600;margin-top:24px;margin-bottom:6px;color:var(--accent)}
+    p{font-size:1.05rem;line-height:1.7;color:#222;margin:0 0 18px 0;max-width:880px}
+    ul{margin:10px 0 25px 20px;line-height:1.7} ul li{margin-bottom:6px}
 
-    /* Verbeterde, subtiel zichtbare animatie rechtsboven */
-    #nodeFloat{
-      position:fixed;
-      top:100px;
-      right:60px;
-      width:300px;
-      height:300px;
-      opacity:.45;
-      pointer-events:none;
-      z-index:0;
-      filter:drop-shadow(0 0 14px rgba(11,102,255,0.3));
-    }
-
-    footer{
-      margin-top:auto;
-      padding:24px 0 32px 0;
-      font-size:.9rem;
-      color:#777;
-      text-align:center;
-      border-top:1px solid rgba(0,0,0,.06);
-      background:#fff;
-      z-index:2;
-    }
+    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
 
+    @media (prefers-color-scheme:dark){
+      body{background:#0b132b;color:#f5f5f5}
+      header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
+      .brand span,nav a,footer a{color:#f5f5f5}
+      .cta{background:var(--blue)}
+      .cta:hover{background:var(--accent)}
+      section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+      p{color:#e9e9e9}
+    }
     @media (max-width:900px){
-      #nodeFloat{display:none}
+      nav.nav-desktop{display:none}
+      .menu-toggle{display:flex}
+      h1{font-size:2rem}
+      section{padding:28px 24px}
     }
   </style>
 </head>
@@ -117,124 +90,76 @@
 <body>
   <header>
     <div class="container">
-      <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span>
-      </a>
+      <a href="/index.html" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav class="nav-desktop">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="approach.html" class="active">Approach</a>
-        <a href="work.html">Work Together</a>
-        <a href="resources.html">Resources</a>
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/approach.html" class="active">Approach</a>
+        <a href="/work.html">Work Together</a>
+        <a href="/resources.html">Resources</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
+      </nav>
+      <nav class="nav-mobile">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/approach.html" class="active">Approach</a>
+        <a href="/work.html">Work Together</a>
+        <a href="/resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <canvas id="nodeFloat"></canvas>
-
     <div class="wrap">
       <h1>Our Approach</h1>
-      <p>At Caugia Studio, we help organizations turn movement into direction. We believe that when structure, intent, and intelligence come together, growth stops being chaotic and starts becoming predictable. Our approach brings alignment to teams, data, and technology — so progress feels calm and deliberate.</p>
+      <p class="intro">At Caugia Studio, we help companies turn GTM chaos into predictable revenue engines. Our approach is not a formula; it is a way of seeing. Every organization already has the ingredients for growth — people, processes, and performance — they’re just not yet playing the same melody.</p>
 
-      <section class="block">
-        <h2>The Caugia Philosophy</h2>
-        <p><strong>Clarity Beats Complexity.</strong> Progress is not the same as growth. Complexity often masquerades as innovation. True progress comes from seeing what matters and removing what does not.</p>
-
-        <p><strong>Systems Create Freedom.</strong> Systems do not constrain people — they free them. When structure and purpose align, creativity finds its rhythm and performance becomes sustainable.</p>
-
-        <p><strong>Technology Should Serve Strategy.</strong> Technology has become the stage instead of the support. Caugia brings it back to its rightful place: serving strategy, not replacing it.</p>
+      <section>
+        <h2>How We Work</h2>
+        <p>We start by slowing down the noise. Who owns what? Where does data stop flowing? Which handoff breaks the rhythm? Once we see clearly, we design the architecture that puts everything back in sync.</p>
+        <p>The result is not another process to follow but a system that helps people do their best work with clarity and focus.</p>
+        <p>When teams know their roles, when tools support instead of distract, and when success is measured in the same language, performance stops being random — it becomes repeatable.</p>
       </section>
 
-      <section class="block">
+      <section>
         <h2>The Caugia Lens</h2>
-        <p>We use a simple but powerful lens to understand how your organization works: People, Process, and Performance. When these three connect, growth becomes predictable and scalable.</p>
-
-        <p><strong>People.</strong> We help teams see each other again. Marketing understands Sales, Sales understands Customer Success. Clarity replaces friction, and collaboration becomes natural.</p>
-
-        <p><strong>Process.</strong> We map how information moves from lead to renewal and remove the friction that slows progress. The goal is not more automation but better flow — smarter movement instead of constant motion.</p>
-
-        <p><strong>Performance.</strong> We reconnect metrics to meaning. Data becomes a narrative, dashboards reveal context, and decisions are made with shared understanding.</p>
+        <p>We look at every organization through three connected dimensions: <strong>People, Process, and Performance.</strong></p>
+        <h3>People</h3>
+        <p>We help teams see each other again. Marketing understands Sales. Sales understands Customer Success. Clarity replaces blame, and collaboration becomes natural.</p>
+        <h3>Process</h3>
+        <p>We map how information moves — from lead to renewal — and remove the friction that slows progress. The goal is not more automation, but smarter flow.</p>
+        <h3>Performance</h3>
+        <p>We reconnect metrics to meaning. Dashboards stop being noise, data becomes a story, and decisions are made with confidence.</p>
+        <p>When these three dimensions align, chaos gives way to coherence, and growth starts to compound.</p>
       </section>
 
-      <section class="block">
+      <section>
         <h2>Our Rhythm</h2>
-        <p>Each engagement follows a rhythm that balances insight with execution. Diagnose uncovers truth. Design creates structure. Direction provides focus. Together they form the operating cadence of clarity.</p>
-
-        <p><strong>Diagnose.</strong> We take a complete snapshot of your GTM system, identifying duplication, gaps, and misalignment. Truth before action.</p>
-
-        <p><strong>Design.</strong> We create your GTM System Blueprint — a visual and operational model showing how teams, tools, and data connect. It becomes the foundation for clarity and scalability.</p>
-
-        <p><strong>Direction.</strong> We turn the blueprint into a one-year Focus Plan that translates design into measurable results. Every action supports a single shared objective.</p>
-      </section>
-
-      <section class="block">
-        <h2>Our Change</h2>
-        <p>The outcome is not another process or platform but a living system that evolves with you. Caugia Studio helps leadership teams transform complexity into clarity and motion into measurable progress. The result is a GTM engine powered by intelligence, not intensity.</p>
+        <p>Each project follows a rhythm that blends structure with creativity.</p>
+        <ul>
+          <li><strong>Diagnose</strong> — We take a clear picture of your GTM system, the way a doctor reads an X-ray.</li>
+          <li><strong>Design</strong> — We create your GTM System Blueprint, showing how teams, tools, and data fit together.</li>
+          <li><strong>Direction</strong> — We leave you with a Focus Plan for the next twelve months — a small number of changes that make a large difference.</li>
+        </ul>
+        <p>This rhythm is simple, but powerful. It creates calm inside complexity. By the end, your GTM engine runs smoothly, your people move with purpose, and growth feels less like a sprint and more like a system that actually works.</p>
       </section>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
 
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
-
-    // Heldere, zichtbare node-animatie
-    const canvas=document.getElementById('nodeFloat');
-    const ctx=canvas.getContext('2d');
-    let nodes=[],w,h;
-
-    function resize(){
-      w=canvas.width=canvas.offsetWidth;
-      h=canvas.height=canvas.offsetHeight;
-      nodes=[];
-      for(let i=0;i<28;i++){
-        nodes.push({
-          x:Math.random()*w,
-          y:Math.random()*h,
-          vx:(Math.random()-0.5)*0.25,
-          vy:(Math.random()-0.5)*0.25
-        });
-      }
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      for(let i=0;i<nodes.length;i++){
-        const n1=nodes[i];
-        ctx.beginPath();
-        ctx.arc(n1.x,n1.y,3,0,Math.PI*2);
-        ctx.fillStyle='rgba(11,102,255,0.9)';
-        ctx.shadowColor='rgba(11,102,255,0.4)';
-        ctx.shadowBlur=8;
-        ctx.fill();
-
-        for(let j=i+1;j<nodes.length;j++){
-          const n2=nodes[j];
-          const dx=n1.x-n2.x,dy=n1.y-n2.y,dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<140){
-            ctx.beginPath();
-            ctx.moveTo(n1.x,n1.y);
-            ctx.lineTo(n2.x,n2.y);
-            ctx.strokeStyle=`rgba(11,102,255,${0.35 - dist/400})`;
-            ctx.lineWidth=1.2;
-            ctx.stroke();
-          }
-        }
-        n1.x+=n1.vx;n1.y+=n1.vy;
-        if(n1.x<0||n1.x>w)n1.vx*=-1;
-        if(n1.y<0||n1.y>h)n1.vy*=-1;
-      }
-      requestAnimationFrame(draw);
-    }
-
-    window.addEventListener('resize',resize);
-    resize();
-    draw();
+    const toggle=document.querySelector('.menu-toggle');
+    const navMobile=document.querySelector('.nav-mobile');
+    toggle.addEventListener('click',()=>{
+      toggle.classList.toggle('active');
+      navMobile.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
