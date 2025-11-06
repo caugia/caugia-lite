@@ -41,9 +41,11 @@
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:28px}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
+
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
     nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
     nav.nav-desktop a:hover{color:var(--blue)}
+
     .cta{
       background:var(--blue);color:#fff !important;text-decoration:none;
       padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
@@ -51,9 +53,47 @@
     }
     .cta:hover{background:var(--accent);transform:scale(1.03)}
 
+    /* === MOBIEL MENU === */
+    .menu-toggle {
+      display:none;
+      flex-direction:column;
+      justify-content:space-between;
+      width:24px;height:18px;
+      background:none;border:none;cursor:pointer;
+      z-index:20;
+    }
+    .menu-toggle span {
+      height:2px;width:100%;
+      background:var(--ink);
+      border-radius:1px;
+      transition:transform .3s,opacity .3s;
+    }
+    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+    nav.nav-mobile{
+      display:none;
+      flex-direction:column;
+      align-items:flex-start;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      padding:16px 24px 24px;
+      position:absolute;top:var(--header-h);left:0;width:100%;
+    }
+    nav.nav-mobile a{
+      color:var(--ink);
+      text-decoration:none;
+      font-weight:500;
+      padding:10px 0;
+      width:100%;
+    }
+    nav.nav-mobile a:hover{color:var(--blue)}
+    nav.nav-mobile.open{display:flex;}
+
     main{
       flex:1;
-      scroll-snap-type:y proximity;   /* licht snap-gedrag */
+      scroll-snap-type:y proximity;
       scroll-padding-top:var(--header-h);
       padding-top:var(--header-h);
     }
@@ -86,8 +126,8 @@
     .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px}
     section.block{
       display:flex;justify-content:space-between;align-items:flex-start;
-      gap:40px;margin-bottom:48px;       /* compacter ritme */
-      scroll-snap-align:start;           /* begin van elk blok */
+      gap:40px;margin-bottom:48px;
+      scroll-snap-align:start;
       scroll-snap-stop:always;
       padding-top:8px;
     }
@@ -96,7 +136,6 @@
     p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px 0;max-width:720px}
 
     .anim{flex:0 0 35%;display:flex;align-items:center;justify-content:center;height:180px}
-    /* zachte C-motion (identiek gevoel als resources) */
     svg.c-motion{width:160px;height:160px;overflow:visible;opacity:.15}
     .c-path{
       fill:none;stroke-width:8;stroke-linecap:round;stroke-dasharray:260 100;
@@ -118,6 +157,8 @@
     footer a:hover{text-decoration:underline}
 
     @media (max-width:900px){
+      nav.nav-desktop{display:none}
+      .menu-toggle{display:flex}
       section.block{flex-direction:column}
       .anim{width:100%;height:140px;margin-top:6px}
     }
@@ -131,7 +172,18 @@
         <img src="C-logo.png" alt="Caugia Studio logo">
         <span>Caugia Studio</span>
       </a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
       <nav class="nav-desktop">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="work.html">Work Together</a>
+        <a href="resources.html">Resources</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+      </nav>
+      <nav class="nav-mobile">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="approach.html">Approach</a>
@@ -143,7 +195,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero" id="top">
       <div class="orb"></div>
       <img src="logo.png" alt="Caugia Logo" class="logo">
@@ -153,7 +204,6 @@
     </section>
 
     <div class="wrap">
-
       <section class="block" id="about">
         <div class="text">
           <h2>About</h2>
@@ -213,7 +263,6 @@
           </svg>
         </div>
       </section>
-
     </div>
   </main>
 
@@ -224,32 +273,14 @@
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
 
-    // Licht “hop” gedrag: spring na scroll naar dichtstbijzijnde sectie
-    (function(){
-      const sections = [...document.querySelectorAll('section.hero, .wrap > section.block')];
-      let ticking = false, lastY = window.pageYOffset;
+    // === Mobiel menu functionaliteit ===
+    const toggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.nav-mobile');
 
-      function snapToClosest(){
-        const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
-        const y = window.pageYOffset;
-        let best = null, bestDelta = Infinity;
-
-        sections.forEach(sec=>{
-          const top = sec.getBoundingClientRect().top + y - headerH;
-          const delta = Math.abs(top - y);
-          if(delta < bestDelta){ bestDelta = delta; best = top; }
-        });
-        window.scrollTo({ top: best, behavior: 'auto' });
-      }
-
-      window.addEventListener('wheel', ()=>{
-        lastY = window.pageYOffset;
-        if(!ticking){
-          ticking = true;
-          setTimeout(()=>{ ticking = false; snapToClosest(); }, 120);
-        }
-      }, { passive:true });
-    })();
+    toggle.addEventListener('click',()=>{
+      toggle.classList.toggle('active');
+      mobileNav.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
