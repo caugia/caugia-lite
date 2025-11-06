@@ -3,129 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work Together | Caugia Studio — How Collaboration Feels and Works</title>
-  <meta name="description" content="Work with Caugia Studio through a calm and structured collaboration. From discovery to design to direction, we build systems that teams can trust and leaders can measure." />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
-  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
-
+  <title>Work Together | Caugia Studio</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
   <style>
-    :root {
-      --ink:#0b132b;
-      --blue:#0b66ff;
-      --accent:#ff7700;
-      --bg-light:#f9f9fb;
-      --border:#e5e5e5;
-      --maxw:1180px;
-      --header-h:64px;
+    :root{
+      --ink:#0b132b;--blue:#0b66ff;--accent:#ff7700;
+      --bg-light:#f9f9fb;--border:#e5e5e5;
+      --maxw:1180px;--header-h:64px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
     html{scroll-behavior:smooth}
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:#fff;
-      display:flex;
-      flex-direction:column;
-      min-height:100vh;
-      text-align:left;
-      opacity:0;
-      transition:opacity .6s ease;
+      color:var(--ink);background:#fff;
+      display:flex;flex-direction:column;min-height:100vh;text-align:left;
+      opacity:0;transition:opacity .6s ease;
     }
     body.loaded{opacity:1}
 
     header{
-      position:fixed;
-      inset:0 0 auto 0;
-      height:var(--header-h);
+      position:fixed;inset:0 0 auto 0;height:var(--header-h);
       background:rgba(255,255,255,.98);
       border-bottom:1px solid rgba(0,0,0,.06);
       backdrop-filter:saturate(140%) blur(6px);
       z-index:10;
     }
-    .container{
-      max-width:var(--maxw);
-      height:100%;
-      margin:0 auto;
-      padding:0 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
     a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px}
+    .brand img{height:28px;vertical-align:middle}
     .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
     nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
     nav.nav-desktop a:hover{color:var(--blue)}
-    nav.nav-desktop a.active{color:var(--blue)}
     .cta{
-      background:var(--blue);
-      color:#fff!important;
-      text-decoration:none;
-      padding:.55rem 1.1rem;
-      border-radius:8px;
-      font-weight:600;
+      background:var(--blue);color:#fff !important;text-decoration:none;
+      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
       transition:background .25s ease,transform .25s ease;
     }
-    .cta:hover{background:var(--accent);transform:scale(1.03)}
+    .cta:hover{background:var(--accent);color:#fff !important;transform:scale(1.03)}
+
+    /* MOBIEL MENU */
+    .menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer;z-index:20}
+    .menu-toggle span{height:2px;width:100%;background:var(--ink);border-radius:1px;transition:transform .3s,opacity .3s}
+    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-toggle.active span:nth-child(2){opacity:0}
+    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+    nav.nav-mobile{display:none;flex-direction:column;align-items:flex-start;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:absolute;top:var(--header-h);left:0;width:100%}
+    nav.nav-mobile a{color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;width:100%}
+    nav.nav-mobile a:hover{color:var(--blue)}
+    nav.nav-mobile.open{display:flex;}
 
     main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
     .wrap{max-width:var(--maxw);margin:0 auto}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 24px 0}
-    h2{font-size:1.6rem;font-weight:700;margin:0 0 16px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 18px 0;max-width:700px}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 20px 0}
+    .intro{font-size:1.2rem;line-height:1.7;color:#1b1b1b;max-width:850px;margin:0 0 50px 0}
+    section{background:var(--bg-light);border:1px solid var(--border);border-radius:16px;padding:40px 48px;margin-bottom:60px}
+    h2{font-size:1.7rem;margin:0 0 18px 0;font-weight:700;color:var(--blue)}
+    h3{font-size:1.2rem;font-weight:600;margin-top:24px;margin-bottom:6px;color:var(--accent)}
+    p{font-size:1.05rem;line-height:1.7;color:#222;margin:0 0 18px 0;max-width:880px}
+    ul{margin:10px 0 25px 20px;line-height:1.7}
+    ul li{margin-bottom:6px}
 
-    /* Sectie lay-out: links tekst, rechts animatie */
-    section.block{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:40px;
-      margin-bottom:80px;
-    }
-    .text{flex:0 0 65%}
-    .anim{
-      flex:0 0 35%;
-      position:relative;
-      height:200px;
-      background:radial-gradient(circle at center,rgba(11,102,255,0.05),transparent);
-      border-radius:12px;
-      overflow:hidden;
-    }
-    .shape{
-      position:absolute;
-      width:80px;
-      height:80px;
-      border:2px solid rgba(11,102,255,0.15);
-      border-radius:50%;
-      animation:pulse 6s infinite ease-in-out;
-    }
-    .shape:nth-child(2){width:100px;height:100px;left:40px;top:60px;animation-delay:2s}
-    .shape:nth-child(3){width:60px;height:60px;left:120px;top:20px;animation-delay:4s}
-    @keyframes pulse{
-      0%,100%{transform:scale(1);opacity:.3}
-      50%{transform:scale(1.3);opacity:.6}
-    }
-
-    /* Nette lijststijl zonder bullets of streepjes */
-    .list{display:grid;gap:14px;margin-top:8px}
-    .item strong{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
-    .item span{color:#1f1f1f;font-size:1.05rem}
-
-    footer{
-      margin-top:auto;
-      padding:24px 0 32px 0;
-      font-size:.9rem;
-      color:#777;
-      text-align:center;
-      border-top:1px solid rgba(0,0,0,.06);
-    }
+    footer{margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:var(--ink);text-decoration:none;font-weight:500}
     footer a:hover{text-decoration:underline}
 
+    @media (prefers-color-scheme:dark){
+      body{background:#0b132b;color:#f5f5f5}
+      header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
+      .brand span,nav a,footer a{color:#f5f5f5}
+      .cta{background:var(--blue)}
+      .cta:hover{background:var(--accent)}
+      section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+      p{color:#e9e9e9}
+    }
     @media (max-width:900px){
-      section.block{flex-direction:column}
-      .anim{width:100%;height:160px;margin-top:12px}
+      nav.nav-desktop{display:none}
+      .menu-toggle{display:flex}
+      h1{font-size:2rem}
+      section{padding:28px 24px}
     }
   </style>
 </head>
@@ -133,17 +91,23 @@
 <body>
   <header>
     <div class="container">
-      <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Studio logo">
-        <span>Caugia Studio</span>
-      </a>
+      <a href="/index.html" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
+      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
       <nav class="nav-desktop">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="approach.html">Approach</a>
-        <a href="work.html" class="active">Work Together</a>
-        <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/approach.html">Approach</a>
+        <a href="/work.html" class="active">Work Together</a>
+        <a href="/resources.html">Resources</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
+      </nav>
+      <nav class="nav-mobile">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/approach.html">Approach</a>
+        <a href="/work.html" class="active">Work Together</a>
+        <a href="/resources.html">Resources</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
   </header>
@@ -151,68 +115,71 @@
   <main>
     <div class="wrap">
       <h1>Work Together</h1>
+      <p class="intro">Every Caugia engagement follows a simple arc: discovery, design, and direction. Each phase builds clarity, structure, and measurable progress toward one goal — a GTM system that runs predictably.</p>
 
-      <!-- 1. Opening: het verhaal van samenwerken -->
-      <section class="block">
-        <div class="text">
-          <p>Working with Caugia begins with a pause. We step back to see what is unclear and why it matters. Most teams already have the right people and strong tools. What is missing is a way to connect effort with outcome in a steady rhythm. That is the work we do together.</p>
-          <p>We listen. We map how information moves and where it stops. We translate scattered initiatives into one system that teams can trust. From that point, the work is shared. Everyone moves with purpose. Leaders see what matters. Teams regain focus. The system carries the weight so people can do their best work.</p>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <div class="shape"></div><div class="shape"></div><div class="shape"></div>
-        </div>
+      <section>
+        <h2>Discovery</h2>
+        <p>We begin by mapping your current GTM landscape. How do leads, data, and accountability flow today, and where do they stall? The goal is to see clearly before changing anything. We observe patterns across teams and uncover where information or ownership gets lost.</p>
+        <ul>
+          <li>Current-state architecture mapping</li>
+          <li>Tool inventory and usage audit</li>
+          <li>Gap analysis across teams and data</li>
+          <li>Executive summary of pain points</li>
+        </ul>
       </section>
 
-      <!-- 2. The Three Dimensions of Work -->
-      <section class="block">
-        <div class="text">
-          <h2>The Three Dimensions of Work</h2>
-          <p><strong>Discovery Reveals the Truth.</strong> Discovery is not a checklist. It is a way to see your system as it is. We look beneath reports and across teams. We learn where momentum is lost and why. Discovery brings honesty and direction.</p>
-          <p><strong>Design Connects What Exists.</strong> Design is engineering with empathy. We connect people, tools, and process so that effort becomes flow. When design is clear, execution feels simple and teams move in the same rhythm.</p>
-          <p><strong>Direction Sustains Momentum.</strong> A system matters when it lives inside the organization. Direction turns architecture into weekly practice. Reviews and rituals keep clarity alive and keep progress visible.</p>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <div class="shape"></div><div class="shape"></div><div class="shape"></div>
-        </div>
+      <section>
+        <h2>Design</h2>
+        <p>Here the system takes shape. We build your <strong>GTM System Blueprint</strong> — a visual and operational model showing how people, processes, and technology connect. This phase turns insight into architecture, ensuring each tool and workflow supports a common direction.</p>
+        <ul>
+          <li>Custom architecture (as-is and to-be)</li>
+          <li>Tools matrix with consolidation & AI recommendations</li>
+          <li>Team structure and collaboration model</li>
+          <li>Prioritized roadmap with dependencies</li>
+        </ul>
       </section>
 
-      <!-- 3. Deliverables with Purpose -->
-      <section class="block">
-        <div class="text">
-          <h2>Deliverables with Purpose</h2>
-          <p><strong>The Blueprint.</strong> A visual and operational model of your revenue engine. It shows how work should move and what needs to evolve next.</p>
-          <p><strong>The Tools Matrix.</strong> A clear view of what helps and what hinders. It reveals overlaps and blind spots. It also shows where AI adds value and where it does not.</p>
-          <p><strong>The Focus Plan.</strong> A one year guide that aligns leaders on measurable outcomes. It sets priorities and removes noise so progress becomes steady.</p>
-          <p><strong>The Alignment Session.</strong> A shared conversation that turns plans into action. It builds ownership across teams and renews confidence in the system.</p>
-          <p>Deliverables are not the end of the work. They are instruments that make progress visible and real.</p>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <div class="shape"></div><div class="shape"></div><div class="shape"></div>
-        </div>
+      <section>
+        <h2>Direction</h2>
+        <p>We translate the design into a <strong>one-year Focus Plan</strong> that drives execution with intent. The plan balances efficiency and growth, keeping your system stable as it scales. It brings rhythm to execution so your team can move in sync and sustain progress.</p>
+        <ul>
+          <li>ROI and productivity projections</li>
+          <li>Implementation milestones by quarter</li>
+          <li>Leadership alignment workshop</li>
+          <li>Optional partner support for rollout</li>
+        </ul>
       </section>
 
-      <!-- 4. Engagement in Rhythm -->
-      <section class="block">
-        <div class="text">
-          <h2>Engagement in Rhythm</h2>
-          <p><strong>Assessment.</strong> A short and focused collaboration that brings clarity fast. It answers where you are now and what should change first.</p>
-          <p><strong>System Design.</strong> A structured engagement that builds the architecture and the operating rhythm. It helps teams embed new ways of working in daily practice.</p>
-          <p><strong>Implementation Partnership.</strong> A longer collaboration where we apply, measure, and refine. The goal is a system that stands on its own. Clear. Predictable. Calm.</p>
-          <p>Every model is built on transparency. We work until the system works on its own and teams move with confidence.</p>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <div class="shape"></div><div class="shape"></div><div class="shape"></div>
-        </div>
+      <section>
+        <h2>Deliverables</h2>
+        <p><strong>GTM System Blueprint:</strong> the foundation of your predictable revenue engine.</p>
+        <p><strong>Tools Matrix:</strong> a clear view of your technology ecosystem.</p>
+        <p><strong>Focus Plan:</strong> one year of direction and measurable progress.</p>
+        <p><strong>Alignment Session:</strong> executive clarity and shared accountability.</p>
+      </section>
+
+      <section>
+        <h2>Engagement Models</h2>
+        <p><strong>Assessment:</strong> a rapid diagnostic that reveals structural gaps and opportunity areas.</p>
+        <p><strong>System Design:</strong> a 4–6 week collaboration where we build your GTM blueprint, playbooks, and roadmap.</p>
+        <p><strong>Implementation Partner:</strong> ongoing support to turn architecture into action, embedding the system within your teams.</p>
+        <p>Each engagement is visual, data-driven, and tool-agnostic. We don’t sell software — we build the system that makes software work for you.</p>
       </section>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
 
   <script>
     window.addEventListener('load',()=>document.body.classList.add('loaded'));
+    const toggle=document.querySelector('.menu-toggle');
+    const navMobile=document.querySelector('.nav-mobile');
+    toggle.addEventListener('click',()=>{
+      toggle.classList.toggle('active');
+      navMobile.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
