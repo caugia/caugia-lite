@@ -53,17 +53,15 @@
 
     main{
       flex:1;
-      scroll-snap-type:y proximity;
-      scroll-padding-top:var(--header-h);
       padding-top:var(--header-h);
     }
 
+    /* HERO */
     .hero{
       position:relative;
       min-height:calc(100vh - var(--header-h));
       display:flex;flex-direction:column;align-items:center;justify-content:center;
       text-align:center;overflow:hidden;
-      scroll-snap-align:start;
     }
     .hero img.logo{width:340px;height:auto;margin:0 0 24px 0}
     h1{font-size:2.6rem;line-height:1.22;font-weight:800;margin:0 0 12px 0}
@@ -81,17 +79,17 @@
       100%{transform:translate(-50%,-35%) scale(1)}
     }
 
+    /* SAMENVATTINGEN */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px}
     section.block{
       display:flex;justify-content:space-between;align-items:flex-start;
       gap:40px;margin-bottom:48px;
-      scroll-snap-align:start;
-      scroll-snap-stop:always;
       padding-top:8px;
     }
     .text{flex:0 0 65%}
     h2{font-size:1.6rem;font-weight:700;margin:0 0 14px 0;color:var(--blue)}
     p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px 0;max-width:720px}
+
     .anim{flex:0 0 35%;display:flex;align-items:center;justify-content:center;height:180px}
     svg.c-motion{width:160px;height:160px;overflow:visible;opacity:.15}
     .c-path{
@@ -139,6 +137,7 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero" id="top">
       <div class="orb"></div>
       <img src="logo.png" alt="Caugia Logo" class="logo">
@@ -148,6 +147,7 @@
     </section>
 
     <div class="wrap">
+
       <section class="block" id="about">
         <div class="text">
           <h2>About</h2>
@@ -207,6 +207,7 @@
           </svg>
         </div>
       </section>
+
     </div>
   </main>
 
@@ -215,48 +216,29 @@
   </footer>
 
   <script>
-    window.addEventListener('load', () => document.body.classList.add('loaded'));
+    window.addEventListener('load',()=>document.body.classList.add('loaded'));
 
-    // ✅ Herstelde HOPSCROLL – direct springen zonder smooth gedrag
-    (function() {
-      const headerOffset = parseInt(getComputedStyle(document.documentElement)
-        .getPropertyValue('--header-h')) || 64;
+    // Hopscroll fix — smooth snap zonder inhoudsverandering
+    (function(){
+      const headerOffset = 64;
       const sections = [...document.querySelectorAll('section.hero, .wrap > section.block')];
-
-      // Klikgedrag voor nav-links
-      document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', e => {
-          const targetId = link.getAttribute('href').substring(1);
-          const target = document.getElementById(targetId);
-          if (target) {
-            e.preventDefault();
-            window.scrollTo({
-              top: target.offsetTop - headerOffset,
-              behavior: 'auto'
-            });
-          }
-        });
-      });
-
-      // "Hop" naar dichtstbijzijnde sectie na manueel scrollen
       let scrollTimeout;
-      window.addEventListener('scroll', () => {
+
+      function snapToClosest(){
+        const y = window.pageYOffset;
+        let closest = sections[0], min = Infinity;
+        for(const s of sections){
+          const top = s.offsetTop - headerOffset;
+          const dist = Math.abs(top - y);
+          if(dist < min){min = dist; closest = s;}
+        }
+        window.scrollTo({top:closest.offsetTop - headerOffset,behavior:'auto'});
+      }
+
+      window.addEventListener('scroll',()=>{
         clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          const y = window.pageYOffset;
-          let closest = sections[0];
-          let minDist = Infinity;
-          sections.forEach(sec => {
-            const top = sec.offsetTop - headerOffset;
-            const dist = Math.abs(top - y);
-            if (dist < minDist) {
-              minDist = dist;
-              closest = sec;
-            }
-          });
-          window.scrollTo({ top: closest.offsetTop - headerOffset, behavior: 'auto' });
-        }, 140);
-      }, { passive: true });
+        scrollTimeout=setTimeout(snapToClosest,120);
+      },{passive:true});
     })();
   </script>
 </body>
