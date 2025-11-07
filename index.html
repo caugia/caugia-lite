@@ -9,14 +9,28 @@
   <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
   <link rel="stylesheet" href="/assets/caugia.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+
+    section {
+      scroll-snap-align: start;
+    }
+
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 80px 20px;
+      background: linear-gradient(to bottom right, #ffffff, #f7f9ff);
       position: relative;
     }
 
@@ -24,6 +38,13 @@
       width: 240px;
       height: auto;
       margin-bottom: 28px;
+      animation: fadeIn 1.6s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -58,25 +79,25 @@
     .wrap {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 64px 24px 100px;
+      padding: 0 24px 100px;
     }
 
     section.block {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: flex-start;
-      gap: 40px;
-      padding: 48px 0;
+      min-height: 100vh;
+      padding: 60px 0;
       border-bottom: 1px solid rgba(0,0,0,0.06);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
     }
 
-    section.block:last-child {
-      border-bottom: none;
-    }
-
-    .text {
-      flex: 1;
+    section.block.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -91,6 +112,7 @@
       color: #1b1b1b;
       line-height: 1.7;
       margin-bottom: 12px;
+      max-width: 780px;
     }
 
     .readmore {
@@ -104,15 +126,15 @@
     }
 
     @media (max-width: 900px) {
-      section.block {
-        flex-direction: column;
-        padding: 32px 0;
+      h1 {
+        font-size: 2rem;
       }
       .hero img {
         width: 180px;
       }
-      h1 {
-        font-size: 2.1rem;
+      section.block {
+        min-height: auto;
+        padding: 48px 0;
       }
     }
   </style>
@@ -148,44 +170,36 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="top">
       <img src="logo.png" alt="Caugia Logo">
       <h1>Turn GTM Chaos into Predictable Revenue Systems</h1>
-      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated systems that align data, teams, and growth. We bring calm to complexity and clarity to performance, so that growth becomes measurable and repeatable.</p>
+      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated systems that align data, teams, and growth. We bring calm to complexity and clarity to performance so that growth becomes measurable and repeatable.</p>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
     </section>
 
     <div class="wrap">
       <section class="block">
-        <div class="text">
-          <h2>About</h2>
-          <p>Caugia Studio was founded to bring coherence back into modern growth systems. We help organizations reconnect what growth has pulled apart, balancing technology, structure, and judgment so that direction lasts. The studio is named after Coye-la-Forêt, historically known as Caugia, a place that stood for calm and clarity before movement.</p>
-          <a href="about.html" class="readmore">Read more →</a>
-        </div>
+        <h2>About</h2>
+        <p>Caugia Studio was founded to bring coherence back into modern growth systems. We help organizations reconnect what growth has pulled apart, balancing technology, structure, and judgment so that direction lasts. The studio is named after Coye-la-Forêt, historically known as Caugia, a place that stood for calm and clarity before movement.</p>
+        <a href="about.html" class="readmore">Read more →</a>
       </section>
 
       <section class="block">
-        <div class="text">
-          <h2>Approach</h2>
-          <p>Our approach begins with visibility. We map how data, people, and processes interact, then redesign them into one rhythm. Through the Caugia Lens, we align teams and decisions around clarity, not complexity.</p>
-          <a href="approach.html" class="readmore">Read more →</a>
-        </div>
+        <h2>Approach</h2>
+        <p>Our approach begins with visibility. We map how data, people, and processes interact, then redesign them into one rhythm. Through the Caugia Lens, we align teams and decisions around clarity, not complexity.</p>
+        <a href="approach.html" class="readmore">Read more →</a>
       </section>
 
       <section class="block">
-        <div class="text">
-          <h2>Work Together</h2>
-          <p>Every collaboration follows the same rhythm: diagnose, design, and direction. We transform growth from effort into flow, building systems that your teams can own and scale with confidence.</p>
-          <a href="work.html" class="readmore">Read more →</a>
-        </div>
+        <h2>Work Together</h2>
+        <p>Every collaboration follows the same rhythm: diagnose, design, and direction. We transform growth from effort into flow, building systems that your teams can own and scale with confidence.</p>
+        <a href="work.html" class="readmore">Read more →</a>
       </section>
 
       <section class="block">
-        <div class="text">
-          <h2>Resources</h2>
-          <p>Our resources are written for GTM builders and leaders who value structure and clarity. Each piece explores how systems thinking and calm intelligence reshape modern revenue operations.</p>
-          <a href="resources.html" class="readmore">Read more →</a>
-        </div>
+        <h2>Resources</h2>
+        <p>Our resources are written for GTM builders and leaders who value structure and clarity. Each piece explores how systems thinking and calm intelligence reshape modern revenue operations.</p>
+        <a href="resources.html" class="readmore">Read more →</a>
       </section>
     </div>
   </main>
@@ -194,6 +208,19 @@
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 
-  <script src="/assets/caugia.js"></script>
+  <script>
+    // Fade-in scroll animation
+    const blocks = document.querySelectorAll('section.block');
+    const options = { threshold: 0.2 };
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, options);
+
+    blocks.forEach(block => observer.observe(block));
+  </script>
 </body>
 </html>
