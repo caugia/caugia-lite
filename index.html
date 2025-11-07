@@ -1,286 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caugia Studio — From Data to Direction</title>
-  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth, bringing calm to complexity and clarity to performance." />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3" />
-  <link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3" />
-  <style>
-    :root{
-      --ink:#0b132b;
-      --blue:#0b66ff;
-      --accent:#ff7700;
-      --maxw:1180px;
-      --header-h:64px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root,html,body{scroll-behavior:auto !important}
-
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;
-      text-align:left;opacity:0;transition:opacity .6s ease;
-    }
-    body.loaded{opacity:1}
-
-    header{
-      position:fixed;inset:0 0 auto 0;height:var(--header-h);
-      background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      backdrop-filter:saturate(140%) blur(6px);
-      z-index:10;
-    }
-    .container{
-      max-width:var(--maxw);height:100%;
-      margin:0 auto;padding:0 24px;
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px}
-    .brand span{font-weight:600;color:var(--ink);white-space:nowrap}
-
-    nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
-    nav.nav-desktop a:hover{color:var(--blue)}
-
-    .cta{
-      background:var(--blue);color:#fff !important;text-decoration:none;
-      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
-      transition:background .25s ease,transform .25s ease;
-    }
-    .cta:hover{background:var(--accent);transform:scale(1.03)}
-
-    /* === MOBIEL MENU === */
-    .menu-toggle {
-      display:none;
-      flex-direction:column;
-      justify-content:space-between;
-      width:24px;height:18px;
-      background:none;border:none;cursor:pointer;
-      z-index:20;
-    }
-    .menu-toggle span {
-      height:2px;width:100%;
-      background:var(--ink);
-      border-radius:1px;
-      transition:transform .3s,opacity .3s;
-    }
-    .menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-    .menu-toggle.active span:nth-child(2){opacity:0}
-    .menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-
-    nav.nav-mobile{
-      display:none;
-      flex-direction:column;
-      align-items:flex-start;
-      background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      padding:16px 24px 24px;
-      position:absolute;top:var(--header-h);left:0;width:100%;
-    }
-    nav.nav-mobile a{
-      color:var(--ink);
-      text-decoration:none;
-      font-weight:500;
-      padding:10px 0;
-      width:100%;
-    }
-    nav.nav-mobile a:hover{color:var(--blue)}
-    nav.nav-mobile.open{display:flex;}
-
-    main{
-      flex:1;
-      scroll-snap-type:y proximity;
-      scroll-padding-top:var(--header-h);
-      padding-top:var(--header-h);
-    }
-
-    /* HERO */
-    .hero{
-      position:relative;
-      min-height:calc(100vh - var(--header-h));
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;overflow:hidden;
-      scroll-snap-align:start;
-    }
-    .hero img.logo{width:340px;height:auto;margin:0 0 24px 0}
-    h1{font-size:2.6rem;line-height:1.22;font-weight:800;margin:0 0 12px 0}
-    .lead{max-width:760px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin:0 0 28px 0}
-    .hero .orb{
-      position:absolute;width:300px;height:300px;border-radius:50%;
-      background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));
-      filter:blur(60px);opacity:.3;
-      animation:orbfloat 14s infinite ease-in-out alternate;
-      top:35%;left:50%;transform:translate(-50%,-35%);pointer-events:none;
-    }
-    @keyframes orbfloat{
-      0%{transform:translate(-50%,-35%) scale(1)}
-      50%{transform:translate(-50%,-42%) scale(1.08)}
-      100%{transform:translate(-50%,-35%) scale(1)}
-    }
-
-    /* SAMENVATTINGEN */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px}
-    section.block{
-      display:flex;justify-content:space-between;align-items:flex-start;
-      gap:40px;margin-bottom:48px;
-      scroll-snap-align:start;
-      scroll-snap-stop:always;
-      padding-top:8px;
-    }
-    .text{flex:0 0 65%}
-    h2{font-size:1.6rem;font-weight:700;margin:0 0 14px 0;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px 0;max-width:720px}
-
-    .anim{flex:0 0 35%;display:flex;align-items:center;justify-content:center;height:180px}
-    svg.c-motion{width:160px;height:160px;overflow:visible;opacity:.15}
-    .c-path{
-      fill:none;stroke-width:8;stroke-linecap:round;stroke-dasharray:260 100;
-      animation:rotateC 22s linear infinite;transform-origin:center;
-    }
-    .c-path:nth-child(1){stroke:rgba(11,102,255,0.25)}
-    .c-path:nth-child(2){stroke:rgba(255,119,0,0.15);animation-direction:reverse;animation-duration:28s}
-    .c-path:nth-child(3){stroke:rgba(102,163,255,0.12);animation-duration:18s}
-    @keyframes rotateC{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-
-    .readmore{display:inline-block;margin-top:8px;font-weight:600;color:var(--blue);text-decoration:none}
-    .readmore:hover{color:var(--accent)}
-
-    footer{
-      margin-top:auto;padding:24px 0 32px 0;font-size:.9rem;color:#777;text-align:center;
-      border-top:1px solid rgba(0,0,0,.06)
-    }
-    footer a{color:var(--ink);text-decoration:none;font-weight:500}
-    footer a:hover{text-decoration:underline}
-
-    @media (max-width:900px){
-      nav.nav-desktop{display:none}
-      .menu-toggle{display:flex}
-      section.block{flex-direction:column}
-      .anim{width:100%;height:140px;margin-top:6px}
-    }
-  </style>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caugia Studio — From Data to Direction</title>
+<meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth, bringing calm to complexity and clarity to performance.">
+<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="android-chrome-512x512.png?v=3">
+<link rel="stylesheet" href="assets/caugia.css">
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Studio logo">
-        <span>Caugia Studio</span>
-      </a>
-      <button class="menu-toggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-desktop">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="approach.html">Approach</a>
-        <a href="work.html">Work Together</a>
-        <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
-      </nav>
-      <nav class="nav-mobile">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="approach.html">Approach</a>
-        <a href="work.html">Work Together</a>
-        <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <a class="brand" href="index.html"><img src="C-logo.png" alt="Caugia logo"><span>Caugia Studio</span></a>
+    <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="approach.html">Approach</a>
+      <a href="work.html">Work Together</a><a href="resources.html">Resources</a>
+      <a class="cta" target="_blank" rel="noopener" href="https://www.linkedin.com/in/meijertom">Get in touch</a>
+    </nav>
+    <nav class="nav-mobile">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="approach.html">Approach</a>
+      <a href="work.html">Work Together</a><a href="resources.html">Resources</a>
+      <a class="cta" target="_blank" rel="noopener" href="https://www.linkedin.com/in/meijertom">Get in touch</a>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="top">
-      <div class="orb"></div>
-      <img src="logo.png" alt="Caugia Logo" class="logo">
-      <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
-      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth, bringing calm to complexity and clarity to performance.</p>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+<main>
+  <section class="hero">
+    <div class="orb"></div>
+    <img class="logo" src="logo.png" alt="Caugia">
+    <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
+    <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth, bringing calm to complexity and clarity to performance.</p>
+    <a class="cta" target="_blank" rel="noopener" href="https://www.linkedin.com/in/meijertom">Get in touch</a>
+  </section>
+
+  <div class="wrap">
+    <section class="summary" id="about">
+      <div class="text">
+        <h2>About</h2>
+        <p>After fifteen years building and leading global GTM teams, we saw the same pattern return. Brilliant people in silos, disconnected metrics, and tools that defined the work instead of serving it. Caugia Studio reconnects what growth pulled apart. We design systems that balance technology, structure, and judgment. The result is direction that lasts.</p>
+        <a class="readmore" href="about.html">Read more →</a>
+      </div>
+      <div class="anim" aria-hidden="true">
+        <svg class="c-motion" viewBox="0 0 200 200">
+          <path class="c-path" d="M100,30 A70,70 0 1,1 99,30"/><path class="c-path" d="M100,40 A60,60 0 1,1 99,40"/><path class="c-path" d="M100,50 A50,50 0 1,1 99,50"/>
+        </svg>
+      </div>
     </section>
 
-    <div class="wrap">
-      <section class="block" id="about">
-        <div class="text">
-          <h2>About</h2>
-          <p>After fifteen years building and leading global GTM teams, we saw the same pattern return. Brilliant people in silos, disconnected metrics, and tools that defined the work instead of serving it. Caugia Studio reconnects what growth pulled apart. We design systems that balance technology, structure, and judgment. The result is direction that lasts.</p>
-          <a href="about.html" class="readmore">Read more →</a>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
-        </div>
-      </section>
+    <section class="summary" id="approach">
+      <div class="text">
+        <h2>Approach</h2>
+        <p>We begin by quieting the noise. Where does data stop? Which handoff fails? Once the system becomes visible, we redesign it for clarity. The Caugia Lens aligns people, process, and performance. It turns motion into progress and progress into predictability.</p>
+        <a class="readmore" href="approach.html">Read more →</a>
+      </div>
+      <div class="anim" aria-hidden="true">
+        <svg class="c-motion" viewBox="0 0 200 200">
+          <path class="c-path" d="M100,30 A70,70 0 1,1 99,30"/><path class="c-path" d="M100,40 A60,60 0 1,1 99,40"/><path class="c-path" d="M100,50 A50,50 0 1,1 99,50"/>
+        </svg>
+      </div>
+    </section>
 
-      <section class="block" id="approach">
-        <div class="text">
-          <h2>Approach</h2>
-          <p>We begin by quieting the noise. Where does data stop? Which handoff fails? Once the system becomes visible, we redesign it for clarity. The Caugia Lens aligns people, process, and performance. It turns motion into progress and progress into predictability.</p>
-          <a href="approach.html" class="readmore">Read more →</a>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
-        </div>
-      </section>
+    <section class="summary" id="work">
+      <div class="text">
+        <h2>Work Together</h2>
+        <p>Working with Caugia means designing flow. We co-build systems your team can own. Diagnose reveals truth, Design shapes the blueprint, Direction turns it into action. The outcome is not more effort, it is better movement. Teams operate with calm precision and leaders act with confidence.</p>
+        <a class="readmore" href="work.html">Read more →</a>
+      </div>
+      <div class="anim" aria-hidden="true">
+        <svg class="c-motion" viewBox="0 0 200 200">
+          <path class="c-path" d="M100,30 A70,70 0 1,1 99,30"/><path class="c-path" d="M100,40 A60,60 0 1,1 99,40"/><path class="c-path" d="M100,50 A50,50 0 1,1 99,50"/>
+        </svg>
+      </div>
+    </section>
 
-      <section class="block" id="work">
-        <div class="text">
-          <h2>Work Together</h2>
-          <p>Working with Caugia means designing flow. We co-build systems your team can own. Diagnose reveals truth, Design shapes the blueprint, Direction turns it into action. The outcome is not more effort, it is better movement. Teams operate with calm precision and leaders act with confidence.</p>
-          <a href="work.html" class="readmore">Read more →</a>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
-        </div>
-      </section>
+    <section class="summary" id="resources">
+      <div class="text">
+        <h2>Resources</h2>
+        <p>Our resources are written for builders. They show how clarity reshapes modern revenue systems. Use cases, whitepapers, and essays explain how structure reduces noise and how AI supports judgment. Each piece comes from real work in real organizations.</p>
+        <a class="readmore" href="resources.html">Read more →</a>
+      </div>
+      <div class="anim" aria-hidden="true">
+        <svg class="c-motion" viewBox="0 0 200 200">
+          <path class="c-path" d="M100,30 A70,70 0 1,1 99,30"/><path class="c-path" d="M100,40 A60,60 0 1,1 99,40"/><path class="c-path" d="M100,50 A50,50 0 1,1 99,50"/>
+        </svg>
+      </div>
+    </section>
+  </div>
+</main>
 
-      <section class="block" id="resources">
-        <div class="text">
-          <h2>Resources</h2>
-          <p>Our resources are written for builders. They show how clarity reshapes modern revenue systems. Use cases, whitepapers, and essays explain how structure reduces noise and how AI supports judgment. Each piece comes from real work in real organizations.</p>
-          <a href="resources.html" class="readmore">Read more →</a>
-        </div>
-        <div class="anim" aria-hidden="true">
-          <svg class="c-motion" viewBox="0 0 200 200">
-            <path class="c-path" d="M100,30 A70,70 0 1,1 99,30" />
-            <path class="c-path" d="M100,40 A60,60 0 1,1 99,40" />
-            <path class="c-path" d="M100,50 A50,50 0 1,1 99,50" />
-          </svg>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
-  </footer>
-
-  <script>
-    window.addEventListener('load',()=>document.body.classList.add('loaded'));
-
-    // === Mobiel menu functionaliteit ===
-    const toggle = document.querySelector('.menu-toggle');
-    const mobileNav = document.querySelector('.nav-mobile');
-
-    toggle.addEventListener('click',()=>{
-      toggle.classList.toggle('active');
-      mobileNav.classList.toggle('open');
-    });
-  </script>
-</body>
-</html>
+<footer>© 2025 Caugia Studio · <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/meijertom">LinkedIn</a></footer>
+<script src="assets/caugia.js"></script>
+</body></html>
