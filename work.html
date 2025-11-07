@@ -4,30 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work Together | Caugia Studio</title>
-  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
-  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
-  <link rel="stylesheet" href="/assets/caugia.css">
+  <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+  <style>
+    :root { --ink:#0b132b; --blue:#0b66ff; --accent:#ff7700; --maxw:1180px; --header-h:64px; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh}
+    header{position:fixed;inset:0 0 auto 0;height:var(--header-h);background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(140%) blur(6px);z-index:10}
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{height:28px}
+    .brand span{font-weight:600;color:var(--ink)}
+    nav.nav-desktop{display:flex;align-items:center;gap:20px}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
+    nav.nav-desktop a:hover{color:var(--blue)}
+    .cta{background:var(--blue);color:#fff !important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
+    .cta:hover{background:var(--accent);transform:scale(1.03)}
+    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 20px;color:var(--blue)}
+    h2{font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px;max-width:880px}
+    footer{margin-top:auto;padding:24px 0 32px;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
+    footer a{color:var(--ink);text-decoration:none;font-weight:500}
+    footer a:hover{text-decoration:underline}
+  </style>
 </head>
-
 <body>
   <header>
     <div class="container">
-      <a href="/index.html" class="brand"><img src="/C-logo.png" alt="Caugia C logo"><span>Caugia Studio</span></a>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="brand">
+        <img src="C-logo.png" alt="Caugia Studio logo">
+        <span>Caugia Studio</span>
+      </a>
       <nav class="nav-desktop">
-        <a href="/index.html">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/approach.html">Approach</a>
-        <a href="/work.html" class="active">Work Together</a>
-        <a href="/resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
-      </nav>
-      <nav class="nav-mobile">
-        <a href="/index.html">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/approach.html">Approach</a>
-        <a href="/work.html" class="active">Work Together</a>
-        <a href="/resources.html">Resources</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="work.html" class="active">Work Together</a>
+        <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
@@ -36,29 +50,28 @@
   <main>
     <div class="wrap">
       <h1>Work Together</h1>
-      <p class="lead">Every collaboration with Caugia follows the same rhythm. We diagnose, we design, and we direct. Each phase builds clarity into the system and transforms growth from effort into flow.</p>
+      <p>Every collaboration with Caugia follows the same rhythm. We diagnose, we design, and we direct. Each phase builds clarity and transforms growth from effort into flow.</p>
 
-      <section>
-        <h2>Diagnose</h2>
-        <p>We start by observing how your organization truly operates. Where does information slow down, where does accountability blur, and where does technology disconnect from value? The goal is to see clearly before changing anything. The result is visibility, not assumption.</p>
-      </section>
+      <h2>Diagnose</h2>
+      <p>We start by observing how your organization really operates. Where does information slow down? Where does accountability blur? Where does technology disconnect from value? The goal is to see clearly before changing anything. The result is visibility, not assumption.</p>
 
-      <section>
-        <h2>Design</h2>
-        <p>Once the system is visible, we build your GTM System Blueprint. This blueprint connects people, processes, and tools into one coherent structure. It defines how work moves, how success is measured, and how alignment is sustained as you grow.</p>
-      </section>
+      <h2>Design</h2>
+      <p>Once the system is visible, we create your GTM System Blueprint. This document connects people, processes, and tools into one coherent structure. It defines how work moves, how success is measured, and how alignment is sustained as you grow.</p>
 
-      <section>
-        <h2>Direction</h2>
-        <p>We translate the design into a Focus Plan that defines the smallest set of actions with the greatest impact. It brings rhythm to execution so that your teams move in sync and your progress remains measurable and calm. Growth stops being a sprint and becomes a system that works.</p>
-      </section>
+      <h2>Direction</h2>
+      <p>We then translate the design into a Focus Plan that defines the smallest set of actions with the greatest impact. It gives rhythm to execution so that teams move in sync and progress remains measurable and calm.</p>
+
+      <h2>Engagement Models</h2>
+      <p>Every company is different. Caugia engagements adapt to the maturity and pace of your organization.</p>
+      <p><strong>Assessment:</strong> a diagnostic to reveal structural gaps and opportunities.<br>
+         <strong>System Design:</strong> a collaborative process to build your GTM blueprint and roadmap.<br>
+         <strong>Implementation Partner:</strong> ongoing support to turn architecture into daily practice.</p>
+      <p>Each model builds clarity, simplicity, and predictability. We do not sell software. We help you design the system that makes software work for you.</p>
     </div>
   </main>
 
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
-
-  <script src="/assets/caugia.js"></script>
 </body>
 </html>
