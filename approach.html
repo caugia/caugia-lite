@@ -7,7 +7,7 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#0b132b;background:#fff;line-height:1.7;display:flex;flex-direction:column;min-height:100vh}
-    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:1px solid rgba(0,0,0,0.06);position:relative;z-index:10}
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:1px solid rgba(0,0,0,0.06)}
     header img.logo{height:34px}
     nav.nav-desktop a{margin-left:32px;text-decoration:none;color:#0b132b;font-weight:500;transition:color .2s ease}
     nav.nav-desktop a:hover{color:#2563eb}
@@ -19,24 +19,12 @@
     p{font-size:1.05rem;margin-bottom:16px;color:#1b1b1b;max-width:880px}
     footer{text-align:center;font-size:.9rem;padding:60px 0 40px;color:#666;border-top:1px solid rgba(0,0,0,.06)}
     footer a{color:#2563eb;text-decoration:none}
-    @media (max-width:900px){
-      header{padding:18px 22px}
-      nav.nav-desktop{display:none}
-      .menu-toggle{display:flex;flex-direction:column;justify-content:space-between;width:22px;height:16px;cursor:pointer;z-index:10}
-      .menu-toggle span{display:block;height:2px;background-color:#0b132b;border-radius:2px;transition:all .3s ease}
-      .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
-      .menu-toggle.active span:nth-child(2){opacity:0}
-      .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
-      nav.nav-mobile{display:none;flex-direction:column;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);padding:20px 28px 28px;position:absolute;top:64px;left:0;width:100%;z-index:9;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
-      nav.nav-mobile.open{display:flex}
-      nav.nav-mobile a{color:#0b132b;text-decoration:none;font-size:1.1rem;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05)}
-      h1{font-size:2rem}
-    }
+    @media (max-width:900px){nav.nav-desktop{display:none}.menu-toggle{display:flex;flex-direction:column;justify-content:space-between;width:22px;height:16px;cursor:pointer}.menu-toggle span{display:block;height:2px;background-color:#0b132b;border-radius:2px;transition:all .3s ease}.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}.menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}nav.nav-mobile{display:none;flex-direction:column;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,0.06);padding:20px 28px 28px;position:absolute;top:64px;left:0;width:100%}nav.nav-mobile.open{display:flex}nav.nav-mobile a{color:#0b132b;text-decoration:none;font-size:1.1rem;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.05)}}
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="html/C-logo.png" alt="Caugia logo" class="logo"></a>
+    <a href="index.html"><img src="C-logo.png" alt="Caugia logo" class="logo"></a>
     <nav class="nav-desktop">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -47,45 +35,4 @@
     </nav>
     <div class="menu-toggle"><span></span><span></span><span></span></div>
     <nav class="nav-mobile">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="approach.html" class="active">Approach</a>
-      <a href="work.html">Work Together</a>
-      <a href="resources.html">Resources</a>
-      <a href="contact.html" class="cta">Get in touch</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1>Our Approach</h1>
-    <p>At Caugia Studio, we help organizations turn motion into progress. Every company has the ingredients for growth — people, process, and performance — they just need to move in rhythm. Our approach builds that rhythm and keeps it alive.</p>
-
-    <h2>Seeing the System</h2>
-    <p>We start by slowing down the noise. We map how information flows across your GTM landscape and identify where energy is lost. Once the system becomes visible, teams see how their work connects and where decisions can be made with confidence.</p>
-
-    <h2>Designing Coherence</h2>
-    <p>We rebuild your GTM structure around three dimensions: people, process, and performance. Each supports the others, creating alignment without adding friction. When clarity replaces confusion, movement turns into measurable progress.</p>
-
-    <h2>Sustaining Simplicity</h2>
-    <p>The most effective systems are the simplest ones. We design GTM architectures that evolve without collapsing under new tools or trends. The goal is to make growth calm, predictable, and sustainable.</p>
-
-    <h2>The Caugia Lens</h2>
-    <p>Our methodology is called the Caugia Lens. It connects what most organizations separate — data, teams, and judgment. By balancing these forces, we help leadership teams create direction that lasts beyond projects and people.</p>
-  </main>
-
-  <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
-  </footer>
-
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const mobileNav = document.querySelector('.nav-mobile');
-    if (toggle && mobileNav) {
-      toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        mobileNav.classList.toggle('open');
-      });
-    }
-  </script>
-</body>
-</html>
+      <a href="index.html">
