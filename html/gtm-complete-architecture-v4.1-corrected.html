@@ -74,4 +74,83 @@
       collab:[
         {from:'sales-enablement',to:'ib-sdr',label:'Train'},
         {from:'revops',to:'ae',label:'Forecast'},
-        {from:
+        {from:'support',to:'cs',label:'Escalate'}
+      ]
+    };
+
+    let currentFilter='all';
+    const svg=d3.select('#container').append('svg').attr('width','100%').attr('height','100%');
+    const defs=svg.append('defs');
+    ['direct','support','collab'].forEach(type=>{
+      const c={direct:'#DC143C',support:'#FF6B35',collab:'#20B2AA'}[type];
+      defs.append('marker').attr('id',`arrow-${type}`)
+        .attr('markerWidth',10).attr('markerHeight',10).attr('refX',9).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 10 3, 0 6').attr('fill',c);
+    });
+
+    const g=svg.append('g');
+    const zoom=d3.zoom().scaleExtent([0.3,3]).on('zoom',e=>g.attr('transform',e.transform));
+    svg.call(zoom);
+
+    function draw(){
+      g.selectAll('*').remove();
+      const bW=260,bH=120;
+
+      Object.entries(flows).forEach(([type,list])=>{
+        if(currentFilter==='all'||currentFilter===type){
+          list.forEach(f=>{
+            const a=segments[f.from],b=segments[f.to];
+            g.append('line')
+              .attr('x1',a.x+bW/2).attr('y1',a.y+bH)
+              .attr('x2',b.x+bW/2).attr('y2',b.y)
+              .attr('class',`flow-${type}`)
+              .attr('stroke',type==='direct'?'#DC143C':type==='support'?'#FF6B35':'#20B2AA')
+              .attr('stroke-width',type==='direct'?4:type==='support'?3:2)
+              .attr('fill','none')
+              .attr('marker-end',`url(#arrow-${type})`);
+            g.append('text')
+              .attr('class','c-label-text')
+              .attr('x',(a.x+b.x+bW)/2)
+              .attr('y',(a.y+b.y+bH)/2)
+              .text(f.label);
+          });
+        }
+      });
+
+      Object.entries(segments).forEach(([id,s])=>{
+        const box=g.append('g')
+          .attr('transform',`translate(${s.x},${s.y})`)
+          .on('click',()=>showInfo(id));
+        box.append('rect')
+          .attr('width',bW).attr('height',bH).attr('fill',s.color)
+          .attr('stroke','#000').attr('stroke-width',3).attr('rx',8);
+        box.append('text')
+          .attr('x',bW/2).attr('y',60)
+          .attr('text-anchor','middle')
+          .attr('fill','#fff')
+          .attr('font-size',14).attr('font-weight',700)
+          .text(s.name);
+      });
+    }
+
+    function showInfo(id){
+      const seg=segments[id];
+      const p=document.getElementById('info-panel');
+      document.getElementById('info-title').textContent=seg.name;
+      document.getElementById('info-content').innerHTML=
+        `<div class="c-section"><div class="title">Type</div>
+         <div class="content">${seg.type}</div></div>`;
+      p.classList.add('is-active');
+    }
+    function closeInfo(){document.getElementById('info-panel').classList.remove('is-active');}
+    function showAll(){currentFilter='all';draw();}
+    function showDirect(){currentFilter='direct';draw();}
+    function showSupport(){currentFilter='support';draw();}
+    function showCollab(){currentFilter='collab';draw();}
+    function zoomIn(){svg.transition().call(zoom.scaleBy,1.3);}
+    function zoomOut(){svg.transition().call(zoom.scaleBy,0.77);}
+    function resetView(){svg.transition().call(zoom.transform,d3.zoomIdentity);}
+    draw();
+  </script>
+</body>
+</html>
