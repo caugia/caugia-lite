@@ -10,20 +10,20 @@
 <body>
   <div class="c-header">
     <h1>🔄 GTM Architecture v4.1</h1>
-    <p>Revenue Flow 🔴 | Support 🟠 | Collaboration 🔵</p>
+    <p>Revenue Flow 🔴 | Support 🟠 | Collaboration 🔵 | Klik op segment voor details</p>
   </div>
 
   <div class="c-controls">
     <div>
-      <button class="c-btn">Show All</button>
-      <button class="c-btn c-btn--secondary">Revenue Only</button>
-      <button class="c-btn c-btn--secondary">Support Only</button>
-      <button class="c-btn c-btn--secondary">Collab Only</button>
+      <button class="c-btn" onclick="showAll()">Show All</button>
+      <button class="c-btn c-btn--secondary" onclick="showDirect()">Revenue Only</button>
+      <button class="c-btn c-btn--secondary" onclick="showSupport()">Support Only</button>
+      <button class="c-btn c-btn--secondary" onclick="showCollab()">Collab Only</button>
     </div>
     <div>
-      <button class="c-btn c-btn--ghost">+</button>
-      <button class="c-btn c-btn--ghost">-</button>
-      <button class="c-btn c-btn--ghost">Reset</button>
+      <button class="c-btn c-btn--ghost" onclick="zoomIn()">+</button>
+      <button class="c-btn c-btn--ghost" onclick="zoomOut()">-</button>
+      <button class="c-btn c-btn--ghost" onclick="resetView()">Reset</button>
     </div>
   </div>
 
@@ -37,13 +37,41 @@
 
   <div id="legend" class="c-legend">
     <h4>Legenda</h4>
-    <p><strong>🔴 Revenue Flow</strong> — Direct handoffs (MQL → SQL → Won)</p>
-    <p><strong>🟠 Support</strong> — GTM Eng & Sales Eng support revenue teams</p>
+    <p><strong>🔴 Revenue Flow</strong> — directe handoffs (MQL → SQL → Won)</p>
+    <p><strong>🟠 Support</strong> — GTM Eng & Sales Eng support teams</p>
     <p><strong>🔵 Collaboration</strong> — Enablement teams</p>
   </div>
 
   <script>
-    // hier komt later je d3-code weer terug (ik houd die buiten deze stap om verwarring te vermijden)
-  </script>
-</body>
-</html>
+    const segments = {
+      marketing:{name:'Marketing',color:'#4A90E2',x:100,y:80,type:'revenue'},
+      'ib-sdr':{name:'Inbound SDR',color:'#7B68EE',x:550,y:80,type:'revenue'},
+      'ob-sdr':{name:'Outbound SDR',color:'#7B68EE',x:550,y:300,type:'revenue'},
+      ae:{name:'Account Executive',color:'#50C878',x:1000,y:80,type:'revenue'},
+      cs:{name:'Customer Success',color:'#FF6B6B',x:1450,y:80,type:'revenue'},
+      am:{name:'Account Management',color:'#FFA500',x:1900,y:80,type:'revenue'},
+      'gtm-engineers':{name:'GTM Engineers',color:'#FF6B35',x:100,y:520,type:'support',new:true},
+      'sales-engineers':{name:'Sales Engineers',color:'#2E8B57',x:1000,y:320,type:'support'},
+      'sales-enablement':{name:'Sales Enablement',color:'#FF1493',x:450,y:720,type:'enablement'},
+      revops:{name:'RevOps',color:'#20B2AA',x:900,y:720,type:'enablement'},
+      support:{name:'Support',color:'#9370DB',x:1350,y:720,type:'enablement'},
+      'gtm-leadership':{name:'GTM Leadership',color:'#DC143C',x:1800,y:720,type:'enablement'}
+    };
+
+    const flows = {
+      direct:[
+        {from:'marketing',to:'ib-sdr',label:'MQL'},
+        {from:'ib-sdr',to:'ae',label:'SQL'},
+        {from:'ae',to:'cs',label:'Won Deal'},
+        {from:'cs',to:'am',label:'Expansion'}
+      ],
+      support:[
+        {from:'gtm-engineers',to:'marketing',label:'ABM Lists'},
+        {from:'gtm-engineers',to:'ae',label:'Intent'},
+        {from:'sales-engineers',to:'ae',label:'Tech'},
+        {from:'sales-engineers',to:'am',label:'Upsell'}
+      ],
+      collab:[
+        {from:'sales-enablement',to:'ib-sdr',label:'Train'},
+        {from:'revops',to:'ae',label:'Forecast'},
+        {from:
