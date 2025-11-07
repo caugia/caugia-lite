@@ -4,35 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Caugia Studio</title>
-  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png?v=3">
-  <link rel="apple-touch-icon" sizes="180x180" href="/android-chrome-512x512.png?v=3">
-  <link rel="stylesheet" href="/assets/caugia.css">
+  <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+  <style>
+    :root { --ink:#0b132b; --blue:#0b66ff; --accent:#ff7700; --maxw:1180px; --header-h:64px; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh}
+    header{position:fixed;inset:0 0 auto 0;height:var(--header-h);background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(140%) blur(6px);z-index:10}
+    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand img{height:28px}
+    .brand span{font-weight:600;color:var(--ink)}
+    nav.nav-desktop{display:flex;align-items:center;gap:20px}
+    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
+    nav.nav-desktop a:hover{color:var(--blue)}
+    .cta{background:var(--blue);color:#fff !important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
+    .cta:hover{background:var(--accent);transform:scale(1.03)}
+    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
+    .wrap{max-width:var(--maxw);margin:0 auto}
+    h1{font-size:2.6rem;font-weight:800;margin:0 0 20px;color:var(--blue)}
+    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px;max-width:880px}
+    h2{font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px}
+    footer{margin-top:auto;padding:24px 0 32px;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
+    footer a{color:var(--ink);text-decoration:none;font-weight:500}
+    footer a:hover{text-decoration:underline}
+  </style>
 </head>
-
 <body>
   <header>
     <div class="container">
-      <a href="/index.html" class="brand">
-        <img src="/C-logo.png" alt="Caugia C logo">
+      <a href="index.html" class="brand">
+        <img src="C-logo.png" alt="Caugia Studio logo">
         <span>Caugia Studio</span>
       </a>
-      <button class="menu-toggle" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
       <nav class="nav-desktop">
-        <a href="/index.html">Home</a>
-        <a href="/about.html" class="active">About</a>
-        <a href="/approach.html">Approach</a>
-        <a href="/work.html">Work Together</a>
-        <a href="/resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
-      </nav>
-      <nav class="nav-mobile">
-        <a href="/index.html">Home</a>
-        <a href="/about.html" class="active">About</a>
-        <a href="/approach.html">Approach</a>
-        <a href="/work.html">Work Together</a>
-        <a href="/resources.html">Resources</a>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="approach.html">Approach</a>
+        <a href="work.html">Work Together</a>
+        <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
     </div>
@@ -41,37 +50,23 @@
   <main>
     <div class="wrap">
       <h1>About Caugia Studio</h1>
+      <p>Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue systems. We design architectures that align data, teams, and growth so performance becomes measurable and calm.</p>
 
-      <p class="lead">Caugia Studio helps executives and GTM leaders turn commercial chaos into predictable revenue engines. We design integrated systems that align data, teams, and growth so that performance becomes measurable and repeatable.</p>
+      <p>The name Caugia has deep roots. It originates from <a href="https://coyelaforet.com/bouger-sortir/histoire/" target="_blank">Coye-la-Forêt</a>, a village near Paris once called Caugia in 799. The name symbolizes continuity and evolution — ideas central to how we design systems that endure. It also reflects our belief that clarity begins with calm.</p>
 
-      <section>
-        <p>The name Caugia has deep roots. It originates from <a href="https://fr.wikipedia.org/wiki/Coye-la-For%C3%AAt" target="_blank" rel="noopener">Coye-la-Forêt</a>, a village near Paris known in 799 as Caugia. The spirit of the name reflects continuity and evolution, two ideas central to how we build systems today.</p>
-        <p>The idea behind Caugia Studio is simple. Most organizations do not lack ambition or technology; they lack coherence. As they grow, their go-to-market systems become fragmented. Teams chase different metrics, data lives in silos, and leadership loses visibility into what truly drives performance.</p>
-        <p>After fifteen years building and leading global revenue organizations at Contentsquare and Greenly, I saw the same challenge everywhere. Brilliant people, sophisticated tools, but no shared operating model. Growth felt reactive, not designed.</p>
-        <p>The rise of AI has only amplified this complexity. Automation moves faster than alignment, and every new tool adds another layer of noise. At the same time, economic pressure forces companies to search for efficiency, to consolidate, and to achieve more with less.</p>
-        <p>Caugia was created to bring order back into that reality. We help leadership teams design GTM systems that balance growth and efficiency, where every process, tool, and role supports one connected engine. The goal is not to do more, but to make every part of the system work together.</p>
-        <p>Once leaders can see the entire system and understand how people, processes, and performance interact, decisions become clear and growth becomes predictable.</p>
-        <p>Caugia brings calm intelligence to complex organizations and transforms fragmented operations into measurable performance.</p>
-      </section>
+      <h2>Founder</h2>
+      <p><strong>Tom Meijer</strong><br>Founder and Revenue Systems Architect</p>
+      <p>Tom is originally from the Netherlands and has spent more than fifteen years building and leading GTM organizations in France. He began his career in sales, later led commercial teams, and helped scale companies from early traction to global operations. At Contentsquare and Greenly, he worked where revenue and technology meet, guiding teams as they evolved from reactive selling to structured, data-driven performance.</p>
 
-      <section>
-        <h2>Founder</h2>
-        <p><strong>Tom Meijer</strong><br>Founder and Revenue Systems Architect</p>
-        <p>Tom is originally from the Netherlands and has spent more than fifteen years building and leading global GTM organizations in France. He began his career in sales, later led commercial teams, and helped scale companies from early traction to international growth. At Contentsquare and Greenly, he worked at the intersection of revenue and technology, guiding teams as they evolved from reactive selling to structured, data-driven performance.</p>
-        <p>Growing up in organizations that built products powered by machine learning and AI, Tom learned how technology can amplify human judgment when it is designed with clarity. He has led teams from two people to over a hundred, expanded operations from a single market to global coverage, and reported directly to executive leadership throughout his career. Through Caugia Studio, he now helps other leaders design GTM systems that scale with intent and operate with discipline.</p>
-      </section>
+      <p>He grew up professionally in organizations that built products powered by machine learning and AI. There he learned how technology can amplify human judgment when designed with clarity. Over his career, Tom has led teams from a handful of people to more than a hundred across Europe, the United States, and Asia, reporting directly to executive leadership. Through Caugia Studio, he now helps others design systems that scale with intent and operate with discipline.</p>
 
-      <section>
-        <h2>Origin</h2>
-        <p>The name Caugia comes from the original Latin word Caugiacum, the earliest name for Coye-la-Forêt, the French village where the studio was founded. More than twelve centuries ago, it described a clearing on the edge of the forest, a place where people paused before continuing their path. That idea still defines us today: progress begins with clarity before movement.</p>
-      </section>
+      <h2>Origin</h2>
+      <p>The name Caugia comes from the Latin word <em>Caugiacum</em>, the earliest name for Coye-la-Forêt, where the studio was founded. More than twelve centuries ago, it described a clearing at the edge of the forest, a place where travelers paused before continuing their journey. That idea still defines us today: progress begins with clarity before movement.</p>
     </div>
   </main>
 
   <footer>
     © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
-
-  <script src="/assets/caugia.js"></script>
 </body>
 </html>
