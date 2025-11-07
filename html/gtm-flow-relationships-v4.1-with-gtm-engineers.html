@@ -15,15 +15,15 @@
 
   <div class="c-controls">
     <div>
-      <button class="c-btn">Show All</button>
-      <button class="c-btn c-btn--secondary">Revenue Only</button>
-      <button class="c-btn c-btn--secondary">Support Only</button>
-      <button class="c-btn c-btn--secondary">Collab Only</button>
+      <button class="c-btn" onclick="showAll()">Show All</button>
+      <button class="c-btn c-btn--secondary" onclick="showDirect()">Revenue Only</button>
+      <button class="c-btn c-btn--secondary" onclick="showSupport()">Support Only</button>
+      <button class="c-btn c-btn--secondary" onclick="showCollab()">Collab Only</button>
     </div>
     <div>
-      <button class="c-btn c-btn--ghost">+</button>
-      <button class="c-btn c-btn--ghost">-</button>
-      <button class="c-btn c-btn--ghost">Reset</button>
+      <button class="c-btn c-btn--ghost" onclick="zoomIn()">+</button>
+      <button class="c-btn c-btn--ghost" onclick="zoomOut()">-</button>
+      <button class="c-btn c-btn--ghost" onclick="resetView()">Reset</button>
     </div>
   </div>
 
@@ -43,7 +43,141 @@
   </div>
 
   <script>
-    // D3-code komt hier terug zodra de basis visueel klopt
+    const segments = {
+      marketing: { name: 'Marketing', color: '#4A90E2', x: 100, y: 80, type: 'revenue' },
+      'ib-sdr': { name: 'Inbound SDR', color: '#7B68EE', x: 550, y: 80, type: 'revenue' },
+      'ob-sdr': { name: 'Outbound SDR', color: '#7B68EE', x: 550, y: 300, type: 'revenue' },
+      ae: { name: 'Account Executive', color: '#50C878', x: 1000, y: 80, type: 'revenue' },
+      cs: { name: 'Customer Success', color: '#FF6B6B', x: 1450, y: 80, type: 'revenue' },
+      am: { name: 'Account Management', color: '#FFA500', x: 1900, y: 80, type: 'revenue' },
+      'gtm-engineers': { name: 'GTM Engineers', color: '#FF6B35', x: 100, y: 520, type: 'support', new: true },
+      'sales-engineers': { name: 'Sales Engineers', color: '#2E8B57', x: 1000, y: 320, type: 'support' },
+      'sales-enablement': { name: 'Sales Enablement', color: '#FF1493', x: 450, y: 720, type: 'enablement' },
+      revops: { name: 'RevOps', color: '#20B2AA', x: 900, y: 720, type: 'enablement' },
+      support: { name: 'Support', color: '#9370DB', x: 1350, y: 720, type: 'enablement' },
+      'gtm-leadership': { name: 'GTM Leadership', color: '#DC143C', x: 1800, y: 720, type: 'enablement' }
+    };
+
+    const flows = {
+      direct: [
+        { from: 'marketing', to: 'ib-sdr', label: 'MQL' },
+        { from: 'marketing', to: 'ob-sdr', label: 'Target Lists' },
+        { from: 'ib-sdr', to: 'ae', label: 'SQL' },
+        { from: 'ob-sdr', to: 'ae', label: 'SQL' },
+        { from: 'ae', to: 'cs', label: 'Won Deal' },
+        { from: 'cs', to: 'am', label: 'Expansion' }
+      ],
+      support: [
+        { from: 'gtm-engineers', to: 'marketing', label: 'ABM Lists' },
+        { from: 'gtm-engineers', to: 'ib-sdr', label: 'Enriched' },
+        { from: 'gtm-engineers', to: 'ob-sdr', label: 'Prospects' },
+        { from: 'gtm-engineers', to: 'ae', label: 'Intent' },
+        { from: 'gtm-engineers', to: 'am', label: 'Expansion' },
+        { from: 'sales-engineers', to: 'ae', label: 'Tech' },
+        { from: 'sales-engineers', to: 'am', label: 'Upsell' }
+      ],
+      collab: [
+        { from: 'sales-enablement', to: 'ib-sdr', label: 'Train' },
+        { from: 'sales-enablement', to: 'ob-sdr', label: 'Train' },
+        { from: 'sales-enablement', to: 'ae', label: 'Enable' },
+        { from: 'revops', to: 'marketing', label: 'Analytics' },
+        { from: 'revops', to: 'ae', label: 'Forecast' },
+        { from: 'revops', to: 'cs', label: 'Metrics' },
+        { from: 'support', to: 'cs', label: 'Escalate' },
+        { from: 'gtm-leadership', to: 'marketing', label: 'Strategy' }
+      ]
+    };
+
+    let currentFilter = 'all';
+    const svg = d3.select('#container').append('svg').attr('width', '100%').attr('height', '100%');
+    const defs = svg.append('defs');
+
+    ['direct', 'support', 'collab'].forEach(type => {
+      const colors = { direct: '#DC143C', support: '#FF6B35', collab: '#20B2AA' };
+      defs.append('marker')
+        .attr('id', `arrow-${type}`)
+        .attr('markerWidth', 10)
+        .attr('markerHeight', 10)
+        .attr('refX', 9)
+        .attr('refY', 3)
+        .attr('orient', 'auto')
+        .append('polygon')
+        .attr('points', '0 0, 10 3, 0 6')
+        .attr('fill', colors[type]);
+    });
+
+    const g = svg.append('g');
+    const zoom = d3.zoom().scaleExtent([0.3, 3]).on('zoom', e => g.attr('transform', e.transform));
+    svg.call(zoom);
+
+    function drawFlows() {
+      g.selectAll('*').remove();
+      const bW = 260, bH = 120;
+
+      Object.entries(flows).forEach(([type, flowList]) => {
+        if (currentFilter === 'all' || currentFilter === type) {
+          flowList.forEach(flow => {
+            const from = segments[flow.from], to = segments[flow.to];
+            const x1 = from.x + bW / 2, y1 = from.y + bH;
+            const x2 = to.x + bW / 2, y2 = to.y;
+            g.append('line')
+              .attr('x1', x1)
+              .attr('y1', y1)
+              .attr('x2', x2)
+              .attr('y2', y2)
+              .attr('stroke', type === 'direct' ? '#DC143C' : type === 'support' ? '#FF6B35' : '#20B2AA')
+              .attr('stroke-width', type === 'direct' ? 4 : type === 'support' ? 3 : 2)
+              .attr('stroke-dasharray', type === 'direct' ? '' : type === 'support' ? '8,4' : '4,4')
+              .attr('fill', 'none')
+              .attr('marker-end', `url(#arrow-${type})`);
+            g.append('text')
+              .attr('class', 'c-label-text')
+              .attr('x', (x1 + x2) / 2)
+              .attr('y', (y1 + y2) / 2)
+              .text(flow.label);
+          });
+        }
+      });
+
+      Object.entries(segments).forEach(([id, seg]) => {
+        const box = g.append('g')
+          .attr('transform', `translate(${seg.x},${seg.y})`)
+          .on('click', () => showSegmentInfo(id));
+        box.append('rect')
+          .attr('width', bW)
+          .attr('height', bH)
+          .attr('fill', seg.color)
+          .attr('stroke', '#000')
+          .attr('stroke-width', 3)
+          .attr('rx', 8);
+        box.append('text')
+          .attr('x', bW / 2)
+          .attr('y', 60)
+          .attr('text-anchor', 'middle')
+          .attr('fill', '#fff')
+          .attr('font-size', 14)
+          .attr('font-weight', 700)
+          .text(seg.name);
+      });
+    }
+
+    function showSegmentInfo(id) {
+      const seg = segments[id];
+      const panel = document.getElementById('info-panel');
+      document.getElementById('info-title').textContent = seg.name;
+      document.getElementById('info-content').innerHTML =
+        `<div class="c-section"><div class="title">Type</div><div class="content">${seg.type}</div></div>`;
+      panel.classList.add('is-active');
+    }
+    function closeInfo() { document.getElementById('info-panel').classList.remove('is-active'); }
+    function showAll() { currentFilter = 'all'; drawFlows(); }
+    function showDirect() { currentFilter = 'direct'; drawFlows(); }
+    function showSupport() { currentFilter = 'support'; drawFlows(); }
+    function showCollab() { currentFilter = 'collab'; drawFlows(); }
+    function zoomIn() { svg.transition().call(zoom.scaleBy, 1.3); }
+    function zoomOut() { svg.transition().call(zoom.scaleBy, 0.77); }
+    function resetView() { svg.transition().call(zoom.transform, d3.zoomIdentity); }
+    drawFlows();
   </script>
 </body>
 </html>
