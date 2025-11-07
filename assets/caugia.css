@@ -1,106 +1,123 @@
-/* ==== Caugia Design System v1.0 ==== */
-/* Rustig, professioneel, modern. Geen streepjes in tekst. */
-
-:root {
-  --bg: #ffffff;
-  --ink: #0A0A0A;
-  --muted: #666666;
-  --border: #000000;
-  --surface: #f8f9fa;
-  --accent: #FF6B35;
-  --shadow: 0 8px 20px rgba(0,0,0,.12);
-  --fs-xxl: clamp(24px, 3.2vw, 32px);
-  --fs-xl: clamp(20px, 2.6vw, 24px);
-  --fs-lg: clamp(18px, 2.2vw, 20px);
-  --fs-md: clamp(16px, 1.9vw, 18px);
-  --fs-sm: clamp(14px, 1.7vw, 16px);
-  --fs-xs: clamp(12px, 1.5vw, 14px);
-  --space-1: 6px;
-  --space-2: 10px;
-  --space-3: 14px;
-  --space-4: 18px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --r-sm: 6px;
-  --r-md: 8px;
-  --r-lg: 12px;
-  --container: min(1100px, 92vw);
+/* Caugia Design System — v1.1 (uniform + hero + animaties) */
+:root{
+  --ink:#0b132b; --blue:#0b66ff; --accent:#ff7700;
+  --bg-light:#f9f9fb; --border:#e5e5e5;
+  --maxw:1180px; --header-h:64px;
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  line-height: 1.5;
-  overflow: auto;
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh;
+  text-align:left;opacity:0;transition:opacity .6s ease;
+}
+body.loaded{opacity:1}
+
+/* Header & nav */
+header{
+  position:fixed;inset:0 0 auto 0;height:var(--header-h);
+  background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);
+  backdrop-filter:saturate(140%) blur(6px);z-index:10;
+}
+.container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:28px}
+.brand span{font-weight:600;color:var(--ink);white-space:nowrap}
+
+nav.nav-desktop{display:flex;align-items:center;gap:20px}
+nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500;transition:color .25s}
+nav.nav-desktop a:hover{color:var(--blue)}
+a.cta{
+  background:var(--blue);color:#fff !important;text-decoration:none;
+  padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s,transform .25s;
+}
+a.cta:hover{background:var(--accent);transform:scale(1.03)}
+
+/* Mobile nav */
+.menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:24px;height:18px;background:none;border:none;cursor:pointer;z-index:20}
+.menu-toggle span{height:2px;width:100%;background:var(--ink);border-radius:1px;transition:transform .3s,opacity .3s}
+.menu-toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+nav.nav-mobile{
+  display:none;flex-direction:column;align-items:flex-start;background:rgba(255,255,255,.98);
+  border-bottom:1px solid rgba(0,0,0,.06);padding:16px 24px 24px;position:absolute;top:var(--header-h);left:0;width:100%;
+}
+nav.nav-mobile a{color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;width:100%}
+nav.nav-mobile a:hover{color:var(--blue)}
+nav.nav-mobile.open{display:flex}
+
+/* Layout & type */
+main{flex:1;padding-top:var(--header-h)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:64px 24px 80px}
+h1{font-size:2.6rem;font-weight:800;margin:0 0 20px}
+h2{font-size:1.7rem;font-weight:700;margin:0 0 18px;color:var(--blue)}
+h3{font-size:1.2rem;font-weight:600;color:var(--accent);margin:24px 0 8px}
+p{font-size:1.05rem;line-height:1.8;color:#1b1b1b;margin:0 0 18px;max-width:880px}
+
+/* Cards/sections met in-view fade */
+section{
+  background:var(--bg-light);border:1px solid var(--border);border-radius:16px;
+  padding:40px 48px;margin-bottom:60px;opacity:0;transform:translateY(40px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+section.in-view{opacity:1;transform:translateY(0)}
+
+/* Homepage hero + samenvattingen */
+.hero{
+  position:relative;min-height:calc(100vh - var(--header-h));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;
+}
+.hero img.logo{width:340px;height:auto;margin:0 0 24px}
+.hero h1{font-size:2.6rem;line-height:1.22;margin:0 0 12px}
+.hero .lead{max-width:760px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin:0 0 28px}
+.hero .orb{
+  position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));
+  filter:blur(60px);opacity:.3;animation:orbfloat 14s infinite ease-in-out alternate;
+  top:35%;left:50%;transform:translate(-50%,-35%);pointer-events:none;
+}
+@keyframes orbfloat{
+  0%{transform:translate(-50%,-35%) scale(1)}
+  50%{transform:translate(-50%,-42%) scale(1.08)}
+  100%{transform:translate(-50%,-35%) scale(1)}
 }
 
-.c-header {
-  background: #000;
-  color: #fff;
-  border-bottom: 3px solid #333;
-  padding: var(--space-4) var(--space-5);
-}
-.c-controls {
-  background: var(--surface);
-  border-bottom: 2px solid #e0e0e0;
-  padding: var(--space-3) var(--space-5);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-3);
-}
-.c-btn {
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: var(--r-md);
-  padding: 8px 14px;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  cursor: pointer;
-}
-.c-btn--secondary { background: #6c757d; }
-.c-btn--ghost { background: #fff; color: #000; border: 2px solid #000; }
+/* Samenvatting-blokken op home */
+.summary{background:none;border:none;padding:0;margin:0 0 48px;display:flex;justify-content:space-between;gap:40px}
+.summary .text{flex:0 0 65%}
+.summary .anim{flex:0 0 35%;display:flex;align-items:center;justify-content:center;height:180px}
+.readmore{display:inline-block;margin-top:8px;font-weight:600;color:var(--blue);text-decoration:none}
+.readmore:hover{color:var(--accent)}
+svg.c-motion{width:160px;height:160px;overflow:visible;opacity:.15}
+.c-path{fill:none;stroke-width:8;stroke-linecap:round;stroke-dasharray:260 100;animation:rotateC 22s linear infinite;transform-origin:center}
+.c-path:nth-child(1){stroke:rgba(11,102,255,0.25)}
+.c-path:nth-child(2){stroke:rgba(255,119,0,0.15);animation-direction:reverse;animation-duration:28s}
+.c-path:nth-child(3){stroke:rgba(102,163,255,0.12);animation-duration:18s}
+@keyframes rotateC{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 
-.c-canvas {
-  width: 100%;
-  height: calc(100svh - 180px);
-  background: var(--bg);
-  cursor: grab;
-}
-.c-canvas:active { cursor: grabbing; }
+/* Footer */
+footer{margin-top:auto;padding:24px 0 32px;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
+footer a{color:var(--ink);text-decoration:none;font-weight:500}
+footer a:hover{text-decoration:underline}
 
-.c-panel {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #fff;
-  border: 3px solid #000;
-  border-radius: var(--r-md);
-  max-width: 450px;
-  max-height: 80svh;
-  overflow: auto;
-  padding: var(--space-5);
-  box-shadow: var(--shadow);
-  display: none;
+/* Dark mode */
+@media (prefers-color-scheme:dark){
+  body{background:#0b132b;color:#f5f5f5}
+  header{background:rgba(15,20,35,.9);border-bottom-color:rgba(255,255,255,.08)}
+  .brand span,nav a,footer a{color:#f5f5f5}
+  .cta{background:var(--blue)} .cta:hover{background:var(--accent)}
+  section{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.1)}
+  p{color:#e9e9e9}
 }
-.c-panel.is-active { display: block; }
 
-.c-legend {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  background: #fff;
-  border: 3px solid #000;
-  border-radius: var(--r-md);
-  padding: var(--space-4);
-  box-shadow: var(--shadow);
-}
-@media (max-width: 768px) {
-  .c-panel { left: 10px; right: 10px; top: 10px; max-width: none; }
-  .c-legend { left: 10px; right: 10px; bottom: 10px; }
+/* Responsive */
+@media (max-width:900px){
+  nav.nav-desktop{display:none}
+  .menu-toggle{display:flex}
+  h1{font-size:2rem}
+  section{padding:28px 24px}
+  .summary{flex-direction:column}
+  .summary .anim{width:100%;height:140px;margin-top:6px}
 }
