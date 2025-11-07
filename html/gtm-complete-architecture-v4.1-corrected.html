@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTM Architecture v4.1 – Caugia</title>
+  <link rel="stylesheet" href="../assets/caugia.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+  <div class="c-header">
+    <h1>🔄 GTM Architecture v4.1</h1>
+    <p>Revenue Flow 🔴 | Support 🟠 | Collaboration 🔵</p>
+  </div>
+
+  <div class="c-controls">
+    <div>
+      <button class="c-btn">Show All</button>
+      <button class="c-btn c-btn--secondary">Revenue Only</button>
+      <button class="c-btn c-btn--secondary">Support Only</button>
+      <button class="c-btn c-btn--secondary">Collab Only</button>
+    </div>
+    <div>
+      <button class="c-btn c-btn--ghost">+</button>
+      <button class="c-btn c-btn--ghost">-</button>
+      <button class="c-btn c-btn--ghost">Reset</button>
+    </div>
+  </div>
+
+  <div id="container" class="c-canvas"></div>
+
+  <div id="info-panel" class="c-panel">
+    <button class="c-close" onclick="closeInfo()">×</button>
+    <h3 id="info-title">Details</h3>
+    <div id="info-content"></div>
+  </div>
+
+  <div id="legend" class="c-legend">
+    <h4>Legenda</h4>
+    <p><strong>🔴 Revenue Flow</strong> — Direct handoffs (MQL → SQL → Won)</p>
+    <p><strong>🟠 Support</strong> — GTM Eng & Sales Eng support revenue teams</p>
+    <p><strong>🔵 Collaboration</strong> — Enablement teams</p>
+  </div>
+
+  <script>
+    // hier komt later je d3-code weer terug (ik houd die buiten deze stap om verwarring te vermijden)
+  </script>
+</body>
+</html>
