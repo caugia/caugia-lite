@@ -1,0 +1,37 @@
+name: Caugia QA
+on: [push, pull_request]
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Bestanden die móeten bestaan (hoofdlettergevoelig)
+      - name: Assert required files exist
+        run: |
+          set -e
+          test -f assets/caugia.css
+          test -f assets/pdfs/AI-and-Human-Alignment.pdf
+          test -f C-logo.png
+          test -f logo.png
+
+      # Verbied en-dash/em-dash in HTML (brandingregel)
+      - name: Fail on en-dash or em-dash in HTML
+        run: |
+          if grep -P -n "[\xE2\x80\x93\xE2\x80\x94]" -r --include="*.html" .; then
+            echo "Found en/em dash in HTML. Remove these characters."; exit 1
+          fi
+
+      # Link-checker: zoekt 404's en kapotte paden
+      - name: Link check
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --max-redirects 5
+            --accept 200,206,301,302,429
+            --exclude-mail
+            .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
