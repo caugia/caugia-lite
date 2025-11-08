@@ -3,86 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work Together | Caugia Studio</title>
+  <title>Work Together | Caugia Consulting</title>
+  <meta name="description" content="Explore how Caugia Consulting works with organizations to design clarity, rhythm, and predictable growth through calm system design." />
   <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-  <style>
-    :root { --ink:#0b132b; --blue:#0b66ff; --accent:#ff7700; --maxw:1180px; --header-h:64px; }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;display:flex;flex-direction:column;min-height:100vh}
-    header{position:fixed;inset:0 0 auto 0;height:var(--header-h);background:rgba(255,255,255,.98);border-bottom:1px solid rgba(0,0,0,.06);backdrop-filter:saturate(140%) blur(6px);z-index:10}
-    .container{max-width:var(--maxw);height:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-    a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px}
-    .brand span{font-weight:600;color:var(--ink)}
-    nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
-    nav.nav-desktop a:hover{color:var(--blue)}
-    .cta{background:var(--blue);color:#fff !important;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;transition:background .25s ease,transform .25s ease}
-    .cta:hover{background:var(--accent);transform:scale(1.03)}
-    main{flex:1;padding:calc(var(--header-h) + 56px) 24px 80px}
-    .wrap{max-width:var(--maxw);margin:0 auto}
-    h1{font-size:2.6rem;font-weight:800;margin:0 0 20px;color:var(--blue)}
-    h2{font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px}
-    h3{font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin:0 0 16px;max-width:880px}
-    footer{margin-top:auto;padding:24px 0 32px;font-size:.9rem;color:#777;text-align:center;border-top:1px solid rgba(0,0,0,.06)}
-    footer a{color:var(--ink);text-decoration:none;font-weight:500}
-    footer a:hover{text-decoration:underline}
-  </style>
+  <link rel="stylesheet" href="assets/caugia.css" />
 </head>
 <body>
   <header>
     <div class="container">
       <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Studio logo">
-        <span>Caugia Studio</span>
+        <img src="C-logo.png" alt="Caugia Consulting logo">
+        <span>Caugia Consulting</span>
       </a>
+
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="approach.html">Approach</a>
         <a href="work.html" class="active">Work Together</a>
         <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
+        <a class="cta" href="contact.html">Contact</a>
       </nav>
+
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <nav class="nav-mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="approach.html">Approach</a>
+      <a href="work.html" class="active">Work Together</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main>
-    <div class="wrap">
-      <h1>Work Together</h1>
-      <p>Every collaboration with Caugia follows the same rhythm. We diagnose, we design, and we direct. Each phase builds clarity and transforms growth from effort into flow.</p>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggle = document.querySelector(".menu-toggle");
+      const mobileNav = document.querySelector(".nav-mobile");
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");
+        mobileNav.classList.toggle("open");
+      });
+      document.querySelectorAll(".nav-mobile a").forEach(link => {
+        link.addEventListener("click", () => {
+          toggle.classList.remove("active");
+          mobileNav.classList.remove("open");
+        });
+      });
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 10) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+    });
+  </script>
 
-      <h2>Diagnose</h2>
-      <p>We start by observing how your organization really operates. Where does information slow down, where does accountability blur, and where does technology disconnect from value? The goal is to see clearly before changing anything. The result is visibility, not assumption.</p>
+  <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
+    <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+      <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">Work Together</h1>
 
-      <h2>Design</h2>
-      <p>Once the system is visible, we create your GTM System Blueprint. This blueprint connects people, processes, and tools into one coherent structure. It defines how work moves, how success is measured, and how alignment is sustained as you grow.</p>
+      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+        Every collaboration with Caugia Consulting follows the same rhythm. We diagnose, we design, and we direct. Each phase builds clarity and transforms growth from effort into flow.
+      </p>
 
-      <h2>Direction</h2>
-      <p>We translate the design into a Focus Plan that defines the smallest set of actions with the greatest impact. It gives rhythm to execution so that teams move in sync and progress remains measurable and calm.</p>
+      <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Diagnose</h2>
+      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+        We start by observing how your organization really operates. Where does information slow down, where does accountability blur, and where does technology disconnect from value. The goal is to see clearly before changing anything. The result is visibility, not assumption.
+      </p>
+
+      <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Design</h2>
+      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+        Once the system is visible we create your GTM System Blueprint. This blueprint connects people, processes, and tools into one coherent structure. It defines how work moves, how success is measured, and how alignment is sustained as you grow.
+      </p>
+
+      <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Direction</h2>
+      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+        We translate the design into a Focus Plan that defines the smallest set of actions with the greatest impact. It gives rhythm to execution so that teams move in sync and progress remains measurable and calm.
+      </p>
 
       <section>
-        <h2>Engagement Models</h2>
-        <p>Every organization needs a different path to clarity. These engagement models adapt to where your system stands, from first diagnosis to steady execution.</p>
+        <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Engagement Models</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+          Every organization needs a different path to clarity. These engagement models adapt to where your system stands, from first diagnosis to steady execution.
+        </p>
 
-        <h3>Assessment</h3>
-        <p>We start by revealing how your GTM system really works. This engagement uncovers structural gaps, hidden dependencies, and where energy is lost between teams. The outcome is clarity, not documents, so leadership sees where to act first.</p>
+        <h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">Assessment</h3>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+          We start by revealing how your GTM system really works. This engagement uncovers structural gaps, hidden dependencies, and where energy is lost between teams. The outcome is clarity, not documents, so leadership sees where to act first.
+        </p>
 
-        <h3>System Design</h3>
-        <p>Together we create your GTM System Blueprint, a visual and operational model that connects people, process, and data. It becomes your foundation for predictable performance and shared direction.</p>
+        <h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">System Design</h3>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+          Together we create your GTM System Blueprint, a visual and operational model that connects people, process, and data. It becomes your foundation for predictable performance and shared direction.
+        </p>
 
-        <h3>Implementation Partner</h3>
-        <p>Once the design is clear, we help you turn architecture into rhythm. Our ongoing support brings focus to execution and ensures that systems evolve without noise or drift.</p>
+        <h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">Implementation Partner</h3>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+          Once the design is clear we help you turn architecture into rhythm. Our ongoing support brings focus to execution and ensures that systems evolve without noise or drift.
+        </p>
 
-        <h3>Interim Leadership</h3>
-        <p>For organizations that need stability and sustained direction, Caugia provides interim leadership to realign teams and guide transformation with calm precision. We maintain structure, ensure clarity, and embed long-term systems before handing back a steady operation.</p></p>
+        <h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">Interim Leadership</h3>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
+          For organizations that need stability and sustained direction, Caugia Consulting provides interim leadership to realign teams and guide transformation with calm precision. We maintain structure, ensure clarity, and embed long term systems before handing back a steady operation.
+        </p>
       </section>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
+    © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </body>
 </html>
