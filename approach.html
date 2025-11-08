@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Approach | Caugia Consulting</title>
-  <meta name="description" content="Discover how Caugia Consulting helps organizations design calm, data aligned systems that create clarity and predictable growth." />
+  <meta name="description" content="Discover how Caugia Consulting uses The GTM Framework to design calm, data-aligned systems that create clarity and predictable growth." />
   <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
   <link rel="stylesheet" href="assets/caugia.css" />
 </head>
@@ -22,7 +22,7 @@
         <a href="approach.html" class="active">Approach</a>
         <a href="work.html">Work Together</a>
         <a href="resources.html">Resources</a>
-        <a class="cta" href="contact.html">Contact</a>
+        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
 
       <button class="menu-toggle" aria-label="Menu">
@@ -36,58 +36,41 @@
       <a href="approach.html" class="active">Approach</a>
       <a href="work.html">Work Together</a>
       <a href="resources.html">Resources</a>
-      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
     </nav>
   </header>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", () => {
       const toggle = document.querySelector(".menu-toggle");
       const mobileNav = document.querySelector(".nav-mobile");
       toggle.addEventListener("click", () => {
         toggle.classList.toggle("active");
         mobileNav.classList.toggle("open");
       });
-      document.querySelectorAll(".nav-mobile a").forEach(link => {
-        link.addEventListener("click", () => {
-          toggle.classList.remove("active");
-          mobileNav.classList.remove("open");
-        });
-      });
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
-        if (window.scrollY > 10) header.classList.add("scrolled");
-        else header.classList.remove("scrolled");
+        header.classList.toggle("scrolled", window.scrollY > 10);
       });
     });
   </script>
 
   <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
     <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
-      <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">Our Approach</h1>
+      <h1 style="color:var(--blue);font-weight:800;margin-bottom:20px;">Our Approach</h1>
 
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
-        Every organization carries both motion and noise. At Caugia Consulting we help leadership teams slow the noise so they can see the system again. Behind every missed target lies the same truth: information lost in handoffs, tools that define work instead of serving it, and teams that move without rhythm.
-      </p>
+      <p>Every organization carries both motion and noise. At Caugia Consulting we help leadership teams slow the noise so they can see the system again. Behind every missed target lies the same truth: information lost in handoffs, tools that define work instead of serving it, and teams that move without rhythm.</p>
 
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
-        Our work begins by restoring visibility. We uncover where data stops, where accountability blurs, and where technology disconnects from value. Once the system becomes clear, progress turns from reaction to deliberate, measurable movement.
-      </p>
+      <p>Our work begins by restoring visibility. We uncover where data stops, where accountability blurs, and where technology disconnects from value. Once the system becomes clear, progress turns from reaction to deliberate, measurable movement. This is the foundation of The GTM Framework.</p>
 
-      <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Seeing the System</h2>
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
-        We believe clarity starts with calm observation. We map how information travels through your commercial system and identify where flow slows down. Visibility replaces assumption and decisions become evidence based rather than emotional.
-      </p>
+      <h2 style="color:var(--blue);margin:40px 0 12px;">Seeing the System</h2>
+      <p>Clarity starts with calm observation. We map how information travels through your commercial system and identify where flow slows down. Visibility replaces assumption, and decisions become evidence based rather than emotional.</p>
 
-      <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Designing Coherence</h2>
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
-        We use the Caugia Lens to view every organization through three connected dimensions: people, process, and performance. When these align, motion becomes progress and progress becomes predictability. We design for clarity, not control, and for rhythm, not reaction.
-      </p>
+      <h2 style="color:var(--blue);margin:40px 0 12px;">Designing Coherence</h2>
+      <p>We use The GTM Framework to align people, process, and performance. When these elements work in rhythm, motion becomes progress and progress becomes predictability. We design for clarity, not control, and for rhythm, not reaction.</p>
 
-      <h2 style="font-size:1.5rem;font-weight:700;color:var(--blue);margin:40px 0 12px;">Sustaining Simplicity</h2>
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:16px;max-width:880px;">
-        Caugia Consulting systems are built to last because they remain simple. They evolve without collapsing under new tools or trends. When clarity and rhythm are built into the structure, growth no longer depends on speed but on coherence.
-      </p>
+      <h2 style="color:var(--blue);margin:40px 0 12px;">Sustaining Simplicity</h2>
+      <p>Caugia Consulting systems are built to last because they remain simple. They evolve without collapsing under new tools or trends. When clarity and rhythm are built into the structure, growth no longer depends on speed but on coherence.</p>
     </div>
   </main>
 
