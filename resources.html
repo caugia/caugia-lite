@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
   <link rel="stylesheet" href="assets/caugia.css" />
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -15,7 +16,6 @@
         <img src="C-logo.png" alt="Caugia Consulting logo">
         <span>Caugia Consulting</span>
       </a>
-
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -24,12 +24,8 @@
         <a href="resources.html" class="active">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
-
-      <button class="menu-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-
     <nav class="nav-mobile">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -42,70 +38,39 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.querySelector(".menu-toggle");
-      const mobileNav = document.querySelector(".nav-mobile");
-      toggle.addEventListener("click", () => {
-        toggle.classList.toggle("active");
-        mobileNav.classList.toggle("open");
-      });
-      window.addEventListener("scroll", () => {
-        const header = document.querySelector("header");
-        header.classList.toggle("scrolled", window.scrollY > 10);
-      });
+      const t=document.querySelector(".menu-toggle"),m=document.querySelector(".nav-mobile");
+      t.addEventListener("click",()=>{t.classList.toggle("active"),m.classList.toggle("open")});
+      window.addEventListener("scroll",()=>{const h=document.querySelector("header");h.classList.toggle("scrolled",window.scrollY>10)});
     });
   </script>
 
-  <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-    <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
-      <h1 style="color:var(--blue);font-weight:800;margin-bottom:20px;">Resources</h1>
+  <main>
+    <div class="wrap">
+      <h1>Resources</h1>
+      <p>All our insights are grounded in <strong>The GTM Framework</strong>, the foundation for predictable and calm growth. Our resources are designed for GTM leaders and builders who seek structure, clarity, and systems that last.</p>
 
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:24px;max-width:880px;">
-        All our insights are grounded in <strong>The GTM Framework</strong>, the foundation for predictable and calm growth. Our resources are designed for GTM leaders and builders who seek structure, clarity, and systems that last.
-      </p>
-
-      <h2 style="color:var(--blue);margin:40px 0 12px;">Whitepapers</h2>
-      <p>Our whitepapers explore how strategy, structure, and data reinforce each other to create measurable, sustainable performance.</p>
-
-      <ul style="list-style:none;padding-left:0;margin-bottom:40px;">
-        <li style="margin-bottom:14px;">
-          <a href="assets/pdfs/whitepaper-predictable-revenue.pdf" target="_blank" style="color:var(--blue);font-weight:600;text-decoration:none;">
-            📄 How to Build a Predictable Revenue Engine in 90 Days
-          </a>
-        </li>
-        <li style="margin-bottom:14px;">
-          <a href="assets/pdfs/whitepaper-gtm-engineer.pdf" target="_blank" style="color:var(--blue);font-weight:600;text-decoration:none;">
-            📄 The Rise of the GTM Engineer
-          </a>
-        </li>
-        <li style="margin-bottom:14px;">
-          <a href="assets/pdfs/whitepaper-leadership.pdf" target="_blank" style="color:var(--blue);font-weight:600;text-decoration:none;">
-            📄 The GTM Leadership Playbook
-          </a>
-        </li>
+      <h2>Whitepapers</h2>
+      <ul class="whitepaper-list">
+        <li><a href="assets/pdfs/whitepaper-predictable-revenue.pdf" target="_blank">📄 How to Build a Predictable Revenue Engine in 90 Days</a></li>
+        <li><a href="assets/pdfs/whitepaper-gtm-engineer.pdf" target="_blank">📄 The Rise of the GTM Engineer</a></li>
+        <li><a href="assets/pdfs/whitepaper-leadership.pdf" target="_blank">📄 The GTM Leadership Playbook</a></li>
       </ul>
 
-      <h2 style="color:var(--blue);margin:40px 0 12px;">Featured Paper</h2>
-      <p style="max-width:880px;">
-        <strong>
-          <a href="assets/pdfs/AI-and-Human-Alignment.pdf" target="_blank" style="color:var(--blue);text-decoration:none;">
-            📄 AI and Human Alignment — Technology Should Extend Judgment, Not Replace It
-          </a>
-        </strong><br>
-        This whitepaper explains how AI can enhance human judgment within Go-To-Market systems. It introduces a practical model for GTM Engineers, showing how automation and empathy can coexist in commercial design.  
-        <em>Published November 2025</em>
-      </p>
+      <h2>Featured Paper</h2>
+      <p><strong><a href="assets/pdfs/AI-and-Human-Alignment.pdf" target="_blank">📄 AI and Human Alignment — Technology Should Extend Judgment, Not Replace It</a></strong><br>
+      This whitepaper explains how AI can enhance human judgment within Go-To-Market systems. It introduces a practical model for GTM Engineers, showing how automation and empathy can coexist in commercial design.</p>
 
-      <h2 style="color:var(--blue);margin:40px 0 12px;">Articles & Essays</h2>
-      <p style="max-width:880px;">Our essays and frameworks help leaders bring structure to motion. Each explores how clarity and rhythm create measurable progress inside modern GTM systems.</p>
+      <h2>Articles & Essays</h2>
+      <p>Our essays and frameworks help leaders bring structure to motion. Each explores how clarity and rhythm create measurable progress inside modern GTM systems.</p>
 
-      <h2 style="color:var(--blue);margin:40px 0 12px;">Connect</h2>
+      <h2>Connect</h2>
       <p>For collaboration or access to the full GTM resource library, connect on LinkedIn:</p>
-      <p><a href="https://www.linkedin.com/in/meijertom" target="_blank" style="color:var(--blue);font-weight:600;text-decoration:none;">linkedin.com/in/meijertom</a></p>
+      <p><a href="https://www.linkedin.com/in/meijertom" target="_blank">linkedin.com/in/meijertom</a></p>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+    © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
