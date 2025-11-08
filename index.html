@@ -3,142 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Caugia Studio — From Data to Direction</title>
-  <meta name="description" content="Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth, bringing calm to complexity and clarity to performance." />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
-  <style>
-    :root {
-      --ink:#0b132b;
-      --blue:#0b66ff;
-      --accent:#ff7700;
-      --maxw:1180px;
-      --header-h:64px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);background:#fff;
-      display:flex;flex-direction:column;min-height:100vh;
-      text-align:left;
-    }
-    header{
-      position:fixed;inset:0 0 auto 0;height:var(--header-h);
-      background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      backdrop-filter:saturate(140%) blur(6px);
-      z-index:10;
-    }
-    .container{
-      max-width:var(--maxw);height:100%;
-      margin:0 auto;padding:0 24px;
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    a.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:28px}
-    .brand span{font-weight:600;color:var(--ink)}
-    nav.nav-desktop{display:flex;align-items:center;gap:20px}
-    nav.nav-desktop a{color:var(--ink);text-decoration:none;font-weight:500}
-    nav.nav-desktop a:hover{color:var(--blue)}
-    .cta{
-      background:var(--blue);color:#fff !important;text-decoration:none;
-      padding:.55rem 1.1rem;border-radius:8px;font-weight:600;
-      transition:background .25s ease,transform .25s ease;
-    }
-    .cta:hover{background:var(--accent);transform:scale(1.03)}
-    main{flex:1;padding-top:var(--header-h)}
-
-    .hero{
-      min-height:calc(100vh - var(--header-h));
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;position:relative;overflow:hidden;
-    }
-    .hero .orb{
-      position:absolute;width:340px;height:340px;border-radius:50%;
-      background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));
-      filter:blur(70px);opacity:.3;
-      top:35%;left:50%;transform:translate(-50%,-35%);
-    }
-    h1{font-size:2.6rem;line-height:1.2;font-weight:800;margin:0 0 16px}
-    .lead{max-width:720px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin-bottom:28px}
-
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px}
-    section.block{margin-bottom:64px}
-    h2{font-size:1.7rem;font-weight:700;margin-bottom:14px;color:var(--blue)}
-    p{font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:12px;max-width:780px}
-    .readmore{display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none}
-    .readmore:hover{color:var(--accent)}
-
-    footer{
-      margin-top:auto;padding:24px 0 32px;
-      font-size:.9rem;color:#777;text-align:center;
-      border-top:1px solid rgba(0,0,0,.06)
-    }
-    footer a{color:var(--ink);text-decoration:none;font-weight:500}
-    footer a:hover{text-decoration:underline}
-
-    @media (max-width:900px){
-      nav.nav-desktop{display:none}
-      h1{font-size:2rem}
-      .lead{font-size:1.05rem}
-    }
-  </style>
+  <title>Caugia Consulting | From Data to Direction</title>
+  <meta name="description" content="Caugia Consulting helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth. We bring calm to complexity and clarity to performance." />
+  <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+  <link rel="stylesheet" href="assets/caugia.css" />
 </head>
 <body>
   <header>
     <div class="container">
       <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Studio logo">
-        <span>Caugia Studio</span>
+        <img src="C-logo.png" alt="Caugia Consulting logo">
+        <span>Caugia Consulting</span>
       </a>
+
       <nav class="nav-desktop">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="approach.html">Approach</a>
         <a href="work.html">Work Together</a>
         <a href="resources.html">Resources</a>
-        <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+        <a class="cta" href="contact.html">Contact</a>
       </nav>
+
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <nav class="nav-mobile">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="approach.html">Approach</a>
+      <a href="work.html">Work Together</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="orb"></div>
-      <img src="logo.png" alt="Caugia Logo" class="logo" style="width:340px;height:auto;margin-bottom:24px;">
-      <h1>Turn GTM Chaos into Predictable Revenue Engines</h1>
-      <p class="lead">Caugia Studio helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth. We bring calm to complexity and clarity to performance.</p>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Get in touch</a>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggle = document.querySelector(".menu-toggle");
+      const mobileNav = document.querySelector(".nav-mobile");
+      toggle.addEventListener("click", () => {
+        toggle.classList.toggle("active");
+        mobileNav.classList.toggle("open");
+      });
+      document.querySelectorAll(".nav-mobile a").forEach(link => {
+        link.addEventListener("click", () => {
+          toggle.classList.remove("active");
+          mobileNav.classList.remove("open");
+        });
+      });
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 10) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+    });
+  </script>
+
+  <main style="padding-top:var(--header-h)">
+    <section class="hero" style="min-height:calc(100vh - var(--header-h));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;">
+      <div class="orb" style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));filter:blur(70px);opacity:.3;top:35%;left:50%;transform:translate(-50%,-35%);"></div>
+      <img src="logo.png" alt="Caugia Consulting logo" style="width:340px;height:auto;margin-bottom:24px;">
+      <h1 style="font-size:2.6rem;line-height:1.2;font-weight:800;margin-bottom:16px;">Turn GTM Chaos into Predictable Revenue Engines</h1>
+      <p class="lead" style="max-width:720px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin-bottom:28px;">
+        Caugia Consulting helps executives and GTM leaders design integrated revenue systems that align data, teams, and growth. We bring calm to complexity and clarity to performance.
+      </p>
+      <a class="cta" href="contact.html">Get in touch</a>
     </section>
 
-    <div class="wrap">
-      <section class="block">
-        <h2>About</h2>
-        <p>Caugia Studio was founded to bring coherence back into modern growth systems. We help organizations reconnect what growth has pulled apart, balancing technology, structure, and judgment so that direction lasts. The name comes from Coye-la-Forêt, historically known as Caugia, a place that stood for calm and clarity before movement.</p>
-        <a href="about.html" class="readmore">Read more →</a>
+    <div class="wrap" style="max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px;">
+      <section class="block" style="margin-bottom:64px;">
+        <h2 style="font-size:1.7rem;font-weight:700;margin-bottom:14px;color:var(--blue);">About</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+          Caugia Consulting was founded to bring coherence back into modern growth systems. We help organizations reconnect what growth has pulled apart, balancing technology, structure, and judgment so that direction lasts. The name Caugia reflects calm and clarity before movement.
+        </p>
+        <a href="about.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
       </section>
 
-      <section class="block">
-        <h2>Approach</h2>
-        <p>Our approach begins with visibility. We map how data, people, and processes interact, then redesign them into one rhythm. Through the Caugia Lens, we align teams and decisions around clarity, not complexity.</p>
-        <a href="approach.html" class="readmore">Read more →</a>
+      <section class="block" style="margin-bottom:64px;">
+        <h2 style="font-size:1.7rem;font-weight:700;margin-bottom:14px;color:var(--blue);">Approach</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+          Our approach begins with visibility. We map how data, people, and processes interact, then redesign them into one rhythm. Through the Caugia Lens, we align teams and decisions around clarity, not complexity.
+        </p>
+        <a href="approach.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
       </section>
 
-      <section class="block">
-        <h2>Work Together</h2>
-        <p>Every collaboration follows the same rhythm: diagnose, design, and direction. We transform growth from effort into flow, building systems your teams can own and scale with confidence.</p>
-        <a href="work.html" class="readmore">Read more →</a>
+      <section class="block" style="margin-bottom:64px;">
+        <h2 style="font-size:1.7rem;font-weight:700;margin-bottom:14px;color:var(--blue);">Work Together</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+          Every collaboration follows the same rhythm: diagnose, design, and direction. We transform growth from effort into flow, building systems your teams can own and scale with confidence.
+        </p>
+        <a href="work.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
       </section>
 
-      <section class="block">
-        <h2>Resources</h2>
-        <p>Our resources are written for GTM builders and leaders who value structure and clarity. Each piece explores how systems thinking and calm intelligence reshape modern revenue operations.</p>
-        <a href="resources.html" class="readmore">Read more →</a>
+      <section class="block" style="margin-bottom:64px;">
+        <h2 style="font-size:1.7rem;font-weight:700;margin-bottom:14px;color:var(--blue);">Resources</h2>
+        <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+          Our resources are written for GTM builders and leaders who value structure and clarity. Each piece explores how systems thinking and calm intelligence reshape modern revenue operations.
+        </p>
+        <a href="resources.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
       </section>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Studio · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+    © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
   </footer>
 </body>
 </html>
