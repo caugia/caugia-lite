@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Caugia Consulting</title>
-  <meta name="description" content="Learn about Caugia Consulting, its origin and The GTM Framework behind its work in designing calm, predictable growth systems." />
+  <meta name="description" content="Learn about Caugia Consulting, its origin, and The GTM Framework behind its work in designing calm, predictable growth systems." />
   <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
   <link rel="stylesheet" href="assets/caugia.css" />
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -15,7 +16,6 @@
         <img src="C-logo.png" alt="Caugia Consulting logo">
         <span>Caugia Consulting</span>
       </a>
-
       <nav class="nav-desktop">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About</a>
@@ -24,12 +24,8 @@
         <a href="resources.html">Resources</a>
         <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Get in touch</a>
       </nav>
-
-      <button class="menu-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
-
     <nav class="nav-mobile">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
@@ -40,20 +36,27 @@
     </nav>
   </header>
 
-  <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-    <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
-      <h1 style="color:var(--blue);font-weight:800;margin-bottom:20px;">About Caugia Consulting</h1>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const t=document.querySelector(".menu-toggle"),m=document.querySelector(".nav-mobile");
+      t.addEventListener("click",()=>{t.classList.toggle("active"),m.classList.toggle("open")});
+      window.addEventListener("scroll",()=>{const h=document.querySelector("header");h.classList.toggle("scrolled",window.scrollY>10)});
+    });
+  </script>
 
+  <main>
+    <div class="wrap">
+      <h1>About Caugia Consulting</h1>
       <p>Caugia Consulting helps executives and GTM leaders turn commercial complexity into predictable revenue systems. We design architectures that align data, teams, and growth so that performance becomes measurable and calm. The name Caugia comes from Coye la Forêt, once called Caugia in 799. It stands for clarity before movement — the same principle that guides our work and underpins The GTM Framework.</p>
 
-      <h2 style="color:var(--blue);margin:40px 0 12px;">Founder</h2>
+      <h2>Founder</h2>
       <p><strong>Tom Meijer</strong><br>Founder and Revenue Systems Architect</p>
       <p>Tom is originally from the Netherlands and has spent more than fifteen years building and leading GTM organizations in France. He began his career in sales, later led commercial teams, and helped scale companies from early traction to global operations. At Contentsquare and Greenly he worked where revenue and technology meet, guiding teams as they evolved from reactive selling to structured, data driven performance. Through Caugia Consulting he now helps others design systems that scale with intent and operate with discipline.</p>
     </div>
   </main>
 
   <footer>
-    © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+    © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank">LinkedIn</a>
   </footer>
 </body>
 </html>
