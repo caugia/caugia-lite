@@ -4,11 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The GTM Score | Caugia Consulting</title>
-<meta name="description" content="Discover your GTM maturity in minutes with the free GTM Score assessment. A calm and structured diagnostic for B2B leadership." />
+<meta name="description" content="Discover your GTM maturity with The GTM Score. Eleven essential questions. Clear direction in minutes." />
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-<link rel="stylesheet" href="assets/caugia.css?v=1.0.2" />
+<link rel="stylesheet" href="assets/caugia.css?v=1.0.3" />
+
 <style>
-/* Fix alignment issue in desktop nav */
+/* alignment fix */
 nav.nav-desktop a {
   line-height: 1.2;
   display: flex;
@@ -16,32 +17,31 @@ nav.nav-desktop a {
   padding: 2px 0;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
 <div class="container">
+  <a href="index.html" class="brand">
+    <img src="C-logo.png" alt="Caugia Consulting logo">
+    <span>Caugia Consulting</span>
+  </a>
 
-<a href="index.html" class="brand">
-  <img src="C-logo.png" alt="Caugia Consulting logo">
-  <span>Caugia Consulting</span>
-</a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="approach.html">Approach</a>
+    <a href="work.html">Work</a>
+    <a href="the-gtm-score.html" class="active">GTM Score</a>
+    <a href="resources.html">Resources</a>
+    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+  </nav>
 
-<nav class="nav-desktop">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="approach.html">Approach</a>
-  <a href="work.html">Work</a>
-  <a href="the-gtm-score.html" class="active">GTM Score</a>
-  <a href="resources.html">Resources</a>
-  <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-</nav>
-
-<button class="menu-toggle" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
-
+  <button class="menu-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 
 <nav class="nav-mobile">
@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
+<!-- MAIN CONTENT -->
 <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
 <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
@@ -88,18 +90,28 @@ The GTM Score
 </h1>
 
 <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:28px;">
-The GTM Score is a calm and structured assessment that measures the maturity of your go-to-market system. 
+The GTM Score is a calm, structured assessment that measures the maturity of your go-to-market system. 
 It highlights strengths, reveals gaps, and provides clear direction on where to focus next. 
 Eleven essential questions. Three minutes. A grounded starting point for meaningful progress.
 </p>
 
-<div style="max-width:720px;margin:40px 0;">
+<!-- TYPEFORM — GUARANTEED WORKING BLOCK -->
+<div id="typeform-wrapper" style="min-height: 700px; margin-top: 20px;">
   <div data-tf-live="qtEL2eDX"></div>
-  <script src="https://embed.typeform.com/next/embed.js"></script>
 </div>
+
+<script>
+(function() {
+  var d = document, s = d.createElement('script');
+  s.src = "https://embed.typeform.com/next/embed.js";
+  s.async = true;
+  d.body.appendChild(s);
+})();
+</script>
 
 </div>
 </main>
+
 
 <footer>
 © 2025 Caugia Consulting · 
