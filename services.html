@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services | Caugia Consulting</title>
+<meta name="description" content="Caugia Consulting helps organizations design calm, data aligned revenue systems through The GTM Framework. Diagnose, design, and direct your way to predictable growth." />
+<link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+<link rel="stylesheet" href="assets/caugia.css?v=1.0.6" />
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<a href="index.html" class="brand">
+<img src="C-logo.png" alt="Caugia Consulting logo">
+<span>Caugia Consulting</span>
+</a>
+
+<nav class="nav-desktop">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="active">Services</a>
+  <a href="the-gtm-score.html">GTM Score</a>
+  <a href="resources.html">Resources</a>
+  <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+</nav>
+
+<button class="menu-toggle" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</div>
+
+<nav class="nav-mobile">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html" class="active">Services</a>
+<a href="the-gtm-score.html">GTM Score</a>
+<a href="resources.html">Resources</a>
+<a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+</nav>
+
+</header>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const toggle = document.querySelector(".menu-toggle");
+const mobileNav = document.querySelector(".nav-mobile");
+toggle.addEventListener("click", () => {
+toggle.classList.toggle("active");
+mobileNav.classList.toggle("open");
+});
+document.querySelectorAll(".nav-mobile a").forEach(link => {
+link.addEventListener("click", () => {
+toggle.classList.remove("active");
+mobileNav.classList.remove("open");
+});
+});
+window.addEventListener("scroll", () => {
+const header = document.querySelector("header");
+if (window.scrollY > 10) header.classList.add("scrolled");
+else header.classList.remove("scrolled");
+});
+});
+</script>
+
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
+<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+
+<h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">
+Services
+</h1>
+
+<p style="font-size:1.1rem;line-height:1.7;color:#1b1b1b;margin-bottom:20px;max-width:880px;">
+Caugia Consulting helps executives and revenue leaders design calm, integrated GTM systems that align people, data, and growth. Every collaboration follows the same rhythm. We diagnose, we design, and we direct — always grounded in The GTM Framework.
+</p>
+
+<!-- PHASES -->
+<section style="margin-top:50px;">
+<h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin:0 0 20px;">How We Work</h2>
+
+<h3 style="font-size:1.3rem;font-weight:700;color:var(--accent);margin:30px 0 10px;">Diagnose</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+We start by observing how your organization operates today. Where information slows, where accountability blurs, where value escapes between teams. The goal is visibility, not assumption. A calm, clear picture of how revenue truly flows.
+</p>
+
+<h3 style="font-size:1.3rem;font-weight:700;color:var(--accent);margin:30px 0 10px;">Design</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+With full visibility, we create your GTM System Blueprint. It connects people, processes, and tools into one operating model. This blueprint defines how work moves, how success is measured, and how alignment is sustained as you grow.
+</p>
+
+<h3 style="font-size:1.3rem;font-weight:700;color:var(--accent);margin:30px 0 10px;">Direction</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+Design becomes direction. We translate the blueprint into a Focus Plan that defines the smallest set of actions with the greatest impact. This plan gives rhythm to execution so that teams move in sync and progress remains measurable and calm.
+</p>
+</section>
+
+<!-- FRAMEWORK INTRO -->
+<section style="margin-top:60px;">
+<h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:12px;">
+The GTM Framework
+</h2>
+
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:20px;">
+All our work is built on The GTM Framework, a complete model of how modern revenue systems operate. It connects the revenue path, the support layer, and the enablement foundation into one coherent system of 12 segments.
+</p>
+
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:28px;">
+The Framework shows how information moves, how handoffs work, which teams shape revenue, and where energy is lost. It brings calm to complex organizations and creates a shared language across leadership, marketing, sales, customer success, and operations.
+</p>
+
+<a href="the-gtm-framework.html" class="cta" style="padding:14px 26px;font-size:1.05rem;">
+Explore The GTM Framework
+</a>
+</section>
+
+<!-- ENGAGEMENT MODELS -->
+<section style="margin-top:70px;">
+<h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:12px;">
+Engagement Models
+</h2>
+
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:20px;">
+Every organization starts from a different place. These engagement models adapt to your system’s maturity and your growth ambition.
+</p>
+
+<h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">Assessment</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+A complete diagnosis of how your GTM system operates. We reveal structural gaps, hidden dependencies, and where friction blocks growth. The outcome is clarity — not assumptions, not documents.
+</p>
+
+<h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">System Design</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+Together we build your GTM System Blueprint. A visual and operational foundation that aligns teams, processes, and technology into a single revenue system.
+</p>
+
+<h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">Implementation Partner</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+We guide your teams as the blueprint becomes reality. We bring rhythm to execution, focus to leadership, and calm to change.
+</p>
+
+<h3 style="font-size:1.2rem;font-weight:600;color:var(--accent);margin-top:32px;margin-bottom:8px;">Interim Leadership</h3>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
+For organizations that need immediate stability, Caugia provides interim leadership to realign teams and embed long term systems before handing back a steady operation.
+</p>
+</section>
+
+</div>
+</main>
+
+<footer>
+© 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+</footer>
+
+</body>
+</html>
