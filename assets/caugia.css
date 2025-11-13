@@ -104,10 +104,19 @@ nav.nav-desktop a.active {
 .cta {
   background: var(--blue);
   color: #fff !important;
-  padding: .55rem 1.1rem;
-  border-radius: 8px;
-  font-weight: 600;
   text-decoration: none;
+  
+  /* FIX: meer ruimte, groter kader, luchtiger */
+  padding: 0.6rem 1.4rem;      /* breder én hoger */
+  
+  border-radius: 10px;         /* subtiel mooier rond */
+  font-weight: 600;
+  line-height: 1;              /* perfecte verticale alignment */
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   transition: background .25s ease, transform .25s ease;
 }
 
