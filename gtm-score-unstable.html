@@ -11,20 +11,22 @@
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 
 <script>
-// Read ?score= from URL
-function getScore() {
-  const p = new URLSearchParams(window.location.search);
-  return Number(p.get("score")) || 0;
+function getScaledScore() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = Number(params.get("score")) || 0;   // 0–55 uit Typeform
+  const scaled = Math.round((raw / 55) * 100);    // schalen naar 0–100
+  return Math.max(0, Math.min(100, scaled));      // cap tussen 0 en 100
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const score = getScore();
+  const score = getScaledScore();
   const display = document.getElementById("score-number");
   const bar = document.getElementById("score-fill");
 
-  display.textContent = score + "/100";
-  bar.style.width = score + "%";
+  if (display) display.textContent = score + "/100";
+  if (bar) bar.style.width = score + "%";
 });
+</script>
 </script>
 </head>
 
