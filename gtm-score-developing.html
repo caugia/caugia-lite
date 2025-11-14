@@ -4,32 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Your GTM Score: Developing | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score is Developing. Learn what this means for your GTM system and what to focus on next to reach predictable performance and alignment." />
+<title>Your GTM Score | Developing</title>
+<meta name="description" content="Your GTM Score indicates a Developing GTM system. See what this means for your revenue engine and how to progress to performing." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
-
-<script>
-// Haal ruwe score (0–55) uit de URL en schaal naar 0–100
-function getScaledScore() {
-  const params = new URLSearchParams(window.location.search);
-  const raw = Number(params.get("score")) || 0;          // score 0–55 van Typeform
-  const scaled = Math.round((raw / 55) * 100);           // schaal naar 0–100
-  return Math.max(0, Math.min(100, scaled));             // binnen 0–100 houden
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const score = getScaledScore();
-  const display = document.getElementById("score-number");
-  const bar = document.getElementById("score-fill");
-
-  if (display) display.textContent = score + "/100";
-  if (bar) bar.style.width = score + "%";
-});
-</script>
 </head>
-
 <body>
 
 <header>
@@ -44,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="the-gtm-score.html" class="active">GTM Score</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
     </nav>
@@ -59,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
-    <a href="the-gtm-score.html">GTM Score</a>
+    <a href="the-gtm-score.html" class="active">GTM Score</a>
     <a href="resources.html">Resources</a>
     <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
@@ -67,110 +47,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const t = document.querySelector(".menu-toggle");
-  const m = document.querySelector(".nav-mobile");
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".nav-mobile");
 
-  t.addEventListener("click", () => {
-    t.classList.toggle("active");
-    m.classList.toggle("open");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
   });
 
-  document.querySelectorAll(".nav-mobile a").forEach(l => {
-    l.addEventListener("click", () => {
-      t.classList.remove("active");
-      m.classList.remove("open");
+  document.querySelectorAll(".nav-mobile a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
     });
   });
 
   window.addEventListener("scroll", () => {
-    const h = document.querySelector("header");
-    if (window.scrollY > 10) h.classList.add("scrolled");
-    else h.classList.remove("scrolled");
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
   });
 });
 </script>
 
-
-<main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
   <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- HEADER -->
-    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-      Your GTM Score: Developing
+    <h1 style="font-size:2.4rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score
     </h1>
-
-    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-      Your GTM system has solid foundations, but misalignment and limited visibility slow down execution. 
-      You are no longer at risk, yet not fully predictable. With targeted improvements, you can reach the 
-      Performing stage within months.
+    <p style="font-size:1.05rem;color:#444;margin-bottom:24px;">
+      Result: <strong>Developing</strong> <span style="color:#999;">(51–60)</span>
     </p>
 
-    <!-- SCORE BLOCK -->
     <div class="score-wrapper">
-      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">
-        Your score
-      </h3>
-      <div id="score-number"
-           style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
-        0/100
+      <p style="font-size:1.1rem;line-height:1.7;margin-bottom:12px;">
+        Your GTM Score is <strong><span id="score-value">0</span>/100</strong>.
+      </p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
       </div>
 
-      <div class="progress-bar">
-        <div id="score-fill" class="progress-fill"></div>
-      </div>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-top:18px;margin-bottom:10px;">
+        You have a solid foundation. Many of the right pieces are in place, yet gaps in alignment,
+        visibility, and execution discipline slow growth more than they should.
+      </p>
+
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        Teams are working, but the system is not yet fully coherent. Insights exist in pockets,
+        handoffs sometimes drift, and it is still too hard to see cause and effect across the full GTM path.
+      </p>
     </div>
 
-    <!-- WHAT THIS MEANS -->
-    <section style="margin-top:40px;margin-bottom:40px;">
-      <h2>What this means</h2>
-      <p style="max-width:860px;">
-        Companies in the Developing stage typically experience:
+    <section style="margin-top:28px;max-width:780px;">
+      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        What this means
+      </h2>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+        Companies at this level often grow, but not at the pace their market and product would allow.
+        Sales cycles are a little longer than they should be, and too many deals are lost for reasons
+        that could be addressed with better coordination and clearer process.
       </p>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        You are not starting from zero. With focused improvements in a few key areas,
+        you can move into a performing system within a relatively short period.
+      </p>
+    </section>
 
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-        <li>• sales cycles that are 15–20% longer than optimized peers</li>
-        <li>• incomplete or inconsistent pipeline data</li>
-        <li>• friction between sales and marketing on lead quality</li>
-        <li>• 10–15% of winnable deals lost due to avoidable gaps</li>
-        <li>• uneven competitive positioning across the team</li>
+    <section style="margin-top:28px;max-width:780px;">
+      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        Where to focus first
+      </h2>
+      <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+        <li style="margin-bottom:8px;">Improve pipeline visibility with simple, shared dashboards for leadership and GTM teams.</li>
+        <li style="margin-bottom:8px;">Align marketing, SDR, and sales on lead quality and handoff rules so fewer opportunities are lost in transition.</li>
+        <li style="margin-bottom:8px;">Strengthen competitive clarity with basic battlecards and consistent debriefs on wins and losses.</li>
+        <li style="margin-bottom:0;">Clarify ownership across the twelve segments of the GTM Framework so there are fewer grey areas.</li>
       </ul>
     </section>
 
-    <!-- PRIORITIES -->
-    <section style="margin-bottom:40px;">
-      <h2>Your top priorities</h2>
-
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-        <li style="margin-bottom:12px;">
-          <strong>Improve pipeline visibility.</strong><br />
-          Build reliable dashboards and enforce data quality so leadership can act on signal, not guesswork.
-        </li>
-
-        <li style="margin-bottom:12px;">
-          <strong>Align sales and marketing on lead quality.</strong><br />
-          Create shared MQL definitions, automate handoffs, and measure conversions precisely.
-        </li>
-
-        <li style="margin-bottom:12px;">
-          <strong>Strengthen competitive intelligence.</strong><br />
-          Introduce structured battlecards and make sure the entire team understands the company’s differentiation.
-        </li>
-      </ul>
-    </section>
-
-    <!-- CTA -->
-    <section style="margin-top:50px;">
-      <h2 style="margin-bottom:10px;">Your path forward</h2>
-      <p style="max-width:860px;margin-bottom:20px;">
-        You are on the right track. With focused improvements in these areas, your system will progress quickly. 
-        The Professional Assessment gives you a clear, structured plan to accelerate this progress with measurable impact.
-      </p>
-
-      <a href="https://www.caugia.com/the-gtm-score.html"
-         class="cta"
-         style="padding:14px 28px;font-size:1rem;">
-        Upgrade to the Professional Assessment
-      </a>
+    <section style="margin-top:32px;max-width:780px;">
+      <div class="card">
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+          Moving from developing to performing
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          At this stage, progress is about sharpening rather than reinventing.
+          A deeper assessment can show where your GTM system already works well,
+          and which changes will unlock the next level of performance.
+        </p>
+        <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+          If you want to explore what a performing GTM system could look like in your context,
+          Caugia Consulting can help you translate this score into a practical improvement path.
+        </p>
+        <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20Developing" class="cta">
+          Explore your next steps
+        </a>
+      </div>
     </section>
 
   </div>
@@ -182,6 +155,26 @@ document.addEventListener("DOMContentLoaded", function() {
   <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = parseFloat(params.get("score"));
+  const scoreEl = document.getElementById("score-value");
+  const bar = document.getElementById("progress-fill");
+
+  if (scoreEl && bar) {
+    let scaled = 0;
+    if (!isNaN(raw)) {
+      scaled = Math.round((raw / 55) * 100);
+      if (scaled < 0) scaled = 0;
+      if (scaled > 100) scaled = 100;
+    }
+    scoreEl.textContent = scaled;
+    bar.style.width = scaled + "%";
+  }
+});
+</script>
 
 </body>
 </html>
