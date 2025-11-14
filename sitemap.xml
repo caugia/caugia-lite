@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.caugia.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://www.caugia.com/about.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.caugia.com/services.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.caugia.com/the-gtm-framework.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.caugia.com/the-gtm-score.html</loc><priority>1.0</priority></url>
-  <url><loc>https://www.caugia.com/resources.html</loc><priority>0.7</priority></url>
 
+  <!-- Core Pages -->
+  <url>
+    <loc>https://www.caugia.com/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.caugia.com/about.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.caugia.com/services.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.caugia.com/the-gtm-framework.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.caugia.com/the-gtm-score.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.caugia.com/resources.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.caugia.com/privacy.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Score Result Pages -->
   <url><loc>https://www.caugia.com/score-at-risk.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-unstable.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-developing.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-performing.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-high-performing.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-best-in-class.html</loc><priority>0.6</priority></url>
+
+  <!-- 404 (not indexed normally, but acceptable to list) -->
+  <url><loc>https://www.caugia.com/404.html</loc><priority>0.1</priority></url>
+
 </urlset>
