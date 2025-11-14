@@ -5,88 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Resources | Insights for Modern Revenue Teams</title>
-<meta name="description" content="Explore guides, playbooks, and frameworks from Caugia Consulting. Practical insights for GTM leaders, RevOps, sales, marketing, and customer success teams." />
+<meta name="description" content="Explore guides, frameworks, and whitepapers from Caugia Consulting. Clear, practical insights for GTM leaders, RevOps teams, and executives who value structure and system thinking." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-<link rel="canonical" href="https://www.caugia.com/resources.html" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Caugia Consulting" />
-<meta property="og:title" content="Resources | Insights for Modern Revenue Teams" />
-<meta property="og:description" content="Explore guides, playbooks, and frameworks from Caugia Consulting. Practical insights for GTM leaders, RevOps, sales, marketing, and customer success teams." />
-<meta property="og:url" content="https://www.caugia.com/resources.html" />
-<meta property="og:image" content="https://www.caugia.com/og-caugia-default.png" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Resources | Insights for Modern Revenue Teams" />
-<meta name="twitter:description" content="Explore guides, playbooks, and frameworks from Caugia Consulting. Practical insights for GTM leaders, RevOps, sales, marketing, and customer success teams." />
-<meta name="twitter:image" content="https://www.caugia.com/og-caugia-default.png" />
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.caugia.com/"},
-    {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.caugia.com/resources.html"}
-  ]
-}
-</script>
 </head>
 
 <body>
+
 <header>
-  <div class="container">
-    <a href="index.html" class="brand">
-      <img src="C-logo.png" alt="Caugia Consulting logo">
-      <span>Caugia Consulting</span>
-    </a>
+<div class="container">
+  <a href="index.html" class="brand">
+    <img src="C-logo.png" alt="Caugia Consulting logo">
+    <span>Caugia Consulting</span>
+  </a>
 
-    <nav class="nav-desktop">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html">GTM Score</a>
-      <a href="resources.html" class="active">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-    </nav>
-
-    <button class="menu-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <nav class="nav-mobile">
+  <nav class="nav-desktop">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html" class="active">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
+
+  <button class="menu-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<nav class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="the-gtm-framework.html">GTM Framework</a>
+  <a href="the-gtm-score.html">GTM Score</a>
+  <a href="resources.html" class="active">Resources</a>
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+</nav>
 </header>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
+
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
     mobileNav.classList.toggle("open");
   });
+
   document.querySelectorAll(".nav-mobile a").forEach(link => {
     link.addEventListener("click", () => {
       toggle.classList.remove("active");
       mobileNav.classList.remove("open");
     });
   });
+
   window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     if (window.scrollY > 10) header.classList.add("scrolled");
@@ -95,113 +71,125 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- MAIN -->
 <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">
-      Resources
-    </h1>
-    <p style="font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:30px;">
-      A selection of guides, playbooks, and frameworks for modern revenue teams. Each piece is designed to be practical, system oriented, and easy to use with your leadership and GTM teams.
-    </p>
+<!-- PAGE HEADER -->
+<h1 style="font-size:2.6rem;font-weight:800;margin-bottom:18px;color:var(--blue);">
+  Resources
+</h1>
 
-    <!-- Featured whitepapers -->
-    <section style="margin-bottom:40px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
-        Featured whitepapers
-      </h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1100px;">
-        <article class="card">
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            How to Build a Predictable Revenue Engine in 90 Days
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#333;margin-bottom:10px;">
-            A step by step approach to align data, process, and growth into one coherent revenue engine. Ideal for leadership teams that want a clear ninety day plan.
-          </p>
-          <p style="font-size:0.9rem;color:#666;">
-            Focus: data foundations, GTM sprints, and growth execution.
-          </p>
-        </article>
+<p style="font-size:1.13rem;line-height:1.7;color:#1b1b1b;margin-bottom:40px;max-width:880px;">
+A curated collection of whitepapers, guides, and frameworks for modern revenue teams.
+Each resource is designed to bring clarity, structure, and practical insight to GTM leaders who value calm, system-driven growth.
+</p>
 
-        <article class="card">
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The GTM Leadership Playbook
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#333;margin-bottom:10px;">
-            A practical guide for GTM leaders who want to move from ad hoc growth to predictable revenue. Covers vision, data, scalability, continuous improvement, and leadership.
-          </p>
-          <p style="font-size:0.9rem;color:#666;">
-            Focus: leadership alignment and system level decision making.
-          </p>
-        </article>
 
-        <article class="card">
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The Rise of the GTM Engineer
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#333;margin-bottom:10px;">
-            Why one GTM Engineer can unlock the impact of multiple SDRs by automating the GTM backbone. Useful for CROs and RevOps leaders rethinking their team structure.
-          </p>
-          <p style="font-size:0.9rem;color:#666;">
-            Focus: automation, tech stack, and GTM efficiency.
-          </p>
-        </article>
-      </div>
-    </section>
+<!-- FEATURED WHITEPAPERS -->
+<section style="margin-bottom:56px;">
+  <h2 style="margin-bottom:16px;">Featured Whitepapers</h2>
 
-    <!-- Playbooks section -->
-    <section style="margin-bottom:40px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
-        Playbooks for GTM teams
-      </h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1100px;">
-        <article class="card">
-          <h3 style="font-size:1.05rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The SDR Playbook That Books More Meetings
-          </h3>
-          <p style="font-size:0.94rem;line-height:1.6;color:#333;">
-            A structured outreach system that helps SDR teams focus on quality, not just volume. Includes guidance on sequences, handoffs, and measurement.
-          </p>
-        </article>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1100px;">
 
-        <article class="card">
-          <h3 style="font-size:1.05rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The Customer Success Playbook That Reduces Churn
-          </h3>
-          <p style="font-size:0.94rem;line-height:1.6;color:#333;">
-            A simple health score and playbook structure that helps CS teams move from reactive support to proactive value creation.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3 style="font-size:1.05rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The Revenue Operations Starter Kit
-          </h3>
-          <p style="font-size:0.94rem;line-height:1.6;color:#333;">
-            A practical starting point for building a RevOps function on a realistic budget. Useful for scale ups that need focus and clear priorities.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- How to use these resources -->
-    <section style="margin-bottom:20px;max-width:880px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:14px;">
-        How to use these resources
-      </h2>
-      <p style="font-size:0.98rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
-        These resources are designed to be used in leadership meetings, working sessions with GTM teams, and internal enablement. They work best when combined with your own data and context.
+    <!-- Added NEW PDF -->
+    <article class="card">
+      <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;">
+        AI and Human Alignment in GTM Systems
+      </h3>
+      <p style="font-size:0.97rem;line-height:1.6;color:#333;margin-bottom:10px;">
+        A structured look at how AI enhances — rather than replaces — human decision-making in modern revenue systems.
+        Essential reading for leaders integrating intelligent automation into their GTM operations.
       </p>
-      <p style="font-size:0.98rem;line-height:1.7;color:#1b1b1b;">
-        If you want to turn any of these into a tailored workshop or a focused sprint, Caugia Consulting can help you use them inside your GTM system instead of next to it.
+      <a href="assets/AI-and-Human-Alignment.pdf" 
+         style="color:var(--blue);font-weight:600;text-decoration:none;"
+         target="_blank" rel="noopener">
+         Download PDF →
+      </a>
+    </article>
+
+    <article class="card">
+      <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;">
+        How to Build a Predictable Revenue Engine
+      </h3>
+      <p style="font-size:0.97rem;line-height:1.6;color:#333;margin-bottom:10px;">
+        A step-by-step guide to aligning data, process, and execution into one coherent system.
       </p>
-    </section>
+      <p style="font-size:0.9rem;color:#666;">Focus: 90-day GTM structure.</p>
+    </article>
+
+    <article class="card">
+      <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;">
+        The GTM Leadership Playbook
+      </h3>
+      <p style="font-size:0.97rem;line-height:1.6;color:#333;margin-bottom:10px;">
+        A practical guide for leaders who want to shift from reactive operations to predictable performance.
+      </p>
+      <p style="font-size:0.9rem;color:#666;">Focus: leadership alignment.</p>
+    </article>
 
   </div>
+</section>
+
+
+<!-- PLAYBOOKS -->
+<section style="margin-bottom:56px;">
+  <h2 style="margin-bottom:14px;">Playbooks for GTM Teams</h2>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1100px;">
+
+    <article class="card">
+      <h3 style="font-size:1.08rem;font-weight:600;margin-bottom:6px;">
+        The SDR Playbook That Books More Meetings
+      </h3>
+      <p style="font-size:0.95rem;line-height:1.6;color:#333;">
+        A structured outreach model focused on quality, cadence, and predictable conversion.
+      </p>
+    </article>
+
+    <article class="card">
+      <h3 style="font-size:1.08rem;font-weight:600;margin-bottom:6px;">
+        The Customer Success Playbook
+      </h3>
+      <p style="font-size:0.95rem;line-height:1.6;color:#333;">
+        A practical customer health and engagement system designed to reduce churn. 
+      </p>
+    </article>
+
+    <article class="card">
+      <h3 style="font-size:1.08rem;font-weight:600;margin-bottom:6px;">
+        The Revenue Operations Starter Kit
+      </h3>
+      <p style="font-size:0.95rem;line-height:1.6;color:#333;">
+        A focused blueprint for building RevOps foundations on a realistic budget.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- HOW TO USE SECTION -->
+<section style="margin-bottom:20px;max-width:880px;">
+  <h2 style="margin-bottom:14px;">How to use these resources</h2>
+  <p style="font-size:1.02rem;line-height:1.7;margin-bottom:10px;">
+    These materials are designed for leadership discussions, GTM workshops, and internal enablement.
+    They work best when combined with your own data, systems, and operational reality.
+  </p>
+  <p style="font-size:1.02rem;line-height:1.7;">
+    If you want support applying these insights inside your GTM system, 
+    Caugia Consulting can help translate them into structure, rhythm, and execution.
+  </p>
+</section>
+
+</div>
 </main>
 
+
 <footer>
-  © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+  © 2025 Caugia Consulting ·
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
+
 </body>
 </html>
