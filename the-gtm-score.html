@@ -3,90 +3,74 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>The GTM Score | Assess Your Go To Market System</title>
-<meta name="description" content="Measure the maturity of your GTM system across the twelve segments of The GTM Framework. Identify gaps, benchmark your performance, and see where clarity creates the greatest impact." />
-
+<title>The GTM Score | Caugia Consulting</title>
+<meta name="description" content="Discover your GTM maturity with The GTM Score. Eleven focused questions. Clear direction in minutes." />
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-<link rel="canonical" href="https://www.caugia.com/the-gtm-score.html" />
-<link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
+<link rel="stylesheet" href="assets/caugia.css?v=1.0.4" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Caugia Consulting" />
-<meta property="og:title" content="The GTM Score | Assess Your Go To Market System" />
-<meta property="og:description" content="Measure the maturity of your GTM system across the twelve segments of The GTM Framework. Identify gaps, benchmark your performance, and see where clarity creates the greatest impact." />
-<meta property="og:url" content="https://www.caugia.com/the-gtm-score.html" />
-<meta property="og:image" content="https://www.caugia.com/og-caugia-default.png" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The GTM Score | Assess Your Go To Market System" />
-<meta name="twitter:description" content="Measure the maturity of your GTM system across the twelve segments of The GTM Framework. Identify gaps, benchmark your performance, and see where clarity creates the greatest impact." />
-<meta name="twitter:image" content="https://www.caugia.com/og-caugia-default.png" />
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.caugia.com/"},
-    {"@type":"ListItem","position":2,"name":"GTM Score","item":"https://www.caugia.com/the-gtm-score.html"}
-  ]
+<style>
+/* Navigation alignment fix */
+nav.nav-desktop a {
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
 }
-</script>
+</style>
 </head>
 
 <body>
+
 <header>
-  <div class="container">
-    <a href="index.html" class="brand">
-      <img src="C-logo.png" alt="Caugia Consulting logo">
-      <span>Caugia Consulting</span>
-    </a>
+<div class="container">
+  <a href="index.html" class="brand">
+    <img src="C-logo.png" alt="Caugia Consulting logo">
+    <span>Caugia Consulting</span>
+  </a>
 
-    <nav class="nav-desktop">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html" class="active">GTM Score</a>
-      <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-    </nav>
-
-    <button class="menu-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <nav class="nav-mobile">
+  <nav class="nav-desktop">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="the-gtm-framework.html">GTM Framework</a>
+    <a href="approach.html">Approach</a>
+    <a href="work.html">Work</a>
     <a href="the-gtm-score.html" class="active">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
+
+  <button class="menu-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<nav class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="approach.html">Approach</a>
+  <a href="work.html">Work</a>
+  <a href="the-gtm-score.html" class="active">GTM Score</a>
+  <a href="resources.html">Resources</a>
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+</nav>
 </header>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
+
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
     mobileNav.classList.toggle("open");
   });
+
   document.querySelectorAll(".nav-mobile a").forEach(link => {
     link.addEventListener("click", () => {
       toggle.classList.remove("active");
       mobileNav.classList.remove("open");
     });
   });
+
   window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     if (window.scrollY > 10) header.classList.add("scrolled");
@@ -95,54 +79,44 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
+<!-- MAIN -->
 <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:16px;color:var(--blue);">
-      The GTM Score
-    </h1>
+<h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">
+The GTM Score
+</h1>
 
-    <p style="font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:20px;">
-      The GTM Score is a structured assessment of how mature your Go To Market system really is. It measures your organization across the twelve segments of The GTM Framework and translates complexity into one clear view of where you stand.
-    </p>
+<p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:840px;margin-bottom:32px;">
+The GTM Score is a concise, structured assessment that measures the maturity of your go-to-market system. 
+Eleven focused questions reveal strengths, gaps, and the strategic direction needed to build a predictable revenue engine.
+</p>
 
-    <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:24px;">
-      You can use the score to align leadership, to prioritise investment in GTM, or to prepare for a deeper system design project. It is a starting point for honest conversations about how your organization grows.
-    </p>
+<!-- TYPEFORM SCRIPT EMBED -->
+<div id="typeform-embed-container"
+     style="width:100%;max-width:900px;margin:40px auto;min-height:700px;">
+  <div data-tf-live="qtEL2eDX"></div>
+</div>
 
-    <section style="margin-top:24px;margin-bottom:32px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:12px;">
-        What you can expect
-      </h2>
-      <ul style="list-style:none;padding:0;margin:0;font-size:1.0rem;line-height:1.7;color:#1b1b1b;max-width:880px;">
-        <li>A clear view of your strengths and gaps across the GTM system.</li>
-        <li>A maturity indication per segment, not just a single number.</li>
-        <li>Language you can use with leadership and teams to discuss priorities.</li>
-      </ul>
-    </section>
+<script>
+(function() {
+  var d = document;
+  var s = d.createElement('script');
+  s.src = "https://embed.typeform.com/next/embed.js";
+  s.async = true;
+  d.body.appendChild(s);
+})();
+</script>
 
-    <!-- Typeform embed -->
-    <section style="margin-top:24px;">
-      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
-        Start the GTM Score
-      </h2>
-      <p style="font-size:0.98rem;line-height:1.6;color:#1b1b1b;max-width:880px;margin-bottom:16px;">
-        The assessment takes around fifteen minutes. Answer as honestly as possible for the most useful result.
-      </p>
-
-      <div style="margin-top:10px;">
-        <!-- Vervang de URL hieronder met je echte Typeform embed URL -->
-        <!-- Voorbeeld: -->
-        <!-- <iframe src="https://your-typeform-url" style="width:100%;height:720px;border:none;border-radius:8px;"></iframe> -->
-        <iframe src="YOUR_TYPEFORM_EMBED_URL_HERE" style="width:100%;height:720px;border:none;border-radius:8px;"></iframe>
-      </div>
-    </section>
-
-  </div>
+</div>
 </main>
 
+
 <footer>
-  © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+© 2025 Caugia Consulting · 
+<a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
+
 </body>
 </html>
