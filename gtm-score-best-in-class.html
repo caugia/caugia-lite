@@ -5,20 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Your GTM Score: Best in Class | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score indicates world-class GTM maturity. Learn what this means for innovation, leadership, and strategic expansion." />
+<meta name="description" content="Your GTM Score indicates world-class maturity. Discover what this means for innovation, leadership, and scaling in high-performing B2B organizations." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 
 <script>
-// Extract score from URL
-function getScore() {
-  const p = new URLSearchParams(window.location.search);
-  return Number(p.get("score")) || 0;
+// Ruwe score 0–55 → schaal naar 0–100
+function getScaledScore() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = Number(params.get("score")) || 0;
+  const scaled = Math.round((raw / 55) * 100);
+  return Math.max(0, Math.min(100, scaled));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const score = getScore();
+  const score = getScaledScore();
   document.getElementById("score-number").textContent = score + "/100";
   document.getElementById("score-fill").style.width = score + "%";
 });
@@ -28,34 +30,36 @@ document.addEventListener("DOMContentLoaded", () => {
 <body>
 
 <header>
-<div class="container">
-  <a href="index.html" class="brand">
-    <img src="C-logo.png" alt="Caugia Consulting logo">
-    <span>Caugia Consulting</span>
-  </a>
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <span>Caugia Consulting</span>
+    </a>
 
-  <nav class="nav-desktop">
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="the-gtm-framework.html">GTM Framework</a>
+      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="resources.html">Resources</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
-
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-</div>
-
-<nav class="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="the-gtm-framework.html">GTM Framework</a>
-  <a href="the-gtm-score.html">GTM Score</a>
-  <a href="resources.html">Resources</a>
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-</nav>
 </header>
 
 <script>
@@ -85,94 +89,89 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
-<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
+    <!-- HEADER -->
+    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score: Best in Class
+    </h1>
 
-<!-- HEADER -->
-<h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-  Your GTM Score: Best in Class
-</h1>
+    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
+      Your GTM system operates at a world-class level. You are in the top 1–2% of B2B organizations.  
+      Your processes, data, tooling, and leadership are fully aligned — enabling predictable performance, 
+      strong retention, high win rates, and scalable growth.
+    </p>
 
-<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-Your GTM system operates at a world-class level.  
-You are in the top 1–2% of B2B organizations.  
-Your revenue engine is integrated, predictable, and continuously improving.  
-The focus now is not on fixing — but on scaling, innovating, and shaping your category.
-</p>
+    <!-- SCORE BLOCK -->
+    <div class="score-wrapper">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your score</h3>
+      <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        0/100
+      </div>
 
+      <div class="progress-bar">
+        <div id="score-fill" class="progress-fill"></div>
+      </div>
+    </div>
 
-<!-- SCORE BLOCK -->
-<div class="score-wrapper">
-  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your score</h3>
-  <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">0/100</div>
+    <!-- WHAT THIS MEANS -->
+    <section style="margin-top:40px;margin-bottom:40px;">
+      <h2>What this means</h2>
+      <p style="max-width:860px;">
+        Companies in the Best in Class stage typically:
+      </p>
 
-  <div class="progress-bar">
-    <div id="score-fill" class="progress-fill"></div>
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
+        <li>• maintain industry-leading retention, expansion, and win rates</li>
+        <li>• operate with deeply integrated systems and shared KPIs</li>
+        <li>• leverage data proactively across the entire GTM lifecycle</li>
+        <li>• scale into new markets with disciplined consistency</li>
+        <li>• innovate faster than their competitors</li>
+        <li>• build leadership cultures that sustain long-term performance</li>
+      </ul>
+    </section>
+
+    <!-- OPPORTUNITIES -->
+    <section style="margin-bottom:40px;">
+      <h2>Your strategic opportunities</h2>
+
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
+        <li style="margin-bottom:12px;">
+          <strong>GTM innovation.</strong><br />
+          Experiment with new motions, channels, or AI-enabled processes before competitors catch up.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Thought leadership and category shaping.</strong><br />
+          Your GTM maturity gives you a platform to influence and lead your market.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Strategic scale: M&A or partnerships.</strong><br />
+          Your system can absorb new teams, new segments, or acquisitions with minimal disruption.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section style="margin-top:50px;">
+      <h2 style="margin-bottom:10px;">Validate your readiness</h2>
+      <p style="max-width:860px;margin-bottom:20px;">
+        At this level, the biggest challenges are strategic inflection points — expanding internationally, 
+        launching new products, or preparing for capital events.  
+        The Professional Assessment stress-tests your system for these scenarios and identifies where 
+        to reinforce for the next stage of scale.
+      </p>
+
+      <a href="https://www.caugia.com/the-gtm-score.html"
+         class="cta"
+         style="padding:14px 28px;font-size:1rem;">
+        Validate Your Readiness
+      </a>
+    </section>
+
   </div>
-</div>
-
-
-<!-- WHAT THIS MEANS -->
-<section style="margin-top:40px;margin-bottom:40px;">
-  <h2>What this means</h2>
-
-  <p style="max-width:860px;">
-    Companies at this maturity level typically:
-  </p>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-    <li>• operate with deeply integrated systems and shared KPIs</li>
-    <li>• maintain exceptional retention and expansion performance</li>
-    <li>• use data proactively across all GTM and operational layers</li>
-    <li>• innovate faster than their competitors</li>
-    <li>• have strong leadership alignment and cultural clarity</li>
-    <li>• scale into new markets with disciplined execution</li>
-  </ul>
-</section>
-
-
-<!-- OPPORTUNITIES -->
-<section style="margin-bottom:40px;">
-  <h2>Your strategic opportunities</h2>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-    <li style="margin-bottom:12px;">
-      <strong>GTM innovation.</strong>  
-      Experiment with new motions, channels, and AI-powered operating models before the market shifts.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Thought leadership and category shaping.</strong>  
-      Your GTM system is strong enough to become a competitive moat — and a platform for industry influence.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>M&A and partnership GTM.</strong>  
-      Your systems make you ready to integrate acquired companies or co-sell in structured partnership ecosystems.
-    </li>
-  </ul>
-</section>
-
-
-<!-- CTA -->
-<section style="margin-top:50px;">
-  <h2 style="margin-bottom:10px;">Validate your readiness</h2>
-  <p style="max-width:860px;margin-bottom:20px;">
-    At this level, the biggest challenges are strategic inflection points: entering new markets, launching new products, or preparing for capital events.  
-    The Professional Assessment stress-tests your GTM system for these scenarios and identifies the areas that will matter most at scale.
-  </p>
-
-  <a href="https://www.caugia.com/the-gtm-score.html" 
-     class="cta" 
-     style="padding:14px 28px;font-size:1rem;">
-    Validate Your Readiness
-  </a>
-</section>
-
-
-</div>
 </main>
-
 
 <footer>
   © 2025 Caugia Consulting ·
