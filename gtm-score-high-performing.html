@@ -4,29 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Your GTM Score: High Performing | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score indicates a sophisticated, mature GTM system. Learn what this means for advanced optimization, innovation, and strategic scaling." />
+<title>Your GTM Score | High Performing</title>
+<meta name="description" content="Your GTM Score indicates a High Performing GTM system. See what this means for your revenue engine and where the next gains may be." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
-
-<script>
-// Ruwe score 0–55 → schaal naar 0–100
-function getScaledScore() {
-  const params = new URLSearchParams(window.location.search);
-  const raw = Number(params.get("score")) || 0;
-  const scaled = Math.round((raw / 55) * 100);
-  return Math.max(0, Math.min(100, scaled));
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const score = getScaledScore();
-  document.getElementById("score-number").textContent = score + "/100";
-  document.getElementById("score-fill").style.width = score + "%";
-});
-</script>
 </head>
-
 <body>
 
 <header>
@@ -41,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="the-gtm-score.html" class="active">GTM Score</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
     </nav>
@@ -56,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
-    <a href="the-gtm-score.html">GTM Score</a>
+    <a href="the-gtm-score.html" class="active">GTM Score</a>
     <a href="resources.html">Resources</a>
     <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
@@ -64,111 +47,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const t = document.querySelector(".menu-toggle");
-  const m = document.querySelector(".nav-mobile");
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".nav-mobile");
 
-  t.addEventListener("click", () => {
-    t.classList.toggle("active");
-    m.classList.toggle("open");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
   });
 
-  document.querySelectorAll(".nav-mobile a").forEach(l => {
-    l.addEventListener("click", () => {
-      t.classList.remove("active");
-      m.classList.remove("open");
+  document.querySelectorAll(".nav-mobile a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
     });
   });
 
   window.addEventListener("scroll", () => {
-    const h = document.querySelector("header");
-    if (window.scrollY > 10) h.classList.add("scrolled");
-    else h.classList.remove("scrolled");
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
   });
 });
 </script>
 
-
-<main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
   <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- HEADER -->
-    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-      Your GTM Score: High Performing
+    <h1 style="font-size:2.4rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score
     </h1>
-
-    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-      Your GTM system is mature, aligned, and data-driven.  
-      You are operating in the top tier of B2B organizations.  
-      The focus now shifts from solving problems to optimizing what already works — and preparing 
-      the system for your next phase of scale.
+    <p style="font-size:1.05rem;color:#444;margin-bottom:24px;">
+      Result: <strong>High Performing</strong> <span style="color:#999;">(76–90)</span>
     </p>
 
-    <!-- SCORE BLOCK -->
     <div class="score-wrapper">
-      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your score</h3>
-      <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
-        0/100
+      <p style="font-size:1.1rem;line-height:1.7;margin-bottom:12px;">
+        Your GTM Score is <strong><span id="score-value">0</span>/100</strong>.
+      </p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
       </div>
 
-      <div class="progress-bar">
-        <div id="score-fill" class="progress-fill"></div>
-      </div>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-top:18px;margin-bottom:10px;">
+        You operate at a high level of GTM maturity. Processes, data, and teams are aligned,
+        and your system already supports strong performance and predictable revenue.
+      </p>
+
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        At this stage, your focus shifts from fixing weaknesses to finding the next wave of efficiency
+        and preparing for new phases of growth.
+      </p>
     </div>
 
-    <!-- WHAT THIS MEANS -->
-    <section style="margin-top:40px;margin-bottom:40px;">
-      <h2>What this means</h2>
-      <p style="max-width:860px;">
-        Companies in the High Performing stage typically:
+    <section style="margin-top:28px;max-width:780px;">
+      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        What this means
+      </h2>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+        Companies at this level are often seen as reference points in their markets.
+        You likely enjoy consistency in forecast accuracy, stable win rates,
+        and strong collaboration between GTM teams and leadership.
       </p>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        The challenge is to maintain this quality while you scale into new segments,
+        regions, or product lines without creating new complexity.
+      </p>
+    </section>
 
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-        <li>• operate with strong cross-functional alignment</li>
-        <li>• maintain consistent, predictable revenue performance</li>
-        <li>• show high win rates and disciplined execution</li>
-        <li>• leverage data effectively, though not yet at a predictive level</li>
-        <li>• run smooth SDR → AE → CS → AM transitions</li>
-        <li>• maintain robust enablement foundations</li>
+    <section style="margin-top:28px;max-width:780px;">
+      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        Where to focus first
+      </h2>
+      <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+        <li style="margin-bottom:8px;">Explore more advanced analytics and predictive models to support strategic decisions.</li>
+        <li style="margin-bottom:8px;">Ensure that expansion plans consider the full GTM system, not only top line targets.</li>
+        <li style="margin-bottom:8px;">Invest in talent development so new leaders inherit a strong, shared GTM philosophy.</li>
+        <li style="margin-bottom:0;">Regularly stress test your system for new failure modes as complexity grows.</li>
       </ul>
     </section>
 
-    <!-- PRIORITIES -->
-    <section style="margin-bottom:40px;">
-      <h2>Your top opportunities</h2>
-
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-        <li style="margin-bottom:12px;">
-          <strong>Predictive analytics and intelligence.</strong><br />
-          Introduce churn signals, opportunity scoring, and risk-based forecasting.
-        </li>
-
-        <li style="margin-bottom:12px;">
-          <strong>Geographic or segment expansion.</strong><br />
-          Prepare your model to scale into new regions or strategic markets with consistency.
-        </li>
-
-        <li style="margin-bottom:12px;">
-          <strong>Leadership and talent scaling.</strong><br />
-          Strengthen hiring models, coaching systems, and cross-team alignment rituals.
-        </li>
-      </ul>
-    </section>
-
-    <!-- CTA -->
-    <section style="margin-top:50px;">
-      <h2 style="margin-bottom:10px;">Your next 10%</h2>
-      <p style="max-width:860px;margin-bottom:20px;">
-        You are operating at a level most companies aim for.  
-        The remaining optimizations are fewer in number but high in leverage.  
-        The Professional Assessment identifies the highest-impact areas to unlock your next 10% 
-        in velocity, predictability, and margin expansion.
-      </p>
-
-      <a href="https://www.caugia.com/the-gtm-score.html"
-         class="cta"
-         style="padding:14px 28px;font-size:1rem;">
-        Unlock Your Next 10%
-      </a>
+    <section style="margin-top:32px;max-width:780px;">
+      <div class="card">
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+          Protecting and extending high performance
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          With a high performing GTM system, the most valuable work is often subtle.
+          A deeper assessment can help you find the few changes that preserve your advantage
+          while supporting the next chapter of growth.
+        </p>
+        <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+          If you want an external view on how robust your system is and where to invest next,
+          Caugia Consulting can review your GTM architecture through the lens of The GTM Framework.
+        </p>
+        <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20High%20Performing" class="cta">
+          Review your GTM architecture
+        </a>
+      </div>
     </section>
 
   </div>
@@ -180,6 +155,26 @@ document.addEventListener("DOMContentLoaded", function() {
   <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = parseFloat(params.get("score"));
+  const scoreEl = document.getElementById("score-value");
+  const bar = document.getElementById("progress-fill");
+
+  if (scoreEl && bar) {
+    let scaled = 0;
+    if (!isNaN(raw)) {
+      scaled = Math.round((raw / 55) * 100);
+      if (scaled < 0) scaled = 0;
+      if (scaled > 100) scaled = 100;
+    }
+    scoreEl.textContent = scaled;
+    bar.style.width = scaled + "%";
+  }
+});
+</script>
 
 </body>
 </html>
