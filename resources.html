@@ -5,41 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Resources | Insights for Modern Revenue Teams</title>
-<meta name="description" content="Explore guides, playbooks, and frameworks from Caugia Consulting. Practical insights for GTM leaders, RevOps, sales, marketing, and customer success teams." />
+<meta name="description" content="Explore guides, frameworks, and curated insights from Caugia Consulting. Calm, clear, system focused content for GTM leaders." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-<link rel="canonical" href="https://www.caugia.com/resources.html" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Caugia Consulting" />
-<meta property="og:title" content="Resources | Insights for Modern Revenue Teams" />
-<meta property="og:description" content="Explore guides, playbooks, and frameworks from Caugia Consulting. Practical insights for GTM leaders, RevOps, sales, marketing, and customer success teams." />
-<meta property="og:url" content="https://www.caugia.com/resources.html" />
-<meta property="og:image" content="https://www.caugia.com/og-caugia-default.png" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Resources | Insights for Modern Revenue Teams" />
-<meta name="twitter:description" content="Explore guides, playbooks, and frameworks from Caugia Consulting. Practical insights for GTM leaders, RevOps, sales, marketing, and customer success teams." />
-<meta name="twitter:image" content="https://www.caugia.com/og-caugia-default.png" />
-
-<!-- Breadcrumbs -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.caugia.com/"},
-    {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.caugia.com/resources.html"}
-  ]
-}
-</script>
 </head>
 
 <body>
+
 <header>
   <div class="container">
     <a href="index.html" class="brand">
@@ -54,7 +27,9 @@
       <a href="the-gtm-framework.html">GTM Framework</a>
       <a href="the-gtm-score.html">GTM Score</a>
       <a href="resources.html" class="active">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">
+        Contact
+      </a>
     </nav>
 
     <button class="menu-toggle" aria-label="Menu">
@@ -69,24 +44,30 @@
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html" class="active">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">
+      Contact
+    </a>
   </nav>
 </header>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
+
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
     mobileNav.classList.toggle("open");
   });
+
   document.querySelectorAll(".nav-mobile a").forEach(link => {
     link.addEventListener("click", () => {
       toggle.classList.remove("active");
       mobileNav.classList.remove("open");
     });
   });
+
   window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     if (window.scrollY > 10) header.classList.add("scrolled");
@@ -95,161 +76,186 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">
-      Resources
-    </h1>
-    <p style="font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:30px;">
-      A selection of guides, playbooks, and frameworks for modern revenue teams. Each piece is designed to be practical, system oriented, and calm in tone so you can use them with your leadership and GTM teams.
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
+<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+
+  <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:20px;color:var(--blue);">
+    Resources
+  </h1>
+
+  <p style="font-size:1.1rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:32px;">
+    A curated collection of insights and frameworks for modern GTM teams.  
+    Calm, structured, and grounded in system thinking.  
+    New resources will be added throughout 2025 as Caugia Consulting prepares for its official launch.
+  </p>
+
+
+  <!-- =======================================================
+       SECTION: Available Resources
+       ======================================================= -->
+  <section style="margin-bottom:48px;">
+    <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
+      Available now
+    </h2>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1100px;">
+
+      <!-- REAL PDF -->
+      <article class="card">
+        <h3 style="font-size:1.15rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          AI and Human Alignment
+        </h3>
+        <p style="font-size:0.97rem;line-height:1.65;color:#333;margin-bottom:14px;">
+          A concise exploration of how modern teams can combine human judgment with AI systems to
+          create faster, calmer decision making across the revenue path.
+        </p>
+        <a href="assets/AI-and-Human-Alignment.pdf"
+           target="_blank"
+           rel="noopener"
+           class="cta"
+           style="padding:10px 18px;font-size:0.95rem;">
+           Download PDF
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+
+
+  <!-- =======================================================
+       SECTION: Coming May 2025
+       ======================================================= -->
+  <section style="margin-bottom:40px;">
+    <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
+      Coming May 2025
+    </h2>
+
+    <p style="font-size:1.02rem;line-height:1.7;color:#555;margin-bottom:26px;max-width:800px;">
+      These resources will be available when Caugia Consulting officially opens.  
+      You can already browse the titles to see what is planned.
     </p>
 
-    <section style="background:#f0f4f8;border-left:4px solid var(--blue);padding:20px 24px;margin:0 0 36px;max-width:880px;">
-      <p style="font-size:0.98rem;line-height:1.7;margin:0;">
-        The full resource library will launch together with Caugia Consulting.  
-        Until then, you can access a first foundational piece and see which documents are planned for release.
-      </p>
-    </section>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1100px;">
 
-    <!-- AVAILABLE NOW -->
-    <section style="margin-bottom:40px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
-        Available now
-      </h2>
-      <div style="display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:18px;max-width:800px;">
-        <article class="card">
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            AI and Human Alignment in GTM Systems
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#333;margin-bottom:10px;">
-            A concise paper on how to keep human judgment, structure, and AI capabilities aligned inside modern revenue teams.
-          </p>
-          <p style="font-size:0.9rem;color:#666;margin-bottom:12px;">
-            Focus: calm system design, decision quality, and sustainable automation.
-          </p>
-          <a href="assets/AI-and-Human-Alignment.pdf" target="_blank" rel="noopener" style="font-size:0.96rem;font-weight:600;text-decoration:none;color:var(--blue);">
-            Open PDF →
-          </a>
-        </article>
-      </div>
-    </section>
 
-    <!-- FEATURED WHITEPAPERS (COMING SOON) -->
-    <section style="margin-bottom:40px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
-        Upcoming whitepapers
-      </h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1100px;">
-        <article class="card" style="opacity:0.75;">
-          <div style="background:#f0f0f3;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:#666;">
-            Coming 2026
-          </div>
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            How to Build a Predictable Revenue Engine in 90 Days
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#555;margin-bottom:10px;">
-            A step by step approach to align data, process, and growth into one coherent revenue engine.
-          </p>
-          <p style="font-size:0.9rem;color:#777;margin-bottom:0;">
-            Focus: data foundations, GTM sprints, and growth execution.
-          </p>
-        </article>
+      <!-- TEMPLATE FOR COMING-SOON CARDS -->
+      <!-- Card 1 -->
+      <article class="card" style="opacity:0.55;">
+        <div style="background:#e8e8e8;padding:4px 10px;border-radius:4px;
+                    display:inline-block;margin-bottom:10px;font-size:0.85rem;
+                    font-weight:600;color:#666;">
+          Coming May 2025
+        </div>
+        <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          Building a Predictable Revenue Engine
+        </h3>
+        <p style="font-size:0.95rem;line-height:1.6;color:#555;">
+          A structured approach to aligning process, people, and data into one coherent GTM system.
+        </p>
+      </article>
 
-        <article class="card" style="opacity:0.75;">
-          <div style="background:#f0f0f3;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:#666;">
-            Coming 2026
-          </div>
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The GTM Leadership Playbook
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#555;margin-bottom:10px;">
-            A practical guide for GTM leaders who want to move from ad hoc growth to predictable revenue.
-          </p>
-          <p style="font-size:0.9rem;color:#777;margin-bottom:0;">
-            Focus: leadership alignment and system level decision making.
-          </p>
-        </article>
+      <!-- Card 2 -->
+      <article class="card" style="opacity:0.55;">
+        <div style="background:#e8e8e8;padding:4px 10px;border-radius:4px;
+                    display:inline-block;margin-bottom:10px;font-size:0.85rem;
+                    font-weight:600;color:#666;">
+          Coming May 2025
+        </div>
+        <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          The GTM Leadership Playbook
+        </h3>
+        <p style="font-size:0.95rem;line-height:1.6;color:#555;">
+          A clear, practical guide for leadership teams working to build consistency and alignment.
+        </p>
+      </article>
 
-        <article class="card" style="opacity:0.75;">
-          <div style="background:#f0f0f3;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:#666;">
-            Coming 2026
-          </div>
-          <h3 style="font-size:1.1rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The Rise of the GTM Engineer
-          </h3>
-          <p style="font-size:0.95rem;line-height:1.6;color:#555;margin-bottom:10px;">
-            Why one GTM Engineer can unlock the impact of multiple SDRs by automating the GTM backbone.
-          </p>
-          <p style="font-size:0.9rem;color:#777;margin-bottom:0;">
-            Focus: automation, tech stack, and GTM efficiency.
-          </p>
-        </article>
-      </div>
-    </section>
+      <!-- Card 3 -->
+      <article class="card" style="opacity:0.55;">
+        <div style="background:#e8e8e8;padding:4px 10px;border-radius:4px;
+                    display:inline-block;margin-bottom:10px;font-size:0.85rem;
+                    font-weight:600;color:#666;">
+          Coming May 2025
+        </div>
+        <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          The Rise of the GTM Engineer
+        </h3>
+        <p style="font-size:0.95rem;line-height:1.6;color:#555;">
+          Why one GTM Engineer can create more capacity than an entire SDR team.
+        </p>
+      </article>
 
-    <!-- PLAYBOOKS (COMING SOON) -->
-    <section style="margin-bottom:40px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
-        Upcoming playbooks
-      </h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1100px;">
-        <article class="card" style="opacity:0.75;">
-          <div style="background:#f0f0f3;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:#666;">
-            Coming 2026
-          </div>
-          <h3 style="font-size:1.05rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The SDR Playbook That Books More Meetings
-          </h3>
-          <p style="font-size:0.94rem;line-height:1.6;color:#555;">
-            A structured outreach system that helps SDR teams focus on quality, not just volume.
-          </p>
-        </article>
+      <!-- Card 4 -->
+      <article class="card" style="opacity:0.55;">
+        <div style="background:#e8e8e8;padding:4px 10px;border-radius:4px;
+                    display:inline-block;margin-bottom:10px;font-size:0.85rem;
+                    font-weight:600;color:#666;">
+          Coming May 2025
+        </div>
+        <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          The SDR Playbook that Books More Meetings
+        </h3>
+        <p style="font-size:0.95rem;line-height:1.6;color:#555;">
+          A calm, structured SDR operating model that focuses on relevance and consistency.
+        </p>
+      </article>
 
-        <article class="card" style="opacity:0.75;">
-          <div style="background:#f0f0f3;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:#666;">
-            Coming 2026
-          </div>
-          <h3 style="font-size:1.05rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The Customer Success Playbook That Reduces Churn
-          </h3>
-          <p style="font-size:0.94rem;line-height:1.6;color:#555;">
-            A simple health score and playbook structure that helps CS teams move from reactive support to proactive value creation.
-          </p>
-        </article>
+      <!-- Card 5 -->
+      <article class="card" style="opacity:0.55;">
+        <div style="background:#e8e8e8;padding:4px 10px;border-radius:4px;
+                    display:inline-block;margin-bottom:10px;font-size:0.85rem;
+                    font-weight:600;color:#666;">
+          Coming May 2025
+        </div>
+        <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          The Customer Success Playbook
+        </h3>
+        <p style="font-size:0.95rem;line-height:1.6;color:#555;">
+          A simple structure for predictable renewal and expansion outcomes.
+        </p>
+      </article>
 
-        <article class="card" style="opacity:0.75;">
-          <div style="background:#f0f0f3;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:8px;font-size:0.82rem;font-weight:600;color:#666;">
-            Coming 2026
-          </div>
-          <h3 style="font-size:1.05rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">
-            The Revenue Operations Starter Kit
-          </h3>
-          <p style="font-size:0.94rem;line-height:1.6;color:#555;">
-            A practical starting point for building a RevOps function on a realistic budget.
-          </p>
-        </article>
-      </div>
-    </section>
+      <!-- Card 6 -->
+      <article class="card" style="opacity:0.55;">
+        <div style="background:#e8e8e8;padding:4px 10px;border-radius:4px;
+                    display:inline-block;margin-bottom:10px;font-size:0.85rem;
+                    font-weight:600;color:#666;">
+          Coming May 2025
+        </div>
+        <h3 style="font-size:1.12rem;font-weight:600;margin-bottom:6px;color:var(--deep-navy);">
+          The Revenue Operations Starter Kit
+        </h3>
+        <p style="font-size:0.95rem;line-height:1.6;color:#555;">
+          A practical foundation for scale ups building their first RevOps function.
+        </p>
+      </article>
 
-    <!-- HOW TO USE -->
-    <section style="margin-bottom:10px;max-width:880px;">
-      <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:14px;">
-        How to use these resources
-      </h2>
-      <p style="font-size:0.98rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
-        These resources are designed to be used in leadership meetings, working sessions with GTM teams, and internal enablement. They work best when combined with your own data and context.
-      </p>
-      <p style="font-size:0.98rem;line-height:1.7;color:#1b1b1b;">
-        As Caugia Consulting moves toward full launch, additional whitepapers and playbooks will be added here and kept deliberately practical and calm in tone.
-      </p>
-    </section>
+    </div>
+  </section>
 
-  </div>
+
+  <!-- How to use these resources -->
+  <section style="margin:40px 0 0;max-width:880px;">
+    <h2 style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:14px;">
+      How to use these resources
+    </h2>
+    <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+      These resources are designed to support leadership meetings, GTM planning,
+      and internal enablement. You can share them with your teams or use them
+      as structured inputs for strategic discussions.
+    </p>
+    <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;">
+      More materials will be available when Caugia Consulting officially opens in May 2025.
+    </p>
+  </section>
+
+</div>
 </main>
 
+
 <footer>
-  © 2025 Caugia Consulting · 
+  © 2025 Caugia Consulting ·
   <a href="privacy.html">Privacy Notice</a> ·
   <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
