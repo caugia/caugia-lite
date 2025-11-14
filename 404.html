@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page Not Found | Caugia Consulting</title>
+<link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+<link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <span>Caugia Consulting</span>
+    </a>
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="the-gtm-framework.html">GTM Framework</a>
+      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="resources.html">Resources</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="the-gtm-framework.html">GTM Framework</a>
+    <a href="the-gtm-score.html">GTM Score</a>
+    <a href="resources.html">Resources</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+  </nav>
+</header>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".nav-mobile");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
+  });
+  document.querySelectorAll(".nav-mobile a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
+    });
+  });
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  });
+});
+</script>
+
+<main style="flex:1;padding:calc(var(--header-h) + 80px) 24px 120px;display:flex;align-items:center;justify-content:center;">
+  <div style="text-align:center;max-width:600px;">
+    <h1 style="font-size:6rem;font-weight:800;color:#e0e0e0;margin:0;line-height:1;">404</h1>
+    <h2 style="font-size:1.8rem;font-weight:700;color:var(--blue);margin:16px 0;">
+      Page Not Found
+    </h2>
+    <p style="font-size:1.1rem;line-height:1.7;color:#555;margin-bottom:32px;">
+      This page does not exist or has been moved.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html" class="cta">Go Home</a>
+      <a href="the-gtm-score.html" class="cta" style="background:var(--accent);">Take The GTM Score</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2025 Caugia Consulting · 
+  <a href="privacy.html">Privacy Notice</a> ·
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
+  <a href="mailto:tom@caugia.com">tom@caugia.com</a>
+</footer>
+
+</body>
+</html>
 
