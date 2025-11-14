@@ -5,20 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Your GTM Score: Performing | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score is Performing. Learn what this means for your GTM system and how to capture the final 20% of efficiency and predictability." />
+<meta name="description" content="Your GTM Score indicates a well-functioning GTM system with clear processes, alignment, and consistency. Learn what this means and how to unlock the final 20% of performance." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 
 <script>
-// Extract score from URL
-function getScore() {
-  const p = new URLSearchParams(window.location.search);
-  return Number(p.get("score")) || 0;
+// Ruwe score 0–55 → schaal naar 0–100
+function getScaledScore() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = Number(params.get("score")) || 0;
+  const scaled = Math.round((raw / 55) * 100);
+  return Math.max(0, Math.min(100, scaled));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const score = getScore();
+  const score = getScaledScore();
   document.getElementById("score-number").textContent = score + "/100";
   document.getElementById("score-fill").style.width = score + "%";
 });
@@ -28,34 +30,36 @@ document.addEventListener("DOMContentLoaded", () => {
 <body>
 
 <header>
-<div class="container">
-  <a href="index.html" class="brand">
-    <img src="C-logo.png" alt="Caugia Consulting logo">
-    <span>Caugia Consulting</span>
-  </a>
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <span>Caugia Consulting</span>
+    </a>
 
-  <nav class="nav-desktop">
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="the-gtm-framework.html">GTM Framework</a>
+      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="resources.html">Resources</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
-
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-</div>
-
-<nav class="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="the-gtm-framework.html">GTM Framework</a>
-  <a href="the-gtm-score.html">GTM Score</a>
-  <a href="resources.html">Resources</a>
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-</nav>
 </header>
 
 <script>
@@ -85,94 +89,87 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
-<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
+    <!-- HEADER -->
+    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score: Performing
+    </h1>
 
-<!-- HEADER -->
-<h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-  Your GTM Score: Performing
-</h1>
+    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
+      Your GTM system is working well. Roles are defined, processes are clear, and cross-functional alignment is strong.  
+      You are outperforming most competitors — but the final 20% of predictability and efficiency still requires targeted optimization.
+    </p>
 
-<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-Your GTM system is functioning well.  
-Teams are aligned, processes are defined, and forecasting is reasonably accurate.  
-You are outperforming most competitors — but the final 20% of efficiency and predictability is still ahead.
-</p>
+    <!-- SCORE BLOCK -->
+    <div class="score-wrapper">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your score</h3>
+      <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        0/100
+      </div>
 
+      <div class="progress-bar">
+        <div id="score-fill" class="progress-fill"></div>
+      </div>
+    </div>
 
-<!-- SCORE BLOCK -->
-<div class="score-wrapper">
-  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your score</h3>
-  <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">0/100</div>
+    <!-- WHAT THIS MEANS -->
+    <section style="margin-top:40px;margin-bottom:40px;">
+      <h2>What this means</h2>
+      <p style="max-width:860px;">
+        Companies in the Performing stage typically:
+      </p>
 
-  <div class="progress-bar">
-    <div id="score-fill" class="progress-fill"></div>
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
+        <li>• maintain stable forecast accuracy</li>
+        <li>• operate with consistent deal execution</li>
+        <li>• show strong collaboration across GTM teams</li>
+        <li>• still lose efficiency through disconnected tools or manual work</li>
+        <li>• underutilize data for proactive, predictive insights</li>
+        <li>• leave revenue opportunities untapped across segments or stages</li>
+      </ul>
+    </section>
+
+    <!-- PRIORITIES -->
+    <section style="margin-bottom:40px;">
+      <h2>Your top priorities</h2>
+
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
+        <li style="margin-bottom:12px;">
+          <strong>Optimize your tech stack integration.</strong><br />
+          Reduce manual work and eliminate data gaps that slow down execution.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Implement advanced analytics.</strong><br />
+          Move from reporting what happened to predicting what will happen.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Build scalable enablement.</strong><br />
+          Strengthen onboarding, skills, and tooling to support future expansion.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section style="margin-top:50px;">
+      <h2 style="margin-bottom:10px;">Your opportunity</h2>
+      <p style="max-width:860px;margin-bottom:20px;">
+        You are close to peak GTM performance.  
+        The remaining optimizations unlock the largest gains in efficiency, speed, and pipeline quality.  
+        The Professional Assessment identifies these opportunities with clarity and expected ROI.
+      </p>
+
+      <a href="https://www.caugia.com/the-gtm-score.html"
+         class="cta"
+         style="padding:14px 28px;font-size:1rem;">
+        Get Your Optimization Roadmap
+      </a>
+    </section>
+
   </div>
-</div>
-
-
-<!-- WHAT THIS MEANS -->
-<section style="margin-top:40px;margin-bottom:40px;">
-  <h2>What this means</h2>
-
-  <p style="max-width:860px;">
-    Companies in the Performing stage typically:
-  </p>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-    <li>• have solid cross-functional alignment</li>
-    <li>• maintain consistent forecast accuracy</li>
-    <li>• operate with defined processes and documented workflows</li>
-    <li>• still lose efficiency through manual work or disconnected tools</li>
-    <li>• underutilize their data for predictive insights</li>
-    <li>• leave revenue on the table due to lack of optimization</li>
-  </ul>
-</section>
-
-
-<!-- PRIORITIES -->
-<section style="margin-bottom:40px;">
-  <h2>Your top priorities</h2>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-    <li style="margin-bottom:12px;">
-      <strong>Optimize your tech stack integration.</strong>  
-      Eliminate manual work and remove data silos to increase execution speed.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Implement advanced analytics.</strong>  
-      Move from reporting to prediction: lead scoring, risk identification, and opportunity insights.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Build scalable enablement.</strong>  
-      Prepare your system for new geographies, segments, or product expansion.
-    </li>
-  </ul>
-</section>
-
-
-<!-- CTA -->
-<section style="margin-top:50px;">
-  <h2 style="margin-bottom:10px;">Your opportunity</h2>
-  <p style="max-width:860px;margin-bottom:20px;">
-    You are 80% of the way to peak performance.  
-    The remaining 20% is where the biggest efficiency gains — and ROI — usually exist.  
-    The Professional Assessment identifies the exact optimizations needed to unlock your next growth phase.
-  </p>
-
-  <a href="https://www.caugia.com/the-gtm-score.html" 
-     class="cta" 
-     style="padding:14px 28px;font-size:1rem;">
-    Get Your Optimization Roadmap
-  </a>
-</section>
-
-
-</div>
 </main>
-
 
 <footer>
   © 2025 Caugia Consulting ·
