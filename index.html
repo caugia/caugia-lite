@@ -30,7 +30,9 @@
     <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
 
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="menu-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </div>
 
 <nav class="nav-mobile">
@@ -44,40 +46,53 @@
 </nav>
 </header>
 
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
+
   toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      mobileNav.classList.toggle("open");
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
   });
+
   document.querySelectorAll(".nav-mobile a").forEach(link => {
-      link.addEventListener("click", () => {
-          toggle.classList.remove("active");
-          mobileNav.classList.remove("open");
-      });
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
+    });
   });
+
   window.addEventListener("scroll", () => {
-      const header = document.querySelector("header");
-      if (window.scrollY > 10) header.classList.add("scrolled");
-      else header.classList.remove("scrolled");
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
   });
 });
 </script>
 
 
-<!-- MAIN -->
 <main style="padding-top:var(--header-h)">
 
+<!-- HERO -->
 <section class="hero" style="min-height:calc(100vh - var(--header-h));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;">
 
-  <div class="orb" style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));filter:blur(70px);opacity:.3;top:35%;left:50%;transform:translate(-50%,-35%);"></div>
+  <div class="orb" style="
+    position:absolute;
+    width:340px;
+    height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle, var(--accent), rgba(11,102,255,0.25));
+    filter:blur(70px);
+    opacity:.3;
+    top:35%;
+    left:50%;
+    transform:translate(-50%,-35%);
+  "></div>
 
   <img src="logo.png" alt="Caugia Consulting logo" style="width:340px;height:auto;margin-bottom:24px;">
 
-  <h1 style="font-size:2.6rem;line-height:1.2;font-weight:800;margin-bottom:16px;color:var(--blue);">
+  <h1 style="max-width:720px;font-size:2.6rem;font-weight:800;line-height:1.2;margin-bottom:16px;color:var(--blue);">
     Turn GTM Chaos into Predictable Revenue Engines
   </h1>
 
@@ -90,51 +105,43 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 
 
-<div class="wrap" style="max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px;">
+<!-- CONTENT -->
+<div class="wrap">
 
-
-<!-- ABOUT -->
 <section style="margin-bottom:64px;">
-  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">About</h2>
-  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
-    Caugia Consulting was created to bring clarity into complex revenue environments.  
+  <h2>About</h2>
+  <p style="max-width:780px;">
+    Caugia Consulting was created to bring clarity into complex revenue environments.
     We help leadership teams rebuild the structure behind growth so that direction becomes calm, consistent, and measurable.
   </p>
-  <a href="about.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+  <a href="about.html" class="readmore">Read more →</a>
 </section>
 
-
-<!-- SERVICES -->
 <section style="margin-bottom:64px;">
-  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">Services</h2>
-  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
-    We diagnose, design, and direct modern GTM systems.  
-    Through structured system design and a clear operating rhythm, we help your teams align, execute, and grow without chaos.
+  <h2>Services</h2>
+  <p style="max-width:780px;">
+    We diagnose, design, and direct modern GTM systems. Through structured system design and a clear operating rhythm,
+    we help your teams align, execute, and grow without chaos.
   </p>
-  <a href="services.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+  <a href="services.html" class="readmore">Read more →</a>
 </section>
 
-
-<!-- GTM FRAMEWORK -->
 <section style="margin-bottom:64px;">
-  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">The GTM Framework</h2>
-  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+  <h2>The GTM Framework</h2>
+  <p style="max-width:780px;">
     The GTM Framework clarifies how modern revenue organizations work.
     Twelve segments. Three layers. One shared language between leadership, sales, marketing, and RevOps.
   </p>
-  <a href="the-gtm-framework.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+  <a href="the-gtm-framework.html" class="readmore">Read more →</a>
 </section>
 
-
-<!-- RESOURCES -->
 <section style="margin-bottom:64px;">
-  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">Resources</h2>
-  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
-    A curated collection of insights for GTM builders and leaders.  
-    Thoughtful, calm, and grounded in system thinking.  
-    Designed to help you navigate complexity with clarity.
+  <h2>Resources</h2>
+  <p style="max-width:780px;">
+    A curated collection of insights for GTM builders and leaders.
+    Thoughtful, calm, and grounded in system thinking. Designed to help you navigate complexity with clarity.
   </p>
-  <a href="resources.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+  <a href="resources.html" class="readmore">Read more →</a>
 </section>
 
 </div>
@@ -142,8 +149,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <footer>
-© 2025 Caugia Consulting · 
-<a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+  © 2025 Caugia Consulting · 
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
 
 </body>
