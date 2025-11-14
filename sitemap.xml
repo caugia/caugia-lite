@@ -7,7 +7,6 @@
   <url><loc>https://www.caugia.com/the-gtm-score.html</loc><priority>1.0</priority></url>
   <url><loc>https://www.caugia.com/resources.html</loc><priority>0.7</priority></url>
 
-  <!-- Score result pages -->
   <url><loc>https://www.caugia.com/score-at-risk.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-unstable.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.caugia.com/score-developing.html</loc><priority>0.6</priority></url>
