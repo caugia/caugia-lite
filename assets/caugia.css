@@ -1,7 +1,9 @@
 /* =========================================
-   CAUGIA CONSULTING — GLOBAL STYLES
-   Clean, calm, consistent
+   CAUGIA CONSULTING — FULL GLOBAL STYLESHEET
+   Calm, clean, consistent, fully responsive
 ========================================= */
+
+/* ------------------ Root Variables ------------------ */
 
 :root {
   --ink: #0b132b;
@@ -9,11 +11,16 @@
   --accent: #ff7700;
   --bg-light: #f9f9fb;
   --border: rgba(0,0,0,0.06);
-  --maxw: 1180px;
+
   --header-h: 64px;
+  --maxw: 1180px;
+
+  --radius: 12px;
+  --transition: 0.25s ease;
 }
 
-/* ========== RESET ========== */
+/* ------------------ Reset ------------------ */
+
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +35,13 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* ========== HEADER ========== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------ Header ------------------ */
+
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -36,7 +49,7 @@ header {
   background: rgba(255,255,255,0.95);
   border-bottom: 1px solid var(--border);
   backdrop-filter: saturate(160%) blur(6px);
-  transition: background .3s ease, box-shadow .3s ease;
+  transition: background .25s ease, box-shadow .25s ease;
   z-index: 10;
 }
 
@@ -55,6 +68,8 @@ header.scrolled {
   justify-content: space-between;
 }
 
+/* Branding */
+
 a.brand {
   display: flex;
   align-items: center;
@@ -72,11 +87,12 @@ a.brand {
   white-space: nowrap;
 }
 
-/* ========== DESKTOP NAV ========== */
+/* ------------------ Desktop Navigation ------------------ */
+
 nav.nav-desktop {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 nav.nav-desktop a {
@@ -84,39 +100,30 @@ nav.nav-desktop a {
   text-decoration: none;
   font-weight: 500;
   transition: color .25s ease;
-  
-  /* FIXED ALIGNMENT */
   line-height: 1.2;
+  padding: 2px 0;
   display: flex;
   align-items: center;
-  padding: 2px 0;
 }
 
-nav.nav-desktop a:hover {
-  color: var(--blue);
-}
-
+nav.nav-desktop a:hover,
 nav.nav-desktop a.active {
   color: var(--blue);
 }
 
-/* CTA BUTTON */
+/* CTA */
+
 .cta {
   background: var(--blue);
   color: #fff !important;
   text-decoration: none;
-  
-  /* FIX: meer ruimte, groter kader, luchtiger */
-  padding: 0.6rem 1.4rem;      /* breder én hoger */
-  
-  border-radius: 10px;         /* subtiel mooier rond */
+  padding: 0.6rem 1.4rem;
+  border-radius: 10px;
   font-weight: 600;
-  line-height: 1;              /* perfecte verticale alignment */
-  
+  line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   transition: background .25s ease, transform .25s ease;
 }
 
@@ -125,7 +132,8 @@ nav.nav-desktop a.active {
   transform: scale(1.03);
 }
 
-/* ========== MOBILE MENU ========== */
+/* ------------------ Mobile Navigation ------------------ */
+
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -135,7 +143,7 @@ nav.nav-desktop a.active {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 20;
+  padding: 12px;
 }
 
 .menu-toggle span {
@@ -146,9 +154,15 @@ nav.nav-desktop a.active {
   transition: transform .3s, opacity .3s;
 }
 
-.menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.menu-toggle.active span:nth-child(2) { opacity: 0; }
-.menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
 nav.nav-mobile {
   display: none;
@@ -169,7 +183,7 @@ nav.nav-mobile a {
   text-decoration: none;
   color: var(--ink);
   font-weight: 500;
-  padding: 10px 0;
+  padding: 14px 0;
 }
 
 nav.nav-mobile a:hover {
@@ -180,12 +194,194 @@ nav.nav-mobile.open {
   display: flex;
 }
 
-/* ========== FOOTER ========== */
+/* Mobile Breakpoint */
+
+@media (max-width: 900px) {
+  nav.nav-desktop { display: none; }
+  .menu-toggle { display: flex; }
+}
+
+/* ------------------ Hero Section ------------------ */
+
+.hero {
+  padding: 0 24px;
+  text-align: center;
+}
+
+.hero img {
+  width: 340px;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--blue);
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Hero mobile */
+
+@media (max-width: 480px) {
+  .hero img {
+    width: 260px !important;
+  }
+  .hero h1 {
+    font-size: 2rem !important;
+    line-height: 1.25 !important;
+  }
+  .hero p {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+    max-width: 85% !important;
+  }
+  .cta {
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* ------------------ Sections ------------------ */
+
+main .wrap {
+  padding: 48px 24px 80px;
+}
+
+section {
+  margin-bottom: 64px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--blue);
+}
+
+p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.readmore {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+/* ------------------ GTM Framework Grid ------------------ */
+
+.framework-grid {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 1024px) {
+  .framework-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .framework-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .framework-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------ Cards ------------------ */
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border .25s ease, transform .25s ease;
+}
+
+.card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 18px;
+  }
+}
+
+/* ------------------ GTM Score Result Pages ------------------ */
+
+.score-wrapper {
+  background: #f3f5f9;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 26px;
+  margin: 32px 0;
+  max-width: 700px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #d8dee7;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--blue);
+  transition: width .6s ease;
+}
+
+@media (max-width: 480px) {
+  .score-wrapper {
+    padding: 22px;
+  }
+  h1 {
+    font-size: 2rem !important;
+  }
+}
+
+/* ------------------ Typeform Embed ------------------ */
+
+#typeform-embed-container {
+  width: 100%;
+  min-height: 680px;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  #typeform-embed-container {
+    min-height: 720px;
+    padding-top: 10px;
+  }
+}
+
+/* ------------------ Footer ------------------ */
+
 footer {
   padding: 24px 0 32px;
   margin-top: auto;
-  font-size: .9rem;
   text-align: center;
+  font-size: .9rem;
   color: #777;
   border-top: 1px solid var(--border);
 }
@@ -198,10 +394,4 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 900px) {
-  nav.nav-desktop { display: none; }
-  .menu-toggle { display: flex; }
 }
