@@ -5,63 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Your GTM Score: At Risk | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score is At Risk. Discover what this means for your revenue system and what to do next — including the three priorities that immediately improve stability and predictability." />
+<meta name="description" content="Your GTM Score is At Risk. Discover what this means for your revenue system and what to do next, including the three priorities that immediately improve stability and predictability." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 
 <script>
-// Extract ?score= from URL
-function getScore() {
-  const p = new URLSearchParams(window.location.search);
-  return Number(p.get("score")) || 0;
+// Haal ruwe score (0–55) uit de URL en schaal naar 0–100
+function getScaledScore() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = Number(params.get("score")) || 0;          // 0–55 uit Typeform
+  const scaled = Math.round((raw / 55) * 100);           // schaal naar 0–100
+  return Math.max(0, Math.min(100, scaled));             // begrens tussen 0 en 100
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const score = getScore();
+  const score = getScaledScore();
   const display = document.getElementById("score-number");
   const bar = document.getElementById("score-fill");
 
-  display.textContent = score + "/100";
-  bar.style.width = score + "%";
+  if (display) display.textContent = score + "/100";
+  if (bar) bar.style.width = score + "%";
 });
 </script>
-
 </head>
 
 <body>
 
 <header>
-<div class="container">
-  <a href="index.html" class="brand">
-    <img src="C-logo.png" alt="Caugia Consulting logo">
-    <span>Caugia Consulting</span>
-  </a>
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <span>Caugia Consulting</span>
+    </a>
 
-  <nav class="nav-desktop">
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="the-gtm-framework.html">GTM Framework</a>
+      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="resources.html">Resources</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
-
-  <button class="menu-toggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</div>
-
-<nav class="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="the-gtm-framework.html">GTM Framework</a>
-  <a href="the-gtm-score.html">GTM Score</a>
-  <a href="resources.html">Resources</a>
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-</nav>
 </header>
 
 <script>
@@ -90,92 +91,90 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-<!-- MAIN -->
 <main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
-<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-<!-- HEADER -->
-<h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-  Your GTM Score: At Risk
-</h1>
+    <!-- HEADER -->
+    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score: At Risk
+    </h1>
 
-<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-Your Go To Market system is structurally exposed. Critical gaps are directly affecting revenue performance, making forecasting, execution, and growth difficult to control.
-</p>
+    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
+      Your Go To Market system is structurally exposed. Critical gaps are directly affecting revenue performance,
+      which makes forecasting, execution, and growth difficult to control.
+    </p>
 
+    <!-- SCORE BLOCK -->
+    <div class="score-wrapper">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">
+        Your score
+      </h3>
+      <div id="score-number"
+           style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        0/100
+      </div>
 
-<!-- SCORE BLOCK -->
-<div class="score-wrapper">
-  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">
-    Your score
-  </h3>
-  <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">0/100</div>
+      <div class="progress-bar">
+        <div id="score-fill" class="progress-fill"></div>
+      </div>
+    </div>
 
-  <div class="progress-bar">
-    <div id="score-fill" class="progress-fill"></div>
+    <!-- WHAT THIS MEANS -->
+    <section style="margin-top:40px;margin-bottom:40px;">
+      <h2>What this means</h2>
+      <p style="max-width:860px;">
+        Companies in the At Risk stage typically face:
+      </p>
+
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
+        <li>• 30–40% forecast variance</li>
+        <li>• more than half of competitive deals lost</li>
+        <li>• unclear ownership between marketing, sales, and customer success</li>
+        <li>• long and unpredictable sales cycles</li>
+        <li>• significant time spent on poor fit opportunities</li>
+        <li>• customer acquisition costs that are difficult to recover</li>
+      </ul>
+    </section>
+
+    <!-- PRIORITIES -->
+    <section style="margin-bottom:40px;">
+      <h2>Your top priorities</h2>
+
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
+        <li style="margin-bottom:12px;">
+          <strong>Clarify your ideal customer profile.</strong><br />
+          Narrow your focus to companies that can actually convert, implement, and renew.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Establish basic sales and marketing alignment.</strong><br />
+          Agree on qualification criteria, define clear handoffs, and create a shared view of what a good opportunity looks like.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Increase pipeline visibility.</strong><br />
+          Build a reliable picture of each stage so that leadership can see where value is leaking.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CTA BOX -->
+    <section style="margin-top:50px;">
+      <h2 style="margin-bottom:10px;">Critical next step</h2>
+      <p style="max-width:860px;margin-bottom:20px;">
+        Without structural fixes your organization will continue to burn cash in inefficient GTM motions.
+        The Professional Assessment shows exactly where your system breaks and what to address first so that progress becomes visible and measurable.
+      </p>
+
+      <a href="https://www.caugia.com/the-gtm-score.html"
+         class="cta"
+         style="padding:14px 28px;font-size:1rem;">
+        Upgrade to the Professional Assessment
+      </a>
+    </section>
+
   </div>
-</div>
-
-
-<!-- WHAT THIS MEANS -->
-<section style="margin-top:40px;margin-bottom:40px;">
-  <h2>What this means</h2>
-  <p style="max-width:860px;">
-    Companies in the At Risk stage typically face:
-  </p>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-    <li>• 30–40% forecast variance</li>
-    <li>• 50%+ loss rates in competitive deals</li>
-    <li>• unclear ownership between marketing, sales, and success</li>
-    <li>• long and unpredictable sales cycles</li>
-    <li>• significant time wasted on bad-fit leads</li>
-    <li>• CAC payback periods exceeding 18 months</li>
-  </ul>
-</section>
-
-
-<!-- PRIORITIES -->
-<section style="margin-bottom:40px;">
-  <h2>Your top priorities</h2>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-    <li style="margin-bottom:12px;">
-      <strong>Define your ICP and target quality.</strong>  
-      Stop spending resources on companies that will not convert or renew.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Establish basic sales & marketing alignment.</strong>  
-      Create shared MQL criteria, a clear handoff process, and a common qualification model.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Improve pipeline visibility.</strong>  
-      You cannot fix what you cannot see. Create a reliable view of stage progression and conversion.
-    </li>
-  </ul>
-</section>
-
-
-<!-- CTA BOX -->
-<section style="margin-top:50px;">
-  <h2 style="margin-bottom:10px;">Critical next step</h2>
-  <p style="max-width:860px;margin-bottom:20px;">
-    Without systematic fixes, your organization continues burning cash in inefficient GTM motions.
-    The Professional Assessment shows exactly where your system breaks — and what to fix first.
-  </p>
-
-  <a href="https://www.caugia.com/the-gtm-score.html" 
-     class="cta" 
-     style="padding:14px 28px;font-size:1rem;">
-    Upgrade to the Professional Assessment
-  </a>
-</section>
-
-</div>
 </main>
-
 
 <footer>
   © 2025 Caugia Consulting ·
