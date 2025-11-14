@@ -4,201 +4,147 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Caugia Consulting | Clarity for Modern Go To Market Teams</title>
-<meta name="description" content="Caugia Consulting helps executives and Go To Market leaders design integrated revenue systems that align data, teams, and growth using The GTM Framework." />
+<title>Caugia Consulting | From Data to Direction</title>
+<meta name="description" content="Caugia Consulting helps executives and Go-To-Market leaders design integrated revenue systems that align data, teams, and growth. We bring calm to complexity and clarity to performance through The GTM Framework." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-<link rel="canonical" href="https://www.caugia.com/" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Caugia Consulting" />
-<meta property="og:title" content="Caugia Consulting | Clarity for Modern Go To Market Teams" />
-<meta property="og:description" content="Caugia Consulting helps executives and Go To Market leaders design integrated revenue systems that align data, teams, and growth using The GTM Framework." />
-<meta property="og:url" content="https://www.caugia.com/" />
-<meta property="og:image" content="https://www.caugia.com/og-caugia-default.png" />
-<meta property="og:locale" content="en_US" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Caugia Consulting | Clarity for Modern Go To Market Teams" />
-<meta name="twitter:description" content="Caugia Consulting helps executives and Go To Market leaders design integrated revenue systems that align data, teams, and growth using The GTM Framework." />
-<meta name="twitter:image" content="https://www.caugia.com/og-caugia-default.png" />
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Caugia Consulting",
-  "url": "https://www.caugia.com/",
-  "logo": "https://www.caugia.com/C-logo.png",
-  "sameAs": ["https://www.linkedin.com/in/meijertom"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Caugia Consulting",
-  "url": "https://www.caugia.com/"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": "https://www.caugia.com/"
-  }]
-}
-</script>
 </head>
 
 <body>
+
 <header>
-  <div class="container">
-    <a href="index.html" class="brand">
-      <img src="C-logo.png" alt="Caugia Consulting logo">
-      <span>Caugia Consulting</span>
-    </a>
+<div class="container">
+  <a href="index.html" class="brand">
+    <img src="C-logo.png" alt="Caugia Consulting logo">
+    <span>Caugia Consulting</span>
+  </a>
 
-    <nav class="nav-desktop">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html">GTM Score</a>
-      <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-    </nav>
-
-    <button class="menu-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <nav class="nav-mobile">
+  <nav class="nav-desktop">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
+
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+
+<nav class="nav-mobile">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="the-gtm-framework.html">GTM Framework</a>
+  <a href="the-gtm-score.html">GTM Score</a>
+  <a href="resources.html">Resources</a>
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+</nav>
 </header>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
   toggle.addEventListener("click", () => {
-    toggle.classList.toggle("active");
-    mobileNav.classList.toggle("open");
+      toggle.classList.toggle("active");
+      mobileNav.classList.toggle("open");
   });
   document.querySelectorAll(".nav-mobile a").forEach(link => {
-    link.addEventListener("click", () => {
-      toggle.classList.remove("active");
-      mobileNav.classList.remove("open");
-    });
+      link.addEventListener("click", () => {
+          toggle.classList.remove("active");
+          mobileNav.classList.remove("open");
+      });
   });
   window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (window.scrollY > 10) header.classList.add("scrolled");
-    else header.classList.remove("scrolled");
+      const header = document.querySelector("header");
+      if (window.scrollY > 10) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
   });
 });
 </script>
 
-<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- Hero -->
-    <section style="margin-top:10px;margin-bottom:48px;">
-      <h1 style="font-size:2.8rem;font-weight:800;color:var(--blue);margin-bottom:12px;">
-        Turn GTM Chaos Into Predictable Revenue Engines
-      </h1>
-      <p style="font-size:1.15rem;line-height:1.8;color:#1b1b1b;max-width:880px;margin-bottom:22px;">
-        Caugia Consulting helps executives and Go To Market leaders design integrated revenue systems that align data, teams, and growth using The GTM Framework.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;">
-        <a href="services.html" class="cta" style="padding:14px 26px;font-size:1.05rem;">
-          Explore Services
-        </a>
-        <a href="the-gtm-score.html" class="secondary-cta" style="font-size:1.05rem;">
-          Measure Your GTM System
-        </a>
-      </div>
-    </section>
+<!-- MAIN -->
+<main style="padding-top:var(--header-h)">
 
-    <!-- Three pillars section -->
-    <section style="margin-bottom:56px;">
-      <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:18px;">
-        From data noise to a calm revenue system
-      </h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1000px;">
-        <div class="card">
-          <h3 style="font-size:1.2rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">Diagnose</h3>
-          <p style="font-size:0.98rem;line-height:1.6;color:#333;">
-            We map how revenue really flows. Where information slows, where responsibility blurs, and where systems quietly work against your goals.
-          </p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:1.2rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">Design</h3>
-          <p style="font-size:0.98rem;line-height:1.6;color:#333;">
-            We design a GTM system that connects people, process, and data into one coherent blueprint that leadership can understand and trust.
-          </p>
-        </div>
-        <div class="card">
-          <h3 style="font-size:1.2rem;font-weight:600;color:var(--deep-navy);margin-bottom:6px;">Direction</h3>
-          <p style="font-size:0.98rem;line-height:1.6;color:#333;">
-            We translate design into a focused execution rhythm so teams move together and results become predictable instead of reactive.
-          </p>
-        </div>
-      </div>
-    </section>
+<section class="hero" style="min-height:calc(100vh - var(--header-h));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;">
 
-    <!-- System view section -->
-    <section style="margin-bottom:56px;">
-      <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">
-        One framework for leadership, RevOps, and GTM teams
-      </h2>
-      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:20px;">
-        The GTM Framework is a complete view of how a modern revenue organization works. Twelve segments, three layers, one shared language. It is the foundation for every engagement, from a two week diagnostic to full system design.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;">
-        <a href="the-gtm-framework.html" class="secondary-cta" style="font-size:1.02rem;">
-          Explore The GTM Framework
-        </a>
-        <a href="the-gtm-score.html" class="secondary-cta" style="font-size:1.02rem;">
-          Take The GTM Score
-        </a>
-      </div>
-    </section>
+  <div class="orb" style="position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,var(--accent),rgba(11,102,255,0.25));filter:blur(70px);opacity:.3;top:35%;left:50%;transform:translate(-50%,-35%);"></div>
 
-    <!-- Simple credibility section -->
-    <section style="margin-bottom:40px;max-width:880px;">
-      <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">
-        When to work with Caugia Consulting
-      </h2>
-      <ul style="list-style:none;padding:0;margin:0;font-size:1.0rem;line-height:1.7;color:#1b1b1b;">
-        <li>Leadership needs one clear view of how revenue is created, measured, and protected.</li>
-        <li>Teams feel busy but growth is unpredictable and hard to explain.</li>
-        <li>Your GTM stack is complex and data rich, but decision making still feels like guesswork.</li>
-        <li>You want a calm, structured way to redesign your system without burning out your teams.</li>
-      </ul>
-    </section>
+  <img src="logo.png" alt="Caugia Consulting logo" style="width:340px;height:auto;margin-bottom:24px;">
 
-  </div>
+  <h1 style="font-size:2.6rem;line-height:1.2;font-weight:800;margin-bottom:16px;color:var(--blue);">
+    Turn GTM Chaos into Predictable Revenue Engines
+  </h1>
+
+  <p style="max-width:720px;font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin-bottom:28px;">
+    Caugia Consulting helps executives and Go-To-Market leaders design integrated revenue systems that align data, teams, and growth using The GTM Framework.
+  </p>
+
+  <a class="cta" href="the-gtm-score.html">Your GTM Score</a>
+
+</section>
+
+
+<div class="wrap" style="max-width:var(--maxw);margin:0 auto;padding:48px 24px 80px;">
+
+
+<!-- ABOUT -->
+<section style="margin-bottom:64px;">
+  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">About</h2>
+  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+    Caugia Consulting was created to bring clarity into complex revenue environments.  
+    We help leadership teams rebuild the structure behind growth so that direction becomes calm, consistent, and measurable.
+  </p>
+  <a href="about.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+</section>
+
+
+<!-- SERVICES -->
+<section style="margin-bottom:64px;">
+  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">Services</h2>
+  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+    We diagnose, design, and direct modern GTM systems.  
+    Through structured system design and a clear operating rhythm, we help your teams align, execute, and grow without chaos.
+  </p>
+  <a href="services.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+</section>
+
+
+<!-- GTM FRAMEWORK -->
+<section style="margin-bottom:64px;">
+  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">The GTM Framework</h2>
+  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+    The GTM Framework clarifies how modern revenue organizations work.
+    Twelve segments. Three layers. One shared language between leadership, sales, marketing, and RevOps.
+  </p>
+  <a href="the-gtm-framework.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+</section>
+
+
+<!-- RESOURCES -->
+<section style="margin-bottom:64px;">
+  <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin-bottom:14px;">Resources</h2>
+  <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;">
+    A curated collection of insights for GTM builders and leaders.  
+    Thoughtful, calm, and grounded in system thinking.  
+    Designed to help you navigate complexity with clarity.
+  </p>
+  <a href="resources.html" class="readmore" style="display:inline-block;margin-top:6px;font-weight:600;color:var(--blue);text-decoration:none;">Read more →</a>
+</section>
+
+</div>
 </main>
 
+
 <footer>
-  © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
+© 2025 Caugia Consulting · 
+<a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
+
 </body>
 </html>
