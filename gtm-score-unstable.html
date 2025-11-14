@@ -5,17 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Your GTM Score: Unstable | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score is Unstable. Learn what this means for your GTM system and what steps drive stability, alignment, and predictable execution." />
+<meta name="description" content="Your GTM Score is Unstable. Learn what this means for your GTM system and which steps help you move from fragile performance to stable, predictable growth." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 
 <script>
+// Haal ruwe score (0–55) uit de URL en schaal naar 0–100
 function getScaledScore() {
   const params = new URLSearchParams(window.location.search);
-  const raw = Number(params.get("score")) || 0;   // 0–55 uit Typeform
-  const scaled = Math.round((raw / 55) * 100);    // schalen naar 0–100
-  return Math.max(0, Math.min(100, scaled));      // cap tussen 0 en 100
+  const raw = Number(params.get("score")) || 0;          // 0–55 uit Typeform
+  const scaled = Math.round((raw / 55) * 100);           // schaal naar 0–100
+  return Math.max(0, Math.min(100, scaled));             // begrens tussen 0 en 100
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,42 +28,41 @@ document.addEventListener("DOMContentLoaded", () => {
   if (bar) bar.style.width = score + "%";
 });
 </script>
-
 </head>
 
 <body>
 
 <header>
-<div class="container">
-  <a href="index.html" class="brand">
-    <img src="C-logo.png" alt="Caugia Consulting logo">
-    <span>Caugia Consulting</span>
-  </a>
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <span>Caugia Consulting</span>
+    </a>
 
-  <nav class="nav-desktop">
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="the-gtm-framework.html">GTM Framework</a>
+      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="resources.html">Resources</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="the-gtm-score.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
-
-  <button class="menu-toggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</div>
-
-<nav class="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="the-gtm-framework.html">GTM Framework</a>
-  <a href="the-gtm-score.html">GTM Score</a>
-  <a href="resources.html">Resources</a>
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-</nav>
 </header>
 
 <script>
@@ -92,92 +92,90 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
-<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
+    <!-- HEADER -->
+    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score: Unstable
+    </h1>
 
-<!-- HEADER -->
-<h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-  Your GTM Score: Unstable
-</h1>
+    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
+      Your GTM system has foundations in place, but they are fragile. It works when everything goes well, 
+      yet breaks quickly under pressure. Performance depends on individual effort instead of reliable, 
+      system-driven execution.
+    </p>
 
-<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-Your GTM system has foundational elements in place, but they are fragile.  
-The system works when everything goes right, but breaks quickly under pressure.  
-Teams rely on individual effort rather than structured, repeatable process.
-</p>
+    <!-- SCORE BLOCK -->
+    <div class="score-wrapper">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">
+        Your score
+      </h3>
+      <div id="score-number"
+           style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        0/100
+      </div>
 
+      <div class="progress-bar">
+        <div id="score-fill" class="progress-fill"></div>
+      </div>
+    </div>
 
-<!-- SCORE BLOCK -->
-<div class="score-wrapper">
-  <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">Your score</h3>
-  <div id="score-number" style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">0/100</div>
+    <!-- WHAT THIS MEANS -->
+    <section style="margin-top:40px;margin-bottom:40px;">
+      <h2>What this means</h2>
+      <p style="max-width:860px;">
+        Organizations in the Unstable stage typically experience:
+      </p>
 
-  <div class="progress-bar">
-    <div id="score-fill" class="progress-fill"></div>
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
+        <li>• 20–30% forecast variance</li>
+        <li>• win rates that swing 10–15 points from quarter to quarter</li>
+        <li>• strong reliance on individual “heroes” instead of repeatable process</li>
+        <li>• tribal knowledge instead of documented workflows</li>
+        <li>• limited visibility into the real reasons deals are won or lost</li>
+        <li>• leadership operating in reactive mode rather than ahead of risk</li>
+      </ul>
+    </section>
+
+    <!-- PRIORITIES -->
+    <section style="margin-bottom:40px;">
+      <h2>Your top priorities</h2>
+
+      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
+        <li style="margin-bottom:12px;">
+          <strong>Document your sales process.</strong><br />
+          Move from intuition and personal style to a clear, repeatable workflow that every team member can follow.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Fix competitive intelligence.</strong><br />
+          Introduce structured win/loss analysis instead of anecdotal feedback. Understand which deals you should win and why.
+        </li>
+
+        <li style="margin-bottom:12px;">
+          <strong>Improve forecasting accuracy.</strong><br />
+          Replace “gut feel” judgments with clear stage definitions, exit criteria, and validation rules.
+        </li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section style="margin-top:50px;">
+      <h2 style="margin-bottom:10px;">Next step</h2>
+      <p style="max-width:860px;margin-bottom:20px;">
+        You are close to stability. With a focused effort on process, visibility, and competitive insight, 
+        your GTM system can move into predictable performance. The Professional Assessment gives you a tailored 
+        12-month roadmap with clear priorities and expected impact.
+      </p>
+
+      <a href="https://www.caugia.com/the-gtm-score.html"
+         class="cta"
+         style="padding:14px 28px;font-size:1rem;">
+        Get Your Detailed Roadmap
+      </a>
+    </section>
+
   </div>
-</div>
-
-
-<!-- WHAT THIS MEANS -->
-<section style="margin-top:40px;margin-bottom:40px;">
-  <h2>What this means</h2>
-
-  <p style="max-width:860px;">
-    Organizations in the Unstable stage typically experience:
-  </p>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-    <li>• 20–30% forecast variance</li>
-    <li>• inconsistent win rates with quarter-to-quarter swings of 10–15 points</li>
-    <li>• increasing dependency on individual heroics instead of system-driven consistency</li>
-    <li>• tribal knowledge instead of documented process</li>
-    <li>• limited clarity on why deals are won or lost</li>
-    <li>• leadership constantly in reactive mode</li>
-  </ul>
-</section>
-
-
-<!-- PRIORITIES -->
-<section style="margin-bottom:40px;">
-  <h2>Your top priorities</h2>
-
-  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-    <li style="margin-bottom:12px;">
-      <strong>Document your sales process.</strong>  
-      Move from intuition and individual talent to a repeatable, measurable workflow.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Fix competitive intelligence.</strong>  
-      Create structured win/loss analysis. Understand root causes — not anecdotes.
-    </li>
-
-    <li style="margin-bottom:12px;">
-      <strong>Improve forecasting accuracy.</strong>  
-      Shift from “gut feel” to clear stage criteria, exit rules, and data validation.
-    </li>
-  </ul>
-</section>
-
-
-<!-- CTA -->
-<section style="margin-top:50px;">
-  <h2 style="margin-bottom:10px;">Next step</h2>
-  <p style="max-width:860px;margin-bottom:20px;">
-    You are close to stability.  
-    With focused improvements, your GTM system can move into predictable performance.  
-    The Professional Assessment gives you a clear, 12-month roadmap tailored to your maturity level.
-  </p>
-
-  <a href="https://www.caugia.com/the-gtm-score.html" 
-     class="cta" 
-     style="padding:14px 28px;font-size:1rem;">
-    Get Your Detailed Roadmap
-  </a>
-</section>
-
-
-</div>
 </main>
 
 <footer>
