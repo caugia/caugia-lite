@@ -3,10 +3,63 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The GTM Framework | Caugia Consulting</title>
-<meta name="description" content="The GTM Framework by Caugia Consulting brings clarity to modern revenue systems. Explore the 3 layers and 12 segments that align people, data, and growth." />
+
+<title>The GTM Framework | The System Behind Predictable Growth</title>
+<meta name="description" content="The GTM Framework reveals the structure behind modern revenue systems. Explore the three layers and twelve segments that align people, process, and data into one coherent operating model." />
+
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+<link rel="canonical" href="https://www.caugia.com/the-gtm-framework.html" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.0.7" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Caugia Consulting" />
+<meta property="og:title" content="The GTM Framework | The System Behind Predictable Growth" />
+<meta property="og:description" content="The GTM Framework reveals the structure behind modern revenue systems. Explore the three layers and twelve segments that align people, process, and data into one coherent operating model." />
+<meta property="og:url" content="https://www.caugia.com/the-gtm-framework.html" />
+<meta property="og:image" content="https://www.caugia.com/og-caugia-default.png" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The GTM Framework | The System Behind Predictable Growth" />
+<meta name="twitter:description" content="The GTM Framework reveals the structure behind modern revenue systems. Explore the three layers and twelve segments that align people, process, and data into one coherent operating model." />
+<meta name="twitter:image" content="https://www.caugia.com/og-caugia-default.png" />
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Caugia Consulting",
+  "url": "https://www.caugia.com/",
+  "logo": "https://www.caugia.com/C-logo.png",
+  "sameAs": [
+    "https://www.linkedin.com/in/meijertom"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.caugia.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "The GTM Framework",
+      "item": "https://www.caugia.com/the-gtm-framework.html"
+    }
+  ]
+}
+</script>
+
 <style>
 .framework-grid {
   display: grid;
@@ -14,7 +67,6 @@
   gap: 18px;
   margin: 40px 0;
 }
-
 .framework-block {
   background: var(--ai-silver, #E6E9EF);
   border-radius: 12px;
@@ -22,7 +74,6 @@
   border: 2px solid #d8dee7;
   text-align: center;
 }
-
 .framework-layer {
   font-size: 1.2rem;
   font-weight: 700;
@@ -30,7 +81,6 @@
   margin: 60px 0 10px;
   text-align: left;
 }
-
 .framework-block span {
   display: block;
   font-size: 1rem;
@@ -38,13 +88,11 @@
   color: var(--deep-navy, #002A5C);
   margin-bottom: 6px;
 }
-
 .framework-block p {
   font-size: 0.95rem;
   color: #333;
   line-height: 1.5;
 }
-
 @media(max-width:900px) {
   .framework-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -59,12 +107,11 @@
 </head>
 
 <body>
-
 <header>
 <div class="container">
 <a href="index.html" class="brand">
-<img src="C-logo.png" alt="Caugia Consulting logo">
-<span>Caugia Consulting</span>
+  <img src="C-logo.png" alt="Caugia Consulting logo">
+  <span>Caugia Consulting</span>
 </a>
 
 <nav class="nav-desktop">
@@ -77,40 +124,39 @@
 </nav>
 
 <button class="menu-toggle" aria-label="Menu">
-<span></span><span></span><span></span>
+  <span></span><span></span><span></span>
 </button>
 </div>
 
 <nav class="nav-mobile">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="services.html">Services</a>
-<a href="the-gtm-score.html">GTM Score</a>
-<a href="resources.html">Resources</a>
-<a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="the-gtm-score.html">GTM Score</a>
+  <a href="resources.html">Resources</a>
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
 </nav>
-
 </header>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-const toggle = document.querySelector(".menu-toggle");
-const mobileNav = document.querySelector(".nav-mobile");
-toggle.addEventListener("click", () => {
-toggle.classList.toggle("active");
-mobileNav.classList.toggle("open");
-});
-document.querySelectorAll(".nav-mobile a").forEach(link => {
-link.addEventListener("click", () => {
-toggle.classList.remove("active");
-mobileNav.classList.remove("open");
-});
-});
-window.addEventListener("scroll", () => {
-const header = document.querySelector("header");
-if (window.scrollY > 10) header.classList.add("scrolled");
-else header.classList.remove("scrolled");
-});
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".nav-mobile");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
+  });
+  document.querySelectorAll(".nav-mobile a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
+    });
+  });
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  });
 });
 </script>
 
@@ -129,97 +175,78 @@ The GTM Framework is the system foundation behind all Caugia Consulting engageme
 This framework is not a funnel. It is an operating system. It aligns teams, data, processes, and tools to create calm, predictable, and scalable growth.
 </p>
 
-<!-- LAYER 1: REVENUE PATH -->
 <h2 class="framework-layer">Revenue Path</h2>
 <p style="font-size:1.05rem;line-height:1.7;color:#333;max-width:880px;margin-bottom:20px;">
 The first layer captures every team directly responsible for revenue generation. These segments represent the observable customer journey from first contact to expansion.
 </p>
 
 <div class="framework-grid">
-
-<div class="framework-block">
-<span>Marketing</span>
-<p>Creates awareness and demand. Ensures that the right companies enter your revenue system with the right context.</p>
+  <div class="framework-block">
+    <span>Marketing</span>
+    <p>Creates awareness and demand. Ensures that the right companies enter your revenue system with the right context.</p>
+  </div>
+  <div class="framework-block">
+    <span>Inbound SDR</span>
+    <p>Qualifies incoming interest with clarity and speed. Converts demand into meaningful pipeline.</p>
+  </div>
+  <div class="framework-block">
+    <span>Outbound SDR</span>
+    <p>Generates new demand proactively. Targets strategic accounts and fills the pipeline when inbound slows.</p>
+  </div>
+  <div class="framework-block">
+    <span>Account Executive</span>
+    <p>Owns discovery, value articulation, evaluation, and deal orchestration. Converts pipeline into revenue.</p>
+  </div>
+  <div class="framework-block">
+    <span>Customer Success</span>
+    <p>Ensures onboarding, adoption, and long term value. Prevents churn through proactive engagement.</p>
+  </div>
+  <div class="framework-block">
+    <span>Account Management</span>
+    <p>Drives expansion and renewals. Strengthens long term commercial relationships.</p>
+  </div>
 </div>
 
-<div class="framework-block">
-<span>Inbound SDR</span>
-<p>Qualifies incoming interest with clarity and speed. Converts demand into meaningful pipeline.</p>
-</div>
-
-<div class="framework-block">
-<span>Outbound SDR</span>
-<p>Generates new demand proactively. Targets strategic accounts and fills the pipeline when inbound slows.</p>
-</div>
-
-<div class="framework-block">
-<span>Account Executive</span>
-<p>Owns discovery, value articulation, evaluation, and deal orchestration. Converts pipeline into revenue.</p>
-</div>
-
-<div class="framework-block">
-<span>Customer Success</span>
-<p>Ensures onboarding, adoption, and long term value. Prevents churn through proactive engagement.</p>
-</div>
-
-<div class="framework-block">
-<span>Account Management</span>
-<p>Drives expansion and renewals. Strengthens long term commercial relationships.</p>
-</div>
-
-</div>
-
-<!-- LAYER 2: SUPPORT LAYER -->
 <h2 class="framework-layer">Support Layer</h2>
 <p style="font-size:1.05rem;line-height:1.7;color:#333;max-width:880px;margin-bottom:20px;">
 The support layer increases the effectiveness of the revenue path. These teams provide expertise, technical depth, and precision to help customer facing teams perform at their best.
 </p>
 
 <div class="framework-grid">
-
-<div class="framework-block">
-<span>Sales Engineers</span>
-<p>Provide technical discovery, custom demos, and solution architecture. Critical for enterprise and complex sales cycles.</p>
+  <div class="framework-block">
+    <span>Sales Engineers</span>
+    <p>Provide technical discovery, custom demos, and solution architecture. Critical for enterprise and complex sales cycles.</p>
+  </div>
+  <div class="framework-block">
+    <span>GTM Engineers</span>
+    <p>Build and automate the system backbone. Manage ICP, enrichment, routing, scoring, orchestration, and data flows across all revenue teams.</p>
+  </div>
 </div>
 
-<div class="framework-block">
-<span>GTM Engineers</span>
-<p>Build and automate the system backbone. Manage ICP, enrichment, routing, scoring, orchestration, and data flows across all revenue teams.</p>
-</div>
-
-</div>
-
-<!-- LAYER 3: ENABLEMENT LAYER -->
 <h2 class="framework-layer">Enablement Foundation</h2>
 <p style="font-size:1.05rem;line-height:1.7;color:#333;max-width:880px;margin-bottom:20px;">
 This layer ensures that people, tools, and processes operate with clarity and consistency. It maintains alignment, creates readiness, and protects the scalability of the entire GTM system.
 </p>
 
 <div class="framework-grid">
-
-<div class="framework-block">
-<span>Sales Enablement</span>
-<p>Builds onboarding, training, and methodology. Ensures every customer facing team has the skills to perform.</p>
+  <div class="framework-block">
+    <span>Sales Enablement</span>
+    <p>Builds onboarding, training, and methodology. Ensures every customer facing team has the skills to perform.</p>
+  </div>
+  <div class="framework-block">
+    <span>RevOps</span>
+    <p>Owns forecasting, analytics, process design, and tooling. Provides the single source of truth the system depends on.</p>
+  </div>
+  <div class="framework-block">
+    <span>Support</span>
+    <p>Resolves technical challenges and customer issues. Protects customer experience and product reliability.</p>
+  </div>
+  <div class="framework-block">
+    <span>GTM Leadership</span>
+    <p>Sets direction and shared KPIs. Aligns strategy, coordination, and decision making across the entire GTM system.</p>
+  </div>
 </div>
 
-<div class="framework-block">
-<span>RevOps</span>
-<p>Owns forecasting, analytics, process design, and tooling. Provides the single source of truth the system depends on.</p>
-</div>
-
-<div class="framework-block">
-<span>Support</span>
-<p>Resolves technical challenges and customer issues. Protects customer experience and product reliability.</p>
-</div>
-
-<div class="framework-block">
-<span>GTM Leadership</span>
-<p>Sets direction and shared KPIs. Aligns strategy, coordination, and decision making across the entire GTM system.</p>
-</div>
-
-</div>
-
-<!-- HOW IT WORKS SECTION -->
 <h2 style="font-size:1.7rem;font-weight:700;color:var(--blue);margin:70px 0 20px;">
 How the Framework Works
 </h2>
@@ -232,11 +259,10 @@ The GTM Framework reveals the hidden architecture behind predictable revenue. In
 Most companies fail not because of a single weak team, but because segments operate without shared process, data, or rhythm. This framework exposes those gaps and creates a structured path to maturity.
 </p>
 
-<!-- CTA SECTION -->
 <div style="margin-top:60px;">
-<a href="the-gtm-score.html" class="cta" style="padding:16px 28px;font-size:1.1rem;">
-Measure Your GTM System
-</a>
+  <a href="the-gtm-score.html" class="cta" style="padding:16px 28px;font-size:1.1rem;">
+    Measure Your GTM System
+  </a>
 </div>
 
 </div>
@@ -245,7 +271,5 @@ Measure Your GTM System
 <footer>
 © 2025 Caugia Consulting · <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a>
 </footer>
-
 </body>
 </html>
-
