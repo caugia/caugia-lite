@@ -4,32 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Your GTM Score: At Risk | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score is At Risk. Discover what this means for your revenue system and what to do next, including the three priorities that immediately improve stability and predictability." />
+<title>Your GTM Score | At Risk</title>
+<meta name="description" content="Your GTM Score indicates an At Risk GTM system. See what this means for your revenue engine and where to focus first." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
-
-<script>
-// Haal ruwe score (0–55) uit de URL en schaal naar 0–100
-function getScaledScore() {
-  const params = new URLSearchParams(window.location.search);
-  const raw = Number(params.get("score")) || 0;          // 0–55 uit Typeform
-  const scaled = Math.round((raw / 55) * 100);           // schaal naar 0–100
-  return Math.max(0, Math.min(100, scaled));             // begrens tussen 0 en 100
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const score = getScaledScore();
-  const display = document.getElementById("score-number");
-  const bar = document.getElementById("score-fill");
-
-  if (display) display.textContent = score + "/100";
-  if (bar) bar.style.width = score + "%";
-});
-</script>
 </head>
-
 <body>
 
 <header>
@@ -44,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html">GTM Score</a>
+      <a href="the-gtm-score.html" class="active">GTM Score</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
     </nav>
@@ -59,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
-    <a href="the-gtm-score.html">GTM Score</a>
+    <a href="the-gtm-score.html" class="active">GTM Score</a>
     <a href="resources.html">Resources</a>
     <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
@@ -67,110 +47,101 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const t = document.querySelector(".menu-toggle");
-  const m = document.querySelector(".nav-mobile");
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileNav = document.querySelector(".nav-mobile");
 
-  t.addEventListener("click", () => {
-    t.classList.toggle("active");
-    m.classList.toggle("open");
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
   });
 
-  document.querySelectorAll(".nav-mobile a").forEach(l => {
-    l.addEventListener("click", () => {
-      t.classList.remove("active");
-      m.classList.remove("open");
+  document.querySelectorAll(".nav-mobile a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
     });
   });
 
   window.addEventListener("scroll", () => {
-    const h = document.querySelector("header");
-    if (window.scrollY > 10) h.classList.add("scrolled");
-    else h.classList.remove("scrolled");
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
   });
 });
 </script>
 
-
-<main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 80px;">
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
   <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- HEADER -->
-    <h1 style="font-size:2.5rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
-      Your GTM Score: At Risk
+    <h1 style="font-size:2.4rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+      Your GTM Score
     </h1>
-
-    <p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:860px;margin-bottom:32px;">
-      Your Go To Market system is structurally exposed. Critical gaps are directly affecting revenue performance,
-      which makes forecasting, execution, and growth difficult to control.
+    <p style="font-size:1.05rem;color:#444;margin-bottom:24px;">
+      Result: <strong>At Risk</strong> <span style="color:#999;">(0–40)</span>
     </p>
 
-    <!-- SCORE BLOCK -->
     <div class="score-wrapper">
-      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:6px;">
-        Your score
-      </h3>
-      <div id="score-number"
-           style="font-size:1.6rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
-        0/100
+      <p style="font-size:1.1rem;line-height:1.7;margin-bottom:12px;">
+        Your GTM Score is <strong><span id="score-value">0</span>/100</strong>.
+      </p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
       </div>
 
-      <div class="progress-bar">
-        <div id="score-fill" class="progress-fill"></div>
-      </div>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-top:18px;margin-bottom:10px;">
+        Your go to market system has structural gaps that put revenue at risk. Forecasts are likely unpredictable,
+        handoffs feel fragile, and teams spend too much energy fighting symptoms instead of fixing causes.
+      </p>
+
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        At this stage, growth depends heavily on individual heroics. When a key person leaves or a big deal slips,
+        the entire plan feels uncertain.
+      </p>
     </div>
 
-    <!-- WHAT THIS MEANS -->
-    <section style="margin-top:40px;margin-bottom:40px;">
-      <h2>What this means</h2>
-      <p style="max-width:860px;">
-        Companies in the At Risk stage typically face:
+    <section style="margin-top:28px;max-width:780px;">
+      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        What this means
+      </h2>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+        Companies at this maturity level often experience large swings in forecast accuracy, frequent surprise losses,
+        long sales cycles, and difficulty understanding which motions really create revenue.
       </p>
+      <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        The opportunity is significant. With the right structure, you can move from constant firefighting to clear,
+        calm direction within a few quarters.
+      </p>
+    </section>
 
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-top:12px;max-width:860px;list-style:none;padding-left:0;">
-        <li>• 30–40% forecast variance</li>
-        <li>• more than half of competitive deals lost</li>
-        <li>• unclear ownership between marketing, sales, and customer success</li>
-        <li>• long and unpredictable sales cycles</li>
-        <li>• significant time spent on poor fit opportunities</li>
-        <li>• customer acquisition costs that are difficult to recover</li>
+    <section style="margin-top:28px;max-width:780px;">
+      <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+        Where to focus first
+      </h2>
+      <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+        <li style="margin-bottom:8px;">Clarify your ideal customer profile so teams stop spending time on poor fit opportunities.</li>
+        <li style="margin-bottom:8px;">Define a simple shared view of the funnel so marketing, SDR, and sales speak the same language.</li>
+        <li style="margin-bottom:8px;">Create basic pipeline visibility so leadership can see risk early and act before the quarter is over.</li>
+        <li style="margin-bottom:0;">Document one clear sales process so results depend less on individuals and more on system design.</li>
       </ul>
     </section>
 
-    <!-- PRIORITIES -->
-    <section style="margin-bottom:40px;">
-      <h2>Your top priorities</h2>
-
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:860px;list-style:none;padding-left:0;margin-top:10px;">
-        <li style="margin-bottom:12px;">
-          <strong>Clarify your ideal customer profile.</strong><br />
-          Narrow your focus to companies that can actually convert, implement, and renew.
-        </li>
-
-        <li style="margin-bottom:12px;">
-          <strong>Establish basic sales and marketing alignment.</strong><br />
-          Agree on qualification criteria, define clear handoffs, and create a shared view of what a good opportunity looks like.
-        </li>
-
-        <li style="margin-bottom:12px;">
-          <strong>Increase pipeline visibility.</strong><br />
-          Build a reliable picture of each stage so that leadership can see where value is leaking.
-        </li>
-      </ul>
-    </section>
-
-    <!-- CTA BOX -->
-    <section style="margin-top:50px;">
-      <h2 style="margin-bottom:10px;">Critical next step</h2>
-      <p style="max-width:860px;margin-bottom:20px;">
-        Without structural fixes your organization will continue to burn cash in inefficient GTM motions.
-        The Professional Assessment shows exactly where your system breaks and what to address first so that progress becomes visible and measurable.
-      </p>
-
-      <a href="https://www.caugia.com/the-gtm-score.html"
-         class="cta"
-         style="padding:14px 28px;font-size:1rem;">
-        Upgrade to the Professional Assessment
-      </a>
+    <section style="margin-top:32px;max-width:780px;">
+      <div class="card">
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+          Turning At Risk into progress
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          The next step is to move from a single score to a clear diagnosis. The GTM Score shows you that the system
+          is at risk. A deeper assessment shows exactly where the structure breaks and which few changes will restore stability.
+        </p>
+        <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+          If you would like to explore this in more detail, Caugia Consulting can walk through your score, your context,
+          and what a calm and predictable GTM system could look like for your company.
+        </p>
+        <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20At%20Risk" class="cta">
+          Talk about your GTM system
+        </a>
+      </div>
     </section>
 
   </div>
@@ -182,6 +153,26 @@ document.addEventListener("DOMContentLoaded", function() {
   <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const raw = parseFloat(params.get("score"));
+  const scoreEl = document.getElementById("score-value");
+  const bar = document.getElementById("progress-fill");
+
+  if (scoreEl && bar) {
+    let scaled = 0;
+    if (!isNaN(raw)) {
+      scaled = Math.round((raw / 55) * 100);
+      if (scaled < 0) scaled = 0;
+      if (scaled > 100) scaled = 100;
+    }
+    scoreEl.textContent = scaled;
+    bar.style.width = scaled + "%";
+  }
+});
+</script>
 
 </body>
 </html>
