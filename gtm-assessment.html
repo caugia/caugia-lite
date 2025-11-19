@@ -1109,10 +1109,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  function gtmGoToResult(maturityLevel) {
-    const target = GTM_RESULT_PAGES[maturityLevel] || "the-gtm-score.html";
-    window.location.href = target;
-  }
+ function gtmGoToResult(totalScore) {
+  const target = "gtm-score.html?score=" + encodeURIComponent(totalScore);
+  window.location.href = target;
+}
 
   // ---------- EVENT HANDLERS ----------
   document.querySelectorAll(".gtm-options").forEach(group => {
