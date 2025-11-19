@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Your GTM Score | Caugia Consulting</title>
-<meta name="description" content="Your GTM Score summarises the maturity of your go to market system and shows where to focus next." />
+<meta name="description" content="See your GTM Score on a 0–100 scale, understand your maturity band, and get clear guidance on where to focus next in your go to market system." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 </head>
+
 <body>
 
 <!-- ================= HEADER ================ -->
@@ -27,7 +28,9 @@
       <a href="the-gtm-framework.html">GTM Framework</a>
       <a href="gtm-assessment.html">GTM Assessment</a>
       <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">
+        Contact
+      </a>
     </nav>
 
     <button class="menu-toggle" aria-label="Menu">
@@ -42,10 +45,13 @@
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="gtm-assessment.html">GTM Assessment</a>
     <a href="resources.html">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">
+      Contact
+    </a>
   </nav>
 </header>
 
+<!-- MOBILE MENU SCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
@@ -76,55 +82,75 @@ document.addEventListener("DOMContentLoaded", function() {
 <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
   <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- TITLE -->
-    <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+    <!-- PAGE TITLE -->
+    <h1 style="font-size:2.4rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
       Your GTM Score
     </h1>
 
-    <p style="font-size:1.05rem;color:#444;margin-bottom:28px;">
-      Result: <strong id="maturity-label">—</strong>
+    <p id="gtm-result-line" style="font-size:1.08rem;color:#444;margin-bottom:22px;">
+      Result: <strong id="gtm-band-label">Loading</strong>
+      <span id="gtm-band-tagline" style="color:#777;margin-left:6px;"></span>
     </p>
 
-    <!-- SCORE CARD -->
+    <!-- SCORE WRAPPER -->
     <div class="score-wrapper">
-      <p style="font-size:1.05rem;line-height:1.7;margin-bottom:10px;">
+      <p style="font-size:1.1rem;line-height:1.7;margin-bottom:12px;">
         Your GTM Score is <strong><span id="score-value">0</span>/100</strong>.
       </p>
 
-      <div class="progress-bar">
+      <div class="progress-bar" aria-hidden="true">
         <div class="progress-fill" id="progress-fill"></div>
       </div>
 
-      <p id="summary-1" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-top:18px;margin-bottom:10px;">
+      <p id="gtm-summary-1" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-top:18px;margin-bottom:8px;">
+        <!-- Filled by script -->
       </p>
-      <p id="summary-2" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+      <p id="gtm-summary-2" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin:0;">
+        <!-- Filled by script -->
       </p>
     </div>
+
 
     <!-- WHAT THIS MEANS -->
     <section style="margin-top:28px;max-width:780px;">
       <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
         What this means
       </h2>
-      <p id="meaning-1" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;"></p>
-      <p id="meaning-2" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;"></p>
+      <p id="gtm-meaning-1" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+        <!-- Filled by script -->
+      </p>
+      <p id="gtm-meaning-2" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+        <!-- Filled by script -->
+      </p>
     </section>
 
-    <!-- WHERE TO FOCUS -->
+
+    <!-- WHERE TO FOCUS FIRST -->
     <section style="margin-top:28px;max-width:780px;">
       <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
         Where to focus first
       </h2>
-      <ul id="focus-list" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;"></ul>
+      <ul id="gtm-focus-list" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+        <!-- Filled by script -->
+      </ul>
     </section>
+
 
     <!-- CTA CARD -->
     <section style="margin-top:32px;max-width:780px;">
       <div class="card">
-        <h2 id="cta-title" style="font-size:1.3rem;font-weight:700;color:var(--blue);margin-bottom:8px;"></h2>
-        <p id="cta-body-1" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;"></p>
-        <p id="cta-body-2" style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;"></p>
-        <a id="cta-link" href="mailto:tom@caugia.com" class="cta"></a>
+        <h2 id="gtm-cta-title" style="font-size:1.3rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+          <!-- Filled by script -->
+        </h2>
+        <p id="gtm-cta-body" style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          <!-- Filled by script -->
+        </p>
+        <p id="gtm-cta-subtext" style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+          <!-- Filled by script -->
+        </p>
+        <a id="gtm-cta-link" href="mailto:tom@caugia.com" class="cta">
+          <!-- Filled by script -->
+        </a>
       </div>
     </section>
 
@@ -134,18 +160,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- ================= FOOTER ================ -->
 <footer>
-  © 2025 Caugia Consulting · 
-  <a href="privacy.html">Privacy Notice</a> · 
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> · 
+  © 2025 Caugia Consulting ·
+  <a href="privacy.html">Privacy Notice</a> ·
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
 
 
-<!-- ================= RESULT LOGIC ================= -->
+<!-- ================= SCORE LOGIC SCRIPT ================ -->
 <script>
-(function() {
-  // Thresholds: same als assessment
-  function getMaturity(score) {
+document.addEventListener("DOMContentLoaded", function() {
+  // --------- READ SCORE FROM QUERY PARAM ---------
+  const params = new URLSearchParams(window.location.search);
+  const raw = parseFloat(params.get("score"));
+  let score = 0;
+
+  if (!isNaN(raw)) {
+    score = Math.round(raw);
+    if (score < 0) score = 0;
+    if (score > 100) score = 100;
+  }
+
+  // --------- MAP SCORE TO MATURITY BAND ---------
+  function getBand(score) {
     if (score < 40) return "At Risk";
     if (score < 55) return "Unstable";
     if (score < 70) return "Developing";
@@ -154,163 +191,179 @@ document.addEventListener("DOMContentLoaded", function() {
     return "Best in Class";
   }
 
-  // Copy per maturity band
-  const COPY = {
+  const band = getBand(score);
+
+  // --------- CONTENT CONFIG PER BAND ---------
+  const BAND_CONFIG = {
     "At Risk": {
-      summary1: "Your go to market system has structural gaps that put revenue at risk. Forecasts are likely unpredictable, handoffs feel fragile, and teams spend too much energy fighting symptoms instead of fixing causes.",
-      summary2: "At this stage, growth depends heavily on individual heroics. When a key person leaves or a big deal slips, the entire plan feels uncertain.",
-      meaning1: "Companies at this maturity level often experience large swings in forecast accuracy, frequent surprise losses, long sales cycles, and difficulty understanding which motions really create revenue.",
-      meaning2: "The opportunity is significant. With the right structure, you can move from constant firefighting to clear, calm direction within a few quarters.",
+      tagline: "Structural issues are limiting growth.",
+      summary1: "Your GTM system is carrying real friction. Core elements of the revenue path are under-defined or not working together.",
+      summary2: "This does not mean your product or team cannot win. It means the system around them needs structure before performance becomes predictable.",
+      meaning1: "At this level, leaders often feel that growth depends on heroics rather than a reliable model. Forecasts are unstable and teams spend time reacting instead of executing.",
+      meaning2: "The priority is to stabilise the foundations of your go to market system so that deals, data, and decisions follow a clear and repeatable path.",
       focus: [
-        "Clarify your ideal customer profile so teams stop spending time on poor fit opportunities.",
-        "Define a simple shared view of the funnel so marketing, SDR, and sales speak the same language.",
-        "Create basic pipeline visibility so leadership can see risk early and act before the quarter is over.",
-        "Document one clear sales process so results depend less on individuals and more on system design."
+        "Clarify your Ideal Customer Profile and focus your efforts where you can win repeatedly.",
+        "Define simple, shared stages for your pipeline and clean the data that flows through them.",
+        "Create a basic but consistent sales process that the entire team can follow.",
+        "Identify one or two structural blockers and address them before adding more activity on top."
       ],
-      ctaTitle: "Turning At Risk into progress",
-      ctaBody1: "The next step is to move from a single score to a clear diagnosis. The GTM Score shows you that the system is at risk. A deeper assessment shows exactly where the structure breaks and which few changes will restore stability.",
-      ctaBody2: "If you would like to explore this in more detail, Caugia Consulting can walk through your score, your context, and what a calm and predictable GTM system could look like for your company.",
-      ctaText: "Talk about your GTM system",
-      ctaSubject: "GTM Score Result – At Risk"
+      ctaTitle: "Stabilising an at risk GTM system",
+      ctaBody: "The fastest gains at this stage come from a few precise changes in structure. Small adjustments in routing, qualification, and pipeline design can remove a lot of noise from your revenue engine.",
+      ctaSubtext: "If you want a calm, external view of where your system is failing and how to stabilise it, Caugia Consulting can help you design a simpler, more reliable GTM foundation.",
+      ctaButton: "Review my GTM foundations",
+      ctaSubject: "GTM Score Result At Risk"
     },
-
     "Unstable": {
-      summary1: "You have some foundations in place, but the system is fragile. When key people leave, when a few big deals slip, or when demand slows, everything feels exposed.",
-      summary2: "The organization often works in reaction mode. Knowledge lives in a few people, not in a shared system, which makes it hard to scale and hard to forecast with confidence.",
-      meaning1: "Companies at this stage often see large swings in win rates and forecast accuracy. Results depend heavily on individual effort and memory rather than on clear, documented and shared ways of working.",
-      meaning2: "The good news is that your system has the beginnings of structure. With focused work on process, documentation, and simple governance, you can move to stability in a predictable way.",
+      tagline: "Progress exists but is fragile.",
+      summary1: "Your GTM system has pockets of structure, but they are not yet strong enough to support predictable growth.",
+      summary2: "Some motions work, others do not. The risk is that growth depends on individuals rather than on a consistent model.",
+      meaning1: "At this level, teams often feel they are close to unlocking stability, yet results swing more than leadership would like. Processes exist but are applied unevenly.",
+      meaning2: "Your next chapter is about reducing variability. You want more of the deals that close smoothly and fewer surprises at the end of the quarter.",
       focus: [
-        "Document your core sales process from first contact to closed won or lost.",
-        "Create shared definitions for stages, handoffs, and qualification across marketing, SDR, and sales.",
-        "Start a simple win and loss review so the team learns systematically rather than anecdotally.",
-        "Introduce a basic, data informed forecast method instead of relying only on intuition."
+        "Tighten the definitions of qualified pipeline across marketing, SDRs, and sales.",
+        "Standardise one core sales process and remove local variations that create noise.",
+        "Improve basic reporting so leaders can see patterns without running manual exports.",
+        "Choose one motion to strengthen first instead of spreading efforts across many."
       ],
-      ctaTitle: "Moving from unstable to stable",
-      ctaBody1: "The next stage is about building confidence in how your GTM system behaves. A deeper assessment can map exactly where instability comes from and how to redesign the system so that performance becomes more predictable.",
-      ctaBody2: "If you want to explore this together, Caugia Consulting can walk through your score, your context, and possible paths from fragile execution to a stable revenue engine.",
-      ctaText: "Discuss your result",
-      ctaSubject: "GTM Score Result – Unstable"
+      ctaTitle: "Reducing volatility in your revenue engine",
+      ctaBody: "You do not need a full rebuild. You need sharper focus, a bit more discipline in process, and reporting that gives you clear signal rather than noise.",
+      ctaSubtext: "Caugia Consulting can help you identify the few changes that turn an unstable GTM setup into a more predictable growth system.",
+      ctaButton: "Make my GTM less fragile",
+      ctaSubject: "GTM Score Result Unstable"
     },
-
     "Developing": {
-      summary1: "You have a solid foundation. Many of the right pieces are in place, yet gaps in alignment, visibility, and execution discipline slow growth more than they should.",
-      summary2: "Teams are working, but the system is not yet fully coherent. Insights exist in pockets, handoffs sometimes drift, and it is still too hard to see cause and effect across the full GTM path.",
-      meaning1: "Companies at this level often grow, but not at the pace their market and product would allow. Sales cycles are a little longer than they should be, and too many deals are lost for reasons that could be addressed with better coordination and clearer process.",
-      meaning2: "You are not starting from zero. With focused improvements in a few key areas, you can move into a performing system within a relatively short period.",
+      tagline: "The right pieces exist, now they need to work together.",
+      summary1: "Your GTM system is moving in the right direction. The core elements are present, even if they are not yet fully aligned.",
+      summary2: "You likely see wins when process is followed, but you still have gaps in handoffs, data quality, or segmentation.",
+      meaning1: "At this level, leaders often feel there is clear potential that is not yet fully realised. The organisation has a shared language, but execution is inconsistent.",
+      meaning2: "The priority is to connect strategy, process, and data into one coherent model that teams can trust in daily work.",
       focus: [
-        "Improve pipeline visibility with simple, shared dashboards for leadership and GTM teams.",
-        "Align marketing, SDR, and sales on lead quality and handoff rules so fewer opportunities are lost in transition.",
-        "Strengthen competitive clarity with basic battlecards and consistent debriefs on wins and losses.",
-        "Clarify ownership across the twelve segments of the GTM Framework so there are fewer grey areas."
+        "Strengthen handoffs between marketing, SDR, sales, and customer success.",
+        "Improve how you measure pipeline health and forecast quality across segments.",
+        "Create clear enablement for new hires so ramp time becomes more predictable.",
+        "Align GTM leadership on a small set of shared KPIs for the full revenue path."
       ],
-      ctaTitle: "Moving from developing to performing",
-      ctaBody1: "At this stage, progress is about sharpening rather than reinventing. A deeper assessment can show where your GTM system already works well, and which changes will unlock the next level of performance.",
-      ctaBody2: "If you want to explore what a performing GTM system could look like in your context, Caugia Consulting can help you translate this score into a practical improvement path.",
-      ctaText: "Explore your next steps",
-      ctaSubject: "GTM Score Result – Developing"
+      ctaTitle: "Connecting the dots in a developing GTM system",
+      ctaBody: "You already have many of the building blocks. The work now is to connect them so that each deal and customer follows a clear, well understood path.",
+      ctaSubtext: "Caugia Consulting can help you map your current GTM architecture and highlight where better connection would unlock more of your existing potential.",
+      ctaButton: "Connect my GTM system",
+      ctaSubject: "GTM Score Result Developing"
     },
-
     "Performing": {
-      summary1: "Your GTM system is working. Processes are visible, teams are aligned on core steps, and leadership has a reasonable view of what is happening across the revenue path.",
-      summary2: "The question now is not how to fix everything, but how to reduce friction, remove waste, and prepare the system to scale without losing clarity.",
-      meaning1: "Companies at this level often grow at a healthy pace and tend to outperform less structured competitors. However, some manual work, tool friction, and duplicated effort still limit efficiency and speed.",
-      meaning2: "Your opportunity is to turn a strong system into a genuine advantage, where teams feel supported by the system rather than constrained by it.",
+      tagline: "A solid GTM system is in place.",
+      summary1: "Your GTM system supports consistent performance. Most of the structure is there and teams can rely on it in daily work.",
+      summary2: "You are past basic growing pains. The question now is how to keep performance strong while you scale into new targets and products.",
+      meaning1: "At this level, you probably see acceptable forecast accuracy, stable win rates, and solid collaboration between marketing, sales, and customer success.",
+      meaning2: "The priority is to protect what already works while you simplify the parts of your system that create friction as you grow.",
       focus: [
-        "Streamline your tech stack so key GTM tools share clean, consistent data.",
-        "Introduce more forward looking analytics so you can act earlier in the quarter.",
-        "Strengthen enablement so new hires ramp quickly and experienced people keep improving.",
-        "Refine governance for key GTM decisions so strategy, execution, and measurement stay aligned."
+        "Identify parts of your process that have become heavy or over engineered.",
+        "Tighten feedback loops between revenue teams and product or strategy.",
+        "Invest in better analytics so you see earlier where performance drifts.",
+        "Clarify ownership for key parts of the GTM system as the org expands."
       ],
-      ctaTitle: "From performing to high performing",
-      ctaBody1: "At this stage, even small improvements can create meaningful gains in revenue and efficiency. A deeper assessment can identify where your system leaks energy and where to invest for the highest return on effort.",
-      ctaBody2: "If you want to explore the gap between your current system and a high performing GTM engine, Caugia Consulting can help you map and prioritize those opportunities.",
-      ctaText: "Identify hidden efficiencies",
-      ctaSubject: "GTM Score Result – Performing"
+      ctaTitle: "Protecting and simplifying a performing system",
+      ctaBody: "You do not need radical change. You need clarity on where added complexity could quietly erode performance over the next cycles.",
+      ctaSubtext: "Caugia Consulting can review your GTM architecture through The GTM Framework and suggest a small number of focused improvements.",
+      ctaButton: "Review my GTM architecture",
+      ctaSubject: "GTM Score Result Performing"
     },
-
     "High Performing": {
-      summary1: "You operate at a high level of GTM maturity. Processes, data, and teams are aligned, and your system already supports strong performance and predictable revenue.",
-      summary2: "At this stage, your focus shifts from fixing weaknesses to finding the next wave of efficiency and preparing for new phases of growth.",
-      meaning1: "Companies at this level are often seen as reference points in their markets. You likely enjoy consistency in forecast accuracy, stable win rates, and strong collaboration between GTM teams and leadership.",
-      meaning2: "The challenge is to maintain this quality while you scale into new segments, regions, or product lines without creating new complexity.",
+      tagline: "Strong alignment and predictable performance.",
+      summary1: "Your GTM system operates at a high level of maturity. Processes, data, and teams are broadly aligned.",
+      summary2: "The focus now shifts from fixing weaknesses to finding the next wave of efficiency and preparing for new phases of growth.",
+      meaning1: "Companies at this level are often seen as reference points in their markets. They enjoy consistent forecasts, stable win rates, and calm GTM execution.",
+      meaning2: "The main risk is hidden complexity. As you expand into new segments or regions, small misalignments can create friction that is hard to see early.",
       focus: [
-        "Explore more advanced analytics and predictive models to support strategic decisions.",
-        "Ensure that expansion plans consider the full GTM system, not only top line targets.",
-        "Invest in talent development so new leaders inherit a strong, shared GTM philosophy.",
-        "Regularly stress test your system for new failure modes as complexity grows."
+        "Explore more advanced analytics and predictive models that support strategic planning.",
+        "Stress test your system for new failure modes as you add products or markets.",
+        "Strengthen leadership alignment so new hires inherit a clear GTM philosophy.",
+        "Look for places where manual work can be safely automated without losing context."
       ],
-      ctaTitle: "Protecting and extending high performance",
-      ctaBody1: "With a high performing GTM system, the most valuable work is often subtle. A deeper assessment can help you find the few changes that preserve your advantage while supporting the next chapter of growth.",
-      ctaBody2: "If you want an external view on how robust your system is and where to invest next, Caugia Consulting can review your GTM architecture through the lens of The GTM Framework.",
-      ctaText: "Review your GTM architecture",
-      ctaSubject: "GTM Score Result – High Performing"
+      ctaTitle: "Extending a high performing GTM system",
+      ctaBody: "At this level, the most valuable work is often subtle. A precise external review can highlight the few changes that preserve your advantage as you scale.",
+      ctaSubtext: "Caugia Consulting can help you test your GTM system against future scenarios and decide where to invest next.",
+      ctaButton: "Stress test my GTM system",
+      ctaSubject: "GTM Score Result High Performing"
     },
-
     "Best in Class": {
-      summary1: "You operate at a rare level of GTM maturity. Your system is coherent, data informed, and able to support complex growth without losing clarity.",
-      summary2: "Very few organizations reach this point. The main challenge now is to protect this strength while markets, teams, and products continue to evolve.",
-      meaning1: "You likely have consistent forecast accuracy, strong unit economics, and a GTM leadership team that thinks in terms of systems rather than isolated tactics.",
-      meaning2: "In many markets, a system at this level becomes a real competitive advantage that is difficult to copy.",
+      tagline: "A rare level of GTM maturity.",
+      summary1: "Your GTM system is coherent, data informed, and able to support complex growth without losing clarity.",
+      summary2: "Very few organisations reach this point. The question is less about fixing problems and more about protecting a real competitive advantage.",
+      meaning1: "At this level you likely combine strong unit economics, accurate forecasts, and a leadership team that thinks in systems rather than isolated tactics.",
+      meaning2: "The priority is to ensure your GTM model can absorb major shifts: new funding, acquisitions, or global expansion without losing its character.",
       focus: [
-        "Keep experimenting with new GTM motions while maintaining clear guardrails.",
-        "Strengthen your position as a thought leader in how GTM systems are built and operated.",
-        "Prepare your GTM model for larger transitions, such as significant funding, acquisitions, or global expansion.",
-        "Regularly reassess your system so it continues to evolve at least as fast as your market."
+        "Continue to experiment with new GTM motions inside clear guardrails.",
+        "Use your GTM system as a platform for thought leadership in your category.",
+        "Build resilience plans for structural changes such as new regions or major product shifts.",
+        "Regularly validate that your GTM system is evolving at least as fast as your market."
       ],
-      ctaTitle: "Stress testing a best in class system",
-      ctaBody1: "At this level, you may not need help fixing problems. The most valuable work is often to stress test your system against future scenarios and to validate that it can support the next phase of ambition.",
-      ctaBody2: "If you want a structured external view on how resilient your GTM architecture really is, Caugia Consulting can provide a focused review based on The GTM Framework.",
-      ctaText: "Stress test your GTM system",
-      ctaSubject: "GTM Score Result – Best in Class"
+      ctaTitle: "Validating a best in class GTM system",
+      ctaBody: "You may not need help fixing visible issues. The most valuable support is often a structured challenge of your assumptions about the future.",
+      ctaSubtext: "Caugia Consulting can run a focused review of your GTM architecture and stress test it against the ambitions you have for the next years.",
+      ctaButton: "Validate my GTM model",
+      ctaSubject: "GTM Score Result Best in Class"
     }
   };
 
-  // Read score from URL
-  const params = new URLSearchParams(window.location.search);
-  let score = parseInt(params.get("score"), 10);
-  if (isNaN(score)) score = 0;
-  if (score < 0) score = 0;
-  if (score > 100) score = 100;
+  const config = BAND_CONFIG[band];
 
-  const maturity = getMaturity(score);
-  const copy = COPY[maturity];
-
+  // --------- UPDATE SCORE + PROGRESS BAR ---------
   const scoreEl = document.getElementById("score-value");
   const bar = document.getElementById("progress-fill");
-  const maturityLabel = document.getElementById("maturity-label");
 
-  maturityLabel.textContent = maturity;
-  scoreEl.textContent = score;
-  bar.style.width = score + "%";
-
-  if (copy) {
-    document.getElementById("summary-1").textContent = copy.summary1;
-    document.getElementById("summary-2").textContent = copy.summary2;
-    document.getElementById("meaning-1").textContent = copy.meaning1;
-    document.getElementById("meaning-2").textContent = copy.meaning2;
-
-    const focusList = document.getElementById("focus-list");
-    focusList.innerHTML = "";
-    copy.focus.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      li.style.marginBottom = "8px";
-      focusList.appendChild(li);
-    });
-
-    document.getElementById("cta-title").textContent = copy.ctaTitle;
-    document.getElementById("cta-body-1").textContent = copy.ctaBody1;
-    document.getElementById("cta-body-2").textContent = copy.ctaBody2;
-
-    const ctaLink = document.getElementById("cta-link");
-    ctaLink.textContent = copy.ctaText;
-    ctaLink.href = "mailto:tom@caugia.com?subject=" + encodeURIComponent(copy.ctaSubject);
-  } else {
-    // fallback if maturity not found
-    document.getElementById("summary-1").textContent =
-      "Your GTM Score could not be fully interpreted. If you reached this page directly, please complete the assessment first.";
+  if (scoreEl && bar) {
+    scoreEl.textContent = score;
+    bar.style.width = score + "%";
   }
-})();
+
+  // --------- UPDATE TEXT CONTENT ---------
+  const bandLabelEl   = document.getElementById("gtm-band-label");
+  const bandTaglineEl = document.getElementById("gtm-band-tagline");
+  const summary1El    = document.getElementById("gtm-summary-1");
+  const summary2El    = document.getElementById("gtm-summary-2");
+  const meaning1El    = document.getElementById("gtm-meaning-1");
+  const meaning2El    = document.getElementById("gtm-meaning-2");
+  const focusListEl   = document.getElementById("gtm-focus-list");
+  const ctaTitleEl    = document.getElementById("gtm-cta-title");
+  const ctaBodyEl     = document.getElementById("gtm-cta-body");
+  const ctaSubtextEl  = document.getElementById("gtm-cta-subtext");
+  const ctaLinkEl     = document.getElementById("gtm-cta-link");
+
+  if (config) {
+    if (bandLabelEl) bandLabelEl.textContent = band;
+    if (bandTaglineEl) bandTaglineEl.textContent = config.tagline || "";
+
+    if (summary1El) summary1El.textContent = config.summary1 || "";
+    if (summary2El) summary2El.textContent = config.summary2 || "";
+
+    if (meaning1El) meaning1El.textContent = config.meaning1 || "";
+    if (meaning2El) meaning2El.textContent = config.meaning2 || "";
+
+    if (focusListEl) {
+      focusListEl.innerHTML = "";
+      (config.focus || []).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        li.style.marginBottom = "8px";
+        focusListEl.appendChild(li);
+      });
+    }
+
+    if (ctaTitleEl) ctaTitleEl.textContent = config.ctaTitle || "";
+    if (ctaBodyEl) ctaBodyEl.textContent = config.ctaBody || "";
+    if (ctaSubtextEl) ctaSubtextEl.textContent = config.ctaSubtext || "";
+
+    if (ctaLinkEl) {
+      const subject = encodeURIComponent(config.ctaSubject || "GTM Score Result");
+      ctaLinkEl.href = "mailto:tom@caugia.com?subject=" + subject;
+      ctaLinkEl.textContent = config.ctaButton || "Discuss my GTM Score";
+    }
+  } else {
+    // Fallback if something unexpected happens
+    if (bandLabelEl) bandLabelEl.textContent = "Unknown";
+    if (bandTaglineEl) bandTaglineEl.textContent = "";
+  }
+});
 </script>
 
 </body>
