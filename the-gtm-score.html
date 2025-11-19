@@ -4,21 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>The GTM Score | Caugia Consulting</title>
-<meta name="description" content="Discover your GTM maturity with The GTM Score. Eleven focused questions reveal strengths, structural gaps, and the direction needed to build a predictable revenue system." />
+<title>Your GTM Score | Caugia Consulting</title>
+<meta name="description" content="View your GTM Score result, understand what it means for your revenue system, and see where to focus next." />
 
 <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 </head>
 
-
 <body>
 
-<!-- ================= HEADER ================ -->
 <header>
   <div class="container">
     <a href="index.html" class="brand">
-      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <img src="C-logo.png" alt="Caugia Consulting logo" />
       <span>Caugia Consulting</span>
     </a>
 
@@ -26,9 +24,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="the-gtm-score.html" class="active">GTM Score</a>
-      <a href="gtm-assessment.html">GTM Assessment</a>
+      <a href="gtm-assessment.html" class="active">GTM Score</a>
       <a href="resources.html">Resources</a>
       <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
     </nav>
@@ -42,16 +38,12 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="the-gtm-framework.html">GTM Framework</a>
-    <a href="the-gtm-score.html" class="active">GTM Score</a>
-    <a href="gtm-assessment.html">GTM Assessment</a>
+    <a href="gtm-assessment.html" class="active">GTM Score</a>
     <a href="resources.html">Resources</a>
     <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
 </header>
 
-
-<!-- MOBILE MENU SCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
@@ -78,159 +70,412 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-
-<!-- ================= MAIN CONTENT ================ -->
-<main style="flex:1;padding:calc(var(--header-h) + 48px) 24px 120px;">
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
   <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- TITLE -->
-    <h1 style="font-size:2.4rem;font-weight:800;color:var(--blue);margin-bottom:18px;">
-      The GTM Score
-    </h1>
-
-    <p style="font-size:1.12rem;line-height:1.7;color:#1b1b1b;max-width:820px;margin-bottom:32px;">
-      The GTM Score is a concise, structured assessment that measures the maturity of your Go To Market system.
-      Eleven focused questions reveal strengths, structural gaps, and the direction needed to build a predictable revenue engine.
-    </p>
-
-
-    <!-- WHAT YOU'LL DISCOVER -->
-    <section style="background:#f9f9fb;border:1px solid var(--border);border-radius:12px;padding:28px;max-width:850px;margin-bottom:48px;">
-      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:14px;color:var(--blue);">
-        What you'll discover
-      </h3>
-      <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;list-style:none;padding-left:0;">
-        <li style="padding-left:22px;position:relative;margin-bottom:6px;">
-          <span style="position:absolute;left:0;color:var(--blue);">✓</span>
-          Your GTM maturity score on a 0–100 scale
-        </li>
-        <li style="padding-left:22px;position:relative;margin-bottom:6px;">
-          <span style="position:absolute;left:0;color:var(--blue);">✓</span>
-          Structural gaps in your revenue system
-        </li>
-        <li style="padding-left:22px;position:relative;margin-bottom:6px;">
-          <span style="position:absolute;left:0;color:var(--blue);">✓</span>
-          The top priorities for your current stage
-        </li>
-        <li style="padding-left:22px;position:relative;">
-          <span style="position:absolute;left:0;color:var(--blue);">✓</span>
-          A benchmark against high performing GTM teams
-        </li>
-      </ul>
-
-      <p style="font-size:0.95rem;color:#666;margin-top:16px;">
-        Eleven questions · about five minutes · results delivered instantly on screen.
+    <!-- FALLBACK (NO SCORE) -->
+    <section id="gtm-score-fallback">
+      <h1 style="font-size:2.4rem;font-weight:800;margin-bottom:14px;color:var(--blue);">
+        The GTM Score
+      </h1>
+      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:780px;margin-bottom:18px;">
+        This page shows your GTM Score after completing the assessment.
       </p>
+      <p style="font-size:1.02rem;line-height:1.7;color:#444;max-width:780px;margin-bottom:26px;">
+        It looks like there is no active result to display.  
+        You can take the assessment to get a fresh score and personalised guidance.
+      </p>
+      <a href="gtm-assessment.html" class="cta">Start the GTM Assessment</a>
     </section>
 
 
+    <!-- RESULT VIEW -->
+    <section id="gtm-score-result" style="display:none;">
+      <h1 style="font-size:2.4rem;font-weight:800;margin-bottom:10px;color:var(--blue);">
+        Your GTM Score
+      </h1>
 
-    <!-- ================= TALLY EMBED ================= -->
-    <section style="max-width:880px;margin:0 auto 60px;">
-      <div class="tally-wrapper" style="max-width:880px;margin:0 auto;">
-        <iframe
-          data-tally-src="https://tally.so/r/Npp4YO?transparentBackground=1&hideTitle=1"
-          loading="lazy"
-          width="100%"
-          height="820"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          style="border:1px solid #ddd;border-radius:12px;background:#fff;width:100%;"
-          title="The GTM Score – Free Assessment">
-        </iframe>
-      </div>
-    </section>
-
-    <script>
-      (function () {
-        var d = document,
-            w = window,
-            iframe = d.querySelector('iframe[data-tally-src]');
-
-        function resizeTallyFrame(e) {
-          if (typeof e.data !== 'object') return;
-          if (!e.data['tally']) return;
-
-          var formId = iframe.getAttribute('data-tally-src')
-            .split('/r/')[1]
-            .split('?')[0];
-
-          if (e.data['tally'].formId !== formId) return;
-
-          if (e.data['tally'].height) {
-            iframe.style.height = e.data['tally'].height + 'px';
-          }
-        }
-
-        if (iframe) {
-          iframe.src = iframe.getAttribute('data-tally-src');
-          w.addEventListener('message', resizeTallyFrame);
-        }
-      })();
-    </script>
-
-
-    <!-- HOW IT WORKS -->
-    <section style="max-width:880px;margin:0 auto 40px;">
-      <h2 style="font-size:1.45rem;font-weight:700;color:var(--blue);margin-bottom:12px;">
-        How the GTM Score works
-      </h2>
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;margin-bottom:12px;">
-        The GTM Score evaluates the core elements of your go-to-market system across eleven focused questions.
-        Each response contributes to a raw score that is translated into a clear 0–100 maturity scale.
+      <p style="font-size:1.05rem;color:#444;margin-bottom:8px;">
+        Result: <strong id="gtm-maturity-label">–</strong>
+        <span id="gtm-maturity-range" style="color:#999;margin-left:6px;"></span>
       </p>
-      <p style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;">
-        The score reflects how aligned your strategy, execution, data, and processes are — and how predictable your revenue system can become as a result.
-      </p>
-    </section>
 
+      <p id="gtm-context-line" style="font-size:0.96rem;color:#666;margin-bottom:22px;max-width:780px;"></p>
 
-    <!-- FAQ -->
-    <section style="max-width:880px;margin:40px auto 0;">
-      <h2 style="font-size:1.45rem;font-weight:700;color:var(--blue);margin-bottom:16px;">
-        Frequently asked questions
-      </h2>
-
-      <div style="margin-bottom:16px;">
-        <h3 style="font-size:1.1rem;font-weight:600;color:#0b132b;margin-bottom:6px;">
-          Does the assessment require my email?
-        </h3>
-        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin:0;">
-          No. Your results appear instantly on screen. You only share your email if you decide to continue working with Caugia later.
+      <div class="score-wrapper">
+        <p style="font-size:1.1rem;line-height:1.7;margin-bottom:6px;">
+          Your GTM Score is
+          <strong><span id="gtm-score-value">0</span>%</strong>.
         </p>
+
+        <p style="font-size:0.95rem;color:#555;margin-bottom:12px;">
+          Score based on ten core GTM capabilities, normalised to a 0–100 scale.
+        </p>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="gtm-progress-fill"></div>
+        </div>
       </div>
 
-      <div style="margin-bottom:16px;">
-        <h3 style="font-size:1.1rem;font-weight:600;color:#0b132b;margin-bottom:6px;">
-          How accurate is the score?
-        </h3>
-        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin:0;">
-          The score is directionally accurate. It is clear enough to indicate your maturity level and precise enough to highlight your most important priorities.
+      <!-- BAND-SPECIFIC CONTENT -->
+      <section class="gtm-band-section" data-band="At Risk" style="max-width:780px;display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+          What this means
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          Your go to market system has structural gaps that put revenue at risk. Forecasts are likely unpredictable,
+          handoffs feel fragile, and teams spend too much energy fighting symptoms instead of fixing causes.
         </p>
-      </div>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+          At this stage, growth depends heavily on individual heroics. When a key person leaves or a big deal slips,
+          the entire plan feels uncertain.
+        </p>
 
-      <div>
-        <h3 style="font-size:1.1rem;font-weight:600;color:#0b132b;margin-bottom:6px;">
-          How long does it take?
-        </h3>
-        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin:0;">
-          Around five minutes. The questions are simple and based on the core elements of a modern GTM system.
+        <section style="margin-top:28px;">
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+            Where to focus first
+          </h2>
+          <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+            <li style="margin-bottom:8px;">Clarify your ideal customer profile so teams stop spending time on poor fit opportunities.</li>
+            <li style="margin-bottom:8px;">Define a simple shared view of the funnel so marketing, SDR, and sales speak the same language.</li>
+            <li style="margin-bottom:8px;">Create basic pipeline visibility so leadership can see risk early and act before the quarter is over.</li>
+            <li style="margin-bottom:0;">Document one clear sales process so results depend less on individuals and more on system design.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:32px;">
+          <div class="card">
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+              Turning At Risk into progress
+            </h3>
+            <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+              The next step is to move from a single score to a clear diagnosis. The GTM Score shows you that the system
+              is at risk. A deeper assessment shows exactly where the structure breaks and which few changes will restore stability.
+            </p>
+            <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+              If you would like to explore this in more detail, Caugia Consulting can walk through your score, your context,
+              and what a calm and predictable GTM system could look like for your company.
+            </p>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20At%20Risk" class="cta">
+              Talk about your GTM system
+            </a>
+          </div>
+        </section>
+      </section>
+
+
+      <section class="gtm-band-section" data-band="Unstable" style="max-width:780px;display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+          What this means
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          You have some foundations in place, but the system is fragile. When key people leave,
+          when a few big deals slip, or when demand slows, everything feels exposed.
         </p>
-      </div>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+          The organization often works in reaction mode. Knowledge lives in a few people,
+          not in a shared system, which makes it hard to scale and hard to forecast with confidence.
+        </p>
+
+        <section style="margin-top:28px;">
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+            Where to focus first
+          </h2>
+          <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+            <li style="margin-bottom:8px;">Document your core sales process from first contact to closed won or lost.</li>
+            <li style="margin-bottom:8px;">Create shared definitions for stages, handoffs, and qualification across marketing, SDR, and sales.</li>
+            <li style="margin-bottom:8px;">Start a simple win and loss review so the team learns systematically rather than anecdotally.</li>
+            <li style="margin-bottom:0;">Introduce a basic, data informed forecast method instead of relying only on intuition.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:32px;">
+          <div class="card">
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+              Moving from unstable to stable
+            </h3>
+            <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+              The next stage is about building confidence in how your GTM system behaves.
+              A deeper assessment can map exactly where instability comes from and how to redesign
+              the system so that performance becomes more predictable.
+            </p>
+            <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+              If you want to explore this together, Caugia Consulting can walk through your score,
+              your context, and possible paths from fragile execution to a stable revenue engine.
+            </p>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20Unstable" class="cta">
+              Discuss your result
+            </a>
+          </div>
+        </section>
+      </section>
+
+
+      <section class="gtm-band-section" data-band="Developing" style="max-width:780px;display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+          What this means
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          You have a solid foundation. Many of the right pieces are in place, yet gaps in alignment,
+          visibility, and execution discipline slow growth more than they should.
+        </p>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+          Teams are working, but the system is not yet fully coherent. Insights exist in pockets,
+          handoffs sometimes drift, and it is still too hard to see cause and effect across the full GTM path.
+        </p>
+
+        <section style="margin-top:28px;">
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+            Where to focus first
+          </h2>
+          <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+            <li style="margin-bottom:8px;">Improve pipeline visibility with simple, shared dashboards for leadership and GTM teams.</li>
+            <li style="margin-bottom:8px;">Align marketing, SDR, and sales on lead quality and handoff rules so fewer opportunities are lost in transition.</li>
+            <li style="margin-bottom:8px;">Strengthen competitive clarity with basic battlecards and consistent debriefs on wins and losses.</li>
+            <li style="margin-bottom:0;">Clarify ownership across the twelve segments of the GTM Framework so there are fewer grey areas.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:32px;">
+          <div class="card">
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+              Moving from developing to performing
+            </h3>
+            <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+              At this stage, progress is about sharpening rather than reinventing.
+              A deeper assessment can show where your GTM system already works well,
+              and which changes will unlock the next level of performance.
+            </p>
+            <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+              If you want to explore what a performing GTM system could look like in your context,
+              Caugia Consulting can help you translate this score into a practical improvement path.
+            </p>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20Developing" class="cta">
+              Explore your next steps
+            </a>
+          </div>
+        </section>
+      </section>
+
+
+      <section class="gtm-band-section" data-band="Performing" style="max-width:780px;display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+          What this means
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          Your GTM system is working. Processes are visible, teams are aligned on core steps,
+          and leadership has a reasonable view of what is happening across the revenue path.
+        </p>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+          The question now is not how to fix everything, but how to reduce friction, remove waste,
+          and prepare the system to scale without losing clarity.
+        </p>
+
+        <section style="margin-top:28px;">
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+            Where to focus first
+          </h2>
+          <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+            <li style="margin-bottom:8px;">Streamline your tech stack so key GTM tools share clean, consistent data.</li>
+            <li style="margin-bottom:8px;">Introduce more forward looking analytics so you can act earlier in the quarter.</li>
+            <li style="margin-bottom:8px;">Strengthen enablement so new hires ramp quickly and experienced people keep improving.</li>
+            <li style="margin-bottom:0;">Refine governance for key GTM decisions so strategy, execution, and measurement stay aligned.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:32px;">
+          <div class="card">
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+              From performing to high performing
+            </h3>
+            <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+              At this stage, even small improvements can create meaningful gains in revenue and efficiency.
+              A deeper assessment can identify where your system leaks energy and where to invest for the
+              highest return on effort.
+            </p>
+            <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+              If you want to explore the gap between your current system and a high performing GTM engine,
+              Caugia Consulting can help you map and prioritize those opportunities.
+            </p>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20Performing" class="cta">
+              Identify hidden efficiencies
+            </a>
+          </div>
+        </section>
+      </section>
+
+
+      <section class="gtm-band-section" data-band="High Performing" style="max-width:780px;display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+          What this means
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          You operate at a high level of GTM maturity. Processes, data, and teams are aligned,
+          and your system already supports strong performance and predictable revenue.
+        </p>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+          At this stage, your focus shifts from fixing weaknesses to finding the next wave of efficiency
+          and preparing for new phases of growth.
+        </p>
+
+        <section style="margin-top:28px;">
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+            Where to focus first
+          </h2>
+          <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+            <li style="margin-bottom:8px;">Explore more advanced analytics and predictive models to support strategic decisions.</li>
+            <li style="margin-bottom:8px;">Ensure that expansion plans consider the full GTM system, not only top line targets.</li>
+            <li style="margin-bottom:8px;">Invest in talent development so new leaders inherit a strong, shared GTM philosophy.</li>
+            <li style="margin-bottom:0;">Regularly stress test your system for new failure modes as complexity grows.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:32px;">
+          <div class="card">
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+              Protecting and extending high performance
+            </h3>
+            <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+              With a high performing GTM system, the most valuable work is often subtle.
+              A deeper assessment can help you find the few changes that preserve your advantage
+              while supporting the next chapter of growth.
+            </p>
+            <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+              If you want an external view on how robust your system is and where to invest next,
+              Caugia Consulting can review your GTM architecture through the lens of The GTM Framework.
+            </p>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20High%20Performing" class="cta">
+              Review your GTM architecture
+            </a>
+          </div>
+        </section>
+      </section>
+
+
+      <section class="gtm-band-section" data-band="Best in Class" style="max-width:780px;display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+          What this means
+        </h2>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+          You operate at a rare level of GTM maturity. Your system is coherent, data informed,
+          and able to support complex growth without losing clarity.
+        </p>
+        <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:0;">
+          Very few organizations reach this point. The main challenge now is to protect this strength
+          while markets, teams, and products continue to evolve.
+        </p>
+
+        <section style="margin-top:28px;">
+          <h2 style="font-size:1.4rem;font-weight:700;color:var(--blue);margin-bottom:10px;">
+            Where to focus first
+          </h2>
+          <ul style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;padding-left:18px;margin:0;">
+            <li style="margin-bottom:8px;">Keep experimenting with new GTM motions while maintaining clear guardrails.</li>
+            <li style="margin-bottom:8px;">Strengthen your position as a thought leader in how GTM systems are built and operated.</li>
+            <li style="margin-bottom:8px;">Prepare your GTM model for larger transitions, such as significant funding, acquisitions, or global expansion.</li>
+            <li style="margin-bottom:0;">Regularly reassess your system so it continues to evolve at least as fast as your market.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:32px;">
+          <div class="card">
+            <h3 style="font-size:1.25rem;font-weight:700;color:var(--blue);margin-bottom:8px;">
+              Stress testing a best in class system
+            </h3>
+            <p style="font-size:1.02rem;line-height:1.7;color:#1b1b1b;margin-bottom:10px;">
+              At this level, you may not need help fixing problems.
+              The most valuable work is often to stress test your system against future scenarios
+              and to validate that it can support the next phase of ambition.
+            </p>
+            <p style="font-size:0.98rem;line-height:1.7;color:#555;margin-bottom:16px;">
+              If you want a structured external view on how resilient your GTM architecture really is,
+              Caugia Consulting can provide a focused review based on The GTM Framework.
+            </p>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Score%20Result%20Best%20in%20Class" class="cta">
+              Stress test your GTM system
+            </a>
+          </div>
+        </section>
+      </section>
+
     </section>
 
   </div>
 </main>
 
 
-<!-- ================= FOOTER ================ -->
 <footer>
-  © 2025 Caugia Consulting · 
-  <a href="privacy.html">Privacy Notice</a> · 
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> · 
+  © 2025 Caugia Consulting ·
+  <a href="privacy.html">Privacy Notice</a> ·
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const params = new URLSearchParams(window.location.search);
+  const rawScore = parseFloat(params.get("score"));
+  const maturity = (params.get("maturity") || "").trim();
+
+  const fallback = document.getElementById("gtm-score-fallback");
+  const result = document.getElementById("gtm-score-result");
+
+  if (isNaN(rawScore) || !maturity) {
+    // No usable score: keep fallback visible
+    return;
+  }
+
+  // Clamp and round score
+  let score = Math.round(rawScore);
+  if (score < 0) score = 0;
+  if (score > 100) score = 100;
+
+  // Ranges for display
+  const ranges = {
+    "At Risk": "0–40",
+    "Unstable": "41–50",
+    "Developing": "51–60",
+    "Performing": "61–75",
+    "High Performing": "76–90",
+    "Best in Class": "91–100"
+  };
+
+  // Short top-line sentence per band
+  const topline = {
+    "At Risk": "Your GTM system is structurally fragile. The score reflects significant risk concentrated in a few core capabilities.",
+    "Unstable": "Your GTM system has some structure, but fragility remains. The score highlights where maturity is still uneven.",
+    "Developing": "Your GTM system is developing. Many pieces are in place, but alignment and visibility still hold you back.",
+    "Performing": "Your GTM system is performing. The foundations are strong and the main opportunity is to remove friction.",
+    "High Performing": "Your GTM system is highly mature. Your score reflects strong structure and consistent performance.",
+    "Best in Class": "Your GTM system is best in class. The score places you at a rare level of GTM maturity."
+  };
+
+  // Hide fallback, show result
+  fallback.style.display = "none";
+  result.style.display = "block";
+
+  // Fill basics
+  const scoreEl = document.getElementById("gtm-score-value");
+  const rangeEl = document.getElementById("gtm-maturity-range");
+  const labelEl = document.getElementById("gtm-maturity-label");
+  const barEl = document.getElementById("gtm-progress-fill");
+  const contextEl = document.getElementById("gtm-context-line");
+
+  if (scoreEl) scoreEl.textContent = String(score);
+  if (labelEl) labelEl.textContent = maturity;
+  if (rangeEl) rangeEl.textContent = ranges[maturity] ? "(" + ranges[maturity] + ")" : "";
+  if (barEl) barEl.style.width = score + "%";
+  if (contextEl) contextEl.textContent = topline[maturity] || "";
+
+  // Show correct band section
+  const sections = document.querySelectorAll(".gtm-band-section");
+  sections.forEach(sec => {
+    const band = sec.getAttribute("data-band");
+    sec.style.display = band === maturity ? "block" : "none";
+  });
+});
+</script>
 
 </body>
 </html>
