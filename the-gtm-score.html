@@ -123,15 +123,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-    <!-- =============== TYPEFORM IFRAME (perfect embed) =============== -->
+    <!-- =============== TALLY EMBED (SAFE DROP-IN) =============== -->
     <section style="max-width:880px;margin:0 auto 60px;">
-      <iframe
-        src="https://form.typeform.com/to/qtEL2eDX"
-        style="width:100%;height:820px;border:1px solid #ddd;border-radius:12px;"
-        frameborder="0"
-        allow="camera; microphone; autoplay; encrypted-media;">
-      </iframe>
+
+      <div class="tally-wrapper">
+        <iframe
+          data-tally-src="https://tally.so/r/Npp4YO?transparentBackground=1&hideTitle=1"
+          loading="lazy"
+          width="100%"
+          height="820"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          style="width:100%;height:820px;border:1px solid #ddd;border-radius:12px;background:#fff;"
+          title="The GTM Score – Free Assessment">
+        </iframe>
+      </div>
+
     </section>
+
+    <script>
+      (function () {
+        var d = document,
+            w = window,
+            iframe = d.querySelector('iframe[data-tally-src]');
+
+        function resizeTallyFrame(e) {
+          if (typeof e.data !== 'object') return;
+          if (!e.data['tally']) return;
+
+          var formId = iframe.getAttribute('data-tally-src')
+            .split('/r/')[1]
+            .split('?')[0];
+
+          if (e.data['tally'].formId !== formId) return;
+
+          if (e.data['tally'].height) {
+            iframe.style.height = e.data['tally'].height + 'px';
+          }
+        }
+
+        if (iframe) {
+          iframe.src = iframe.getAttribute('data-tally-src');
+          w.addEventListener('message', resizeTallyFrame);
+        }
+      })();
+    </script>
 
 
 
