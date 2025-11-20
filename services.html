@@ -4,170 +4,207 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="/C-logo.png" type="image/png" sizes="512x512">
+<link rel="icon" href="/C-logo.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/C-logo.png">
 <meta name="msapplication-TileImage" content="/C-logo.png">
 
-<title>Services | System Design for Predictable Revenue</title>
-<meta name="description" content="Caugia Consulting helps organizations diagnose, design, and direct modern GTM systems using structured, calm system design. Explore assessments, system design, implementation support, and leadership alignment." />
+<title>Services | Caugia Consulting</title>
+<meta name="description" content="Caugia provides three levels of GTM Intelligence — from a free GTM Score to a full automated GTM Intelligence Report and a continuous Intelligence Subscription. Designed for calm, predictable revenue systems." />
 
-<link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 </head>
 
 <body>
 
 <header>
-<div class="container">
-  <a href="index.html" class="brand">
-    <img src="C-logo.png" alt="Caugia Consulting logo">
-    <span>Caugia Consulting</span>
-  </a>
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <span>Caugia Consulting</span>
+    </a>
 
-  <nav class="nav-desktop">
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="the-gtm-framework.html">GTM Framework</a>
+      <a href="gtm-assessment.html">GTM Assessment</a>
+      <a href="resources.html">Resources</a>
+      <a class="cta" href="mailto:tom@caugia.com">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html" class="active">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="gtm-assessment.html">GTM Assessment</a>
     <a href="resources.html">Resources</a>
-    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="mailto:tom@caugia.com">Contact</a>
   </nav>
-
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-</div>
-
-<nav class="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html" class="active">Services</a>
-  <a href="the-gtm-framework.html">GTM Framework</a>
-  <a href="gtm-assessment.html">GTM Assessment</a>
-  <a href="resources.html">Resources</a>
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-</nav>
 </header>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
-
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
     mobileNav.classList.toggle("open");
-  });
-
-  document.querySelectorAll(".nav-mobile a").forEach(link => {
-    link.addEventListener("click", () => {
-      toggle.classList.remove("active");
-      mobileNav.classList.remove("open");
-    });
-  });
-
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (window.scrollY > 10) header.classList.add("scrolled");
-    else header.classList.remove("scrolled");
   });
 });
 </script>
 
 
 <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-<div class="wrap" style="max-with:var(--maxw);margin:0 auto;">
+<div class="wrap" style="max-width:var(--maxw);margin:auto;">
 
-<!-- PAGE HEADER -->
-<h1 style="font-size:2.6rem;font-weight:800;margin-bottom:16px;color:var(--blue);">
+<!-- PAGE TITLE -->
+<h1 style="font-size:2.6rem;font-weight:800;color:var(--blue);margin-bottom:12px;">
   Services
 </h1>
 
-<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin-bottom:40px;max-width:880px;">
-Caugia Consulting helps executives and revenue leaders design calm, integrated GTM systems.
-We diagnose, we design, and we direct — always using The GTM Framework as the operating model behind predictable growth.
+<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:40px;">
+Caugia offers a clear, calm set of GTM Intelligence services — from a free assessment to a fully automated intelligence engine.  
+Each layer is designed to deliver clarity, speed, and predictable growth without unnecessary complexity.
 </p>
 
 
-<!-- HOW WE WORK -->
-<section style="margin-bottom:64px;">
-  <h2>How we work</h2>
+<!-- ===================================================== -->
+<!--  LAYER 1 — FREEMIUM                                  -->
+<!-- ===================================================== -->
 
-  <h3 style="font-size:1.25rem;font-weight:700;color:var(--accent);margin:26px 0 6px;">
-    Diagnose
-  </h3>
-  <p style="max-width:880px;">
-    We start by observing your GTM system as it really operates: how information flows, where handoffs break, and where energy is lost between teams.
-    The result is clarity — a true view of your GTM maturity, not assumptions.
-  </p>
+<section style="margin-bottom:80px;">
+  <h2 style="font-size:1.9rem;font-weight:700;color:#1a1a1a;margin-bottom:12px;">
+    Layer 1 — Free: The GTM Score
+  </h2>
 
-  <h3 style="font-size:1.25rem;font-weight:700;color:var(--accent);margin:26px 0 6px;">
-    Design
-  </h3>
-  <p style="max-width:880px;">
-    We create your GTM System Blueprint, a clear architecture connecting people, process, and tools.  
-    It defines how work moves, how accountability is shared, and how the system scales.
-  </p>
-
-  <h3 style="font-size:1.25rem;font-weight:700;color:var(--accent);margin:26px 0 6px;">
-    Direction
-  </h3>
-  <p style="max-width:880px;">
-    Design becomes action. We translate your blueprint into a Focus Plan — the smallest set of actions with the greatest impact.
-    This creates rhythm and calm execution across all revenue teams.
-  </p>
-</section>
-
-
-<!-- GTM FRAMEWORK -->
-<section style="margin-bottom:64px;">
-  <h2>Powered by The GTM Framework</h2>
   <p style="max-width:880px;margin-bottom:24px;">
-    All our work is grounded in The GTM Framework: twelve segments across three layers that reveal how revenue systems truly function.
-    It provides leadership with one shared language for diagnosing problems, prioritizing investments, and scaling without friction.
+    A fast, free diagnostic that reveals your GTM maturity on a 0–100 scale.  
+    Designed to give leaders instant clarity and a calm starting point.
   </p>
 
-  <a href="the-gtm-framework.html" class="cta" style="padding:12px 24px;font-size:1rem;">
-    Explore The GTM Framework
-  </a>
-</section>
-
-
-<!-- ENGAGEMENT MODELS -->
-<section style="margin-bottom:64px;">
-  <h2>Engagement Models</h2>
-  <p style="max-width:880px;margin-bottom:24px;">
-    Every organization starts at a different level of maturity.  
-    These engagement models adapt to where your system is today — and where you want it to go.
-  </p>
-
-  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:1000px;">
-
-    <div class="card">
-      <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:8px;">GTM System Assessment</h3>
-      <p>Reveal how your system functions today. We identify bottlenecks, structural gaps, and segments where energy is lost.</p>
-      <p style="color:#555;margin-top:8px;">Outcome: clear maturity map and focused next steps.</p>
-    </div>
-
-    <div class="card">
-      <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:8px;">GTM System Design</h3>
-      <p>A comprehensive blueprint aligning teams, workflows, decisions, and tools into one operating model.</p>
-      <p style="color:#555;margin-top:8px;">Outcome: architecture built for scale.</p>
-    </div>
-
-    <div class="card">
-      <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:8px;">Implementation Partner</h3>
-      <p>Hands-on support turning architecture into real execution. We work alongside your GTM and RevOps teams.</p>
-      <p style="color:#555;margin-top:8px;">Outcome: progress without chaos.</p>
-    </div>
-
-    <div class="card">
-      <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:8px;">Interim GTM Leadership</h3>
-      <p>Short-term leadership to stabilize teams, rebuild rhythm, and prepare your organization for long-term growth.</p>
-      <p style="color:#555;margin-top:8px;">Outcome: a steady GTM engine ready for transition.</p>
-    </div>
-
+  <div class="card" style="max-width:880px;">
+    <ul style="line-height:1.7;margin:0;padding-left:18px;">
+      <li>14 questions · 5 minutes</li>
+      <li>Your GTM Score and maturity band</li>
+      <li>Interpretation of your current GTM stage</li>
+      <li>One recommended next step</li>
+      <li>Direct invitation to the full Intelligence Report</li>
+    </ul>
+    <a href="gtm-assessment.html" class="cta" style="margin-top:20px;display:inline-block;">Start the GTM Score</a>
   </div>
 </section>
+
+
+<!-- ===================================================== -->
+<!--  LAYER 2 — CORE PRODUCT                              -->
+<!-- ===================================================== -->
+
+<section style="margin-bottom:80px;">
+  <h2 style="font-size:1.9rem;font-weight:700;color:#1a1a1a;margin-bottom:12px;">
+    Layer 2 — Core: GTM Intelligence Report™
+  </h2>
+
+  <p style="max-width:880px;margin-bottom:24px;">
+    Consultancy-grade clarity, fully automated.  
+    A complete 265-question GTM Intelligence assessment with a deep, personalized report generated instantly.
+  </p>
+
+  <div class="card" style="max-width:880px;">
+    <h3 style="font-size:1.2rem;margin-bottom:10px;">What’s included</h3>
+    <ul style="line-height:1.7;margin:0;padding-left:18px;">
+      <li>Full 265-question GTM Intelligence diagnostic</li>
+      <li>45-page AI-generated intelligence report</li>
+      <li>12-pillar maturity scoring (The GTM Framework)</li>
+      <li>Pillar deep-dives and system interpretation</li>
+      <li>Your top three strategic priorities</li>
+      <li>Roadmap for the next 90 days</li>
+      <li>Tool stack recommendations</li>
+      <li>Benchmarks and scenario analysis</li>
+    </ul>
+
+    <p style="margin:20px 0 10px;color:#333;">Pricing</p>
+    <p style="margin:0 0 20px;font-weight:600;">€749 — Professional Edition</p>
+
+    <a href="mailto:tom@caugia.com?subject=GTM%20Intelligence%20Report" class="cta">
+      Request the full report
+    </a>
+  </div>
+</section>
+
+
+
+<!-- ===================================================== -->
+<!--  LAYER 3 — ADVANCED PRODUCT                          -->
+<!-- ===================================================== -->
+
+<section style="margin-bottom:80px;">
+  <h2 style="font-size:1.9rem;font-weight:700;color:#1a1a1a;margin-bottom:12px;">
+    Layer 3 — Advanced: GTM Intelligence Subscription
+  </h2>
+
+  <p style="max-width:880px;margin-bottom:24px;">
+    A continuous intelligence layer that runs beside your revenue engine.  
+    Quarterly updates, movement tracking, and a calm stream of strategic insights — fully automated.
+  </p>
+
+  <div class="card" style="max-width:880px;">
+    <h3 style="font-size:1.2rem;margin-bottom:10px;">What’s included</h3>
+    <ul style="line-height:1.7;margin:0;padding-left:18px;">
+      <li>Quarterly micro assessments</li>
+      <li>Movement analysis across GTM pillars</li>
+      <li>Updated benchmarks</li>
+      <li>Pipeline and forecast risk alerts</li>
+      <li>Quarterly AI intelligence report</li>
+      <li>Access to the Caugia GTM Library</li>
+    </ul>
+
+    <p style="margin:20px 0 10px;color:#333;">Pricing</p>
+    <p style="margin:0 0 20px;font-weight:600;">€99/month or €990/year</p>
+
+    <a href="mailto:tom@caugia.com?subject=GTM%20Intelligence%20Subscription" class="cta">
+      Join the waiting list
+    </a>
+  </div>
+</section>
+
+
+
+<!-- ===================================================== -->
+<!--  CONSULTING (BY EXCEPTION)                           -->
+<!-- ===================================================== -->
+
+<section style="margin-bottom:80px;">
+  <h2 style="font-size:1.9rem;font-weight:700;color:#1a1a1a;margin-bottom:12px;">
+    Consulting (by exception only)
+  </h2>
+
+  <p style="max-width:880px;margin-bottom:24px;">
+    Limited, high-impact consulting for organizations that need hands-on support  
+    — available only to teams already using Caugia GTM Intelligence.
+  </p>
+
+  <div class="card" style="max-width:880px;">
+    <ul style="line-height:1.7;margin:0;padding-left:18px;">
+      <li>GTM Reset Sprint (4 weeks)</li>
+      <li>GTM Architecture Workshop</li>
+      <li>GTM Operating System Build</li>
+      <li>Leadership Alignment Intensive</li>
+    </ul>
+
+    <a href="mailto:tom@caugia.com?subject=Consulting%20Inquiry" class="cta" style="margin-top:20px;display:inline-block;">
+      Contact for availability
+    </a>
+  </div>
+</section>
+
 
 </div>
 </main>
@@ -176,8 +213,7 @@ We diagnose, we design, and we direct — always using The GTM Framework as the 
 <footer>
   © 2025 Caugia Consulting · 
   <a href="privacy.html">Privacy Notice</a> ·
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
-  <a href="mailto:tom@caugia.com">tom@caugia.com</a>
+  <a href="mailto:tom@caugia.com">Contact</a>
 </footer>
 
 </body>
