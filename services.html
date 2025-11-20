@@ -8,10 +8,161 @@
 <link rel="apple-touch-icon" href="/C-logo.png">
 <meta name="msapplication-TileImage" content="/C-logo.png">
 
-<title>Services | Caugia Consulting</title>
-<meta name="description" content="Explore Caugia Consulting services. From the GTM Score to advanced GTM Intelligence and guided programs, each service helps leaders design calm, predictable revenue systems." />
+<title>Services | System Design for Predictable Revenue</title>
+<meta name="description" content="Explore Caugia Consulting services. From the free GTM Score to the GTM Intelligence Report, subscriptions, and enterprise consulting. Calm system design for predictable revenue." />
 
+<link rel="icon" type="image/png" href="android-chrome-512x512.png" />
 <link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
+
+<style>
+  /* Local layout for services grid */
+  .services-intro {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: #1b1b1b;
+    max-width: 880px;
+    margin-bottom: 36px;
+  }
+
+  .services-subtitle {
+    font-size: 0.98rem;
+    color: #555;
+    max-width: 820px;
+    margin-bottom: 40px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1200px;
+    margin-bottom: 56px;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    background: #ffffff;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 20px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 6px 16px rgba(15,23,42,0.04);
+  }
+
+  .service-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  .service-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+
+  .service-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 10px;
+  }
+
+  .service-price span {
+    font-weight: 400;
+    color: #6b7280;
+    font-size: 0.92rem;
+  }
+
+  .service-body {
+    font-size: 0.96rem;
+    line-height: 1.7;
+    color: #1b1b1b;
+    margin-bottom: 12px;
+  }
+
+  .service-list {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #374151;
+    padding-left: 18px;
+    margin: 0 0 12px;
+  }
+
+  .service-list li {
+    margin-bottom: 4px;
+  }
+
+  .service-section-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6b7280;
+    margin: 12px 0 4px;
+  }
+
+  .service-addons-list {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: #4b5563;
+    padding-left: 18px;
+    margin: 0 0 12px;
+  }
+
+  .service-addons-list li {
+    margin-bottom: 4px;
+  }
+
+  .service-cta {
+    margin-top: auto;
+    padding-top: 14px;
+  }
+
+  .service-cta .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    font-size: 0.96rem;
+  }
+
+  .service-footnote {
+    font-size: 0.86rem;
+    color: #6b7280;
+    margin-top: 10px;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+
+  .section-body {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #1b1b1b;
+    max-width: 900px;
+    margin-bottom: 18px;
+  }
+</style>
 </head>
 
 <body>
@@ -28,12 +179,14 @@
       <a href="about.html">About</a>
       <a href="services.html" class="active">Services</a>
       <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="gtm-assessment.html">GTM Score</a>
+      <a href="gtm-assessment.html">GTM Assessment</a>
       <a href="resources.html">Resources</a>
-      <a class="cta" href="mailto:tom@caugia.com">Contact</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
     </nav>
 
-    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
   <nav class="nav-mobile">
@@ -41,9 +194,9 @@
     <a href="about.html">About</a>
     <a href="services.html" class="active">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
-    <a href="gtm-assessment.html">GTM Score</a>
+    <a href="gtm-assessment.html">GTM Assessment</a>
     <a href="resources.html">Resources</a>
-    <a href="mailto:tom@caugia.com">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
 </header>
 
@@ -72,149 +225,185 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
 <main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
-<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
+  <div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-<!-- INTRO -->
-<h1 style="font-size:2.6rem;font-weight:800;margin-bottom:16px;color:var(--blue);">
-  Services
-</h1>
+    <!-- PAGE HEADER -->
+    <h1 style="font-size:2.6rem;font-weight:800;margin-bottom:16px;color:var(--blue);">
+      Services
+    </h1>
 
-<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;margin-bottom:48px;max-width:880px;">
-Caugia Consulting helps leaders design calm, predictable revenue systems.  
-Onze diensten bouwen op één fundament: The GTM Framework.
-</p>
-
-<!-- THREE COLUMN PRICING GRID -->
-<section style="margin-bottom:80px;">
-  <h2 style="margin-bottom:24px;">GTM Intelligence Services</h2>
-
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start;">
-
-    <!-- COLUMN 1 - GTM Score -->
-    <div class="card" style="padding:28px;">
-      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:10px;">GTM Score</h3>
-      <p style="color:#333;margin-bottom:8px;">Free</p>
-      <p style="margin-bottom:16px;">The starting point.  
-      Een heldere, snelle beoordeling van je GTM volwassenheid.</p>
-
-      <ul class="clean-list">
-        <li>14 vragen</li>
-        <li>Direct resultaat</li>
-        <li>Scores per GTM segment</li>
-        <li>Volledig geautomatiseerd</li>
-      </ul>
-
-      <a href="gtm-assessment.html" class="cta" style="margin-top:20px;">Start GTM Score</a>
-    </div>
-
-    <!-- COLUMN 2 - PRO INTELLIGENCE REPORT -->
-    <div class="card highlight" style="padding:28px;border:2px solid var(--blue);">
-      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:10px;">GTM Intelligence Report</h3>
-      <p style="color:#333;margin-bottom:8px;">€749</p>
-      <p style="margin-bottom:16px;">Volledig diagnose rapport van 265 vragen.  
-      Voor leiders die diep inzicht willen in hun volledige GTM systeem.</p>
-
-      <ul class="clean-list">
-        <li>265 vragen analyse</li>
-        <li>Volledige GTM maturiteitsscore</li>
-        <li>12 segment diepte analyse</li>
-        <li>45 pagina’s maatwerk inzicht</li>
-        <li>Roadmap en prioriteitenlijst</li>
-        <li>Toolstack aanbevelingen</li>
-      </ul>
-
-      <a href="#" class="cta" style="margin-top:20px;">Order Intelligence Report</a>
-    </div>
-
-    <!-- COLUMN 3 - ADD ONS -->
-    <div class="card" style="padding:28px;">
-      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:10px;">Add Ons</h3>
-      <p style="margin-bottom:16px;">Extra inzichten voor wie meer verdieping wil.</p>
-
-      <ul class="clean-list">
-        <li>Toolstack analyse €250</li>
-        <li>Competitieve druk analyse €250</li>
-        <li>ICP prioriteit analyse €250</li>
-        <li>Runway adaptatie advies €250</li>
-      </ul>
-
-      <a href="#" class="cta" style="margin-top:20px;">Add Ons bestellen</a>
-    </div>
-
-  </div>
-
-  <!-- FULL WIDTH SUBSCRIPTION CARD -->
-  <div class="card" style="margin-top:40px;padding:32px;">
-    <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:8px;">GTM Intelligence Subscription</h3>
-    <p style="color:#333;margin-bottom:8px;">€99 per maand</p>
-    <p style="margin-bottom:20px;max-width:780px;">
-      Voor leiders die hun GTM systeem structureel willen bijsturen met geautomatiseerde updates en continue rapportage.
+    <p class="services-intro">
+      Caugia Consulting helps leaders design calm, data aligned systems that produce predictable revenue.
+      Every service on this page is built on The GTM Framework and is designed to protect your time while giving you a clear view of your GTM system.
     </p>
 
-    <ul class="clean-list" style="columns:2;max-width:780px;">
-      <li>Quarterly micro updates</li>
-      <li>Pillar beweging en risico’s</li>
-      <li>Voortgang en benchmark updates</li>
-      <li>AI gegenereerde kwartaalrapporten</li>
-      <li>Toegang tot de volledige Caugia bibliotheek</li>
-    </ul>
+    <p class="services-subtitle">
+      You can start with the free GTM Score, move into the GTM Intelligence Report, deepen with a subscription, and bring Caugia into your operating rhythm when you are ready.
+    </p>
 
-    <a href="#" class="cta" style="margin-top:20px;">Start Subscription</a>
+    <!-- CORE PRODUCT GRID -->
+    <section style="margin-bottom:60px;">
+      <div class="services-grid">
+
+        <!-- COLUMN 1: GTM Score -->
+        <article class="service-card">
+          <div class="service-label">Entry</div>
+          <h2 class="service-title">GTM Score</h2>
+          <p class="service-price">Free <span>instant online assessment</span></p>
+          <p class="service-body">
+            A short GTM maturity check that reveals your overall score from 0 to 100 and your current maturity band.
+            Designed as a calm first step that creates shared language inside your team.
+          </p>
+          <ul class="service-list">
+            <li>14 focused questions</li>
+            <li>Score from 0 to 100</li>
+            <li>Maturity band from At Risk to Best in Class</li>
+            <li>Instant result page</li>
+          </ul>
+          <p class="service-footnote">
+            Ideal for leadership teams that want a quick sanity check before a deeper diagnostic.
+          </p>
+          <div class="service-cta">
+            <a href="gtm-assessment.html" class="cta">Start the GTM Score</a>
+          </div>
+        </article>
+
+
+        <!-- COLUMN 2: GTM Intelligence Report -->
+        <article class="service-card">
+          <div class="service-label">Core product</div>
+          <h2 class="service-title">GTM Intelligence Report</h2>
+          <p class="service-price">€749 <span>one time, automated delivery</span></p>
+          <p class="service-body">
+            A professional grade diagnostic based on the full GTM Intelligence assessment.
+            You receive a detailed report that explains how your system works today and where to focus first.
+          </p>
+          <ul class="service-list">
+            <li>Full GTM Intelligence diagnostic</li>
+            <li>12 pillar maturity scoring</li>
+            <li>Complete GTM Intelligence Report in PDF format</li>
+            <li>Priority roadmap and focus areas</li>
+            <li>Team and process insights</li>
+            <li>Benchmarks and tool stack guidance</li>
+          </ul>
+
+          <div class="service-section-label">Available add ons</div>
+          <ul class="service-addons-list">
+            <li>Tool stack cost and overlap analysis · €149</li>
+            <li>Competitive landscape and pressure scan · €199</li>
+            <li>SDR and AE motion review · €249</li>
+            <li>Customer success and expansion review · €199</li>
+            <li>Funnel performance and drop off audit · €249</li>
+            <li>Forecast reliability and cadence review · €199</li>
+            <li>ICP depth and focus model · €149</li>
+            <li>GTM role and responsibility alignment view · €149</li>
+          </ul>
+
+          <p class="service-footnote">
+            Add ons can be selected when you request the report and are delivered through the same intelligence workflow.
+          </p>
+
+          <div class="service-cta">
+            <a href="mailto:tom@caugia.com?subject=GTM%20Intelligence%20Report" class="cta">
+              Request the GTM Intelligence Report
+            </a>
+          </div>
+        </article>
+
+
+        <!-- COLUMN 3: GTM Intelligence Subscription -->
+        <article class="service-card">
+          <div class="service-label">Subscription</div>
+          <h2 class="service-title">GTM Intelligence Subscription</h2>
+          <p class="service-price">€99 per month <span>or €990 per year</span></p>
+          <p class="service-body">
+            A light recurring layer that keeps your GTM system under quiet observation.
+            You receive regular updates on movement inside your score and clear alerts when patterns shift.
+          </p>
+          <ul class="service-list">
+            <li>Quarterly micro assessments</li>
+            <li>Score drift and pillar movement tracking</li>
+            <li>Updated benchmarks across similar companies</li>
+            <li>Quarterly GTM Intelligence mini report</li>
+            <li>Pipeline and forecast risk alerts</li>
+            <li>Access to the Caugia GTM Library</li>
+          </ul>
+
+          <div class="service-section-label">Optional subscription add ons</div>
+          <ul class="service-addons-list">
+            <li>Quarterly executive summary pack for boards</li>
+            <li>Custom CRM and funnel dashboard layout suggestions</li>
+            <li>Scenario notes for funding rounds and planning cycles</li>
+            <li>Signals for when to rerun the full GTM Intelligence Report</li>
+          </ul>
+
+          <p class="service-footnote">
+            Add ons are designed to stay light.
+            They extend your subscription without introducing constant meetings.
+          </p>
+
+          <div class="service-cta">
+            <a href="mailto:tom@caugia.com?subject=GTM%20Intelligence%20Subscription" class="cta">
+              Set up the subscription
+            </a>
+          </div>
+        </article>
+
+
+        <!-- COLUMN 4: Consulting -->
+        <article class="service-card">
+          <div class="service-label">Enterprise</div>
+          <h2 class="service-title">Consulting</h2>
+          <p class="service-body">
+            When you want Caugia to work alongside your team, consulting engagements turn intelligence into a living operating system.
+            These are selective and designed to support complex GTM environments.
+          </p>
+          <ul class="service-list">
+            <li>GTM system design and blueprint work</li>
+            <li>GTM operating model build and refinement</li>
+            <li>Enterprise GTM audits with clear findings</li>
+            <li>Leadership alignment around one GTM language</li>
+            <li>RevOps and GTM advisory support</li>
+          </ul>
+
+          <p class="service-footnote">
+            Consulting usually follows a GTM Intelligence Report so that work begins with a shared diagnostic and a clear map of your system.
+          </p>
+
+          <div class="service-cta">
+            <a href="mailto:tom@caugia.com?subject=Consulting%20with%20Caugia" class="cta">
+              Discuss a consulting engagement
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- HOW THIS FITS TOGETHER -->
+    <section>
+      <h2 class="section-heading">How these services work together</h2>
+      <p class="section-body">
+        Many companies begin with the free GTM Score, then move into the GTM Intelligence Report when they want a complete view of their system.
+        The subscription keeps that view current, while consulting brings structured help only when you feel it is needed.
+      </p>
+      <p class="section-body">
+        The goal is simple.
+        Your GTM system becomes calmer and more predictable, and you spend less time reacting and more time directing.
+      </p>
+    </section>
+
   </div>
-
-</section>
-
-<!-- GUIDED PROGRAMS -->
-<section style="margin-bottom:80px;">
-  <h2 style="margin-bottom:24px;">Guided Programs</h2>
-
-  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;">
-
-    <div class="card" style="padding:28px;">
-      <h3>GTM Reset Sprint</h3>
-      <p>Vier weken om een verstoord of onduidelijk GTM systeem te resetten.  
-      Licht programma, directe impact.</p>
-      <p style="margin-top:8px;color:#333;">€4.000</p>
-    </div>
-
-    <div class="card" style="padding:28px;">
-      <h3>GTM Architecture Workshop</h3>
-      <p>Een halve dag om je systeem te kaderen, prioriteiten te bepalen en je leiderschapsteam uit te lijnen.</p>
-      <p style="margin-top:8px;color:#333;">€3.500</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- STRATEGIC PROGRAMS -->
-<section style="margin-bottom:80px;">
-  <h2 style="margin-bottom:24px;">Strategic Programs</h2>
-
-  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;">
-
-    <div class="card" style="padding:28px;">
-      <h3>GTM Operating System Build</h3>
-      <p>Een volledig ontwerp van je toekomstige GTM systeem.  
-      Ideaal voor organisaties die rust en schaalbaarheid willen.</p>
-      <p style="margin-top:8px;color:#333;">€18.000 tot €25.000</p>
-    </div>
-
-    <div class="card" style="padding:28px;">
-      <h3>Interim GTM Leadership</h3>
-      <p>Stabiliseer teams en herbouw ritme met tijdelijke leiderschapsondersteuning.</p>
-      <p style="margin-top:8px;color:#333;">€6.500 tot €12.500 per maand</p>
-    </div>
-
-  </div>
-</section>
-
-</div>
 </main>
 
+
 <footer>
-  © 2025 Caugia Consulting  
-  <a href="privacy.html">Privacy Notice</a>  
+  © 2025 Caugia Consulting ·
+  <a href="privacy.html">Privacy Notice</a> ·
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
 
