@@ -1,5 +1,5 @@
 /* ===========================================================
-   CAUGIA CONSULTING — PRODUCTION CSS v2.0
+   CAUGIA CONSULTING — PRODUCTION CSS v2.1
    Calm • Professional • Systematic • Brand-true
    =========================================================== */
 
@@ -9,10 +9,10 @@
 :root {
   /* Core Colors */
   --ink: #0b132b;
-  --blue: #0046A5;          /* Brand primary */
-  --navy: #002A5C;          /* Deep navy */
-  --accent: #F36C21;        /* Insight Orange */
-  --accent-soft: #FFD9C2;   /* Soft tint */
+  --blue: #0046A5;
+  --navy: #002A5C;
+  --accent: #F36C21;
+  --accent-soft: #FFD9C2;
   --silver: #E6E9EF;
 
   --bg-light: #f9fafc;
@@ -101,7 +101,7 @@ a.brand {
 }
 
 
-/* ------------------ Desktop Nav ------------------ */
+/* ------------------ Navigation ------------------ */
 
 nav.nav-desktop {
   display: flex;
@@ -123,7 +123,7 @@ nav.nav-desktop a.active {
 }
 
 
-/* ------------------ CTA ------------------ */
+/* CTA */
 
 .cta {
   background: var(--blue);
@@ -215,58 +215,11 @@ nav.nav-mobile.open {
 }
 
 
-/* ------------------ Hero ------------------ */
+/* ------------------ Typography & Sections ------------------ */
 
 .hero {
   text-align: center;
   padding: 0 24px;
-}
-
-.hero img {
-  width: 320px;
-  margin-bottom: 24px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--blue);
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-
-.hero p {
-  max-width: 720px;
-  margin: 0 auto 28px;
-  font-size: 1.15rem;
-  line-height: 1.7;
-}
-
-
-/* Mobile Hero */
-
-@media (max-width: 480px) {
-  .hero img {
-    width: 240px;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-}
-
-
-/* ------------------ Layout ------------------ */
-
-main .wrap {
-  padding: 48px 24px 80px;
-}
-
-section {
-  margin-bottom: 64px;
 }
 
 h2 {
@@ -281,11 +234,8 @@ p {
   line-height: 1.7;
 }
 
-.readmore {
-  margin-top: 8px;
-  font-weight: 600;
-  color: var(--blue);
-  text-decoration: none;
+section {
+  margin-bottom: 64px;
 }
 
 
@@ -303,66 +253,81 @@ p {
   border-color: var(--blue);
 }
 
-@media (max-width: 480px) {
-  .card {
-    padding: 20px;
+
+/* ------------------ Services Grid (Equal-height Layout) ------------------ */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-
-/* ------------------ GTM Framework Grid ------------------ */
-
-.framework-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+@media (max-width: 720px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-
-/* ------------------ GTM Score Wrapper ------------------ */
-
-.score-wrapper {
-  background: #f3f5f9;
-  border: 1px solid var(--border);
+.service-card {
+  background: #ffffff;
   border-radius: var(--radius);
-  padding: 28px;
-  max-width: 720px;
-  margin: 32px 0;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 14px;
-  background: #dce1ea;
-  border-radius: 10px;
-  margin-top: 12px;
-}
-
-.progress-fill {
+  border: 1px solid var(--border);
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 0%;
-  background: var(--blue);
-  transition: width 0.6s ease;
+  box-shadow: 0 6px 16px rgba(15,23,42,0.04);
 }
 
-
-/* ------------------ Footer ------------------ */
-
-footer {
-  padding: 28px 0;
-  margin-top: auto;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid var(--border);
+.service-top {
+  flex: 0 0 auto;
+  margin-bottom: 16px;
 }
 
-footer a {
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 500;
+.service-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 6px;
 }
 
-footer a:hover {
-  text-decoration: underline;
+.service-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 4px;
 }
+
+.service-price {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+.service-price span {
+  font-weight: 400;
+  color: #6b7280;
+  font-size: 0.92rem;
+}
+
+.service-body {
+  flex: 0 0 auto;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #1b1b1b;
+}
+
+.service-features {
+  flex: 1 0 auto;
+  margin-bottom:
