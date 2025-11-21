@@ -315,7 +315,7 @@ p {
   }
 }
 
-/* Pixel-perfect cards met vaste rijen */
+/* Pixel-perfect cards met vaste rijen (desktop) */
 
 .service-card {
   display: grid;
@@ -324,8 +324,8 @@ p {
     auto    /* title */
     auto    /* price */
     120px   /* intro */
-    180px   /* features */
-    160px   /* add-ons */
+    190px   /* features */
+    210px   /* add-ons */
     auto;   /* CTA */
   background: #ffffff;
   border-radius: var(--radius);
@@ -376,6 +376,7 @@ p {
   color: #1b1b1b;
   overflow: hidden;
   padding-right: 4px;
+  margin-top: 8px;
 }
 
 /* Features */
@@ -387,6 +388,7 @@ p {
   padding-left: 18px;
   overflow: hidden;
   padding-right: 4px;
+  margin: 0; /* zorgt dat bullets op dezelfde hoogte starten */
 }
 
 .service-features li {
@@ -406,6 +408,7 @@ p {
   line-height: 1.45;
   color: #4b5563;
   padding-left: 18px;
+  margin: 0;
 }
 
 .service-addons-list li {
@@ -426,6 +429,22 @@ p {
 .service-cta .cta {
   width: 100%;
   text-align: center;
+}
+
+/* Mobile: geen vaste rijen, alles auto-hoogte */
+@media (max-width: 900px) {
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.04);
+    padding: 20px 18px;
+  }
+
+  .service-body,
+  .service-features,
+  .service-addons {
+    overflow: visible;
+  }
 }
 
 /* Section onder de grid */
