@@ -1,5 +1,5 @@
 /* ===========================================================
-   CAUGIA CONSULTING — PRODUCTION CSS v2.3
+   CAUGIA CONSULTING — PRODUCTION CSS v2.4
    Calm • Professional • Systematic • Brand-true
    =========================================================== */
 
@@ -47,6 +47,7 @@ body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  overflow-x: hidden; /* geen horizontale shift tussen pagina's */
 }
 
 img {
@@ -223,7 +224,7 @@ nav.nav-mobile.open {
 /* ------------------ Layout & Typography ------------------ */
 
 main .wrap {
-  padding: 72px 24px 80px; /* meer ruimte boven 'Services' */
+  padding: 88px 24px 80px; /* meer ruimte boven 'Services' */
 }
 
 main {
@@ -284,14 +285,21 @@ p {
   line-height: 1.8;
   color: #1b1b1b;
   max-width: 760px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .services-subtitle {
   font-size: 0.98rem;
   color: #555;
   max-width: 640px;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
+}
+
+.services-note {
+  font-size: 0.9rem;
+  color: #6b7280;
+  max-width: 640px;
+  margin-top: 4px;
 }
 
 /* Services grid */
@@ -301,6 +309,7 @@ p {
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   max-width: 100%;
+  margin-top: 40px; /* extra ruimte tussen intro en eerste rij kaarten */
 }
 
 @media (max-width: 1100px) {
@@ -323,8 +332,8 @@ p {
     auto    /* label */
     auto    /* title */
     auto    /* price */
-    130px   /* intro */
-    230px   /* features */
+    140px   /* intro */
+    240px   /* features */
     210px   /* add-ons */
     auto;   /* CTA */
   background: #ffffff;
@@ -376,7 +385,7 @@ p {
   color: #1b1b1b;
   overflow: hidden;
   padding-right: 4px;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 /* Features */
@@ -386,13 +395,14 @@ p {
   line-height: 1.55;
   color: #374151;
   padding-left: 18px;
-  overflow: hidden;
   padding-right: 4px;
-  margin: 0;
+  overflow: hidden;
+  margin-top: 6px;
+  list-style-position: outside;
 }
 
 .service-features li {
-  margin-bottom: 4px;
+  margin: 0 0 6px;
 }
 
 /* Add-ons */
@@ -401,6 +411,16 @@ p {
   border-top: 1px solid var(--border);
   padding-top: 12px;
   overflow: hidden;
+  margin-top: 10px;
+}
+
+.service-addons-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 6px;
 }
 
 .service-addons-list {
@@ -409,10 +429,11 @@ p {
   color: #4b5563;
   padding-left: 18px;
   margin: 0;
+  list-style-position: outside;
 }
 
 .service-addons-list li {
-  margin-bottom: 4px;
+  margin: 0 0 4px;
 }
 
 .service-addons .empty {
@@ -423,7 +444,7 @@ p {
 /* CTA */
 
 .service-cta {
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
 .service-cta .cta {
@@ -436,8 +457,8 @@ p {
   .service-card {
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 14px rgba(15,23,42,0.04);
     padding: 20px 18px;
+    grid-template-rows: none;
   }
 
   .service-body,
