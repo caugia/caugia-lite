@@ -2043,7 +2043,7 @@
       ]
     }
   ]
-}
+},
       {
   id: "pillar-5",
   index: 5,
@@ -2282,23 +2282,481 @@
       ]
     }
   ]
-}
+},
       {
-        id: "pillar-6",
-        index: 6,
-        title: "Sales Execution",
-        intro:
-          "Sales Execution measures how effectively your sales organisation identifies, progresses and closes opportunities.",
-        questions: []
-      },
+  id: "pillar-6",
+  index: 6,
+  title: "Sales Execution",
+  intro: `
+    <h2>Pillar 6 — Sales Execution</h2>
+    <p>
+      Sales Execution measures how effectively your sales organization identifies, progresses and closes opportunities.
+      A strong sales motion is predictable, disciplined and rooted in clear processes, strong skills, buyer alignment 
+      and measurable performance.
+    </p>
+    <p>Select the option that best reflects how your sales team operates today.</p>
+  `,
+  questions: [
+    {
+      id: "p6q1",
+      text: "Our sales process is clear, structured and consistently followed.",
+      options: [
+        "We do not have a defined sales process.",
+        "A basic process exists but is inconsistently used.",
+        "The process is solid but lacks full adoption.",
+        "A well-defined process is followed by most reps.",
+        "A strong, data-backed process followed with high discipline across the team."
+      ]
+    },
+    {
+      id: "p6q2",
+      text: "Reps understand and follow each stage of the sales cycle.",
+      options: [
+        "Stages are unclear or ignored.",
+        "Partial understanding, limited consistency.",
+        "Reasonable understanding with gaps.",
+        "Strong stage adherence and understanding.",
+        "Crystal-clear stage execution with strong discipline and predictability."
+      ]
+    },
+    {
+      id: "p6q3",
+      text: "Reps conduct strong discovery that reveals real buyer needs.",
+      options: [
+        "Discovery is shallow or inconsistent.",
+        "Basic discovery, not deep enough.",
+        "Solid discovery, uneven across team.",
+        "Strong discovery across most reps.",
+        "Exceptional discovery that drives deal quality and win-rates."
+      ]
+    },
+    {
+      id: "p6q4",
+      text: "Reps tailor demos and conversations to the buyer's context.",
+      options: [
+        "Demos are generic and product-centric.",
+        "Some tailoring, limited effectiveness.",
+        "Decent tailoring, not consistent enough.",
+        "Strong tailoring based on ICP/segment.",
+        "Highly tailored demos that map clearly to buyer pain and value."
+      ]
+    },
+    {
+      id: "p6q5",
+      text: "Reps manage objections confidently and effectively.",
+      options: [
+        "Objection handling is weak.",
+        "Basic objection handling.",
+        "Solid approach with inconsistencies.",
+        "Strong, structured objection handling.",
+        "Highly effective objection management that improves conversion."
+      ]
+    },
+    {
+      id: "p6q6",
+      text: "We have clear qualification criteria and apply them with discipline.",
+      options: [
+        "No qualification framework.",
+        "Qualification used inconsistently.",
+        "Good framework with some gaps.",
+        "Strong qualification discipline.",
+        "Highly consistent qualification improving deal outcomes."
+      ]
+    },
+    {
+      id: "p6q7",
+      text: "Our forecasting is reliable and grounded in data.",
+      options: [
+        "Forecasting is highly unreliable.",
+        "Forecasting exists, accuracy is low.",
+        "Reasonable accuracy, variable.",
+        "Strong forecast accuracy across reps.",
+        "Consistently accurate forecasting with strong pipeline predictability."
+      ]
+    },
+    {
+      id: "p6q8",
+      text: "Reps follow a repeatable and effective deal progression methodology.",
+      options: [
+        "Deals progress randomly or reactively.",
+        "Basic progression, not structured.",
+        "Solid progression framework, inconsistent use.",
+        "Strong progression discipline.",
+        "Highly predictable deal progression based on strong methodology."
+      ]
+    },
+    {
+      id: "p6q9",
+      text: "Reps document deals clearly and consistently in the CRM.",
+      options: [
+        "Documentation is poor or unreliable.",
+        "Partial documentation.",
+        "Reasonable quality with gaps.",
+        "Strong documentation across the team.",
+        "Excellent documentation enabling strong visibility and decision-making."
+      ]
+    },
+    {
+      id: "p6q10",
+      text: "Reps effectively multithread deals and involve multiple stakeholders.",
+      options: [
+        "Deals often rely on a single contact.",
+        "Some multithreading efforts.",
+        "Solid multithreading, not consistent.",
+        "Strong multi-stakeholder engagement.",
+        "Advanced, strategic multithreading improving win-rates and deal size."
+      ]
+    },
+    {
+      id: "p6q11",
+      text: "Reps understand and use competitive positioning in deals.",
+      options: [
+        "Competitive awareness is weak.",
+        "Basic understanding, limited application.",
+        "Decent competitive positioning.",
+        "Strong competitive strategy used in deals.",
+        "Highly effective use of competitive insights to win deals."
+      ]
+    },
+    {
+      id: "p6q12",
+      text: "Sales managers provide effective coaching and deal support.",
+      options: [
+        "Little to no coaching.",
+        "Basic manager support.",
+        "Regular coaching with inconsistencies.",
+        "Strong coaching that improves rep performance.",
+        "High-quality coaching culture driving continuous improvement."
+      ]
+    },
+    {
+      id: "p6q13",
+      text: "We have clear definitions for deal stages and exit criteria.",
+      options: [
+        "Stages lack definitions or discipline.",
+        "Basic criteria exist but are weak.",
+        "Solid definitions with inconsistent use.",
+        "Strong, well-defined exit criteria.",
+        "Highly disciplined stage management with consistent adherence."
+      ]
+    },
+    {
+      id: "p6q14",
+      text: "Reps are proficient in articulating our value proposition.",
+      options: [
+        "Value articulation is weak or unclear.",
+        "Basic articulation, not compelling.",
+        "Solid articulation with gaps.",
+        "Strong, clear articulation of value.",
+        "Expert-level articulation tailored to buyer needs and impact."
+      ]
+    },
+    {
+      id: "p6q15",
+      text: "Reps ask strategic questions that influence the deal direction.",
+      options: [
+        "Mostly tactical or surface-level questions.",
+        "Some strong questions, not consistent.",
+        "Decent strategic questioning.",
+        "Strong strategic questioning across the team.",
+        "Highly insightful questioning shaping the buyer's perspective."
+      ]
+    },
+    {
+      id: "p6q16",
+      text: "Reps run effective next step management and follow-up.",
+      options: [
+        "Follow-up is inconsistent or weak.",
+        "Some structure, not reliable.",
+        "Reasonable next-step hygiene.",
+        "Strong follow-up discipline.",
+        "World-class next-step management improving deal velocity."
+      ]
+    },
+    {
+      id: "p6q17",
+      text: "We use MEDDIC/MEDDPICC/BANT/SPIN or similar methodologies effectively.",
+      options: [
+        "No methodology in place.",
+        "Methodology exists, but lightly used.",
+        "Solid methodology usage, inconsistent.",
+        "Strong adherence to methodology.",
+        "Methodology deeply embedded and driving strong performance."
+      ]
+    },
+    {
+      id: "p6q18",
+      text: "Reps run effective closing conversations with confidence.",
+      options: [
+        "Closing is a weak capability.",
+        "Some closing skills, variable success.",
+        "Reasonable closing performance.",
+        "Strong closing discipline and skills.",
+        "Confident, consultative closing that reliably moves deals to signature."
+      ]
+    },
+    {
+      id: "p6q19",
+      text: "Sales collaboration with other GTM functions (SDR, PMM, CS) is strong.",
+      options: [
+        "Limited cross-functional collaboration.",
+        "Basic collaboration, inconsistent.",
+        "Solid collaboration with some gaps.",
+        "Strong alignment across GTM functions.",
+        "Deep, consistent collaboration that strengthens the entire GTM system."
+      ]
+    },
+    {
+      id: "p6q20",
+      text: "Sales Execution contributes predictably to revenue targets.",
+      options: [
+        "Unpredictable performance.",
+        "Partial contribution with volatility.",
+        "Solid execution with variability.",
+        "Strong execution driving predictable revenue.",
+        "Highly mature execution engine delivering consistent, reliable performance."
+      ]
+    }
+  ]
+},
       {
-        id: "pillar-7",
-        index: 7,
-        title: "Customer Success and Retention",
-        intro:
-          "This pillar measures how well you drive adoption, prevent churn and deliver value to existing customers.",
-        questions: []
-      },
+  id: "pillar-7",
+  index: 7,
+  title: "Customer Success & Retention",
+  intro: `
+    <h2>Pillar 7 — Customer Success & Retention</h2>
+    <p>
+      Customer Success & Retention measures how effectively your organization drives adoption, delivers value, 
+      prevents churn and grows existing accounts.
+    </p>
+    <p>
+      A mature CS organization is proactive, structured and deeply aligned with product, sales and customer outcomes.
+    </p>
+    <p>Select the option that best reflects how your Customer Success function operates today.</p>
+  `,
+  questions: [
+    {
+      id: "p7q1",
+      text: "We have a clear and well-defined Customer Success strategy.",
+      options: [
+        "No defined CS strategy.",
+        "Basic strategy, not consistently applied.",
+        "Solid strategy with gaps.",
+        "Clear strategy driving CS actions.",
+        "Mature CS strategy aligned with revenue, product and GTM."
+      ]
+    },
+    {
+      id: "p7q2",
+      text: "Our onboarding process is structured, consistent and effective.",
+      options: [
+        "Onboarding is ad-hoc or unclear.",
+        "Basic onboarding with gaps.",
+        "Solid process, inconsistently followed.",
+        "Strong, predictable onboarding experience.",
+        "World-class onboarding delivering fast time-to-value."
+      ]
+    },
+    {
+      id: "p7q3",
+      text: "We measure and influence customer adoption based on clear signals.",
+      options: [
+        "No visibility into adoption.",
+        "Limited adoption signals.",
+        "Reasonable insight, not systematic.",
+        "Strong adoption monitoring and action.",
+        "Deep adoption intelligence driving proactive interventions."
+      ]
+    },
+    {
+      id: "p7q4",
+      text: "We have reliable health scoring that correlates with churn and renewal.",
+      options: [
+        "No health scoring.",
+        "Basic scoring with low accuracy.",
+        "Solid scoring, some inconsistencies.",
+        "Strong health scoring linked to outcomes.",
+        "Highly predictive health scoring preventing churn."
+      ]
+    },
+    {
+      id: "p7q5",
+      text: "CSMs operate with a clear operating rhythm (touchpoints, QBRs, reviews).",
+      options: [
+        "No structured rhythm.",
+        "Light rhythm, inconsistently followed.",
+        "Solid rhythm with gaps.",
+        "Strong, predictable CS cadence.",
+        "Highly disciplined rhythm improving retention and value delivery."
+      ]
+    },
+    {
+      id: "p7q6",
+      text: "We understand why customers churn or downgrade.",
+      options: [
+        "No churn insight.",
+        "Partial, anecdotal insight.",
+        "Reasonable churn understanding.",
+        "Strong insights informing CS actions.",
+        "Deep, validated churn intelligence driving prevention strategies."
+      ]
+    },
+    {
+      id: "p7q7",
+      text: "We run effective value reviews demonstrating ROI and outcomes.",
+      options: [
+        "Value reviews are rare or ineffective.",
+        "Basic outcome discussions.",
+        "Solid value reviews with gaps.",
+        "Strong ROI-focused reviews improving retention.",
+        "Highly impactful value reviews that strengthen customer relationships."
+      ]
+    },
+    {
+      id: "p7q8",
+      text: "CSMs are proactive rather than reactive with customer needs.",
+      options: [
+        "Mostly reactive firefighting.",
+        "Some proactive work.",
+        "Solid mix, room to improve.",
+        "Strong proactive CS approach.",
+        "Deeply proactive system preventing issues before they arise."
+      ]
+    },
+    {
+      id: "p7q9",
+      text: "CS collaborates strongly with Product to improve roadmap and experience.",
+      options: [
+        "No structured collaboration.",
+        "Occasional collaboration.",
+        "Reasonable collaboration with gaps.",
+        "Strong, regular collaboration.",
+        "High-impact partnership shaping product and customer experience."
+      ]
+    },
+    {
+      id: "p7q10",
+      text: "We systematically capture and act on customer product feedback.",
+      options: [
+        "No systematic feedback collection.",
+        "Occasional ad-hoc feedback.",
+        "Regular feedback with limited action.",
+        "Strong feedback loop influencing product.",
+        "Comprehensive feedback system driving continuous product improvement."
+      ]
+    },
+    {
+      id: "p7q11",
+      text: "We have clear processes for managing customer escalations and risks.",
+      options: [
+        "Escalations are handled reactively and inconsistently.",
+        "Basic escalation response.",
+        "Solid process with some gaps.",
+        "Strong escalation management preventing churn.",
+        "Proactive risk management system maintaining customer health."
+      ]
+    },
+    {
+      id: "p7q12",
+      text: "We track customer outcomes and measure value delivered.",
+      options: [
+        "No outcome tracking.",
+        "Basic outcomes, not used widely.",
+        "Solid outcome tracking with gaps.",
+        "Strong tracking tied to CS actions.",
+        "Outcome-driven CS motion that demonstrates clear ROI."
+      ]
+    },
+    {
+      id: "p7q13",
+      text: "CSMs have strong communication, consulting and relationship skills.",
+      options: [
+        "Skill gaps across the team.",
+        "Basic skills, inconsistent.",
+        "Solid skills with room to improve.",
+        "Strong skill base driving customer success.",
+        "Highly skilled trusted advisors driving exceptional experience."
+      ]
+    },
+    {
+      id: "p7q14",
+      text: "We use customer usage data to drive proactive interventions.",
+      options: [
+        "No usage monitoring.",
+        "Basic usage visibility with limited action.",
+        "Regular usage tracking with some proactivity.",
+        "Strong usage-based intervention model.",
+        "Advanced usage analytics driving predictive customer success."
+      ]
+    },
+    {
+      id: "p7q15",
+      text: "Support and Customer Success collaborate effectively.",
+      options: [
+        "Minimal collaboration.",
+        "Occasional alignment.",
+        "Solid collaboration with gaps.",
+        "Strong partnership between CS and Support.",
+        "Highly integrated collaboration improving customer experience end-to-end."
+      ]
+    },
+    {
+      id: "p7q16",
+      text: "We handle escalations effectively and with clear ownership.",
+      options: [
+        "Escalations are chaotic or slow.",
+        "Basic escalation handling.",
+        "Solid process with variances.",
+        "Strong escalation ownership and response.",
+        "Mature escalation system that preserves customer health and trust."
+      ]
+    },
+    {
+      id: "p7q17",
+      text: "We track and improve key CS metrics (GRR, churn, adoption, health, NPS).",
+      options: [
+        "Metrics are unclear or not tracked.",
+        "Basic tracking, limited usage.",
+        "Solid metrics with inconsistent review.",
+        "Strong metric visibility and usage.",
+        "Highly mature metrics driving continuous improvement."
+      ]
+    },
+    {
+      id: "p7q18",
+      text: "CS workload is aligned with customer needs and segment complexity.",
+      options: [
+        "Workload is chaotic or overloaded.",
+        "Some alignment, not structured.",
+        "Reasonable balance with gaps.",
+        "Strong alignment driving better outcomes.",
+        "Precisely calibrated CS capacity aligned to segment and complexity."
+      ]
+    },
+    {
+      id: "p7q19",
+      text: "Customer feedback loops are clear, structured and actioned.",
+      options: [
+        "No feedback loop.",
+        "Limited or informal feedback loops.",
+        "Good feedback loop with gaps.",
+        "Strong loop driving improvements.",
+        "High-quality feedback system improving product, CS and GTM."
+      ]
+    },
+    {
+      id: "p7q20",
+      text: "Customer Success drives predictable retention and GRR performance.",
+      options: [
+        "Low impact on retention.",
+        "Partial impact, inconsistent.",
+        "Solid retention performance with variability.",
+        "Strong retention and GRR outcomes.",
+        "CS is a strategic retention engine with consistent performance."
+      ]
+    }
+  ]
+},
       {
         id: "pillar-8",
         index: 8,
