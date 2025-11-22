@@ -2,1061 +2,885 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>GTM Intelligence Report | Assessment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The GTM Intelligence Report | Caugia Consulting</title>
-  <meta name="description" content="Complete 12 pillar GTM Intelligence assessment with 240 diagnostic questions. Premium, structured and ready for integration with Stripe and Make." />
-
-  <!-- Favicon (aanpassen als nodig) -->
-  <link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-
-  <!-- Globale Caugia CSS -->
-  <link rel="stylesheet" href="assets/caugia.css?v=2.5" />
 
   <style>
-    /* Page specific layout for the Intelligence Assessment */
+    :root {
+      --ink: #0b132b;
+      --blue: #0046a5;
+      --navy: #001835;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --border: #dde2ee;
+      --muted: #6b7280;
+      --pill-bg: #eef2ff;
+      --pill-active: #0046a5;
+      --pill-active-text: #ffffff;
+      --radius: 10px;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      background: #f5f7fb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
     }
 
-    .gi-shell {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
-    }
-
-    .gi-header {
-      margin-top: 16px;
-      margin-bottom: 24px;
-    }
-
-    .gi-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #0046A5;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .gi-title-row {
+    .page {
+      min-height: 100vh;
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      gap: 12px;
+      flex-direction: column;
     }
 
-    .gi-title-row h1 {
-      font-size: 26px;
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-weight: 600;
-      color: #0b132b;
+      font-size: 15px;
+      color: var(--ink);
+      text-decoration: none;
     }
 
-    .gi-subtitle {
-      font-size: 14px;
-      color: #4b5563;
-      max-width: 520px;
+    .brand-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ff8a3c, #f36c21);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
     }
 
-    .gi-top-meta {
-      margin-top: 8px;
-      font-size: 13px;
-      color: #6b7280;
+    .header-tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e5f1ff;
+      color: var(--blue);
+      font-weight: 500;
     }
 
-    /* Layout: sidebar + main content */
-    .gi-layout {
+    main {
+      flex: 1;
+    }
+
+    .layout {
+      max-width: 1120px;
+      margin: 24px auto 40px;
+      padding: 0 20px 40px;
       display: grid;
       grid-template-columns: 260px minmax(0, 1fr);
       gap: 20px;
       align-items: flex-start;
     }
 
-    @media (max-width: 900px) {
-      .gi-layout {
+    @media (max-width: 880px) {
+      .layout {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    /* Left sidebar */
-    .gi-side-card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 16px 14px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-      border: 1px solid rgba(15, 23, 42, 0.06);
+    /* Sidebar */
+
+    .sidebar {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 16px 16px;
       position: sticky;
-      top: 76px;
+      top: 16px;
     }
 
-    .gi-progress-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: #111827;
-      margin-bottom: 8px;
+    .sidebar h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
     }
 
-    .gi-progress-bar-outer {
+    .sidebar p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .progress-bar {
       width: 100%;
-      height: 8px;
+      height: 6px;
       border-radius: 999px;
-      background: #e5e7eb;
+      background: #edf2ff;
       overflow: hidden;
       margin-bottom: 10px;
     }
 
-    .gi-progress-bar-inner {
+    .progress-fill {
       height: 100%;
       width: 0%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #0046A5, #2563eb);
-      transition: width 0.25s ease;
+      background: linear-gradient(90deg, #0046a5, #2563eb);
+      transition: width 0.3s ease;
     }
 
-    .gi-progress-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      color: #6b7280;
+    .progress-label {
+      font-size: 11px;
+      color: var(--muted);
       margin-bottom: 12px;
     }
 
-    .gi-pillars-list-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #9ca3af;
-      margin-top: 8px;
-      margin-bottom: 6px;
-    }
-
-    .gi-pillars-list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      max-height: 420px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .gi-pillar-chip {
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      border: 1px solid transparent;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-      cursor: pointer;
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-      background: #f9fafb;
-      color: #374151;
-    }
-
-    .gi-pillar-chip span {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .gi-pillar-chip small {
+    .pillars-title {
       font-size: 11px;
-      color: #6b7280;
-      flex-shrink: 0;
-    }
-
-    .gi-pillar-chip.is-active {
-      background: rgba(0, 70, 165, 0.08);
-      border-color: #0046A5;
-      color: #0046A5;
-    }
-
-    .gi-pillar-chip.is-complete {
-      border-style: solid;
-      border-color: #10b981;
-      background: rgba(16, 185, 129, 0.06);
-      color: #065f46;
-    }
-
-    .gi-side-actions {
-      margin-top: 14px;
-      padding-top: 10px;
-      border-top: 1px dashed #e5e7eb;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .gi-side-actions button {
-      width: 100%;
-    }
-
-    .gi-side-helper {
-      font-size: 11px;
-      color: #6b7280;
-      line-height: 1.5;
-      margin-top: 4px;
-    }
-
-    /* Main content card */
-    .gi-main-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 20px 20px 22px;
-      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.06);
-      border: 1px solid rgba(15, 23, 42, 0.06);
-    }
-
-    .gi-main-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .gi-main-header-title {
-      font-size: 18px;
       font-weight: 600;
-      color: #111827;
-      margin-bottom: 3px;
-    }
-
-    .gi-main-header-meta {
-      font-size: 12px;
-      color: #6b7280;
-    }
-
-    .gi-main-header-pill {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      font-size: 11px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .gi-intro-text {
-      font-size: 13px;
-      color: #4b5563;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .gi-questions {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .gi-question {
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-      padding: 12px 12px 10px;
-      background: #f9fafb;
-    }
-
-    .gi-question-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
       margin-bottom: 8px;
     }
 
-    .gi-question-title {
-      font-size: 13px;
-      font-weight: 500;
-      color: #111827;
-    }
-
-    .gi-question-index {
-      font-size: 11px;
-      color: #6b7280;
-      flex-shrink: 0;
-    }
-
-    .gi-scale-row {
+    .pillar-list {
+      list-style: none;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .pillar-item {
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: default;
+    }
+
+    .pillar-item.active {
+      background: var(--pill-active);
+      color: var(--pill-active-text);
+    }
+
+    .pillar-item span {
+      opacity: 0.9;
+    }
+
+    .pillar-item small {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-footer button {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .sidebar-footer .muted {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Main panel */
+
+    .panel {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 20px;
+    }
+
+    .panel-header {
+      margin-bottom: 16px;
+    }
+
+    .panel-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .panel-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .panel-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .panel-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pill-meta {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
       gap: 8px;
     }
 
-    .gi-scale-option {
+    .pill-meta span {
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #f3f4ff;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 14px 0 12px;
+    }
+
+    /* Question blocks */
+
+    .questions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .question-card {
+      border-radius: 8px;
+      border: 1px solid #e2e4f1;
+      padding: 10px 12px;
+      background: #fafbff;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .question-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .question-id {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .question-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .level-option {
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      padding: 4px 7px;
       border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 11px;
-      border: 1px solid #e5e7eb;
+      border: 1px solid #d4d7ec;
       background: #ffffff;
       cursor: pointer;
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     }
 
-    .gi-scale-option input {
-      margin: 0;
+    .level-option input {
+      accent-color: var(--blue);
     }
 
-    .gi-scale-option.is-selected {
-      border-color: #0046A5;
-      background: rgba(0, 70, 165, 0.06);
-      color: #0046A5;
-    }
-
-    .gi-scale-option span {
-      font-size: 11px;
-      color: inherit;
-    }
-
-    .gi-footer-nav {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid #e5e7eb;
+    .panel-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted);
       flex-wrap: wrap;
     }
 
-    .gi-footer-nav-left {
+    .panel-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-footer-actions {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
     }
 
-    .gi-footer-nav-right {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .gi-btn {
+    .btn {
       border-radius: 999px;
-      padding: 7px 14px;
-      font-size: 13px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.08s ease;
-    }
-
-    .gi-btn:active {
-      transform: translateY(1px);
-    }
-
-    .gi-btn-secondary {
-      background: #ffffff;
-      border-color: #d1d5db;
-      color: #374151;
-    }
-
-    .gi-btn-secondary:hover {
-      border-color: #9ca3af;
+      padding: 8px 14px;
+      font-size: 12px;
+      border: 1px solid var(--border);
       background: #f9fafb;
+      cursor: pointer;
     }
 
-    .gi-btn-primary {
-      background: #0046A5;
+    .btn-primary {
+      background: var(--blue);
+      border-color: var(--blue);
       color: #ffffff;
-      border-color: #0046A5;
     }
 
-    .gi-btn-primary:hover {
-      background: #003784;
-      border-color: #003784;
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: default;
     }
 
-    .gi-btn-ghost {
-      background: transparent;
-      color: #6b7280;
-      border-color: transparent;
-    }
-
-    .gi-btn-ghost:hover {
-      background: #f3f4f6;
-    }
-
-    .gi-footer-status {
-      font-size: 12px;
-      color: #6b7280;
-    }
-
-    .gi-footer-status strong {
-      font-weight: 500;
-      color: #111827;
-    }
-
-    .gi-alert {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #065f46;
-      background: #ecfdf5;
-      border-radius: 10px;
-      padding: 8px 10px;
-      border: 1px solid #a7f3d0;
-      display: none;
-    }
-
-    .gi-alert.is-visible {
-      display: block;
-    }
-
-    .gi-locked-banner {
-      margin-bottom: 10px;
-      padding: 8px 10px;
-      border-radius: 10px;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      font-size: 12px;
-      color: #b91c1c;
-      display: none;
-    }
-
-    .gi-locked-banner.is-visible {
-      display: block;
-    }
-
-    /* Small helper text */
-    .gi-small {
+    .pill-tag {
       font-size: 11px;
-      color: #6b7280;
-      margin-top: 6px;
+      color: var(--muted);
+      text-align: right;
     }
   </style>
 </head>
+
 <body>
-  <!-- Site header (zelfde structuur als andere pagina's) -->
-  <header>
-    <div class="container">
-      <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Consulting logo">
-        <span>Caugia Consulting</span>
-      </a>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <a href="index.html" class="brand">
+          <div class="brand-logo">C</div>
+          <span>Caugia Consulting</span>
+        </a>
+        <span class="header-tag">GTM Intelligence Report — Diagnostic</span>
+      </div>
+    </header>
 
-      <nav class="nav-desktop">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="the-gtm-score.html">GTM Score</a>
-        <a href="resources.html">Resources</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </nav>
+    <main>
+      <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <h2>GTM Intelligence Assessment</h2>
+          <p>Work through your full GTM architecture at your own pace. You can pause and resume from this device at any time.</p>
 
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-    <div class="gi-shell">
-      <!-- Page header -->
-      <section class="gi-header">
-        <div class="gi-label">Premium GTM Assessment</div>
-        <div class="gi-title-row">
-          <h1>The GTM Intelligence Report</h1>
-          <div class="gi-main-header-pill">
-            12 pillars · 240 diagnostic questions
+          <div class="progress-bar">
+            <div class="progress-fill" id="overallProgress"></div>
           </div>
-        </div>
-        <p class="gi-subtitle">
-          Work through your full GTM architecture at your own pace. You can pause and resume from this device at any time. Your answers are saved locally and will be synced to Caugia once we connect this flow to Stripe and Make.
-        </p>
-        <div class="gi-top-meta">
-          This is the assessment shell. Question content, scoring and AI reporting are already defined in your internal blueprint.
-        </div>
-      </section>
+          <div class="progress-label"><span id="answeredCount">0</span> of 240 answered</div>
 
-      <!-- Shell layout -->
-      <section class="gi-layout">
-        <!-- Left sidebar -->
-        <aside class="gi-side-card">
-          <div class="gi-progress-label">Overall progress</div>
-          <div class="gi-progress-bar-outer">
-            <div class="gi-progress-bar-inner" id="gi-progress-bar"></div>
-          </div>
-          <div class="gi-progress-meta">
-            <span id="gi-progress-count">0 of 240 answered</span>
-            <span id="gi-progress-percent">0%</span>
-          </div>
+          <div class="pillars-title">Pillars</div>
+          <ul class="pillar-list">
+            <li class="pillar-item active">
+              <span>1. GTM Strategy &amp; Leadership</span>
+              <small id="p1Count">0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>2. Market Intelligence</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>3. Product Marketing</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>4. Demand Generation</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>5. Sales Development (SDR)</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>6. Sales Execution</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>7. Customer Success &amp; Retention</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>8. Account Management &amp; Expansion</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>9. Revenue Operations</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>10. Enablement</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>11. Performance Management</span>
+              <small>0 / 20</small>
+            </li>
+            <li class="pillar-item">
+              <span>12. Pricing &amp; Packaging</span>
+              <small>0 / 20</small>
+            </li>
+          </ul>
 
-          <div class="gi-pillars-list-label">Pillars</div>
-          <div class="gi-pillars-list" id="gi-pillars-list">
-            <!-- Dynamisch gevuld door JavaScript -->
-          </div>
-
-          <div class="gi-side-actions">
-            <button type="button" class="gi-btn gi-btn-secondary" id="gi-btn-save">
-              Save now on this device
-            </button>
-            <button type="button" class="gi-btn gi-btn-ghost" id="gi-btn-clear">
-              Clear all answers on this device
-            </button>
-            <p class="gi-side-helper">
-              Your answers are auto saved. Once Stripe, Make and your reporting pipeline are connected, this page will also sync to Caugia and trigger the Intelligence Report.
-            </p>
+          <div class="sidebar-footer">
+            <button type="button" id="saveDraftBtn">Save now on this device</button>
+            <div class="muted">
+              Draft. Autosave active on this device.<br />
+              This is the front-end container only. The secure payment step and AI reporting engine will be wired in via Stripe and Make.
+            </div>
           </div>
         </aside>
 
-        <!-- Main content -->
-        <section class="gi-main-card">
-          <div class="gi-locked-banner" id="gi-locked-banner">
-            This assessment has been submitted. Answers are now read only.
+        <!-- Main Panel / Pillar 1 -->
+        <section class="panel">
+          <div class="panel-header">
+            <div class="panel-eyebrow">Pillar 1 of 12</div>
+            <div class="panel-title-row">
+              <h1 class="panel-title">GTM Strategy &amp; Leadership</h1>
+              <div class="pill-tag">Pillar score: derived later from internal blueprint</div>
+            </div>
+            <p class="panel-subtitle">
+              This pillar measures how clearly your organisation defines direction, alignment and priorities. Strong GTM organisations
+              have a shared strategy, disciplined execution and leadership that creates focus, clarity and momentum.
+            </p>
+            <div class="pill-meta">
+              <span>20 diagnostic questions</span>
+              <span>Answer with today’s reality, not the ideal state</span>
+            </div>
           </div>
 
-          <header class="gi-main-header">
-            <div>
-              <div id="gi-pillar-title" class="gi-main-header-title">Pillar 1 · GTM Strategy and Leadership</div>
-              <div id="gi-pillar-meta" class="gi-main-header-meta">
-                You will answer 20 questions on this pillar. Select the option that best reflects how your team operates today.
+          <hr class="divider" />
+
+          <div class="questions" id="pillar1Questions">
+            <!-- Q1 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Our GTM strategy is clear, simple and widely understood.</div>
+                <div class="question-id">Q1</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option">
+                  <input type="radio" name="p1_q1" value="0" /> Level 1
+                </label>
+                <label class="level-option">
+                  <input type="radio" name="p1_q1" value="2" /> Level 2
+                </label>
+                <label class="level-option">
+                  <input type="radio" name="p1_q1" value="5" /> Level 3
+                </label>
+                <label class="level-option">
+                  <input type="radio" name="p1_q1" value="7" /> Level 4
+                </label>
+                <label class="level-option">
+                  <input type="radio" name="p1_q1" value="10" /> Level 5
+                </label>
               </div>
             </div>
-            <div class="gi-main-header-pill" id="gi-pillar-chip">
-              Pillar 1 of 12
+
+            <!-- Q2 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Leadership sets clear and focused GTM priorities.</div>
+                <div class="question-id">Q2</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q2" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q2" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q2" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q2" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q2" value="10" /> Level 5</label>
+              </div>
             </div>
-          </header>
 
-          <p class="gi-intro-text" id="gi-pillar-intro">
-            This section measures how clearly your organisation defines direction, alignment and priorities. Strong GTM organisations have a shared strategy, disciplined execution and leadership that creates focus, clarity and momentum.
-          </p>
+            <!-- Q3 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">We have a well defined and validated Ideal Customer Profile.</div>
+                <div class="question-id">Q3</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q3" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q3" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q3" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q3" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q3" value="10" /> Level 5</label>
+              </div>
+            </div>
 
-          <div class="gi-questions" id="gi-questions">
-            <!-- Questions rendered here -->
+            <!-- Q4 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">GTM decisions are based on data rather than opinions or intuition.</div>
+                <div class="question-id">Q4</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q4" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q4" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q4" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q4" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q4" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Marketing, Sales and Customer Success operate with strong alignment.</div>
+                <div class="question-id">Q5</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q5" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q5" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q5" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q5" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q5" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Leadership communication is clear, timely and consistent.</div>
+                <div class="question-id">Q6</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q6" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q6" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q6" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q6" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q6" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">
+                  The organization clearly understands which segments we pursue — and which we avoid.
+                </div>
+                <div class="question-id">Q7</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q7" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q7" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q7" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q7" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q7" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">We have a structured quarterly/annual GTM planning process.</div>
+                <div class="question-id">Q8</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q8" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q8" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q8" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q8" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q8" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">
+                  We operate with a consistent GTM operating rhythm (standups, reviews, forecast, retros).
+                </div>
+                <div class="question-id">Q9</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q9" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q9" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q9" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q9" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q9" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Roles and responsibilities across GTM are clearly defined.</div>
+                <div class="question-id">Q10</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q10" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q10" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q10" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q10" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q10" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Our GTM leadership team operates as a unified decision-making body.</div>
+                <div class="question-id">Q11</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q11" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q11" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q11" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q11" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q11" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Our strategy translates clearly into operational plans and actions.</div>
+                <div class="question-id">Q12</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q12" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q12" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q12" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q12" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q12" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">
+                  Our GTM goals are realistic and aligned with market conditions, product and capacity.
+                </div>
+                <div class="question-id">Q13</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q13" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q13" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q13" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q13" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q13" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Decisions are made quickly enough to maintain momentum.</div>
+                <div class="question-id">Q14</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q14" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q14" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q14" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q14" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q14" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">There is a shared definition of success across GTM teams.</div>
+                <div class="question-id">Q15</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q15" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q15" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q15" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q15" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q15" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">The organization maintains strong focus without chasing “shiny objects.”</div>
+                <div class="question-id">Q16</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q16" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q16" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q16" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q16" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q16" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Each GTM pillar (Marketing, SDR, Sales, CS, Ops, etc.) has clear ownership.</div>
+                <div class="question-id">Q17</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q17" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q17" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q17" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q17" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q17" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Leaders actively encourage cross-functional collaboration.</div>
+                <div class="question-id">Q18</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q18" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q18" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q18" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q18" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q18" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Teams understand the reasoning behind important GTM decisions.</div>
+                <div class="question-id">Q19</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q19" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q19" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q19" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q19" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q19" value="10" /> Level 5</label>
+              </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-title">Our GTM strategy is reviewed and refined on a regular basis.</div>
+                <div class="question-id">Q20</div>
+              </div>
+              <div class="question-options">
+                <label class="level-option"><input type="radio" name="p1_q20" value="0" /> Level 1</label>
+                <label class="level-option"><input type="radio" name="p1_q20" value="2" /> Level 2</label>
+                <label class="level-option"><input type="radio" name="p1_q20" value="5" /> Level 3</label>
+                <label class="level-option"><input type="radio" name="p1_q20" value="7" /> Level 4</label>
+                <label class="level-option"><input type="radio" name="p1_q20" value="10" /> Level 5</label>
+              </div>
+            </div>
           </div>
 
-          <div class="gi-footer-nav">
-            <div class="gi-footer-nav-left">
-              <button type="button" class="gi-btn gi-btn-secondary" id="gi-btn-prev-pillar">
-                Previous pillar
-              </button>
-              <button type="button" class="gi-btn gi-btn-secondary" id="gi-btn-next-pillar">
-                Next pillar
-              </button>
+          <div class="panel-footer">
+            <div class="panel-footer-left">
+              <span>This is the assessment shell. Question content, scoring and AI reporting are already defined in your internal blueprint.</span>
             </div>
-            <div class="gi-footer-nav-right">
-              <span class="gi-footer-status" id="gi-footer-status">
-                <strong>Draft.</strong> Autosave active on this device.
-              </span>
-              <button type="button" class="gi-btn gi-btn-primary" id="gi-btn-submit">
-                Validate and submit
-              </button>
+            <div class="panel-footer-actions">
+              <button class="btn" type="button" disabled>Previous pillar</button>
+              <button class="btn" type="button" disabled>Next pillar</button>
+              <button class="btn btn-primary" type="button" disabled>Validate and submit</button>
             </div>
           </div>
-
-          <div class="gi-alert" id="gi-alert">
-            Progress saved on this device.
-          </div>
-          <p class="gi-small">
-            This is the front end container only. The secure payment step, token based access and connection to your AI reporting engine will be wired in via Make and Stripe in the next implementation step.
-          </p>
         </section>
-      </section>
-    </div>
-  </main>
+      </div>
+    </main>
+  </div>
 
   <script>
-    // --------------- CONFIG -----------------
+    const STORAGE_KEY = "caugia_gtm_intel_pillar1_v1";
 
-    const STORAGE_KEY = "caugia_intel_assessment_v1";
-    const TOTAL_QUESTIONS_TARGET = 240; // used for progress display
+    const inputs = Array.from(document.querySelectorAll('input[type="radio"][name^="p1_q"]'));
+    const answeredCountEl = document.getElementById("answeredCount");
+    const p1CountEl = document.getElementById("p1Count");
+    const overallProgressEl = document.getElementById("overallProgress");
+    const saveDraftBtn = document.getElementById("saveDraftBtn");
 
-    // Minimal pillar config for now.
-    // We add Pillar 1 with 3 example questions so you can see the flow.
-    // Later we will fill in all 20 questions per pillar using your full content.
-
-    const PILLARS = [
-      {
-        id: "pillar-1",
-        index: 1,
-        title: "GTM Strategy and Leadership",
-        intro:
-          "This pillar measures how clearly your organisation defines direction, alignment and priorities. Strong GTM organisations have a shared strategy, disciplined execution and leadership that creates focus, clarity and momentum.",
-        questions: [
-          {
-            id: "p1_q1",
-            index: 1,
-            text: "Our GTM strategy is clear, simple and widely understood."
-          },
-          {
-            id: "p1_q2",
-            index: 2,
-            text: "Leadership sets clear and focused GTM priorities."
-          },
-          {
-            id: "p1_q3",
-            index: 3,
-            text: "We have a well defined and validated Ideal Customer Profile."
-          }
-          // TODO: add Q4–Q20 for Pillar 1 and all other pillars
-        ]
-      },
-      {
-        id: "pillar-2",
-        index: 2,
-        title: "Market Intelligence",
-        intro:
-          "This pillar measures how well you understand your market, customers, competitive landscape and buying behaviour. Strong GTM organisations base decisions on validated insight, not assumptions.",
-        questions: []
-      },
-      {
-        id: "pillar-3",
-        index: 3,
-        title: "Product Marketing",
-        intro:
-          "Product Marketing connects the market, product and GTM engine. This pillar evaluates how well positioning, messaging and launch execution support growth.",
-        questions: []
-      },
-      {
-        id: "pillar-4",
-        index: 4,
-        title: "Demand Generation",
-        intro:
-          "Demand Generation measures your ability to attract, educate and convert your ICP through scalable inbound channels.",
-        questions: []
-      },
-      {
-        id: "pillar-5",
-        index: 5,
-        title: "Sales Development (SDR)",
-        intro:
-          "This pillar evaluates your ability to generate qualified pipeline through systematic prospecting and disciplined execution.",
-        questions: []
-      },
-      {
-        id: "pillar-6",
-        index: 6,
-        title: "Sales Execution",
-        intro:
-          "Sales Execution measures how effectively your sales organisation identifies, progresses and closes opportunities.",
-        questions: []
-      },
-      {
-        id: "pillar-7",
-        index: 7,
-        title: "Customer Success and Retention",
-        intro:
-          "This pillar measures how well you drive adoption, prevent churn and deliver value to existing customers.",
-        questions: []
-      },
-      {
-        id: "pillar-8",
-        index: 8,
-        title: "Account Management and Expansion",
-        intro:
-          "This pillar looks at renewals, upsell and cross sell motions that grow customer lifetime value.",
-        questions: []
-      },
-      {
-        id: "pillar-9",
-        index: 9,
-        title: "Revenue Operations",
-        intro:
-          "Revenue Operations measures the strength of your GTM systems, processes, data and operating model.",
-        questions: []
-      },
-      {
-        id: "pillar-10",
-        index: 10,
-        title: "Enablement",
-        intro:
-          "This pillar assesses how well you equip GTM teams with the knowledge, skills and tools they need to perform.",
-        questions: []
-      },
-      {
-        id: "pillar-11",
-        index: 11,
-        title: "Performance Management",
-        intro:
-          "Performance Management measures how you set goals, track results and reinforce accountability across GTM.",
-        questions: []
-      },
-      {
-        id: "pillar-12",
-        index: 12,
-        title: "Pricing and Packaging",
-        intro:
-          "This pillar evaluates how your pricing and packaging support growth, expansion and retention.",
-        questions: []
-      }
-    ];
-
-    // --------------- STATE -----------------
-
-    let currentPillarIndex = 0; // 0 based
-    let state = {
-      answers: {}, // { questionId: numericValue }
-      submitted: false,
-      lastSavedAt: null
-    };
-
-    // --------------- HELPERS -----------------
-
-    function loadState() {
+    function loadDraft() {
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (!raw) return;
-        const parsed = JSON.parse(raw);
-        if (parsed && typeof parsed === "object") {
-          state = Object.assign(state, parsed);
-        }
-      } catch (e) {
-        console.error("Failed to load local state", e);
-      }
-    }
-
-    function saveState(showAlert = true) {
-      try {
-        state.lastSavedAt = new Date().toISOString();
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        if (showAlert) {
-          const alertEl = document.getElementById("gi-alert");
-          const footerStatus = document.getElementById("gi-footer-status");
-          if (alertEl) {
-            alertEl.classList.add("is-visible");
-            setTimeout(() => alertEl.classList.remove("is-visible"), 2000);
+        const stored = window.localStorage.getItem(STORAGE_KEY);
+        if (!stored) return;
+        const values = JSON.parse(stored);
+        inputs.forEach((input) => {
+          const key = input.name;
+          if (values[key] && values[key] === input.value) {
+            input.checked = true;
           }
-          if (footerStatus) {
-            footerStatus.innerHTML =
-              "<strong>Saved.</strong> Progress stored on this device.";
-          }
-        }
+        });
       } catch (e) {
-        console.error("Failed to save local state", e);
-      }
-      updateProgress();
-    }
-
-    function clearState() {
-      if (!confirm("Clear all saved answers on this device?")) return;
-      state.answers = {};
-      state.submitted = false;
-      state.lastSavedAt = null;
-      localStorage.removeItem(STORAGE_KEY);
-      renderCurrentPillar();
-      updateProgress();
-      updateLockedBanner();
-      const footerStatus = document.getElementById("gi-footer-status");
-      if (footerStatus) {
-        footerStatus.innerHTML =
-          "<strong>Draft.</strong> Autosave active on this device.";
+        console.warn("Cannot load draft", e);
       }
     }
 
-    function getTotalAnswered() {
-      return Object.keys(state.answers).length;
-    }
-
-    function getTotalQuestionsDefined() {
-      return PILLARS.reduce(
-        (sum, p) => sum + (p.questions ? p.questions.length : 0),
-        0
-      );
-    }
-
-    function updateProgress() {
-      const totalAnswered = getTotalAnswered();
-      const effectiveTotal =
-        TOTAL_QUESTIONS_TARGET || getTotalQuestionsDefined() || 1;
-      const percent = Math.min(
-        100,
-        Math.round((totalAnswered / effectiveTotal) * 100)
-      );
-
-      const bar = document.getElementById("gi-progress-bar");
-      const countEl = document.getElementById("gi-progress-count");
-      const percentEl = document.getElementById("gi-progress-percent");
-
-      if (bar) bar.style.width = percent + "%";
-      if (countEl)
-        countEl.textContent =
-          totalAnswered + " of " + effectiveTotal + " answered";
-      if (percentEl) percentEl.textContent = percent + "%";
-
-      // Update chips for completed pillars
-      PILLARS.forEach((pillar) => {
-        const chip = document.querySelector(
-          '.gi-pillar-chip[data-pillar-id="' + pillar.id + '"]'
-        );
-        if (!chip || !pillar.questions || pillar.questions.length === 0)
-          return;
-        const answeredInPillar = pillar.questions.filter((q) =>
-          Object.prototype.hasOwnProperty.call(state.answers, q.id)
-        ).length;
-        const complete = answeredInPillar === pillar.questions.length;
-        chip.classList.toggle("is-complete", complete);
-        const small = chip.querySelector("small");
-        if (small) {
-          small.textContent =
-            answeredInPillar + " / " + pillar.questions.length;
+    function saveDraft() {
+      const values = {};
+      inputs.forEach((input) => {
+        if (input.checked) {
+          values[input.name] = input.value;
         }
       });
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+      updateCounts();
     }
 
-    function setCurrentPillarByIndex(index) {
-      if (index < 0 || index >= PILLARS.length) return;
-      currentPillarIndex = index;
-      renderCurrentPillar();
-      highlightActivePillarChip();
-    }
-
-    function highlightActivePillarChip() {
-      const chips = document.querySelectorAll(".gi-pillar-chip");
-      chips.forEach((chip) => chip.classList.remove("is-active"));
-      const activePillar = PILLARS[currentPillarIndex];
-      const activeChip = document.querySelector(
-        '.gi-pillar-chip[data-pillar-id="' + activePillar.id + '"]'
-      );
-      if (activeChip) activeChip.classList.add("is-active");
-
-      const metaChip = document.getElementById("gi-pillar-chip");
-      if (metaChip) {
-        metaChip.textContent =
-          "Pillar " +
-          activePillar.index +
-          " of " +
-          PILLARS.length;
-      }
-    }
-
-    function updateLockedBanner() {
-      const banner = document.getElementById("gi-locked-banner");
-      const inputs = document.querySelectorAll(
-        "#gi-questions input[type='radio']"
-      );
-      if (!banner) return;
-      if (state.submitted) {
-        banner.classList.add("is-visible");
-        inputs.forEach((i) => (i.disabled = true));
-      } else {
-        banner.classList.remove("is-visible");
-        inputs.forEach((i) => (i.disabled = false));
-      }
-    }
-
-    // --------------- RENDERING -----------------
-
-    function renderPillarList() {
-      const list = document.getElementById("gi-pillars-list");
-      if (!list) return;
-      list.innerHTML = "";
-
-      PILLARS.forEach((pillar) => {
-        const chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "gi-pillar-chip";
-        chip.dataset.pillarId = pillar.id;
-
-        const labelSpan = document.createElement("span");
-        labelSpan.textContent = pillar.index + ". " + pillar.title;
-
-        const countSmall = document.createElement("small");
-        const answeredInPillar = (pillar.questions || []).filter((q) =>
-          Object.prototype.hasOwnProperty.call(state.answers, q.id)
-        ).length;
-        const totalInPillar = pillar.questions ? pillar.questions.length : 0;
-        if (totalInPillar > 0) {
-          countSmall.textContent = answeredInPillar + " / " + totalInPillar;
-        } else {
-          countSmall.textContent = "0 / 20";
-        }
-
-        chip.appendChild(labelSpan);
-        chip.appendChild(countSmall);
-
-        chip.addEventListener("click", () => {
-          const targetIndex = PILLARS.findIndex((p) => p.id === pillar.id);
-          if (targetIndex >= 0) {
-            setCurrentPillarByIndex(targetIndex);
-          }
-        });
-
-        list.appendChild(chip);
+    function updateCounts() {
+      const answeredP1 = new Set();
+      inputs.forEach((input) => {
+        if (input.checked) answeredP1.add(input.name);
       });
-
-      highlightActivePillarChip();
+      const p1Answered = answeredP1.size;
+      answeredCountEl.textContent = String(p1Answered);
+      p1CountEl.textContent = `${p1Answered} / 20`;
+      const overallPct = (p1Answered / 240) * 100;
+      overallProgressEl.style.width = `${overallPct}%`;
     }
 
-    function renderCurrentPillar() {
-      const pillar = PILLARS[currentPillarIndex];
-      if (!pillar) return;
-
-      const titleEl = document.getElementById("gi-pillar-title");
-      const metaEl = document.getElementById("gi-pillar-meta");
-      const introEl = document.getElementById("gi-pillar-intro");
-      const questionsContainer = document.getElementById("gi-questions");
-
-      if (titleEl) {
-        titleEl.textContent =
-          "Pillar " + pillar.index + " · " + pillar.title;
-      }
-      if (metaEl) {
-        metaEl.textContent =
-          "You will answer 20 questions on this pillar. Select the option that best reflects how your team operates today.";
-      }
-      if (introEl) {
-        introEl.textContent = pillar.intro || "";
-      }
-
-      if (!questionsContainer) return;
-      questionsContainer.innerHTML = "";
-
-      if (!pillar.questions || pillar.questions.length === 0) {
-        const info = document.createElement("p");
-        info.className = "gi-intro-text";
-        info.textContent =
-          "This pillar has not yet been configured with its 20 diagnostic questions. Once we copy your full content into this shell, questions will appear here.";
-        questionsContainer.appendChild(info);
-      } else {
-        pillar.questions.forEach((q) => {
-          const qWrapper = document.createElement("div");
-          qWrapper.className = "gi-question";
-
-          const header = document.createElement("div");
-          header.className = "gi-question-header";
-
-          const title = document.createElement("div");
-          title.className = "gi-question-title";
-          title.textContent = q.text;
-
-          const index = document.createElement("div");
-          index.className = "gi-question-index";
-          index.textContent = "Q" + q.index;
-
-          header.appendChild(title);
-          header.appendChild(index);
-
-          const scaleRow = document.createElement("div");
-          scaleRow.className = "gi-scale-row";
-
-          const scaleOptions = [
-            { value: 0, label: "Level 1" },
-            { value: 2, label: "Level 2" },
-            { value: 5, label: "Level 3" },
-            { value: 7, label: "Level 4" },
-            { value: 10, label: "Level 5" }
-          ];
-
-          const savedValue = state.answers[q.id];
-
-          scaleOptions.forEach((opt) => {
-            const labelEl = document.createElement("label");
-            labelEl.className = "gi-scale-option";
-            if (savedValue === opt.value) {
-              labelEl.classList.add("is-selected");
-            }
-
-            const input = document.createElement("input");
-            input.type = "radio";
-            input.name = q.id;
-            input.value = String(opt.value);
-            input.checked = savedValue === opt.value;
-            input.disabled = state.submitted;
-
-            input.addEventListener("change", () => {
-              state.answers[q.id] = opt.value;
-              saveState(false);
-              updateProgress();
-
-              // update visual state
-              const siblings = scaleRow.querySelectorAll(".gi-scale-option");
-              siblings.forEach((s) => s.classList.remove("is-selected"));
-              labelEl.classList.add("is-selected");
-            });
-
-            const spanValue = document.createElement("span");
-            spanValue.textContent = opt.label;
-
-            labelEl.appendChild(input);
-            labelEl.appendChild(spanValue);
-            scaleRow.appendChild(labelEl);
-          });
-
-          qWrapper.appendChild(header);
-          qWrapper.appendChild(scaleRow);
-          questionsContainer.appendChild(qWrapper);
-        });
-      }
-
-      updateProgress();
-      updateLockedBanner();
-    }
-
-    // --------------- SUBMIT HANDLING -----------------
-
-    function handleSubmit() {
-      const totalDefined = getTotalQuestionsDefined();
-      const answered = getTotalAnswered();
-
-      if (totalDefined > 0 && answered < totalDefined) {
-        const proceed = confirm(
-          "You have not answered all questions that are currently defined in this shell. Do you still want to mark this assessment as submitted on this device?"
-        );
-        if (!proceed) return;
-      }
-
-      state.submitted = true;
-      saveState(true);
-      updateLockedBanner();
-
-      alert(
-        "Locally marked as submitted. In the full implementation this button will call Make, store your responses, trigger scoring and generate the Intelligence Report."
-      );
-    }
-
-    // --------------- EVENT BINDINGS -----------------
-
-    function bindEvents() {
-      const btnPrev = document.getElementById("gi-btn-prev-pillar");
-      const btnNext = document.getElementById("gi-btn-next-pillar");
-      const btnSave = document.getElementById("gi-btn-save");
-      const btnClear = document.getElementById("gi-btn-clear");
-      const btnSubmit = document.getElementById("gi-btn-submit");
-
-      if (btnPrev) {
-        btnPrev.addEventListener("click", () => {
-          const target = currentPillarIndex - 1;
-          if (target >= 0) {
-            setCurrentPillarByIndex(target);
-          }
-        });
-      }
-
-      if (btnNext) {
-        btnNext.addEventListener("click", () => {
-          const target = currentPillarIndex + 1;
-          if (target < PILLARS.length) {
-            setCurrentPillarByIndex(target);
-          }
-        });
-      }
-
-      if (btnSave) {
-        btnSave.addEventListener("click", () => saveState(true));
-      }
-
-      if (btnClear) {
-        btnClear.addEventListener("click", () => clearState());
-      }
-
-      if (btnSubmit) {
-        btnSubmit.addEventListener("click", () => handleSubmit());
-      }
-    }
-
-    // --------------- INIT -----------------
-
-    document.addEventListener("DOMContentLoaded", () => {
-      loadState();
-      renderPillarList();
-      renderCurrentPillar();
-      bindEvents();
-      updateProgress();
+    inputs.forEach((input) => {
+      input.addEventListener("change", () => {
+        saveDraft();
+      });
     });
+
+    saveDraftBtn.addEventListener("click", () => {
+      saveDraft();
+    });
+
+    loadDraft();
+    updateCounts();
   </script>
 </body>
 </html>
-
