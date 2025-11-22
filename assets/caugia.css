@@ -9,10 +9,10 @@
 :root {
   /* Core Colors */
   --ink: #0b132b;
-  --blue: #0046A5; /* Brand primary */
-  --navy: #002A5C; /* Deep navy */
-  --accent: #F36C21; /* Insight Orange */
-  --accent-soft: #FFD9C2; /* Soft tint */
+  --blue: #0046A5;          /* Brand primary */
+  --navy: #002A5C;          /* Deep navy */
+  --accent: #F36C21;        /* Insight Orange */
+  --accent-soft: #FFD9C2;   /* Soft tint */
   --silver: #E6E9EF;
 
   --bg-light: #f9fafc;
@@ -128,8 +128,7 @@ nav.nav-desktop a.active {
   color: var(--blue);
 }
 
-/* Contact pill in header – iets breder en ronder,
-   zonder andere CTA-knoppen te raken */
+/* Contact pill in header – breder en ronder, zonder andere CTA's te raken */
 header .nav-desktop .cta {
   padding: 0.45rem 1.7rem;
   border-radius: 999px;
@@ -231,7 +230,7 @@ nav.nav-mobile.open {
 /* ------------------ Layout & Typography ------------------ */
 
 main .wrap {
-  padding: 88px 24px 80px; /* ruimte boven 'Services' */
+  padding: 88px 24px 80px; /* ruimte boven content blokken */
 }
 
 main {
@@ -285,34 +284,38 @@ p {
 
 /* ------------------ Services Page Specific ------------------ */
 
+/* Intro copy */
+
+.page-intro {
+  max-width: 760px;
+  margin-bottom: 40px; /* zelfde ‘blokhoogte’ gevoel als About voor eerste section */
+}
+
 .services-intro {
   font-size: 1.08rem;
   line-height: 1.8;
   color: #1b1b1b;
-  max-width: 760px;
   margin-bottom: 14px;
 }
 
 .services-subtitle {
   font-size: 0.98rem;
   color: #555;
-  max-width: 640px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .services-note {
   font-size: 0.9rem;
   color: #6b7280;
-  max-width: 700px;
-  margin-top: 4px;
 }
+
+/* Services grid */
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   max-width: 100%;
-  margin-top: 40px; /* ruimte tussen intro en eerste rij kaarten */
 }
 
 @media (max-width: 1100px) {
@@ -332,13 +335,13 @@ p {
 .service-card {
   display: grid;
   grid-template-rows:
-    auto
-    auto
-    auto
-    180px
-    260px
-    260px
-    auto;
+    auto    /* label */
+    auto    /* title */
+    auto    /* price */
+    180px   /* intro */
+    260px   /* features */
+    260px   /* add-ons */
+    auto;   /* CTA */
   background: #ffffff;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -346,7 +349,6 @@ p {
   box-shadow: 0 4px 14px rgba(15,23,42,0.04);
   transition: var(--transition);
 }
-
 
 /* Featured card (Core Product) */
 
@@ -361,7 +363,7 @@ p {
   box-shadow: 0 10px 28px rgba(15,23,42,0.12);
 }
 
-/* Premium badge */
+/* Premium badge: rechtsboven in de rand */
 
 .service-badge {
   position: absolute;
@@ -376,7 +378,6 @@ p {
   background: var(--blue);
   color: #ffffff;
 }
-
 
 /* Label */
 
@@ -440,7 +441,6 @@ p {
   margin: 0 0 6px;
 }
 
-
 /* Add-ons / Marketplace */
 
 .service-addons {
@@ -477,7 +477,6 @@ p {
   color: #9ca3af;
 }
 
-
 /* CTA */
 
 .service-cta {
@@ -489,9 +488,7 @@ p {
   text-align: center;
 }
 
-
-/* Mobile overrides */
-
+/* Mobile: geen vaste rijen, alles auto-hoogte */
 @media (max-width: 900px) {
   .service-card {
     display: flex;
@@ -510,7 +507,6 @@ p {
     margin-top: 18px;
   }
 }
-
 
 /* Section onder de grid */
 
