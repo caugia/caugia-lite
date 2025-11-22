@@ -1,5 +1,5 @@
 /* ===========================================================
-   CAUGIA CONSULTING — PRODUCTION CSS v2.5
+   CAUGIA CONSULTING — PRODUCTION CSS v2.6
    Calm • Professional • Systematic • Brand-true
    =========================================================== */
 
@@ -109,7 +109,7 @@ a.brand {
 
 /* ------------------ Desktop Nav ------------------ */
 
-nav.nav-desktop {
+nav.nav-desktop is  {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -327,6 +327,7 @@ p {
 /* Pixel-perfect cards met vaste rijen (desktop) */
 
 .service-card {
+  position: relative; /* nodig voor Premium badge rechtsboven */
   display: grid;
   grid-template-rows:
     auto    /* label */
@@ -372,7 +373,7 @@ p {
   color: #6b7280;
 }
 
-/* Most popular badge (minimal, left-aligned) */
+/* Badge – basisstijl (wordt absoluut gepositioneerd op featured card) */
 
 .service-badge {
   font-size: 0.78rem;
@@ -381,6 +382,21 @@ p {
   text-transform: uppercase;
   color: var(--navy);
   margin-top: 6px;
+}
+
+/* Premium badge rechtsboven op de featured kaart */
+
+.service-card--featured .service-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin-top: 0;
+  padding: 2px 10px 3px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: #ffffff;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
 }
 
 /* Title */
@@ -435,7 +451,7 @@ p {
   margin: 0 0 6px;
 }
 
-/* Add-ons */
+/* Add-ons / Marketplace */
 
 .service-addons {
   border-top: 1px solid var(--border);
