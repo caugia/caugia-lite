@@ -109,10 +109,10 @@ a.brand {
 
 /* ------------------ Desktop Nav ------------------ */
 
-nav.nav-desktop is  {
+nav.nav-desktop {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: flex-end;
 }
 
 nav.nav-desktop a {
@@ -121,6 +121,11 @@ nav.nav-desktop a {
   font-weight: 500;
   padding: 4px 0;
   transition: var(--transition);
+}
+
+/* Fallback spacing, zelfs als flex-gap niet werkt */
+nav.nav-desktop a + a {
+  margin-left: 24px;
 }
 
 nav.nav-desktop a:hover,
@@ -135,8 +140,8 @@ nav.nav-desktop a.active {
   background: var(--blue);
   color: #fff !important;
   text-decoration: none;
-  padding: 0.65rem 1.4rem;
-  border-radius: 10px;
+  padding: 0.55rem 1.7rem;
+  border-radius: 999px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -224,6 +229,8 @@ nav.nav-mobile.open {
 /* ------------------ Layout & Typography ------------------ */
 
 main .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
   padding: 88px 24px 80px; /* ruimte boven 'Services' */
 }
 
@@ -292,7 +299,7 @@ p {
   font-size: 0.98rem;
   color: #555;
   max-width: 640px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .services-note {
@@ -309,7 +316,7 @@ p {
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   max-width: 100%;
-  margin-top: 40px; /* ruimte tussen intro en eerste rij kaarten */
+  margin-top: 32px; /* ruimte tussen intro en eerste rij kaarten */
 }
 
 @media (max-width: 1100px) {
@@ -327,28 +334,22 @@ p {
 /* Pixel-perfect cards met vaste rijen (desktop) */
 
 .service-card {
-  position: relative; /* nodig voor Premium badge rechtsboven */
+  position: relative;
   display: grid;
   grid-template-rows:
-    auto    /* label */
-    auto    /* badge (indien aanwezig) / extra ruimte */
-    auto    /* title */
-    auto    /* price */
-    165px   /* intro */
-    260px   /* features */
-    260px   /* add-ons */
-    auto;   /* CTA */
+    auto   /* label + badge */
+    auto   /* title */
+    auto   /* price */
+    170px  /* intro */
+    230px  /* features */
+    300px  /* add-ons */
+    auto;  /* CTA */
   background: #ffffff;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   padding: 22px 20px;
   box-shadow: 0 4px 14px rgba(15,23,42,0.04);
   transition: var(--transition);
-}
-
-/* Default: tweede rij is leeg als er geen badge is */
-.service-card .service-badge-placeholder {
-  height: 0;
 }
 
 /* Featured card (Core Product) */
@@ -366,6 +367,7 @@ p {
 /* Label */
 
 .service-label {
+  grid-row: 1;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -373,35 +375,27 @@ p {
   color: #6b7280;
 }
 
-/* Badge – basisstijl (wordt absoluut gepositioneerd op featured card) */
+/* Premium badge (rechtsboven) */
 
 .service-badge {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--navy);
-  margin-top: 6px;
-}
-
-/* Premium badge rechtsboven op de featured kaart */
-
-.service-card--featured .service-badge {
+  grid-row: 1;
   position: absolute;
-  top: 16px;
+  top: 14px;
   right: 16px;
-  margin-top: 0;
-  padding: 2px 10px 3px;
-  border-radius: 999px;
   background: var(--blue);
-  color: #ffffff;
-  font-size: 0.72rem;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
   letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 /* Title */
 
 .service-title {
+  grid-row: 2;
   font-size: 1.22rem;
   font-weight: 700;
   color: var(--blue);
@@ -411,6 +405,7 @@ p {
 /* Price */
 
 .service-price {
+  grid-row: 3;
   margin-top: 4px;
   font-size: 1rem;
   font-weight: 600;
@@ -426,6 +421,7 @@ p {
 /* Intro */
 
 .service-body {
+  grid-row: 4;
   font-size: 0.95rem;
   line-height: 1.7;
   color: #1b1b1b;
@@ -437,6 +433,7 @@ p {
 /* Features */
 
 .service-features {
+  grid-row: 5;
   font-size: 0.9rem;
   line-height: 1.6;
   color: #374151;
@@ -451,9 +448,10 @@ p {
   margin: 0 0 6px;
 }
 
-/* Add-ons / Marketplace */
+/* Add-ons */
 
 .service-addons {
+  grid-row: 6;
   border-top: 1px solid var(--border);
   padding-top: 14px;
   overflow: hidden;
@@ -490,6 +488,7 @@ p {
 /* CTA */
 
 .service-cta {
+  grid-row: 7;
   margin-top: 22px;
 }
 
