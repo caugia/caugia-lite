@@ -569,31 +569,737 @@
     // Later we will fill in all 20 questions per pillar using your full content.
 
     const PILLARS = [
-      {
-        id: "pillar-1",
-        index: 1,
-        title: "GTM Strategy and Leadership",
-        intro:
-          "This pillar measures how clearly your organisation defines direction, alignment and priorities. Strong GTM organisations have a shared strategy, disciplined execution and leadership that creates focus, clarity and momentum.",
-        questions: [
-          {
-            id: "p1_q1",
-            index: 1,
-            text: "Our GTM strategy is clear, simple and widely understood."
-          },
-          {
-            id: "p1_q2",
-            index: 2,
-            text: "Leadership sets clear and focused GTM priorities."
-          },
-          {
-            id: "p1_q3",
-            index: 3,
-            text: "We have a well defined and validated Ideal Customer Profile."
-          }
-          // TODO: add Q4–Q20 for Pillar 1 and all other pillars
-        ]
-      },
+      <!-- =======================================================
+     PILLAR 1 — GTM STRATEGY & LEADERSHIP
+     ======================================================= -->
+<section class="pillar-panel is-active" data-pillar="1">
+  <header class="pillar-header">
+    <h1 class="pillar-title">Pillar 1 · GTM Strategy and Leadership</h1>
+    <p class="pillar-subtitle">
+      Work through your full GTM architecture at your own pace. You can pause and resume from this device at any time.
+      Your answers are saved locally and will be synced to Caugia once we connect this flow to Stripe and Make.
+    </p>
+    <p class="pillar-intro">
+      This pillar measures how clearly your organisation defines direction, alignment and priorities.
+      Strong GTM organisations have a shared strategy, disciplined execution and leadership that creates focus, clarity and momentum.
+      Select the option that best reflects how your team operates today.
+    </p>
+  </header>
+
+  <div class="question-list">
+
+    <!-- Q1 -->
+    <article class="question-card" data-question="1">
+      <div class="question-header">
+        <span class="question-label">Q1</span>
+        <p>Our GTM strategy is clear, simple and widely understood.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q1 GTM strategy clarity">
+        <label class="option-pill">
+          <input type="radio" name="p1_q1" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">We do not have a clear GTM strategy.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q1" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">We have a general direction, but it lacks clarity or consistency.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q1" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">The strategy exists, but understanding varies across teams.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q1" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">The strategy is clear, shared and guides team decisions.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q1" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">The strategy is crisp, well-communicated and fully internalised across the organisation.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card" data-question="2">
+      <div class="question-header">
+        <span class="question-label">Q2</span>
+        <p>Leadership sets clear and focused GTM priorities.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q2 GTM priorities">
+        <label class="option-pill">
+          <input type="radio" name="p1_q2" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">There are no real priorities; everything competes for attention.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q2" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Priorities exist, but they shift frequently.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q2" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Priorities are defined, but not always enforced.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q2" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Priorities are clear and consistently followed.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q2" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Priorities are sharp, stable and drive alignment across all teams.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card" data-question="3">
+      <div class="question-header">
+        <span class="question-label">Q3</span>
+        <p>We have a well defined and validated Ideal Customer Profile (ICP).</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q3 ICP definition">
+        <label class="option-pill">
+          <input type="radio" name="p1_q3" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No ICP in place.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q3" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">ICP is basic and not validated.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q3" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">ICP is defined, yet not consistently applied.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q3" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">ICP is clear and actively used in GTM decisions.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q3" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">ICP is precise, validated and firmly embedded in all GTM processes.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card" data-question="4">
+      <div class="question-header">
+        <span class="question-label">Q4</span>
+        <p>GTM decisions are based on data rather than opinions or intuition.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q4 Data driven decisions">
+        <label class="option-pill">
+          <input type="radio" name="p1_q4" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Decisions are mostly reactive or opinion-driven.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q4" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Some data is used, but inconsistently.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q4" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Data is available, though not used systematically.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q4" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Most decisions are grounded in reliable data.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q4" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Data is the default — decisions are consistently evidence-based.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card" data-question="5">
+      <div class="question-header">
+        <span class="question-label">Q5</span>
+        <p>Marketing, Sales and Customer Success operate with strong alignment.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q5 GTM team alignment">
+        <label class="option-pill">
+          <input type="radio" name="p1_q5" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Teams work in silos with limited coordination.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q5" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Some alignment exists, but misalignment is frequent.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q5" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Collaboration is present, though uneven.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q5" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Teams share goals and operate with strong alignment.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q5" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Teams operate as one GTM system with shared focus and accountability.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card" data-question="6">
+      <div class="question-header">
+        <span class="question-label">Q6</span>
+        <p>Leadership communication is clear, timely and consistent.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q6 leadership communication">
+        <label class="option-pill">
+          <input type="radio" name="p1_q6" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Communication is irregular or unclear.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q6" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Communication is reactive or incomplete.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q6" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Communication is decent but lacks rhythm.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q6" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Communication is regular and informative.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q6" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Communication is transparent, consistent and creates organisational clarity.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card" data-question="7">
+      <div class="question-header">
+        <span class="question-label">Q7</span>
+        <p>The organisation clearly understands which segments we pursue — and which we avoid.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q7 segment focus">
+        <label class="option-pill">
+          <input type="radio" name="p1_q7" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No clear segment choices.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q7" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Segment choices exist but are not followed.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q7" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Segments are defined, not always operationalised.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q7" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Segment focus is clear and disciplined.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q7" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Segment strategy is precise, aligned and improves performance across GTM.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card" data-question="8">
+      <div class="question-header">
+        <span class="question-label">Q8</span>
+        <p>We have a structured quarterly and annual GTM planning process.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q8 planning process">
+        <label class="option-pill">
+          <input type="radio" name="p1_q8" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No real planning process.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q8" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Planning happens ad-hoc or inconsistently.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q8" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Planning exists but lacks rigour or alignment.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q8" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Solid planning process used across teams.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q8" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Robust, predictable planning rhythm that drives focus and execution.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="question-card" data-question="9">
+      <div class="question-header">
+        <span class="question-label">Q9</span>
+        <p>We operate with a consistent GTM operating rhythm (standups, reviews, forecast, retros).</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q9 operating rhythm">
+        <label class="option-pill">
+          <input type="radio" name="p1_q9" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No consistent rhythm.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q9" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Rhythm exists but is irregular or not followed.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q9" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Decent rhythm, yet discipline varies.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q9" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Strong operating rhythm that supports GTM execution.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q9" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">A professional, well-run GTM cadence that drives accountability and results.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="question-card" data-question="10">
+      <div class="question-header">
+        <span class="question-label">Q10</span>
+        <p>Roles and responsibilities across GTM are clearly defined.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q10 roles and responsibilities">
+        <label class="option-pill">
+          <input type="radio" name="p1_q10" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Roles are blurry or overlapping.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q10" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Roles exist, but definitions are weak.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q10" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Roles are reasonably clear, not always respected.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q10" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Roles and scope are well-defined and followed.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q10" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Ownership is extremely clear, with strong accountability across functions.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="question-card" data-question="11">
+      <div class="question-header">
+        <span class="question-label">Q11</span>
+        <p>Our GTM leadership team operates as a unified decision-making body.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q11 GTM leadership unity">
+        <label class="option-pill">
+          <input type="radio" name="p1_q11" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No real GTM leadership structure.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q11" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Leaders collaborate occasionally, often siloed.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q11" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Leadership alignment exists but is inconsistent.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q11" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Strong alignment among GTM leaders.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q11" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Leadership team acts as one system — aligned, decisive and collaborative.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="question-card" data-question="12">
+      <div class="question-header">
+        <span class="question-label">Q12</span>
+        <p>Our strategy translates clearly into operational plans and actions.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q12 strategy to execution">
+        <label class="option-pill">
+          <input type="radio" name="p1_q12" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No connection between strategy and actions.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q12" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Strategy informs actions loosely or inconsistently.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q12" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Decent translation into actions, sometimes unclear.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q12" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Strategy connects well to execution plans.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q12" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Strategy flows seamlessly into concrete, coordinated execution.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="question-card" data-question="13">
+      <div class="question-header">
+        <span class="question-label">Q13</span>
+        <p>Our GTM goals are realistic and aligned with market conditions, product and capacity.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q13 GTM goal realism">
+        <label class="option-pill">
+          <input type="radio" name="p1_q13" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Goals are unrealistic or not grounded in data.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q13" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Goals exist but are not appropriately calibrated.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q13" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Goals are reasonable, yet not fully aligned with capacity.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q13" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Goals are realistic and well-aligned.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q13" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Goals are balanced, data-driven and fully aligned with capability and market.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="question-card" data-question="14">
+      <div class="question-header">
+        <span class="question-label">Q14</span>
+        <p>Decisions are made quickly enough to maintain momentum.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q14 decision speed">
+        <label class="option-pill">
+          <input type="radio" name="p1_q14" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Decision-making is slow and often blocks progress.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q14" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Decisions get made, but too late.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q14" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Decision speed is inconsistent.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q14" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Decisions are timely and effective.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q14" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Decisions are fast, clear and enable high GTM velocity.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="question-card" data-question="15">
+      <div class="question-header">
+        <span class="question-label">Q15</span>
+        <p>There is a shared definition of success across GTM teams.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q15 success definition">
+        <label class="option-pill">
+          <input type="radio" name="p1_q15" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No shared definition of success.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q15" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Some definitions exist, but vary by team.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q15" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Basic alignment with gaps in consistency.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q15" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Clear, shared definition of success.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q15" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Organisation-wide clarity on what success means and how it is measured.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="question-card" data-question="16">
+      <div class="question-header">
+        <span class="question-label">Q16</span>
+        <p>The organisation maintains strong focus without chasing “shiny objects”.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q16 focus discipline">
+        <label class="option-pill">
+          <input type="radio" name="p1_q16" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Frequent distractions and shifting focus.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q16" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Some focus, often disrupted.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q16" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Reasonable focus, not always disciplined.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q16" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Good focus with limited distraction.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q16" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">High discipline; clear “no’s” protect focus and progress.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="question-card" data-question="17">
+      <div class="question-header">
+        <span class="question-label">Q17</span>
+        <p>Each GTM pillar (Marketing, SDR, Sales, CS, Ops, etc.) has clear ownership.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q17 ownership per pillar">
+        <label class="option-pill">
+          <input type="radio" name="p1_q17" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No clear ownership.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q17" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Partial ownership with gaps.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q17" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Ownership exists but not strong enough.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q17" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Solid ownership per pillar.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q17" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Crystal-clear ownership with strong accountability and leadership.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="question-card" data-question="18">
+      <div class="question-header">
+        <span class="question-label">Q18</span>
+        <p>Leaders actively encourage cross-functional collaboration.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q18 collaboration encouragement">
+        <label class="option-pill">
+          <input type="radio" name="p1_q18" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Little collaboration across teams.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q18" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Collaboration happens occasionally.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q18" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Reasonable collaboration, not systematic.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q18" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Strong collaboration supported by leadership.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q18" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Leaders drive deep, continuous cross-functional alignment.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="question-card" data-question="19">
+      <div class="question-header">
+        <span class="question-label">Q19</span>
+        <p>Teams understand the reasoning behind important GTM decisions.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q19 decision rationale">
+        <label class="option-pill">
+          <input type="radio" name="p1_q19" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">Decisions lack explanation or context.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q19" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Some explanations, often incomplete.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q19" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Decent communication of rationale.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q19" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Clear explanations that foster alignment.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q19" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Transparent communication that drives clarity and trust.</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="question-card" data-question="20">
+      <div class="question-header">
+        <span class="question-label">Q20</span>
+        <p>Our GTM strategy is reviewed and refined on a regular basis.</p>
+      </div>
+      <div class="question-options" role="radiogroup" aria-label="Q20 strategy review cadence">
+        <label class="option-pill">
+          <input type="radio" name="p1_q20" value="0" />
+          <span class="option-level">Level 1</span>
+          <span class="option-caption">No formal review or evaluation.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q20" value="2" />
+          <span class="option-level">Level 2</span>
+          <span class="option-caption">Reviews happen occasionally with limited structure.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q20" value="5" />
+          <span class="option-level">Level 3</span>
+          <span class="option-caption">Regular reviews, though not always thorough.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q20" value="7" />
+          <span class="option-level">Level 4</span>
+          <span class="option-caption">Strong review rhythm that influences strategy.</span>
+        </label>
+        <label class="option-pill">
+          <input type="radio" name="p1_q20" value="10" />
+          <span class="option-level">Level 5</span>
+          <span class="option-caption">Continuous improvement loop: insights → adjustments → execution → results.</span>
+        </label>
+      </div>
+    </article>
+
+  </div>
+
+  <footer class="pillar-footer">
+    <div class="pillar-footer-actions">
+      <button type="button" class="btn-secondary" data-prev-pillar disabled>Previous pillar</button>
+      <button type="button" class="btn-primary" data-next-pillar>Next pillar</button>
+    </div>
+    <p class="draft-note">
+      Draft. Autosave is active on this device. The secure payment step, token-based access and connection to your AI reporting engine will be wired in via Stripe and Make in the next implementation step.
+    </p>
+  </footer>
+</section>
       {
         id: "pillar-2",
         index: 2,
