@@ -11,7 +11,68 @@
 <link rel="apple-touch-icon" href="/C-logo.png">
 <meta name="msapplication-TileImage" content="/C-logo.png">
 
-<link rel="stylesheet" href="assets/caugia.css?v=2.3" />
+<link rel="stylesheet" href="assets/caugia.css?v=2.2" />
+
+<!-- SAFE INLINE SERVICE-PAGE CSS (NO GLOBAL IMPACT) -->
+<style>
+
+/* --------------------------------------------------
+   SERVICES PAGE ONLY — SAFE, ISOLATED PREMIUM FIXES
+   -------------------------------------------------- */
+
+/* Force identical card heights & aligned CTA */
+.services-grid .service-card {
+  display: grid;
+  grid-template-rows:
+    auto      /* label */
+    auto      /* title */
+    auto      /* price */
+    130px     /* intro paragraph */
+    195px     /* features */
+    170px     /* marketplace modules */
+    auto;     /* CTA */
+  position: relative;
+}
+
+/* Premium badge */
+.service-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #002A5C;
+  color: #fff;
+  font-size: 0.70rem;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+/* Marketplace title */
+.service-addons-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.service-addons-list {
+  margin-top: 6px;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.service-addons-list li {
+  margin-bottom: 4px;
+}
+
+</style>
+
 </head>
 <body>
 
@@ -60,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
 <main>
   <div class="wrap">
 
@@ -75,19 +137,28 @@ document.addEventListener("DOMContentLoaded", function() {
       and bring Caugia into your operating rhythm when you are ready.
     </p>
 
-    <!-- GRID -->
+
+    <!-- SERVICES GRID -->
     <section>
       <div class="services-grid">
 
+
+        <!-- ===================================== -->
         <!-- 1: GTM SCORE -->
+        <!-- ===================================== -->
         <article class="service-card">
+
           <div class="service-label">Entry</div>
+
           <h2 class="service-title">GTM Score</h2>
-          <p class="service-price">Free <span>instant online assessment</span></p>
+
+          <p class="service-price">
+            Free <span>instant online assessment</span>
+          </p>
 
           <p class="service-body">
-            A short GTM maturity check that reveals your score from 0 to 100.
-            A calm first step that creates shared language.
+            A short GTM maturity check that reveals your overall score and maturity band.  
+            Designed as a calm first step that creates shared language.
           </p>
 
           <ul class="service-features">
@@ -98,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
           </ul>
 
           <div class="service-addons">
+            <div class="service-addons-title">Add-ons</div>
             <div class="empty">No add-ons for this service.</div>
           </div>
 
@@ -107,31 +179,40 @@ document.addEventListener("DOMContentLoaded", function() {
         </article>
 
 
+
+        <!-- ===================================== -->
         <!-- 2: GTM INTELLIGENCE REPORT -->
+        <!-- ===================================== -->
         <article class="service-card">
 
           <!-- PREMIUM BADGE -->
           <div class="service-badge">Premium</div>
 
           <div class="service-label">Core Product</div>
+
           <h2 class="service-title">GTM Intelligence Report</h2>
-          <p class="service-price">€749 <span>one time</span></p>
+
+          <p class="service-price">
+            €749 <span>one time, automated delivery</span>
+          </p>
 
           <p class="service-body">
-            A professional diagnostic based on the full GTM Intelligence assessment.
-            You receive a detailed report that explains your system and where to focus first.
+            A professional-grade diagnostic based on the full GTM Intelligence assessment.
+            You receive a detailed report explaining how your system works and where to focus first.
           </p>
 
           <ul class="service-features">
-            <li>Full diagnostic</li>
+            <li>Full GTM Intelligence diagnostic</li>
             <li>12 pillar scoring</li>
-            <li>Complete PDF</li>
+            <li>Complete PDF report</li>
             <li>Priority roadmap</li>
             <li>Team & process insights</li>
             <li>Tool stack guidance</li>
           </ul>
 
           <div class="service-addons">
+            <div class="service-addons-title">GTM Intelligence Marketplace Modules</div>
+
             <ul class="service-addons-list">
               <li>Tool stack cost & overlap analysis</li>
               <li>Competitive landscape scan</li>
@@ -145,79 +226,101 @@ document.addEventListener("DOMContentLoaded", function() {
           </div>
 
           <div class="service-cta">
-            <a href="mailto:tom@caugia.com?subject=GTM Report" class="cta">Request</a>
+            <a href="mailto:tom@caugia.com?subject=GTM Intelligence Report" class="cta">Request</a>
           </div>
+
         </article>
 
 
+
+        <!-- ===================================== -->
         <!-- 3: SUBSCRIPTION -->
+        <!-- ===================================== -->
         <article class="service-card">
+
           <div class="service-label">Subscription</div>
+
           <h2 class="service-title">GTM Intelligence Subscription</h2>
-          <p class="service-price">€99/month <span>or €990/year</span></p>
+
+          <p class="service-price">
+            €99 per month <span>or €990 per year</span>
+          </p>
 
           <p class="service-body">
             A recurring intelligence layer that keeps your GTM system under quiet observation.
-            You receive score movement tracking and pattern alerts.
+            Track pattern shifts, drift, and quarterly movement.
           </p>
 
           <ul class="service-features">
             <li>Quarterly micro assessments</li>
-            <li>Score drift tracking</li>
+            <li>Score drift & pillar movement</li>
             <li>Updated benchmarks</li>
             <li>Mini intelligence report</li>
-            <li>Risk alerts</li>
-            <li>Access to library</li>
+            <li>Forecast & pipeline risk alerts</li>
+            <li>Access to the GTM Library</li>
           </ul>
 
           <div class="service-addons">
+            <div class="service-addons-title">GTM Intelligence Marketplace Modules</div>
+
             <ul class="service-addons-list">
               <li>Executive summary pack</li>
               <li>CRM & dashboard suggestions</li>
-              <li>Scenario notes</li>
+              <li>Scenario notes for funding cycles</li>
               <li>Signals for reassessment</li>
             </ul>
           </div>
 
           <div class="service-cta">
-            <a href="mailto:tom@caugia.com?subject=Subscription" class="cta">Set up</a>
+            <a href="mailto:tom@caugia.com?subject=GTM Subscription" class="cta">Set up</a>
           </div>
+
         </article>
 
 
+
+        <!-- ===================================== -->
         <!-- 4: CONSULTING -->
+        <!-- ===================================== -->
         <article class="service-card">
+
           <div class="service-label">Advisory</div>
+
           <h2 class="service-title">Consulting</h2>
+
           <p class="service-price">Custom <span>engagements</span></p>
 
           <p class="service-body">
             Consulting engagements turn intelligence into a living operating system.
-            Reserved for teams between roughly €1M and €250M ARR.
+            Built for teams wanting predictable revenue between €1M and €250M ARR.
           </p>
 
           <ul class="service-features">
             <li>GTM system design</li>
-            <li>Operating model build</li>
+            <li>Operating model build & refinement</li>
             <li>GTM & RevOps audits</li>
             <li>Leadership alignment</li>
             <li>Strategic advisory</li>
           </ul>
 
           <div class="service-addons">
-            <div class="empty">Add-ons defined per engagement.</div>
+            <div class="service-addons-title">GTM Intelligence Marketplace Modules</div>
+            <div class="empty">Add-ons are defined per engagement.</div>
           </div>
 
           <div class="service-cta">
             <a href="mailto:tom@caugia.com?subject=Consulting" class="cta">Discuss</a>
           </div>
+
         </article>
+
 
       </div>
     </section>
 
   </div>
 </main>
+
 
 <footer>
   © 2025 Caugia Consulting ·
