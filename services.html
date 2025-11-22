@@ -7,73 +7,13 @@
 <title>Services | System Design for Predictable Revenue</title>
 <meta name="description" content="Explore Caugia Consulting services. From the free GTM Score to the GTM Intelligence Report, subscriptions, and advisory consulting. Calm system design for predictable revenue." />
 
-<link rel="icon" href="/C-logo.png" type="image/png">
+<link rel="icon" href="/C-logo.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/C-logo.png">
 <meta name="msapplication-TileImage" content="/C-logo.png">
 
-<link rel="stylesheet" href="assets/caugia.css?v=2.2" />
-
-<!-- SAFE INLINE SERVICE-PAGE CSS (NO GLOBAL IMPACT) -->
-<style>
-
-/* --------------------------------------------------
-   SERVICES PAGE ONLY — SAFE, ISOLATED PREMIUM FIXES
-   -------------------------------------------------- */
-
-/* Force identical card heights & aligned CTA */
-.services-grid .service-card {
-  display: grid;
-  grid-template-rows:
-    auto      /* label */
-    auto      /* title */
-    auto      /* price */
-    130px     /* intro paragraph */
-    195px     /* features */
-    170px     /* marketplace modules */
-    auto;     /* CTA */
-  position: relative;
-}
-
-/* Premium badge */
-.service-badge {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: #002A5C;
-  color: #fff;
-  font-size: 0.70rem;
-  padding: 4px 9px;
-  border-radius: 6px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  opacity: 0.95;
-}
-
-/* Marketplace title */
-.service-addons-title {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-}
-
-.service-addons-list {
-  margin-top: 6px;
-  padding-left: 18px;
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.service-addons-list li {
-  margin-bottom: 4px;
-}
-
-</style>
-
+<link rel="stylesheet" href="assets/caugia.css?v=2.3" />
 </head>
+
 <body>
 
 <header>
@@ -90,10 +30,12 @@
       <a href="the-gtm-framework.html">GTM Framework</a>
       <a href="gtm-assessment.html">GTM Score</a>
       <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank">Contact</a>
     </nav>
 
-    <button class="menu-toggle"><span></span><span></span><span></span></button>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
   <nav class="nav-mobile">
@@ -103,21 +45,34 @@
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="gtm-assessment.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="https://www.linkedin.com/in/meijertom" target="_blank">Contact</a>
   </nav>
 </header>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".nav-mobile");
+  const mobileNav = document.querySelector(".nav-mobile");
 
-  if (toggle) {
+  if (toggle && mobileNav) {
     toggle.addEventListener("click", () => {
       toggle.classList.toggle("active");
-      nav.classList.toggle("open");
+      mobileNav.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-mobile a").forEach(link => {
+      link.addEventListener("click", () => {
+        toggle.classList.remove("active");
+        mobileNav.classList.remove("open");
+      });
     });
   }
+
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 10) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  });
 });
 </script>
 
@@ -128,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function() {
     <h1>Services</h1>
 
     <p class="services-intro">
-      Caugia Consulting helps leaders design calm, data aligned systems that produce predictable revenue.
-      Each service is built on The GTM Framework.
+      Caugia Consulting helps leadership teams design calm, data aligned systems that produce predictable revenue.
+      Every service is built on The GTM Framework.
     </p>
 
     <p class="services-subtitle">
@@ -137,27 +92,18 @@ document.addEventListener("DOMContentLoaded", function() {
       and bring Caugia into your operating rhythm when you are ready.
     </p>
 
-
     <!-- SERVICES GRID -->
     <section>
       <div class="services-grid">
 
-
-        <!-- ===================================== -->
-        <!-- 1: GTM SCORE -->
-        <!-- ===================================== -->
+        <!-- GTM SCORE -->
         <article class="service-card">
-
           <div class="service-label">Entry</div>
-
           <h2 class="service-title">GTM Score</h2>
-
-          <p class="service-price">
-            Free <span>instant online assessment</span>
-          </p>
+          <p class="service-price">Free <span>instant online assessment</span></p>
 
           <p class="service-body">
-            A short GTM maturity check that reveals your overall score and maturity band.  
+            A short GTM maturity check that reveals your overall score and maturity band.
             Designed as a calm first step that creates shared language.
           </p>
 
@@ -169,8 +115,7 @@ document.addEventListener("DOMContentLoaded", function() {
           </ul>
 
           <div class="service-addons">
-            <div class="service-addons-title">Add-ons</div>
-            <div class="empty">No add-ons for this service.</div>
+            <span class="empty">No add-ons for this service.</span>
           </div>
 
           <div class="service-cta">
@@ -179,22 +124,13 @@ document.addEventListener("DOMContentLoaded", function() {
         </article>
 
 
-
-        <!-- ===================================== -->
-        <!-- 2: GTM INTELLIGENCE REPORT -->
-        <!-- ===================================== -->
-        <article class="service-card">
-
-          <!-- PREMIUM BADGE -->
-          <div class="service-badge">Premium</div>
+        <!-- CORE PRODUCT — WITH PREMIUM BADGE -->
+        <article class="service-card highlight">
+          <div class="premium-badge">Premium</div>
 
           <div class="service-label">Core Product</div>
-
           <h2 class="service-title">GTM Intelligence Report</h2>
-
-          <p class="service-price">
-            €749 <span>one time, automated delivery</span>
-          </p>
+          <p class="service-price">€749 <span>one time, automated delivery</span></p>
 
           <p class="service-body">
             A professional-grade diagnostic based on the full GTM Intelligence assessment.
@@ -210,9 +146,9 @@ document.addEventListener("DOMContentLoaded", function() {
             <li>Tool stack guidance</li>
           </ul>
 
+          <!-- GTM MARKETPLACE MODULES (ALL HERE) -->
           <div class="service-addons">
-            <div class="service-addons-title">GTM Intelligence Marketplace Modules</div>
-
+            <div class="addons-title">GTM Intelligence Marketplace Modules</div>
             <ul class="service-addons-list">
               <li>Tool stack cost & overlap analysis</li>
               <li>Competitive landscape scan</li>
@@ -226,25 +162,16 @@ document.addEventListener("DOMContentLoaded", function() {
           </div>
 
           <div class="service-cta">
-            <a href="mailto:tom@caugia.com?subject=GTM Intelligence Report" class="cta">Request</a>
+            <a href="mailto:tom@caugia.com?subject=GTM%20Intelligence%20Report" class="cta">Request</a>
           </div>
-
         </article>
 
 
-
-        <!-- ===================================== -->
-        <!-- 3: SUBSCRIPTION -->
-        <!-- ===================================== -->
+        <!-- SUBSCRIPTION -->
         <article class="service-card">
-
           <div class="service-label">Subscription</div>
-
           <h2 class="service-title">GTM Intelligence Subscription</h2>
-
-          <p class="service-price">
-            €99 per month <span>or €990 per year</span>
-          </p>
+          <p class="service-price">€99 per month <span>or €990 per year</span></p>
 
           <p class="service-body">
             A recurring intelligence layer that keeps your GTM system under quiet observation.
@@ -261,38 +188,23 @@ document.addEventListener("DOMContentLoaded", function() {
           </ul>
 
           <div class="service-addons">
-            <div class="service-addons-title">GTM Intelligence Marketplace Modules</div>
-
-            <ul class="service-addons-list">
-              <li>Executive summary pack</li>
-              <li>CRM & dashboard suggestions</li>
-              <li>Scenario notes for funding cycles</li>
-              <li>Signals for reassessment</li>
-            </ul>
+            <span class="empty">Some modules optionally integrate with your subscription.</span>
           </div>
 
           <div class="service-cta">
-            <a href="mailto:tom@caugia.com?subject=GTM Subscription" class="cta">Set up</a>
+            <a href="mailto:tom@caugia.com?subject=Subscription" class="cta">Set up</a>
           </div>
-
         </article>
 
 
-
-        <!-- ===================================== -->
-        <!-- 4: CONSULTING -->
-        <!-- ===================================== -->
+        <!-- CONSULTING -->
         <article class="service-card">
-
           <div class="service-label">Advisory</div>
-
           <h2 class="service-title">Consulting</h2>
-
           <p class="service-price">Custom <span>engagements</span></p>
 
           <p class="service-body">
-            Consulting engagements turn intelligence into a living operating system.
-            Built for teams wanting predictable revenue between €1M and €250M ARR.
+            Consulting engagements turn intelligence into a living operating system. Built for teams wanting predictable revenue between €1M and €250M ARR.
           </p>
 
           <ul class="service-features">
@@ -304,23 +216,19 @@ document.addEventListener("DOMContentLoaded", function() {
           </ul>
 
           <div class="service-addons">
-            <div class="service-addons-title">GTM Intelligence Marketplace Modules</div>
-            <div class="empty">Add-ons are defined per engagement.</div>
+            <span class="empty">Add-ons are defined per engagement.</span>
           </div>
 
           <div class="service-cta">
             <a href="mailto:tom@caugia.com?subject=Consulting" class="cta">Discuss</a>
           </div>
-
         </article>
-
 
       </div>
     </section>
 
   </div>
 </main>
-
 
 <footer>
   © 2025 Caugia Consulting ·
