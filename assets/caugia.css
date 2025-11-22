@@ -112,7 +112,7 @@ a.brand {
 nav.nav-desktop {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  gap: 24px;
 }
 
 nav.nav-desktop a {
@@ -123,25 +123,27 @@ nav.nav-desktop a {
   transition: var(--transition);
 }
 
-/* Fallback spacing, zelfs als flex-gap niet werkt */
-nav.nav-desktop a + a {
-  margin-left: 24px;
-}
-
 nav.nav-desktop a:hover,
 nav.nav-desktop a.active {
   color: var(--blue);
 }
 
+/* Contact pill in header – iets breder en ronder,
+   zonder andere CTA-knoppen te raken */
+header .nav-desktop .cta {
+  padding: 0.45rem 1.7rem;
+  border-radius: 999px;
+}
 
-/* ------------------ CTA ------------------ */
+
+/* ------------------ CTA (globaal) ------------------ */
 
 .cta {
   background: var(--blue);
   color: #fff !important;
   text-decoration: none;
-  padding: 0.55rem 1.7rem;
-  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  border-radius: 10px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -229,8 +231,6 @@ nav.nav-mobile.open {
 /* ------------------ Layout & Typography ------------------ */
 
 main .wrap {
-  max-width: var(--maxw);
-  margin: 0 auto;
   padding: 88px 24px 80px; /* ruimte boven 'Services' */
 }
 
@@ -305,8 +305,8 @@ p {
 .services-note {
   font-size: 0.9rem;
   color: #6b7280;
-  max-width: 640px;
-  margin-top: 2px;
+  max-width: 700px;
+  margin-top: 4px;
 }
 
 /* Services grid */
@@ -316,7 +316,7 @@ p {
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
   max-width: 100%;
-  margin-top: 32px; /* ruimte tussen intro en eerste rij kaarten */
+  margin-top: 40px; /* ruimte tussen intro en eerste rij kaarten */
 }
 
 @media (max-width: 1100px) {
@@ -334,16 +334,15 @@ p {
 /* Pixel-perfect cards met vaste rijen (desktop) */
 
 .service-card {
-  position: relative;
   display: grid;
   grid-template-rows:
-    auto   /* label + badge */
-    auto   /* title */
-    auto   /* price */
-    170px  /* intro */
-    230px  /* features */
-    300px  /* add-ons */
-    auto;  /* CTA */
+    auto    /* label */
+    auto    /* title */
+    auto    /* price */
+    180px   /* intro */
+    260px   /* features */
+    260px   /* add-ons */
+    auto;   /* CTA */
   background: #ffffff;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -355,6 +354,7 @@ p {
 /* Featured card (Core Product) */
 
 .service-card--featured {
+  position: relative;
   border: 2px solid var(--blue);
   box-shadow: 0 8px 20px rgba(15,23,42,0.08);
 }
@@ -364,10 +364,25 @@ p {
   box-shadow: 0 10px 28px rgba(15,23,42,0.12);
 }
 
+/* Premium badge: rechtsboven in de rand */
+
+.service-badge {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--blue);
+  color: #ffffff;
+}
+
 /* Label */
 
 .service-label {
-  grid-row: 1;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -375,27 +390,9 @@ p {
   color: #6b7280;
 }
 
-/* Premium badge (rechtsboven) */
-
-.service-badge {
-  grid-row: 1;
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  background: var(--blue);
-  color: #fff;
-  padding: 3px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
 /* Title */
 
 .service-title {
-  grid-row: 2;
   font-size: 1.22rem;
   font-weight: 700;
   color: var(--blue);
@@ -405,7 +402,6 @@ p {
 /* Price */
 
 .service-price {
-  grid-row: 3;
   margin-top: 4px;
   font-size: 1rem;
   font-weight: 600;
@@ -421,7 +417,6 @@ p {
 /* Intro */
 
 .service-body {
-  grid-row: 4;
   font-size: 0.95rem;
   line-height: 1.7;
   color: #1b1b1b;
@@ -433,7 +428,6 @@ p {
 /* Features */
 
 .service-features {
-  grid-row: 5;
   font-size: 0.9rem;
   line-height: 1.6;
   color: #374151;
@@ -448,10 +442,9 @@ p {
   margin: 0 0 6px;
 }
 
-/* Add-ons */
+/* Add-ons / Marketplace */
 
 .service-addons {
-  grid-row: 6;
   border-top: 1px solid var(--border);
   padding-top: 14px;
   overflow: hidden;
@@ -469,7 +462,7 @@ p {
 
 .service-addons-list {
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #4b5563;
   padding-left: 18px;
   margin: 0;
@@ -477,7 +470,7 @@ p {
 }
 
 .service-addons-list li {
-  margin: 0 0 5px;
+  margin: 0 0 3px;
 }
 
 .service-addons .empty {
@@ -488,7 +481,6 @@ p {
 /* CTA */
 
 .service-cta {
-  grid-row: 7;
   margin-top: 22px;
 }
 
