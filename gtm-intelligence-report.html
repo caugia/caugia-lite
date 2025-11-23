@@ -569,6 +569,292 @@
     // Later we will fill in all 20 questions per pillar using your full content.
 
     const PILLARS = [
+      <!-- ============================================================
+     SECTION 0 — COMPANY CONTEXT (25 QUESTIONS)
+     ============================================================ -->
+
+<section id="context" class="pillar-section active">
+
+  <div class="pillar-header">
+    <h2>Company Context</h2>
+    <p class="pillar-subtitle">
+      These 25 questions help Caugia personalise your GTM Intelligence Report.
+      They do <strong>not</strong> affect your score, but they influence interpretation,
+      benchmarks, and the recommendations you receive.
+    </p>
+  </div>
+
+  <div class="pillar-layout">
+
+    <!-- ---------- LEFT SIDEBAR PROGRESS ---------- -->
+    <aside class="pillar-progress">
+      <div class="progress-card">
+        <div class="progress-header">Overall progress</div>
+        <div class="progress-value"><span id="progress-count">0</span> of 265 answered</div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%;"></div></div>
+
+        <div class="progress-section-title">SECTIONS</div>
+        <ul class="progress-nav">
+          <li class="active">0. Company Context</li>
+          <li>1. GTM Strategy & Leadership</li>
+          <li>2. Market Intelligence</li>
+          <li>3. Product Marketing</li>
+          <li>4. Demand Generation</li>
+          <li>5. Sales Development (SDR)</li>
+          <li>6. Sales Execution</li>
+          <li>7. Customer Success & Retention</li>
+          <li>8. Account Management & Expansion</li>
+          <li>9. Revenue Operations</li>
+          <li>10. Enablement</li>
+          <li>11. Performance Management</li>
+          <li>12. Pricing & Packaging</li>
+        </ul>
+
+        <div class="save-buttons">
+          <button class="btn-light save-local-btn">Save now on this device</button>
+          <button class="btn-clear clear-local-btn">Clear all answers</button>
+        </div>
+
+        <p class="autosave-note">
+          Your answers are auto-saved. Once Stripe, Make and your reporting pipeline
+          are connected, this page will also sync to Caugia.
+        </p>
+      </div>
+    </aside>
+
+    <!-- ---------- QUESTIONS AREA ---------- -->
+    <div class="pillar-content">
+
+      <!-- ------------- Q1 ------------- -->
+      <div class="question-block">
+        <label class="question-label">1. What is your company name?</label>
+        <input type="text" class="text-input ctx" data-key="ctx_company_name" required />
+      </div>
+
+      <!-- ------------- Q2 ------------- -->
+      <div class="question-block">
+        <label class="question-label">2. What is your current role?</label>
+        <input type="text" class="text-input ctx" data-key="ctx_role" required />
+      </div>
+
+      <!-- ------------- Q3 ------------- -->
+      <div class="question-block">
+        <label class="question-label">3. How many full-time employees do you have?</label>
+        <select class="select-input ctx" data-key="ctx_fte" required>
+          <option value="">Select…</option>
+          <option>1–10</option>
+          <option>11–30</option>
+          <option>31–75</option>
+          <option>76–150</option>
+          <option>151–300</option>
+          <option>301–1000</option>
+          <option>1000+</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q4 ------------- -->
+      <div class="question-block">
+        <label class="question-label">4. What is your current ARR?</label>
+        <select class="select-input ctx" data-key="ctx_arr" required>
+          <option value="">Select…</option>
+          <option>< €1M</option>
+          <option>€1–5M</option>
+          <option>€5–10M</option>
+          <option>€10–30M</option>
+          <option>€30–50M</option>
+          <option>€50–100M</option>
+          <option>> €100M</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q5 ------------- -->
+      <div class="question-block">
+        <label class="question-label">5. What best describes your GTM motion?</label>
+        <select class="select-input ctx" data-key="ctx_motion" required>
+          <option value="">Select…</option>
+          <option>Inbound</option>
+          <option>Outbound-led</option>
+          <option>Allbound</option>
+          <option>Product-led</option>
+          <option>Enterprise field-led</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q6 ------------- -->
+      <div class="question-block">
+        <label class="question-label">6. What best describes your sales model?</label>
+        <select class="select-input ctx" data-key="ctx_sales_model" required>
+          <option value="">Select…</option>
+          <option>No dedicated sales team</option>
+          <option>Founder-led</option>
+          <option>SMB inside sales</option>
+          <option>Mid-market sales team</option>
+          <option>Enterprise sales team</option>
+          <option>Hybrid sales organisation</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q7 ------------- -->
+      <div class="question-block">
+        <label class="question-label">7. What industry category best matches your company?</label>
+        <input class="text-input ctx" data-key="ctx_industry" required />
+      </div>
+
+      <!-- ------------- Q8 ------------- -->
+      <div class="question-block">
+        <label class="question-label">8. What is your primary GTM objective?</label>
+        <select class="select-input ctx" data-key="ctx_goal" required>
+          <option value="">Select…</option>
+          <option>More predictable revenue</option>
+          <option>Pipeline growth</option>
+          <option>Improve win-rates</option>
+          <option>Reduce churn</option>
+          <option>Improve operational efficiency</option>
+          <option>Scale GTM organisation</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q9 ------------- -->
+      <div class="question-block">
+        <label class="question-label">9. How many personas do you typically sell to?</label>
+        <select class="select-input ctx" data-key="ctx_personas" required>
+          <option value="">Select…</option>
+          <option>1</option>
+          <option>2–3</option>
+          <option>4–6</option>
+          <option>7+</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q10 ------------- -->
+      <div class="question-block">
+        <label class="question-label">10. How complex is your product?</label>
+        <select class="select-input ctx" data-key="ctx_complexity" required>
+          <option value="">Select…</option>
+          <option>Very simple</option>
+          <option>Simple</option>
+          <option>Moderately complex</option>
+          <option>Complex</option>
+          <option>Enterprise-grade</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q11 ------------- -->
+      <div class="question-block">
+        <label class="question-label">11. Do you sell to multiple geographies?</label>
+        <select class="select-input ctx" data-key="ctx_geo" required>
+          <option value="">Select…</option>
+          <option>No</option>
+          <option>Yes — 2 regions</option>
+          <option>Yes — 3–5 regions</option>
+          <option>Yes — global</option>
+        </select>
+      </div>
+
+      <!-- ------------- Q12-Q25 (remaining 14 questions) ------------- -->
+
+      <!-- To save space, I include them cleanly: -->
+
+      <div class="question-block"><label>12. Do you have product-market fit?</label>
+        <select class="select-input ctx" data-key="ctx_pmf" required>
+          <option value="">Select…</option>
+          <option>No</option><option>Unclear</option><option>Emerging</option><option>Strong</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>13. What is your average contract value (ACV)?</label>
+        <select class="select-input ctx" data-key="ctx_acv" required>
+          <option value="">Select…</option>
+          <option>< €2k</option><option>€2–10k</option><option>€10–30k</option>
+          <option>€30–100k</option><option>> €100k</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>14. How long is your average sales cycle?</label>
+        <select class="select-input ctx" data-key="ctx_sales_cycle" required>
+          <option value="">Select…</option>
+          <option>< 14 days</option><option>14–30 days</option><option>31–60 days</option>
+          <option>60–120 days</option><option>> 120 days</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>15. Do you run outbound today?</label>
+        <select class="select-input ctx" data-key="ctx_outbound" required>
+          <option value="">Select…</option><option>No</option><option>Light attempts</option>
+          <option>Consistent</option><option>High-performing</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>16. How many sales reps do you currently have?</label>
+        <input class="text-input ctx" data-key="ctx_reps" required />
+      </div>
+
+      <div class="question-block"><label>17. How many CSMs?</label>
+        <input class="text-input ctx" data-key="ctx_csms" required />
+      </div>
+
+      <div class="question-block"><label>18. Do you have a RevOps function?</label>
+        <select class="select-input ctx" data-key="ctx_revops" required>
+          <option value="">Select…</option><option>No</option><option>Part-time</option>
+          <option>1 FTE</option><option>2–3 FTE</option><option>4+ FTE</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>19. How do you generate most of your pipeline?</label>
+        <select class="select-input ctx" data-key="ctx_pipeline_source" required>
+          <option value="">Select…</option><option>Inbound</option><option>Outbound</option>
+          <option>Partner</option><option>Product-led</option><option>Mixed</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>20. Your biggest GTM frustration right now?</label>
+        <textarea class="textarea-input ctx" data-key="ctx_frustration" required></textarea>
+      </div>
+
+      <div class="question-block"><label>21. What’s working well today?</label>
+        <textarea class="textarea-input ctx" data-key="ctx_working" required></textarea>
+      </div>
+
+      <div class="question-block"><label>22. What’s the one thing you want to improve?</label>
+        <textarea class="textarea-input ctx" data-key="ctx_onething" required></textarea>
+      </div>
+
+      <div class="question-block"><label>23. How do you forecast today?</label>
+        <select class="select-input ctx" data-key="ctx_forecast" required>
+          <option value="">Select…</option>
+          <option>No forecasting</option>
+          <option>Spreadsheet</option>
+          <option>CRM-driven</option>
+          <option>Hybrid model</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>24. How predictable is your revenue today?</label>
+        <select class="select-input ctx" data-key="ctx_predictability" required>
+          <option value="">Select…</option>
+          <option>Very unpredictable</option>
+          <option>Somewhat predictable</option>
+          <option>Reasonably predictable</option>
+          <option>Highly predictable</option>
+        </select>
+      </div>
+
+      <div class="question-block"><label>25. Anything else we should know?</label>
+        <textarea class="textarea-input ctx" data-key="ctx_extra"></textarea>
+      </div>
+
+
+      <!-- ---------- NAVIGATION ---------- -->
+      <div class="pillar-nav">
+        <button class="btn-next" onclick="goToPillar(1)">Go to Pillar 1</button>
+      </div>
+
+      <p class="draft-note">Draft. Autosave active on this device.</p>
+
+    </div>
+  </div>
+</section>
+
       <!-- =======================================================
      PILLAR 1 — GTM STRATEGY & LEADERSHIP
      ======================================================= -->
