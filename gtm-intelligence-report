@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3845,9 +3846,44 @@
 <script>
     (function () {
       var STORAGE_KEY = "gtmIntelligence_v1";
+      var DEBUG_MODE = window.location.search.indexOf("debug=1") !== -1;
+
+      var PILLAR_DEFS = [
+        { id: "1", label: "GTM Strategy & Leadership" },
+        { id: "2", label: "Market Intelligence" },
+        { id: "3", label: "Product Marketing" },
+        { id: "4", label: "Inbound Engine" },
+        { id: "5", label: "Outbound Engine" },
+        { id: "6", label: "Sales Execution" },
+        { id: "7", label: "Customer Success & Expansion" },
+        { id: "8", label: "Product & Engineering" },
+        { id: "9", label: "Brand & Communications" },
+        { id: "10", label: "Data & Insights" },
+        { id: "11", label: "Operations & Systems" },
+        { id: "12", label: "Leadership & Alignment" }
+      ];
+
+      var PILLAR_TOTALS = {};
+      var TOTAL_SCORED_QUESTIONS = 0;
 
       function selectAll(selector) {
         return Array.prototype.slice.call(document.querySelectorAll(selector));
+      }
+
+      function dbg(msg, obj) {
+        if (!DEBUG_MODE) return;
+        var panel = document.getElementById("gi-debug");
+        var out = document.getElementById("gi-debug-output");
+        if (!panel || !out) return;
+        panel.style.display = "block";
+        out.textContent += "\n\n" + msg;
+        if (obj !== undefined) {
+          try {
+            out.textContent += "\n" + JSON.stringify(obj, null, 2);
+          } catch (e) {
+            out.textContent += "\n[object]";
+          }
+        }
       }
 
       function getMaturityFromScore(score100) {
@@ -3866,7 +3902,7 @@
         var scoredQuestionCount = 0;
 
         // Context (data-pillar="0")
-        selectAll('[data-pillar="0"] input, [data-pillar="0"] select, [data-pillar="0"] textarea')
+        selectAll('.gi-question[data-pillar="0"] input, .gi-question[data-pillar="0"] select, .gi-question[data-pillar="0"] textarea')
           .forEach(function (el) {
             var name = el.name;
             if (!name) return;
@@ -3881,34 +3917,38 @@
           });
 
         // Scored questions (data-pillar != "0")
-        selectAll(".gi-question[data-pillar]").forEach(function (block) {
-          var pillarId = block.getAttribute("data-pillar");
-          if (!pillarId || pillarId === "0") return;
+        selectAll(".gi-question[data-pillar]")
+          .forEach(function (block) {
+            var pillarId = block.getAttribute("data-pillar");
+            if (!pillarId || pillarId === "0") return;
 
-          if (!pillars[pillarId]) {
-            pillars[pillarId] = { score: 0, questions: 0 };
-          }
+            if (!pillars[pillarId]) {
+              pillars[pillarId] = {
+                score: 0,
+                questions: 0
+              };
+            }
 
-          var radios = block.querySelectorAll('input[type="radio"]');
-          if (!radios.length) return;
+            var radios = block.querySelectorAll('input[type="radio"]');
+            if (!radios.length) return;
 
-          var questionAnswered = false;
-          radios.forEach(function (r) {
-            if (r.checked) {
-              var val = parseInt(r.value, 10);
-              if (!isNaN(val)) {
-                pillars[pillarId].score += val;
-                totalScore += val;
-                questionAnswered = true;
+            var questionAnswered = false;
+            radios.forEach(function (r) {
+              if (r.checked) {
+                var val = parseInt(r.value, 10);
+                if (!isNaN(val)) {
+                  pillars[pillarId].score += val;
+                  totalScore += val;
+                  questionAnswered = true;
+                }
               }
+            });
+
+            if (questionAnswered) {
+              pillars[pillarId].questions += 1;
+              scoredQuestionCount += 1;
             }
           });
-
-          if (questionAnswered) {
-            pillars[pillarId].questions += 1;
-            scoredQuestionCount += 1;
-          }
-        });
 
         var maxTotalScore = scoredQuestionCount * 10;
         var normalizedTotal = maxTotalScore > 0
@@ -3931,7 +3971,7 @@
           };
         });
 
-        return {
+        var result = {
           context: context,
           scores: {
             total_raw_score: totalScore,
@@ -3941,22 +3981,9 @@
             pillars: pillarScores
           }
         };
-      }
 
-      function setStatus(text, mode) {
-        var footerStatus = document.getElementById("gi-footer-status");
-        var alertBox = document.getElementById("gi-alert");
-
-        if (footerStatus) {
-          footerStatus.textContent = text;
-        }
-        if (alertBox) {
-          alertBox.textContent = text;
-          alertBox.classList.add("is-visible");
-          setTimeout(function () {
-            alertBox.classList.remove("is-visible");
-          }, 2500);
-        }
+        dbg("Collected answers()", result);
+        return result;
       }
 
       function saveProgress() {
@@ -3981,14 +4008,21 @@
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
           setStatus("Progress saved on this device.", "ok");
+          dbg("Saved progress to localStorage", data);
         } catch (e) {
           setStatus("Could not save progress in this browser.", "error");
         }
       }
 
       function loadProgress() {
-        var raw = localStorage.getItem(STORAGE_KEY);
+        var raw;
+        try {
+          raw = localStorage.getItem(STORAGE_KEY);
+        } catch (e) {
+          return;
+        }
         if (!raw) return;
+
         var data;
         try {
           data = JSON.parse(raw);
@@ -4012,13 +4046,13 @@
         });
 
         setStatus("Previous progress loaded from this device.", "info");
+        dbg("Loaded progress from localStorage", data);
       }
 
       function clearProgress() {
         try {
           localStorage.removeItem(STORAGE_KEY);
         } catch (e) {}
-        // Clear form fields
         selectAll(".gi-section input, .gi-section select, .gi-section textarea").forEach(function (el) {
           if (el.type === "radio" || el.type === "checkbox") {
             el.checked = false;
@@ -4027,6 +4061,30 @@
           }
         });
         setStatus("Progress cleared from this device.", "info");
+        dbg("Progress cleared", null);
+        // Also reset progress UI
+        updateProgressUI(0);
+        updatePillarChips({});
+      }
+
+      function setStatus(text, mode) {
+        var footerStatus = document.getElementById("gi-footer-status");
+        var alertBox = document.getElementById("gi-alert");
+
+        if (footerStatus) {
+          footerStatus.textContent = text;
+        }
+        if (alertBox) {
+          alertBox.textContent = text;
+          alertBox.classList.remove("is-ok", "is-error", "is-info");
+          if (mode === "ok") alertBox.classList.add("is-ok");
+          if (mode === "error") alertBox.classList.add("is-error");
+          if (mode === "info") alertBox.classList.add("is-info");
+          alertBox.classList.add("is-visible");
+          setTimeout(function () {
+            alertBox.classList.remove("is-visible");
+          }, 2500);
+        }
       }
 
       function buildPayload() {
@@ -4042,16 +4100,100 @@
         };
       }
 
+      function updateProgressUI(answeredCount) {
+        var progressBar = document.getElementById("gi-progress-bar");
+        var progressCount = document.getElementById("gi-progress-count");
+        var progressPercent = document.getElementById("gi-progress-percent");
+
+        var total = TOTAL_SCORED_QUESTIONS || 240;
+        var percent = total > 0 ? Math.round((answeredCount / total) * 100) : 0;
+
+        if (progressBar) {
+          progressBar.style.width = percent + "%";
+        }
+        if (progressCount) {
+          progressCount.textContent = answeredCount + " of " + total + " answered";
+        }
+        if (progressPercent) {
+          progressPercent.textContent = percent + "%";
+        }
+      }
+
+      function updatePillarChips(pillarScores) {
+        // pillarScores: answers.scores.pillars or {}
+        PILLAR_DEFS.forEach(function (def) {
+          var pid = def.id;
+          var chip = document.querySelector('.gi-pillar-chip[data-pillar-id="' + pid + '"]');
+          var statusEl = document.getElementById("gi-pillar-status-" + pid);
+          if (!chip || !statusEl) return;
+
+          var total = PILLAR_TOTALS[pid] || 0;
+          var answered = 0;
+          if (pillarScores && pillarScores[pid]) {
+            answered = pillarScores[pid].questions_answered || 0;
+          }
+          var percent = total > 0 ? Math.round((answered / total) * 100) : 0;
+
+          statusEl.textContent = percent + "%";
+
+          chip.classList.remove("is-active", "is-complete");
+          if (percent > 0) {
+            chip.classList.add("is-active");
+          }
+          if (percent === 100) {
+            chip.classList.add("is-complete");
+          }
+        });
+      }
+
+      function validateBeforeSubmit(payload) {
+        var errors = [];
+
+        // Basic context validation
+        var ctx = payload.context || {};
+        if (!ctx.ctx_company_name) {
+          errors.push("Please fill in your company name.");
+        }
+        if (!ctx.ctx_company_size) {
+          errors.push("Please select your company size.");
+        }
+
+        // Minimum answered questions
+        var totalAnswered = payload.scores.total_questions_answered || 0;
+        if (totalAnswered < 50) {
+          errors.push("Please answer at least 50 scored questions before submitting.");
+        }
+
+        return errors;
+      }
+
       function submitAssessment() {
         var payload = buildPayload();
+        dbg("submitAssessment() payload", payload);
 
-        if (payload.scores.total_questions_answered < 120) {
-          setStatus("Please answer more questions before submitting.", "error");
+        // Update progress + chips based on latest answers
+        var totalAnswered = payload.scores.total_questions_answered || 0;
+        updateProgressUI(totalAnswered);
+        updatePillarChips(payload.scores.pillars || {});
+
+        var errors = validateBeforeSubmit(payload);
+        if (errors.length) {
+          setStatus(errors[0], "error");
+          dbg("Validation errors", errors);
+          return;
+        }
+
+        if (DEBUG_MODE) {
+          console.log("[GTM DEBUG] Submission payload:", payload);
+          console.log("[GTM DEBUG] Total normalized score:", payload.scores.total_normalized_0_100,
+            "Maturity:", payload.scores.total_maturity);
+          setStatus("Debug mode: payload logged in console. Nothing was submitted.", "info");
           return;
         }
 
         setStatus("Submitting assessment...", "info");
 
+        // Replace with your real Make.com webhook URL
         var webhookUrl = "https://hook.make.com/REPLACE_WITH_YOUR_WEBHOOK";
 
         fetch(webhookUrl, {
@@ -4066,13 +4208,75 @@
           .then(function () {
             setStatus("Assessment submitted. You will receive your GTM Intelligence Report soon.", "ok");
           })
-          .catch(function () {
+          .catch(function (err) {
+            console.error(err);
             setStatus("Something went wrong while submitting. Please try again later.", "error");
           });
       }
 
+      function bootstrapPillarTotals() {
+        PILLAR_TOTALS = {};
+        selectAll(".gi-question[data-pillar]").forEach(function (q) {
+          var pid = q.getAttribute("data-pillar");
+          if (!pid || pid === "0") return;
+          if (!PILLAR_TOTALS[pid]) PILLAR_TOTALS[pid] = 0;
+          PILLAR_TOTALS[pid] += 1;
+        });
+        TOTAL_SCORED_QUESTIONS = Object.keys(PILLAR_TOTALS).reduce(function (acc, pid) {
+          return acc + (PILLAR_TOTALS[pid] || 0);
+        }, 0);
+        if (!TOTAL_SCORED_QUESTIONS) {
+          TOTAL_SCORED_QUESTIONS = 240;
+        }
+        dbg("Bootstrap pillar totals", { PILLAR_TOTALS: PILLAR_TOTALS, TOTAL_SCORED_QUESTIONS: TOTAL_SCORED_QUESTIONS });
+      }
+
+      function bootstrapPillarChips() {
+        var list = document.getElementById("gi-pillars-list");
+        if (!list) return;
+        list.innerHTML = "";
+        PILLAR_DEFS.forEach(function (def) {
+          var chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "gi-pillar-chip";
+          chip.setAttribute("data-pillar-id", def.id);
+
+          var labelSpan = document.createElement("span");
+          labelSpan.textContent = def.id + ". " + def.label;
+
+          var statusSpan = document.createElement("span");
+          statusSpan.id = "gi-pillar-status-" + def.id;
+          statusSpan.textContent = "0%";
+
+          chip.appendChild(labelSpan);
+          chip.appendChild(statusSpan);
+
+          chip.addEventListener("click", function () {
+            var section = document.querySelector('.gi-section[data-pillar="' + def.id + '"]');
+            if (section) {
+              var rect = section.getBoundingClientRect();
+              var offset = 80;
+              window.scrollTo({
+                top: window.pageYOffset + rect.top - offset,
+                behavior: "smooth"
+              });
+            }
+          });
+
+          list.appendChild(chip);
+        });
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
+        bootstrapPillarTotals();
+        bootstrapPillarChips();
+
         loadProgress();
+
+        // After loading progress, recompute answers for progress + chips
+        var afterLoad = collectAnswers();
+        updateProgressUI(afterLoad.scores.total_questions_answered || 0);
+        updatePillarChips(afterLoad.scores.pillars || {});
 
         var btnSave = document.getElementById("gi-btn-save");
         var btnSubmit = document.getElementById("gi-btn-submit");
@@ -4101,14 +4305,28 @@
 
         selectAll(".gi-section input, .gi-section select, .gi-section textarea").forEach(function (el) {
           el.addEventListener("change", function () {
+            // Recompute answers for UI and then save
+            var answers = collectAnswers();
+            updateProgressUI(answers.scores.total_questions_answered || 0);
+            updatePillarChips(answers.scores.pillars || {});
             saveProgress();
           });
         });
+
+        if (DEBUG_MODE) {
+          setStatus("Debug mode active. No data will be sent.", "info");
+          dbg("Debug mode started", null);
+        }
       });
     })();
   </script>
 
-  <script>
+  
+  <div id="gi-debug" style="display:none; padding:20px; background:#f9fafb; border-top:1px solid #e5e7eb; font-family:monospace; font-size:12px; margin-top:32px;">
+    <h3 style="margin:0 0 8px 0; font-size:13px;">GTM Intelligence Debug Mode</h3>
+    <pre id="gi-debug-output" style="white-space:pre-wrap; margin:0;"></pre>
+  </div>
+<script>
     (function () {
       var toggle = document.querySelector(".nav-toggle");
       var nav = document.querySelector(".nav-desktop");
