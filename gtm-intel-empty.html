@@ -3579,7 +3579,7 @@
         });
     }
 
-    // Event listeners
+        // Event listeners
     document.addEventListener("DOMContentLoaded", function () {
       // Laad eerdere voortgang
       loadProgress();
@@ -3608,22 +3608,25 @@
         });
       });
     });
+
+  });   // <-- sluit jouw IIFE intern (de kleine functie)
+
+})();    // <-- sluit de volledige scoring-module correct
+</script>
+
+<!-- Optional: if je op andere pagina's al JS gebruikt voor mobile nav -->
+<script>
+  (function () {
+    var toggle = document.querySelector(".nav-toggle");
+    var nav = document.querySelector(".nav-desktop");
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("nav-open");
+      toggle.classList.toggle("nav-open");
+    });
   })();
 </script>
-  
-  <!-- Optional: if je op andere pagina's al JS gebruikt voor mobile nav -->
-  <script>
-    (function () {
-      var toggle = document.querySelector(".nav-toggle");
-      var nav = document.querySelector(".nav-desktop");
-      if (!toggle || !nav) return;
 
-      toggle.addEventListener("click", function () {
-        nav.classList.toggle("nav-open");
-        toggle.classList.toggle("nav-open");
-      });
-    })();
-  </script>
 </body>
 </html>
-
