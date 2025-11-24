@@ -3325,6 +3325,12 @@
   </div>
 
 </div>
+          
+<div class="gi-actions">
+  <button id="gi-save" class="btn-secondary">Save progress</button>
+  <button id="gi-submit" class="btn-primary">Submit assessment</button>
+  <div id="gi-status" class="gi-status"></div>
+</div>
 
         </div>
       </div>
@@ -3361,7 +3367,250 @@
       </p>
     </div>
   </footer>
+<script>
+  (function () {
+    var STORAGE_KEY = "gtmIntelligence_v1";
 
+    // Hulpfuncties
+    function selectAll(selector) {
+      return Array.prototype.slice.call(document.querySelectorAll(selector));
+    }
+
+    function getMaturityFromScore(score100) {
+      // score100 is 0 tot 100
+      if (score100 <= 20) return "At Risk";
+      if (score100 <= 40) return "Unstable";
+      if (score100 <= 70) return "Developing";
+      if (score100 <= 85) return "Performing";
+      if (score100 <= 95) return "High Performing";
+      return "Best in Class";
+    }
+
+    function collectAnswers() {
+      var context = {};
+      var pillars = {};
+      var totalScore = 0;
+      var scoredQuestionCount = 0;
+
+      // Contextvragen (data-pillar="0")
+      selectAll('.gi-section [data-pillar="0"] input, .gi-section [data-pillar="0"] select, .gi-section [data-pillar="0"] textarea')
+        .forEach(function (el) {
+          var name = el.name;
+          if (!name) return;
+          if (el.type === "radio") {
+            if (el.checked) context[name] = el.value;
+          } else if (el.tagName === "SELECT" || el.tagName === "TEXTAREA" || el.type === "text" || el.type === "email" || el.type === "number") {
+            if (el.value && el.value.trim() !== "") {
+              context[name] = el.value.trim();
+            }
+          }
+        });
+
+      // Gescoorde vragen (data-pillar != "0")
+      var questionBlocks = selectAll(".gi-question[data-pillar]");
+      questionBlocks.forEach(function (block) {
+        var pillarId = block.getAttribute("data-pillar");
+        if (!pillarId || pillarId === "0") return;
+
+        if (!pillars[pillarId]) {
+          pillars[pillarId] = {
+            score: 0,
+            questions: 0
+          };
+        }
+
+        var radios = block.querySelectorAll('input[type="radio"]');
+        if (!radios.length) return;
+
+        var questionAnswered = false;
+        radios.forEach(function (r) {
+          if (r.checked) {
+            var val = parseInt(r.value, 10);
+            if (!isNaN(val)) {
+              pillars[pillarId].score += val;
+              totalScore += val;
+              questionAnswered = true;
+            }
+          }
+        });
+
+        if (questionAnswered) {
+          pillars[pillarId].questions += 1;
+          scoredQuestionCount += 1;
+        }
+      });
+
+      var maxTotalScore = scoredQuestionCount * 10; // 10 is max per vraag
+      var normalizedTotal = maxTotalScore > 0 ? Math.round((totalScore / maxTotalScore) * 100) : 0;
+      var maturity = getMaturityFromScore(normalizedTotal);
+
+      // Per pillar ook normaliseren
+      var pillarScores = {};
+      Object.keys(pillars).forEach(function (pid) {
+        var p = pillars[pid];
+        var maxPillar = p.questions * 10;
+        var norm = maxPillar > 0 ? Math.round((p.score / maxPillar) * 100) : 0;
+        pillarScores[pid] = {
+          raw_score: p.score,
+          questions_answered: p.questions,
+          normalized_0_100: norm,
+          maturity: getMaturityFromScore(norm)
+        };
+      });
+
+      return {
+        context: context,
+        scores: {
+          total_raw_score: totalScore,
+          total_questions_answered: scoredQuestionCount,
+          total_normalized_0_100: normalizedTotal,
+          total_maturity: maturity,
+          pillars: pillarScores
+        }
+      };
+    }
+
+    function saveProgress() {
+      var data = {
+        timestamp: new Date().toISOString(),
+        // we bewaren alle form values zodat je volledig kunt herstellen
+        values: {}
+      };
+
+      selectAll(".gi-section input, .gi-section select, .gi-section textarea").forEach(function (el) {
+        if (!el.name) return;
+        if (el.type === "radio") {
+          if (el.checked) {
+            data.values[el.name] = el.value;
+          }
+        } else {
+          if (el.value && el.value.trim() !== "") {
+            data.values[el.name] = el.value;
+          }
+        }
+      });
+
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        setStatus("Progress saved locally.", "ok");
+      } catch (e) {
+        setStatus("Could not save progress in this browser.", "error");
+      }
+    }
+
+    function loadProgress() {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data;
+      try {
+        data = JSON.parse(raw);
+      } catch (e) {
+        return;
+      }
+      if (!data || !data.values) return;
+
+      selectAll(".gi-section input, .gi-section select, .gi-section textarea").forEach(function (el) {
+        if (!el.name) return;
+        var stored = data.values[el.name];
+        if (stored == null) return;
+
+        if (el.type === "radio") {
+          if (el.value === stored) {
+            el.checked = true;
+          }
+        } else {
+          el.value = stored;
+        }
+      });
+
+      setStatus("Previous progress loaded from this browser.", "info");
+    }
+
+    function setStatus(text, type) {
+      var el = document.getElementById("gi-status");
+      if (!el) return;
+      el.textContent = text;
+      el.className = "gi-status gi-status-" + type;
+    }
+
+    function buildPayload() {
+      var answers = collectAnswers();
+      return {
+        meta: {
+          version: "1.0",
+          created_at: new Date().toISOString(),
+          source: "gtm-intelligence-report-html"
+        },
+        context: answers.context,
+        scores: answers.scores
+      };
+    }
+
+    function submitAssessment() {
+      var payload = buildPayload();
+
+      // Eenvoudige validatie: check of er genoeg gescoorde vragen zijn ingevuld
+      if (payload.scores.total_questions_answered < 50) {
+        setStatus("Please answer more questions before submitting.", "error");
+        return;
+      }
+
+      setStatus("Submitting assessment...", "info");
+
+      // Vervang deze URL door je Make webhook URL
+      var webhookUrl = "https://hook.make.com/REPLACE_WITH_YOUR_WEBHOOK";
+
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.text();
+        })
+        .then(function () {
+          setStatus("Assessment submitted. You will receive your GTM Intelligence Report soon.", "ok");
+        })
+        .catch(function () {
+          setStatus("Something went wrong while submitting. Please try again later.", "error");
+        });
+    }
+
+    // Event listeners
+    document.addEventListener("DOMContentLoaded", function () {
+      // Laad eerdere voortgang
+      loadProgress();
+
+      var btnSave = document.getElementById("gi-save");
+      var btnSubmit = document.getElementById("gi-submit");
+
+      if (btnSave) {
+        btnSave.addEventListener("click", function (e) {
+          e.preventDefault();
+          saveProgress();
+        });
+      }
+
+      if (btnSubmit) {
+        btnSubmit.addEventListener("click", function (e) {
+          e.preventDefault();
+          submitAssessment();
+        });
+      }
+
+      // Autosave bij wijziging van antwoorden
+      selectAll(".gi-section input, .gi-section select, .gi-section textarea").forEach(function (el) {
+        el.addEventListener("change", function () {
+          saveProgress();
+        });
+      });
+    });
+  })();
+</script>
+  
   <!-- Optional: if je op andere pagina's al JS gebruikt voor mobile nav -->
   <script>
     (function () {
