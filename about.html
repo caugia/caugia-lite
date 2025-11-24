@@ -1,78 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>About | Caugia Consulting</title>
-  <meta name="description" content="Caugia Consulting helps organizations bring clarity, structure and predictability into their Go-to-Market system. Learn why Caugia exists, how we work and what makes our approach different." />
-
-  <!-- ICONS -->
   <link rel="icon" href="/C-logo.png" type="image/png" sizes="512x512">
-  <link rel="apple-touch-icon" href="/C-logo.png">
-  <meta name="msapplication-TileImage" content="/C-logo.png">
+<link rel="apple-touch-icon" href="/C-logo.png">
+<meta name="msapplication-TileImage" content="/C-logo.png">
 
-  <!-- THE FIXED CSS PATH -->
-  <link rel="stylesheet" href="/assets/caugia.css?v=2.6">
+<title>About | Caugia Consulting</title>
+<meta name="description" content="Caugia Consulting helps executives and revenue leaders bring clarity, structure, and predictability into modern GTM systems. Learn why Caugia was created and how we build calm, aligned, system-driven growth." />
 
+<link rel="icon" type="image/png" href="android-chrome-512x512.png" />
+<link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="container">
-    <a href="index.html" class="brand">
-      <img src="C-logo.png" alt="Caugia Consulting logo">
-      <span>Caugia Consulting</span>
-    </a>
+<div class="container">
+  <a href="index.html" class="brand">
+    <img src="C-logo.png" alt="Caugia Consulting logo">
+    <span>Caugia Consulting</span>
+  </a>
 
-    <nav class="nav-desktop">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="services.html">Services</a>
-      <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="gtm-assessment.html">GTM Score</a>
-      <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
-    </nav>
-
-    <button class="menu-toggle" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <nav class="nav-mobile">
+  <nav class="nav-desktop">
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
     <a href="services.html">Services</a>
     <a href="the-gtm-framework.html">GTM Framework</a>
     <a href="gtm-assessment.html">GTM Score</a>
     <a href="resources.html">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
   </nav>
+
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+
+<nav class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="services.html">Services</a>
+  <a href="the-gtm-framework.html">GTM Framework</a>
+  <a href="gtm-assessment.html">GTM Score</a>
+  <a href="resources.html">Resources</a>
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+</nav>
 </header>
 
 
-<!-- MOBILE MENU + HEADER SCROLL LOGIC -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const mobileNav = document.querySelector(".nav-mobile");
 
-  if (toggle && mobileNav) {
-    toggle.addEventListener("click", () => {
-      toggle.classList.toggle("active");
-      mobileNav.classList.toggle("open");
-    });
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileNav.classList.toggle("open");
+  });
 
-    document.querySelectorAll(".nav-mobile a").forEach(link => {
-      link.addEventListener("click", () => {
-        toggle.classList.remove("active");
-        mobileNav.classList.remove("open");
-      });
+  document.querySelectorAll(".nav-mobile a").forEach(link => {
+    link.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      mobileNav.classList.remove("open");
     });
-  }
+  });
 
   window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
@@ -83,137 +75,81 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-<!-- MAIN CONTENT -->
-<main>
-  <div class="container-narrow">
+<main style="flex:1;padding:calc(var(--header-h) + 56px) 24px 80px;">
+<div class="wrap" style="max-width:var(--maxw);margin:0 auto;">
 
-    <!-- PAGE HEADER -->
-    <h1 class="page-title">About Caugia Consulting</h1>
+<!-- PAGE HEADER -->
+<h1 style="font-size:2.6rem;font-weight:800;margin-bottom:12px;color:var(--blue);">
+  About Caugia Consulting
+</h1>
 
-    <p class="page-intro">
-      Caugia Consulting helps organizations bring clarity, structure and predictability into their Go-to-Market system.
-      We work with leaders who want calm, focus and a mature approach to growth.
-    </p>
-
-
-    <!-- WHY CAUGIA -->
-    <section class="section">
-      <h2>Why Caugia exists</h2>
-
-      <p>
-        Modern Go-to-Market teams operate in an environment that becomes more complex each year.
-        Tools increase, workflows spread across disconnected systems and teams lose the shared rhythm needed for stable performance.
-      </p>
-
-      <p>
-        Pipeline becomes inconsistent. Ownership becomes unclear. Decisions are made too late.
-        Results depend too much on individual effort and not enough on a well designed system.
-      </p>
-
-      <p>
-        Caugia was created to improve this. We help leadership redesign their Go-to-Market system so it becomes clear,
-        structured and easy to understand. When the system is calm and logical, performance becomes predictable.
-        Teams understand how work moves, what matters and why.
-      </p>
-    </section>
+<p style="font-size:1.15rem;line-height:1.7;color:#1b1b1b;max-width:880px;margin-bottom:40px;">
+Caugia Consulting was created to restore clarity and structure in modern Go To Market environments.  
+We help organizations reconnect the systems behind growth, aligning people, data, and direction so performance becomes measurable and calm.
+</p>
 
 
-    <!-- PHILOSOPHY -->
-    <section class="section">
-      <h2>Our philosophy</h2>
-
-      <p>
-        Organizations rarely struggle because of one weak function. They struggle because the space between functions is not aligned.
-        Sales, Marketing, Customer Success, Product Marketing and Revenue Operations often work with different priorities and definitions.
-      </p>
-
-      <p>
-        Our philosophy is simple. Fix the system, not the symptoms.
-        When structure becomes visible, teams align naturally. Decision quality improves.
-        Execution becomes consistent and results stabilize.
-      </p>
-    </section>
+<!-- SECTION 1 — Why Caugia -->
+<section style="margin-bottom:64px;">
+  <h2>Why Caugia exists</h2>
+  <p style="max-width:850px;">
+    Modern revenue teams operate in complexity. Tools multiply, workflows fragment, and teams lose the shared rhythm needed for predictable performance.  
+    Caugia Consulting was founded to solve this. We help leadership rebuild their GTM system into a clear, aligned operating model where teams understand how work moves, what matters, and why.
+  </p>
+</section>
 
 
-    <!-- WHAT WE BRING -->
-    <section class="section">
-      <h2>What we bring</h2>
+<!-- SECTION 2 — Our philosophy -->
+<section style="margin-bottom:64px;">
+  <h2>Our philosophy</h2>
+  <p style="max-width:850px;margin-bottom:16px;">
+    Growth does not come from intensity. It comes from structure.  
+    We bring a calm, systems-first approach designed for leaders who want maturity, focus, and predictable outcomes rather than short-term fixes.
+  </p>
 
-      <ul class="bullet-list">
-        <li><strong>A complete diagnostic engine.</strong> It measures maturity across the entire Go-to-Market system.</li>
-        <li><strong>Clear visibility into operational friction.</strong> Leaders see where execution breaks down.</li>
-        <li><strong>A structured prioritization model.</strong> We remove guesswork and focus effort where it matters most.</li>
-        <li><strong>A calm and steady operating rhythm.</strong> We reduce chaos and give teams clarity.</li>
-        <li><strong>A shared operating language.</strong> Every Go-to-Market function speaks the same structural vocabulary.</li>
-        <li><strong>Real world recommendations.</strong> Our work connects directly to daily execution.</li>
-      </ul>
-
-      <p>
-        Our goal is simple. Create clarity. Remove friction. Build predictable performance.
-      </p>
-    </section>
+  <p style="max-width:850px;">
+    Companies do not fail because of one weak team. They fail because the system between teams is misaligned.  
+    Our work makes that system visible, measurable, and ready to scale.
+  </p>
+</section>
 
 
-    <!-- HOW WE ARE DIFFERENT -->
-    <section class="section">
-      <h2>How we are different</h2>
+<!-- SECTION 3 — What we bring -->
+<section style="margin-bottom:64px;">
+  <h2>What we bring</h2>
 
-      <ul class="bullet-list">
-        <li><strong>System first.</strong> We improve the entire Go-to-Market engine, not isolated parts.</li>
-        <li><strong>Objective diagnostics.</strong> We measure maturity using structured criteria.</li>
-        <li><strong>Calm and direct.</strong> Clear language and practical guidance.</li>
-        <li><strong>Built for modern Go-to-Market environments.</strong> We align tools, workflows and execution.</li>
-        <li><strong>Precise prioritization.</strong> Leaders know exactly where to invest effort.</li>
-        <li><strong>Designed for implementation.</strong> Everything connects directly to daily routines.</li>
-      </ul>
-    </section>
-
-
-    <!-- WHO IS BEHIND -->
-    <section class="section">
-      <h2>Who is behind Caugia</h2>
-
-      <p>
-        Caugia Consulting was founded by Tom Meijer. Tom spent nearly a decade building Go-to-Market systems in fast growing
-        SaaS companies including Contentsquare and Greenly.
-      </p>
-
-      <p>
-        Across these organizations he observed the same pattern.
-        Teams worked hard but without a shared model. Tool stacks expanded faster than structure.
-        Ownership blurred. Results depended on strong individuals instead of strong systems.
-      </p>
-
-      <p>
-        Caugia was created as a response. The GTM Framework gives leaders a structured way to understand the current system,
-        decide what to improve first and execute change with confidence.
-      </p>
-    </section>
+  <ul style="font-size:1.05rem;line-height:1.7;color:#1b1b1b;max-width:850px;list-style:none;padding-left:0;">
+    <li style="margin-bottom:12px;">• Deep experience across Sales, RevOps, GTM architecture, and growth systems</li>
+    <li style="margin-bottom:12px;">• A calm, structured approach that reduces chaos and increases ownership</li>
+    <li style="margin-bottom:12px;">• The GTM Framework — a complete model for diagnosing and designing GTM systems</li>
+    <li style="margin-bottom:12px;">• Alignment across leadership through a shared operating language</li>
+    <li style="margin-bottom:12px;">• Clear prioritization and direction for predictable execution</li>
+  </ul>
+</section>
 
 
-    <!-- NEXT STEPS -->
-    <section class="section">
-      <h2>Next steps</h2>
+<!-- SECTION 4 — The GTM Framework -->
+<section style="margin-bottom:64px;">
+  <h2>Powered by The GTM Framework</h2>
+  <p style="max-width:850px;margin-bottom:20px;">
+    The GTM Framework is the structure behind all our work.  
+    It organizes your entire revenue engine into twelve segments across three layers, revealing how GTM systems actually operate.
+  </p>
 
-      <p>
-        If you recognize these patterns in your own Go-to-Market environment, there are two simple ways to begin.
-      </p>
+  <a href="the-gtm-framework.html" class="cta" style="padding:12px 24px;font-size:1rem;display:inline-block;">
+    Explore The GTM Framework
+  </a>
+</section>
 
-      <div class="cta-row">
-        <a href="gtm-assessment.html" class="cta">Take the free GTM Score</a>
-        <a href="mailto:tom@caugia.com" class="cta-secondary">Book a conversation</a>
-      </div>
-    </section>
 
-  </div>
+</div>
 </main>
 
 
-<!-- FOOTER -->
 <footer>
   © 2025 Caugia Consulting · 
   <a href="privacy.html">Privacy Notice</a> ·
-  <a href="https://www.linkedin.com/in/meijertom">LinkedIn</a> ·
+  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
   <a href="mailto:tom@caugia.com">tom@caugia.com</a>
 </footer>
 
