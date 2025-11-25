@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Restricted Access</title>
+<style>
+  body { font-family: Arial; max-width: 400px; margin: 80px auto; }
+  input { width: 100%; padding: 12px; margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<h2>Protected Area</h2>
+<p>Please enter your password to continue.</p>
+
+<input id="pw" type="password" placeholder="Password">
+<button onclick="check()">Enter</button>
+
+<script>
+function check() {
+  const pw = document.getElementById('pw').value;
+  if (pw === "Caugia2025!build") {
+    localStorage.setItem("caugia-auth", "true");
+    window.location.href = "index.html";
+  } else {
+    alert("Incorrect password");
+  }
+}
+</script>
+
+</body>
+</html>
