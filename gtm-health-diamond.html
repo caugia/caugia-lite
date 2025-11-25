@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
     
-    <!-- 🔒 SITE PROTECTION -->
+    <!-- 🔒 SECURITY: This protects the entire website -->
     <script src="/auth.js"></script>
     
     <style>
@@ -19,17 +19,18 @@
             --text-primary: #fafafa;
             --text-secondary: #a1a1a6;
             --text-muted: #6b6b70;
-            
+
             /* original 4C colours — reused for GRIP */
-            --clarity: #3b82f6;
+            --clarity: #3b82f6;        /* Guidance */
+            --capacity: #8b5cf6;       /* Resources */
+            --consistency: #f59e0b;    /* Implementation */
+            --conversion: #10b981;     /* Performance */
+
             --clarity-glow: rgba(59, 130, 246, 0.3);
-            --capacity: #8b5cf6;
             --capacity-glow: rgba(139, 92, 246, 0.3);
-            --consistency: #f59e0b;
             --consistency-glow: rgba(245, 158, 11, 0.3);
-            --conversion: #10b981;
             --conversion-glow: rgba(16, 185, 129, 0.3);
-            
+
             --border-subtle: rgba(255, 255, 255, 0.06);
             --border-medium: rgba(255, 255, 255, 0.1);
             --critical: #ef4444;
@@ -128,7 +129,7 @@
             line-height: 1.6;
         }
 
-        /* GRIP pills */
+        /* GRIP legend pills */
         .four-cs {
             display: flex;
             justify-content: center;
@@ -146,7 +147,6 @@
             border-radius: 100px;
             font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
             cursor: default;
         }
 
@@ -183,7 +183,7 @@
             }
         }
 
-        /* Diamond Container */
+        /* Diamond Section */
         .diamond-section {
             position: relative;
             opacity: 0;
@@ -198,7 +198,6 @@
             aspect-ratio: 1;
         }
 
-        /* SVG Diamond */
         .diamond-svg {
             width: 100%;
             height: 100%;
@@ -214,6 +213,12 @@
         .zone-mid { stroke: var(--warning); }
         .zone-inner { stroke: var(--success); }
 
+        .axis-line {
+            stroke: var(--border-subtle);
+            stroke-width: 1;
+            stroke-dasharray: 4 4;
+        }
+
         .diamond-main {
             fill: none;
             stroke: url(#diamondGradient);
@@ -223,10 +228,12 @@
             filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.15));
         }
 
-        .axis-line {
-            stroke: var(--border-subtle);
-            stroke-width: 1;
-            stroke-dasharray: 4 4;
+        .score-shape {
+            fill: url(#scoreGradient);
+            fill-opacity: 0.15;
+            stroke: url(#diamondGradient);
+            stroke-width: 2;
+            transition: all 0.5s ease;
         }
 
         .center-point {
@@ -235,87 +242,79 @@
             stroke-width: 1;
         }
 
-        /* Dimension Labels (outside diamond, clean) */
+        /* === Dimension labels (clean, only titles, aligned on points) === */
         .dimension-label {
             position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
+            gap: 6px;
             transform: translate(-50%, -50%);
-            cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
-        .dimension-label:hover {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        .dimension-label.clarity { top: 2%; left: 50%; }
-        .dimension-label.consistency { top: 50%; right: -8%; left: auto; transform: translate(0, -50%); }
-        .dimension-label.consistency:hover { transform: translate(0, -50%) scale(1.05); }
-        .dimension-label.conversion { bottom: -2%; top: auto; left: 50%; transform: translate(-50%, 0); }
-        .dimension-label.conversion:hover { transform: translate(-50%, 0) scale(1.05); }
-        .dimension-label.capacity { top: 50%; left: -8%; transform: translate(0, -50%); }
-        .dimension-label.capacity:hover { transform: translate(0, -50%) scale(1.05); }
-
-        .dimension-icon {
+        .dim-icon {
             width: 52px;
             height: 52px;
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
         }
 
-        .dimension-label.clarity .dimension-icon {
-            background: linear-gradient(135deg, var(--clarity), #1d4ed8);
-            box-shadow: 0 8px 32px var(--clarity-glow);
-        }
-
-        .dimension-label.capacity .dimension-icon {
-            background: linear-gradient(135deg, var(--capacity), #6d28d9);
-            box-shadow: 0 8px 32px var(--capacity-glow);
-        }
-
-        .dimension-label.consistency .dimension-icon {
-            background: linear-gradient(135deg, var(--consistency), #d97706);
-            box-shadow: 0 8px 32px var(--consistency-glow);
-        }
-
-        .dimension-label.conversion .dimension-icon {
-            background: linear-gradient(135deg, var(--conversion), #047857);
-            box-shadow: 0 8px 32px var(--conversion-glow);
-        }
-
-        .dimension-icon svg {
+        .dim-icon svg {
             width: 22px;
             height: 22px;
             color: white;
         }
 
-        .dimension-name {
+        .dim-title {
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            margin-bottom: 2px;
+            color: var(--text-primary);
         }
 
-        .dimension-label.clarity .dimension-name { color: var(--clarity); }
-        .dimension-label.capacity .dimension-name { color: var(--capacity); }
-        .dimension-label.consistency .dimension-name { color: var(--consistency); }
-        .dimension-label.conversion .dimension-name { color: var(--conversion); }
-
-        .dimension-subtitle {
-            font-size: 11px;
-            color: var(--text-muted);
-            max-width: 140px;
+        /* Colours */
+        .dim-icon.g { 
+            background: linear-gradient(135deg, var(--clarity), #1d4ed8);
+            box-shadow: 0 8px 32px var(--clarity-glow);
+        }
+        .dim-icon.r { 
+            background: linear-gradient(135deg, var(--capacity), #6d28d9);
+            box-shadow: 0 8px 32px var(--capacity-glow);
+        }
+        .dim-icon.i { 
+            background: linear-gradient(135deg, var(--consistency), #d97706);
+            box-shadow: 0 8px 32px var(--consistency-glow);
+        }
+        .dim-icon.p { 
+            background: linear-gradient(135deg, var(--conversion), #047857);
+            box-shadow: 0 8px 32px var(--conversion-glow);
         }
 
-        /* Customer Position */
+        /* Perfect point alignment */
+        .dimension-label.guidance {
+            top: 6%;
+            left: 50%;
+        }
+
+        .dimension-label.resources {
+            top: 50%;
+            left: 6%;
+        }
+
+        .dimension-label.implementation {
+            top: 50%;
+            left: 94%;
+        }
+
+        .dimension-label.performance {
+            top: 94%;
+            left: 50%;
+        }
+
+        /* Customer position */
         .customer-position {
             position: absolute;
             width: 20px;
@@ -335,7 +334,7 @@
             height: 100%;
             background: var(--text-primary);
             border-radius: 50%;
-            box-shadow: 
+            box-shadow:
                 0 0 0 3px var(--bg-primary),
                 0 0 0 5px var(--text-primary),
                 0 0 30px rgba(255, 255, 255, 0.5);
@@ -358,15 +357,6 @@
             padding: 5px 10px;
             border-radius: 6px;
             border: 1px solid var(--border-medium);
-        }
-
-        /* Score Shape (the filled area) */
-        .score-shape {
-            fill: url(#scoreGradient);
-            fill-opacity: 0.15;
-            stroke: url(#diamondGradient);
-            stroke-width: 2;
-            transition: all 0.5s ease;
         }
 
         /* Sidebar */
@@ -418,7 +408,6 @@
             color: var(--text-muted);
         }
 
-        /* Dimension Scores */
         .dimension-scores {
             display: flex;
             flex-direction: column;
@@ -505,7 +494,7 @@
         .status-warning { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
         .status-success { background: rgba(16, 185, 129, 0.15); color: var(--success); }
 
-        /* Archetype Card */
+        /* Archetype card */
         .archetype-card {
             background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
             border: 1px solid var(--border-medium);
@@ -611,7 +600,7 @@
             line-height: 1.4;
         }
 
-        /* Interactive Controls */
+        /* Sliders */
         .controls {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -746,11 +735,6 @@
         .pillar-column.consistency .pillar-column-icon { background: rgba(245, 158, 11, 0.15); color: var(--consistency); }
         .pillar-column.conversion .pillar-column-icon { background: rgba(16, 185, 129, 0.15); color: var(--conversion); }
 
-        .pillar-column-icon svg {
-            width: 16px;
-            height: 16px;
-        }
-
         .pillar-column-name {
             font-size: 13px;
             font-weight: 600;
@@ -825,10 +809,10 @@
         }
 
         @keyframes customerPulse {
-            0%, 100% { 
+            0%, 100% {
                 box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px var(--text-primary), 0 0 30px rgba(255, 255, 255, 0.5);
             }
-            50% { 
+            50% {
                 box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 7px var(--text-primary), 0 0 50px rgba(255, 255, 255, 0.7);
             }
         }
@@ -856,620 +840,624 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-badge">
-                <span>The GRIP Framework™</span>
-            </div>
-            <h1>The GTM Health <span>Diamond</span>™</h1>
-            <p class="header-subtitle">
-                Your go-to-market engine diagnosed across four GRIP dimensions. 
-                Find your constraint. Decide what to fix first.
-            </p>
-            <div class="four-cs">
-                <div class="c-pill clarity">Guidance <span class="c-question">— Do teams know what to do?</span></div>
-                <div class="c-pill capacity">Resources <span class="c-question">— Do teams have what they need?</span></div>
-                <div class="c-pill consistency">Implementation <span class="c-question">— Do teams execute the same way?</span></div>
-                <div class="c-pill conversion">Performance <span class="c-question">— Does it deliver results?</span></div>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <div class="main-grid">
-            <!-- Diamond Visualization -->
-            <section class="diamond-section">
-                <div class="diamond-wrapper">
-                    <svg class="diamond-svg" viewBox="0 0 400 400">
-                        <defs>
-                            <linearGradient id="diamondGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="var(--clarity)" />
-                                <stop offset="33%" stop-color="var(--capacity)" />
-                                <stop offset="66%" stop-color="var(--consistency)" />
-                                <stop offset="100%" stop-color="var(--conversion)" />
-                            </linearGradient>
-                            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="var(--clarity)" />
-                                <stop offset="33%" stop-color="var(--capacity)" />
-                                <stop offset="66%" stop-color="var(--consistency)" />
-                                <stop offset="100%" stop-color="var(--conversion)" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Zone rings -->
-                        <g class="diamond-zones">
-                            <polygon class="zone zone-outer" points="200,30 370,200 200,370 30,200" />
-                            <polygon class="zone zone-mid" points="200,90 310,200 200,310 90,200" />
-                            <polygon class="zone zone-inner" points="200,150 250,200 200,250 150,200" />
-                        </g>
-                        
-                        <!-- Axis lines -->
-                        <line class="axis-line" x1="200" y1="30" x2="200" y2="370" />
-                        <line class="axis-line" x1="30" y1="200" x2="370" y2="200" />
-                        
-                        <!-- Main diamond outline -->
-                        <polygon class="diamond-main" points="200,30 370,200 200,370 30,200" />
-                        
-                        <!-- Score shape (filled area based on scores) -->
-                        <polygon class="score-shape" id="scoreShape" points="200,100 300,200 200,300 100,200" />
-                        
-                        <!-- Center point -->
-                        <circle class="center-point" cx="200" cy="200" r="4" />
-                    </svg>
-
-                    <!-- Dimension Labels (GRIP, outside) -->
-                    <div class="dimension-label clarity">
-                        <div class="dimension-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                        </div>
-                        <span class="dimension-name">Guidance</span>
-                        <span class="dimension-subtitle">Do teams know what to do?</span>
-                    </div>
-
-                    <div class="dimension-label capacity">
-                        <div class="dimension-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                        </div>
-                        <span class="dimension-name">Resources</span>
-                        <span class="dimension-subtitle">Do teams have what they need?</span>
-                    </div>
-
-                    <div class="dimension-label consistency">
-                        <div class="dimension-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </div>
-                        <span class="dimension-name">Implementation</span>
-                        <span class="dimension-subtitle">Do teams execute the same way?</span>
-                    </div>
-
-                    <div class="dimension-label conversion">
-                        <div class="dimension-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                        </div>
-                        <span class="dimension-name">Performance</span>
-                        <span class="dimension-subtitle">Does the system deliver results?</span>
-                    </div>
-
-                    <!-- Customer Position -->
-                    <div class="customer-position" id="customerDot">
-                        <div class="customer-dot"></div>
-                        <span class="customer-label">Your position</span>
-                    </div>
-                </div>
-
-                <!-- Interactive Controls -->
-                <div class="controls">
-                    <div class="control-slider clarity">
-                        <label>Guidance</label>
-                        <input type="range" id="claritySlider" min="0" max="100" value="85">
-                        <span class="value" id="clarityValue">85</span>
-                    </div>
-                    <div class="control-slider capacity">
-                        <label>Resources</label>
-                        <input type="range" id="capacitySlider" min="0" max="100" value="41">
-                        <span class="value" id="capacityValue">41</span>
-                    </div>
-                    <div class="control-slider consistency">
-                        <label>Implementation</label>
-                        <input type="range" id="consistencySlider" min="0" max="100" value="68">
-                        <span class="value" id="consistencyValue">68</span>
-                    </div>
-                    <div class="control-slider conversion">
-                        <label>Performance</label>
-                        <input type="range" id="conversionSlider" min="0" max="100" value="72">
-                        <span class="value" id="conversionValue">72</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <!-- Score Card -->
-                <div class="score-card">
-                    <div class="score-card-header">
-                        <h2 class="score-card-title">Your GTM Health</h2>
-                        <div class="overall-score">
-                            <span class="overall-score-value" id="overallScore">67</span>
-                            <span class="overall-score-max">/100</span>
-                        </div>
-                    </div>
-
-                    <div class="dimension-scores">
-                        <div class="dimension-score-item">
-                            <div class="dimension-score-icon clarity">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                </svg>
-                            </div>
-                            <div class="dimension-score-content">
-                                <div class="dimension-score-header">
-                                    <span class="dimension-score-name">Guidance<span class="dimension-score-status status-success" id="clarityStatus">Strong</span></span>
-                                    <span class="dimension-score-value" id="clarityScoreDisplay">85/100</span>
-                                </div>
-                                <div class="dimension-score-bar">
-                                    <div class="dimension-score-fill clarity" id="clarityBar" style="width: 85%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dimension-score-item">
-                            <div class="dimension-score-icon capacity">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                                </svg>
-                            </div>
-                            <div class="dimension-score-content">
-                                <div class="dimension-score-header">
-                                    <span class="dimension-score-name">Resources<span class="dimension-score-status status-critical" id="capacityStatus">Critical</span></span>
-                                    <span class="dimension-score-value" id="capacityScoreDisplay">41/100</span>
-                                </div>
-                                <div class="dimension-score-bar">
-                                    <div class="dimension-score-fill capacity" id="capacityBar" style="width: 41%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dimension-score-item">
-                            <div class="dimension-score-icon consistency">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                </svg>
-                            </div>
-                            <div class="dimension-score-content">
-                                <div class="dimension-score-header">
-                                    <span class="dimension-score-name">Implementation<span class="dimension-score-status status-success" id="consistencyStatus">Solid</span></span>
-                                    <span class="dimension-score-value" id="consistencyScoreDisplay">68/100</span>
-                                </div>
-                                <div class="dimension-score-bar">
-                                    <div class="dimension-score-fill consistency" id="consistencyBar" style="width: 68%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dimension-score-item">
-                            <div class="dimension-score-icon conversion">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                </svg>
-                            </div>
-                            <div class="dimension-score-content">
-                                <div class="dimension-score-header">
-                                    <span class="dimension-score-name">Performance<span class="dimension-score-status status-success" id="conversionStatus">Solid</span></span>
-                                    <span class="dimension-score-value" id="conversionScoreDisplay">72/100</span>
-                                </div>
-                                <div class="dimension-score-bar">
-                                    <div class="dimension-score-fill conversion" id="conversionBar" style="width: 72%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Archetype Card -->
-                <div class="archetype-card">
-                    <div class="archetype-label">Your GTM Archetype</div>
-                    <h3 class="archetype-name" id="archetypeName">The Capacity Crunch</h3>
-                    
-                    <div class="constraint-badge capacity" id="constraintBadge">
-                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                        </svg>
-                        Primary constraint: Resources
-                    </div>
-                    
-                    <p class="archetype-description" id="archetypeDescription">
-                        You have solid guidance and reasonable execution patterns, but your teams lack the operational infrastructure to scale. The engine knows where to go and how to run — it just cannot go faster yet.
-                    </p>
-
-                    <div class="priority-fix">
-                        <div class="priority-fix-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <div class="priority-fix-content">
-                            <div class="priority-fix-label">Priority fix</div>
-                            <div class="priority-fix-text" id="priorityFix">Invest in RevOps, enablement, and performance management before scaling further.</div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
+<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-badge">
+            <span>The GRIP Framework™</span>
         </div>
+        <h1>The GTM Health <span>Diamond</span>™</h1>
+        <p class="header-subtitle">
+            Your go-to-market engine diagnosed across four GRIP dimensions.
+            Find your constraint. Decide what to fix first.
+        </p>
+        <div class="four-cs">
+            <div class="c-pill clarity">Guidance <span class="c-question">— Do teams know what to do?</span></div>
+            <div class="c-pill capacity">Resources <span class="c-question">— Do teams have what they need?</span></div>
+            <div class="c-pill consistency">Implementation <span class="c-question">— Do teams execute the same way?</span></div>
+            <div class="c-pill conversion">Performance <span class="c-question">— Does it deliver results?</span></div>
+        </div>
+    </header>
 
-        <!-- Pillar Mapping -->
-        <section class="pillar-mapping">
-            <h2 class="pillar-mapping-title">The GRIP Framework™ — 12 Pillars Mapped</h2>
-            <div class="pillar-grid">
-                <!-- Guidance Column (was Clarity) -->
-                <div class="pillar-column clarity">
-                    <div class="pillar-column-header">
-                        <div class="pillar-column-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                            </svg>
-                        </div>
-                        <span class="pillar-column-name">Guidance</span>
+    <div class="main-grid">
+        <!-- Diamond -->
+        <section class="diamond-section">
+            <div class="diamond-wrapper">
+                <svg class="diamond-svg" viewBox="0 0 400 400">
+                    <defs>
+                        <linearGradient id="diamondGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="var(--clarity)" />
+                            <stop offset="33%" stop-color="var(--capacity)" />
+                            <stop offset="66%" stop-color="var(--consistency)" />
+                            <stop offset="100%" stop-color="var(--conversion)" />
+                        </linearGradient>
+                        <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="var(--clarity)" />
+                            <stop offset="33%" stop-color="var(--capacity)" />
+                            <stop offset="66%" stop-color="var(--consistency)" />
+                            <stop offset="100%" stop-color="var(--conversion)" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- zones -->
+                    <g class="diamond-zones">
+                        <polygon class="zone zone-outer" points="200,30 370,200 200,370 30,200" />
+                        <polygon class="zone zone-mid" points="200,90 310,200 200,310 90,200" />
+                        <polygon class="zone zone-inner" points="200,150 250,200 200,250 150,200" />
+                    </g>
+
+                    <!-- axes -->
+                    <line class="axis-line" x1="200" y1="30" x2="200" y2="370" />
+                    <line class="axis-line" x1="30" y1="200" x2="370" y2="200" />
+
+                    <!-- main diamond -->
+                    <polygon class="diamond-main" points="200,30 370,200 200,370 30,200" />
+
+                    <!-- score shape -->
+                    <polygon class="score-shape" id="scoreShape" points="200,100 300,200 200,300 100,200"></polygon>
+
+                    <!-- center -->
+                    <circle class="center-point" cx="200" cy="200" r="4"></circle>
+                </svg>
+
+                <!-- DIMENSION LABELS (clean, outside, on points) -->
+                <div class="dimension-label guidance">
+                    <div class="dim-icon g">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
                     </div>
-                    <div class="pillar-list">
-                        <div class="pillar-item">
-                            <span class="pillar-number">01</span>
-                            <span class="pillar-name">GTM Strategy &amp; Leadership</span>
-                            <span class="pillar-score">88</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">02</span>
-                            <span class="pillar-name">Market Intelligence</span>
-                            <span class="pillar-score">82</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">03</span>
-                            <span class="pillar-name">Product Marketing</span>
-                            <span class="pillar-score">85</span>
-                        </div>
-                    </div>
+                    <span class="dim-title">Guidance</span>
                 </div>
 
-                <!-- Resources Column (was Capacity) -->
-                <div class="pillar-column capacity">
-                    <div class="pillar-column-header">
-                        <div class="pillar-column-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            </svg>
-                        </div>
-                        <span class="pillar-column-name">Resources</span>
+                <div class="dimension-label resources">
+                    <div class="dim-icon r">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
                     </div>
-                    <div class="pillar-list">
-                        <div class="pillar-item">
-                            <span class="pillar-number">09</span>
-                            <span class="pillar-name">Revenue Operations</span>
-                            <span class="pillar-score">42</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">10</span>
-                            <span class="pillar-name">Enablement</span>
-                            <span class="pillar-score">38</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">11</span>
-                            <span class="pillar-name">Performance Management</span>
-                            <span class="pillar-score">43</span>
-                        </div>
-                    </div>
+                    <span class="dim-title">Resources</span>
                 </div>
 
-                <!-- Implementation Column (was Consistency) -->
-                <div class="pillar-column consistency">
-                    <div class="pillar-column-header">
-                        <div class="pillar-column-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </div>
-                        <span class="pillar-column-name">Implementation</span>
+                <div class="dimension-label implementation">
+                    <div class="dim-icon i">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
                     </div>
-                    <div class="pillar-list">
-                        <div class="pillar-item">
-                            <span class="pillar-number">04</span>
-                            <span class="pillar-name">Demand Generation</span>
-                            <span class="pillar-score">65</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">05</span>
-                            <span class="pillar-name">Sales Development</span>
-                            <span class="pillar-score">68</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">12</span>
-                            <span class="pillar-name">Pricing &amp; Packaging</span>
-                            <span class="pillar-score">71</span>
-                        </div>
-                    </div>
+                    <span class="dim-title">Implementation</span>
                 </div>
 
-                <!-- Performance Column (was Conversion) -->
-                <div class="pillar-column conversion">
-                    <div class="pillar-column-header">
-                        <div class="pillar-column-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                            </svg>
-                        </div>
-                        <span class="pillar-column-name">Performance</span>
+                <div class="dimension-label performance">
+                    <div class="dim-icon p">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
                     </div>
-                    <div class="pillar-list">
-                        <div class="pillar-item">
-                            <span class="pillar-number">06</span>
-                            <span class="pillar-name">Sales Execution</span>
-                            <span class="pillar-score">74</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">07</span>
-                            <span class="pillar-name">Customer Success</span>
-                            <span class="pillar-score">70</span>
-                        </div>
-                        <div class="pillar-item">
-                            <span class="pillar-number">08</span>
-                            <span class="pillar-name">Account Management</span>
-                            <span class="pillar-score">72</span>
-                        </div>
-                    </div>
+                    <span class="dim-title">Performance</span>
+                </div>
+
+                <!-- Customer position -->
+                <div class="customer-position" id="customerDot">
+                    <div class="customer-dot"></div>
+                    <span class="customer-label">Your position</span>
+                </div>
+            </div>
+
+            <!-- Sliders -->
+            <div class="controls">
+                <div class="control-slider clarity">
+                    <label>Guidance</label>
+                    <input type="range" id="claritySlider" min="0" max="100" value="85">
+                    <span class="value" id="clarityValue">85</span>
+                </div>
+                <div class="control-slider capacity">
+                    <label>Resources</label>
+                    <input type="range" id="capacitySlider" min="0" max="100" value="41">
+                    <span class="value" id="capacityValue">41</span>
+                </div>
+                <div class="control-slider consistency">
+                    <label>Implementation</label>
+                    <input type="range" id="consistencySlider" min="0" max="100" value="68">
+                    <span class="value" id="consistencyValue">68</span>
+                </div>
+                <div class="control-slider conversion">
+                    <label>Performance</label>
+                    <input type="range" id="conversionSlider" min="0" max="100" value="72">
+                    <span class="value" id="conversionValue">72</span>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-brand">Caugia</div>
-            <p class="footer-tagline">GTM intelligence for B2B SaaS</p>
-        </footer>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="score-card">
+                <div class="score-card-header">
+                    <h2 class="score-card-title">Your GTM Health</h2>
+                    <div class="overall-score">
+                        <span class="overall-score-value" id="overallScore">67</span>
+                        <span class="overall-score-max">/100</span>
+                    </div>
+                </div>
+
+                <div class="dimension-scores">
+                    <div class="dimension-score-item">
+                        <div class="dimension-score-icon clarity">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <div class="dimension-score-content">
+                            <div class="dimension-score-header">
+                                <span class="dimension-score-name">
+                                    Guidance
+                                    <span class="dimension-score-status status-success" id="clarityStatus">Strong</span>
+                                </span>
+                                <span class="dimension-score-value" id="clarityScoreDisplay">85/100</span>
+                            </div>
+                            <div class="dimension-score-bar">
+                                <div class="dimension-score-fill clarity" id="clarityBar" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dimension-score-item">
+                        <div class="dimension-score-icon capacity">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <div class="dimension-score-content">
+                            <div class="dimension-score-header">
+                                <span class="dimension-score-name">
+                                    Resources
+                                    <span class="dimension-score-status status-critical" id="capacityStatus">Critical</span>
+                                </span>
+                                <span class="dimension-score-value" id="capacityScoreDisplay">41/100</span>
+                            </div>
+                            <div class="dimension-score-bar">
+                                <div class="dimension-score-fill capacity" id="capacityBar" style="width:41%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dimension-score-item">
+                        <div class="dimension-score-icon consistency">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <div class="dimension-score-content">
+                            <div class="dimension-score-header">
+                                <span class="dimension-score-name">
+                                    Implementation
+                                    <span class="dimension-score-status status-success" id="consistencyStatus">Solid</span>
+                                </span>
+                                <span class="dimension-score-value" id="consistencyScoreDisplay">68/100</span>
+                            </div>
+                            <div class="dimension-score-bar">
+                                <div class="dimension-score-fill consistency" id="consistencyBar" style="width:68%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dimension-score-item">
+                        <div class="dimension-score-icon conversion">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <div class="dimension-score-content">
+                            <div class="dimension-score-header">
+                                <span class="dimension-score-name">
+                                    Performance
+                                    <span class="dimension-score-status status-success" id="conversionStatus">Strong</span>
+                                </span>
+                                <span class="dimension-score-value" id="conversionScoreDisplay">72/100</span>
+                            </div>
+                            <div class="dimension-score-bar">
+                                <div class="dimension-score-fill conversion" id="conversionBar" style="width:72%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Archetype card -->
+            <div class="archetype-card">
+                <div class="archetype-label">Your GTM Archetype</div>
+                <h3 class="archetype-name" id="archetypeName">The Capacity Crunch</h3>
+
+                <div class="constraint-badge capacity" id="constraintBadge">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    Primary constraint: Resources
+                </div>
+
+                <p class="archetype-description" id="archetypeDescription">
+                    You have strong guidance and solid implementation patterns, but your teams lack the operational
+                    resources to scale. The engine knows where to go — it just cannot go faster yet.
+                </p>
+
+                <div class="priority-fix">
+                    <div class="priority-fix-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <div class="priority-fix-content">
+                        <div class="priority-fix-label">Priority fix</div>
+                        <div class="priority-fix-text" id="priorityFix">
+                            Invest in RevOps, enablement, and performance management before scaling further.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
 
-    <script>
-        // Archetypes data (text updated for GRIP, keys kept for code simplicity)
-        const archetypes = {
-            'balanced-high': {
-                name: 'The High Performer',
-                constraint: null,
-                description: 'Strong across all four GRIP dimensions. Your GTM engine is well-balanced and operating at high efficiency. Focus on optimization and maintaining excellence.',
-                fix: 'Optimize for efficiency gains and build competitive moats. Consider expanding into new segments or markets.'
-            },
-            'balanced-low': {
-                name: 'The Foundation Builder',
-                constraint: 'clarity',
-                description: 'Your GTM system needs strengthening across multiple dimensions. Start with Guidance — define your ICP, positioning, and strategy before investing in execution.',
-                fix: 'Start with Guidance: lock in ICP, positioning, and GTM strategy. Then build Resources to support execution.'
-            },
-            'clarity-constraint': {
-                name: 'The Directionless Engine',
-                constraint: 'clarity',
-                description: 'You have the resources and execution capability, but lack strategic guidance. Teams are working hard but may be chasing the wrong customers or markets.',
-                fix: 'Pause execution. Clarify ICP, validate positioning, align leadership on strategy, then redirect the team.'
-            },
-            'capacity-constraint': {
-                name: 'The Capacity Crunch',
-                constraint: 'capacity',
-                description: 'You have strong guidance and solid implementation patterns, but your teams lack the operational resources to scale. The engine knows where to go — it just cannot go faster.',
-                fix: 'Invest in RevOps, enablement, and performance management before scaling further.'
-            },
-            'consistency-constraint': {
-                name: 'The Heroic Chaos',
-                constraint: 'consistency',
-                description: 'You know what to do and have the resources, but implementation varies widely. Top performers crush it while others struggle. Results depend on individual heroics, not systems.',
-                fix: 'Document and standardize. Build playbooks, enforce process discipline, and create repeatable implementation patterns.'
-            },
-            'conversion-constraint': {
-                name: 'The Leaky Bucket',
-                constraint: 'conversion',
-                description: 'Guidance, resources, and implementation are in place, but performance lags. The pipeline fills, yet revenue does not follow.',
-                fix: 'Focus on Sales Execution, Customer Success, and Account Management. Fix performance (win rates and retention) before adding more pipeline.'
-            },
-            'clarity-capacity': {
-                name: 'The Executing Blind',
-                constraint: 'clarity',
-                description: 'Weak guidance and weak resources. You are building without blueprints and without proper tools. High risk of wasted effort.',
-                fix: 'Clarify direction first (ICP, strategy), then build supporting resources (RevOps, systems). Do not scale chaos.'
-            },
-            'clarity-consistency': {
-                name: 'The Random Walk',
-                constraint: 'clarity',
-                description: 'No clear guidance and no consistent implementation. Every campaign and deal looks different. Performance is unpredictable.',
-                fix: 'Define Guidance first. Once strategy is set, build Implementation through documented processes and playbooks.'
-            },
-            'clarity-conversion': {
-                name: 'The Busy Failure',
-                constraint: 'clarity',
-                description: 'Lots of activity but no performance, and no clear guidance to correct it. Teams are exhausted but results do not improve.',
-                fix: 'Reset with Guidance. Define what winning looks like, then focus Performance efforts on the right targets.'
-            },
-            'capacity-consistency': {
-                name: 'The Undermanned Mess',
-                constraint: 'capacity',
-                description: 'Neither the resources nor the implementation discipline are strong enough. Teams are under-resourced and under-organized.',
-                fix: 'Build Resources first (hire RevOps, add systems), then standardize Implementation for consistency.'
-            },
-            'capacity-conversion': {
-                name: 'The Resource Starved',
-                constraint: 'capacity',
-                description: 'You know what works but cannot scale it. Performance suffers because the supporting resources are not there.',
-                fix: 'Add Resources (RevOps, enablement) to unlock Performance potential. The revenue is there — you just cannot reach it yet.'
-            },
-            'consistency-conversion': {
-                name: 'The Inconsistent Closer',
-                constraint: 'consistency',
-                description: 'Implementation quality depends on who touches the deal. Performance varies by individual rather than by system.',
-                fix: 'Standardize Implementation first. Build playbooks for Sales and CS, then watch Performance improve across the board.'
-            }
-        };
+    <!-- Pillar mapping -->
+    <section class="pillar-mapping">
+        <h2 class="pillar-mapping-title">The GRIP Framework™ — 12 Pillars Mapped</h2>
+        <div class="pillar-grid">
+            <!-- Guidance -->
+            <div class="pillar-column clarity">
+                <div class="pillar-column-header">
+                    <div class="pillar-column-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <span class="pillar-column-name">Guidance</span>
+                </div>
+                <div class="pillar-list">
+                    <div class="pillar-item">
+                        <span class="pillar-number">01</span>
+                        <span class="pillar-name">GTM Strategy &amp; Leadership</span>
+                        <span class="pillar-score">88</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">02</span>
+                        <span class="pillar-name">Market Intelligence</span>
+                        <span class="pillar-score">82</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">03</span>
+                        <span class="pillar-name">Product Marketing</span>
+                        <span class="pillar-score">85</span>
+                    </div>
+                </div>
+            </div>
 
-        function getArchetype(clarity, capacity, consistency, conversion) {
-            const high = 65;
-            const low = 50;
-            const scores = { clarity, capacity, consistency, conversion };
-            const dims = ['clarity', 'capacity', 'consistency', 'conversion'];
-            
-            // Count highs and lows
-            const highCount = dims.filter(d => scores[d] >= high).length;
-            const lowCount = dims.filter(d => scores[d] < low).length;
-            
-            // All high
-            if (highCount === 4) return 'balanced-high';
-            
-            // All low or mostly low
-            if (lowCount >= 3) return 'balanced-low';
-            
-            // Find the lowest dimension(s)
-            const minScore = Math.min(clarity, capacity, consistency, conversion);
-            const lowestDims = dims.filter(d => scores[d] === minScore);
-            
-            // Single constraint
-            if (lowestDims.length === 1 && minScore < low) {
-                return `${lowestDims[0]}-constraint`;
-            }
-            
-            // Two constraints - pick the pattern
-            if (lowCount === 2) {
-                const lowDims = dims.filter(d => scores[d] < low).sort();
-                return `${lowDims[0]}-${lowDims[1]}`;
-            }
-            
-            // Default to lowest single constraint
-            const lowest = dims.reduce((a, b) => scores[a] < scores[b] ? a : b);
-            return `${lowest}-constraint`;
+            <!-- Resources -->
+            <div class="pillar-column capacity">
+                <div class="pillar-column-header">
+                    <div class="pillar-column-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <span class="pillar-column-name">Resources</span>
+                </div>
+                <div class="pillar-list">
+                    <div class="pillar-item">
+                        <span class="pillar-number">09</span>
+                        <span class="pillar-name">Revenue Operations</span>
+                        <span class="pillar-score">42</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">10</span>
+                        <span class="pillar-name">Enablement</span>
+                        <span class="pillar-score">38</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">11</span>
+                        <span class="pillar-name">Performance Management</span>
+                        <span class="pillar-score">43</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation -->
+            <div class="pillar-column consistency">
+                <div class="pillar-column-header">
+                    <div class="pillar-column-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </div>
+                    <span class="pillar-column-name">Implementation</span>
+                </div>
+                <div class="pillar-list">
+                    <div class="pillar-item">
+                        <span class="pillar-number">04</span>
+                        <span class="pillar-name">Demand Generation</span>
+                        <span class="pillar-score">65</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">05</span>
+                        <span class="pillar-name">Sales Development</span>
+                        <span class="pillar-score">68</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">12</span>
+                        <span class="pillar-name">Pricing &amp; Packaging</span>
+                        <span class="pillar-score">71</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance -->
+            <div class="pillar-column conversion">
+                <div class="pillar-column-header">
+                    <div class="pillar-column-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <span class="pillar-column-name">Performance</span>
+                </div>
+                <div class="pillar-list">
+                    <div class="pillar-item">
+                        <span class="pillar-number">06</span>
+                        <span class="pillar-name">Sales Execution</span>
+                        <span class="pillar-score">74</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">07</span>
+                        <span class="pillar-name">Customer Success</span>
+                        <span class="pillar-score">70</span>
+                    </div>
+                    <div class="pillar-item">
+                        <span class="pillar-number">08</span>
+                        <span class="pillar-name">Account Management</span>
+                        <span class="pillar-score">72</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Caugia</div>
+        <p class="footer-tagline">GTM intelligence for B2B SaaS</p>
+    </footer>
+</div>
+
+<script>
+    // Archetypes (kept same as eerder, maar GRIP aligned)
+    const archetypes = {
+        'balanced-high': {
+            name: 'The High Performer',
+            constraint: null,
+            description: 'Strong across all four GRIP dimensions. Your GTM engine is well-balanced and operating at high efficiency. Focus on optimization and maintaining excellence.',
+            fix: 'Optimize for efficiency gains and build competitive moats. Consider expanding into new segments or markets.'
+        },
+        'balanced-low': {
+            name: 'The Foundation Builder',
+            constraint: 'clarity',
+            description: 'Your GTM system needs strengthening across multiple dimensions. Start with Guidance — define your ICP, positioning, and strategy before investing in execution.',
+            fix: 'Start with Guidance: lock in ICP, positioning, and GTM strategy. Then build Resources to support execution.'
+        },
+        'clarity-constraint': {
+            name: 'The Directionless Engine',
+            constraint: 'clarity',
+            description: 'You have the resources and execution capability, but lack strategic guidance. Teams are working hard but may be chasing the wrong customers or markets.',
+            fix: 'Pause execution. Clarify ICP, validate positioning, align leadership on strategy, then redirect the team.'
+        },
+        'capacity-constraint': {
+            name: 'The Capacity Crunch',
+            constraint: 'capacity',
+            description: 'You have strong guidance and solid implementation patterns, but your teams lack the operational resources to scale. The engine knows where to go — it just cannot go faster yet.',
+            fix: 'Invest in RevOps, enablement, and performance management before scaling further.'
+        },
+        'consistency-constraint': {
+            name: 'The Heroic Chaos',
+            constraint: 'consistency',
+            description: 'You know what to do and have the resources, but implementation varies widely. Results depend on individual heroics, not systems.',
+            fix: 'Document and standardize. Build playbooks, enforce process discipline, and create repeatable implementation patterns.'
+        },
+        'conversion-constraint': {
+            name: 'The Leaky Bucket',
+            constraint: 'conversion',
+            description: 'Guidance, resources, and implementation are in place, but results lag. The pipeline fills, yet revenue does not follow.',
+            fix: 'Focus on Sales Execution, Customer Success, and Account Management. Fix performance (win rates and retention) before adding more pipeline.'
+        },
+        'clarity-capacity': {
+            name: 'The Executing Blind',
+            constraint: 'clarity',
+            description: 'Weak guidance and weak resources. You are building without blueprints and without proper tools. High risk of wasted effort.',
+            fix: 'Clarify direction first (ICP, strategy), then build supporting resources (RevOps, systems). Do not scale chaos.'
+        },
+        'clarity-consistency': {
+            name: 'The Random Walk',
+            constraint: 'clarity',
+            description: 'No clear guidance and no consistent implementation. Every campaign and deal looks different. Performance is unpredictable.',
+            fix: 'Define Guidance first. Once strategy is set, build Implementation through documented processes and playbooks.'
+        },
+        'clarity-conversion': {
+            name: 'The Busy Failure',
+            constraint: 'clarity',
+            description: 'Lots of activity but no performance, and no clear guidance to correct it. Teams are exhausted but results do not improve.',
+            fix: 'Reset with Guidance. Define what winning looks like, then focus Performance efforts on the right targets.'
+        },
+        'capacity-consistency': {
+            name: 'The Undermanned Mess',
+            constraint: 'capacity',
+            description: 'Neither the resources nor the implementation discipline are strong enough. Teams are under-resourced and under-organized.',
+            fix: 'Build Resources first (hire RevOps, add systems), then standardize Implementation for consistency.'
+        },
+        'capacity-conversion': {
+            name: 'The Resource Starved',
+            constraint: 'capacity',
+            description: 'You know what works but cannot scale it. Performance suffers because the supporting resources are not there.',
+            fix: 'Add Resources (RevOps, enablement) to unlock Performance potential. The revenue is there — you just cannot reach it yet.'
+        },
+        'consistency-conversion': {
+            name: 'The Inconsistent Closer',
+            constraint: 'consistency',
+            description: 'Implementation quality depends on who touches the deal. Performance varies by individual rather than by system.',
+            fix: 'Standardize Implementation first. Build playbooks for Sales and CS, then watch Performance improve across the board.'
+        }
+    };
+
+    function getArchetype(clarity, capacity, consistency, conversion) {
+        const high = 65;
+        const low = 50;
+        const scores = { clarity, capacity, consistency, conversion };
+        const dims = ['clarity', 'capacity', 'consistency', 'conversion'];
+
+        const highCount = dims.filter(d => scores[d] >= high).length;
+        const lowCount = dims.filter(d => scores[d] < low).length;
+
+        if (highCount === 4) return 'balanced-high';
+        if (lowCount >= 3) return 'balanced-low';
+
+        const minScore = Math.min(clarity, capacity, consistency, conversion);
+        const lowestDims = dims.filter(d => scores[d] === minScore);
+
+        if (lowestDims.length === 1 && minScore < low) {
+            return `${lowestDims[0]}-constraint`;
         }
 
-        function getStatus(score) {
-            if (score >= 70) return { class: 'status-success', text: 'Strong' };
-            if (score >= 50) return { class: 'status-warning', text: 'Developing' };
-            return { class: 'status-critical', text: 'Critical' };
+        if (lowCount === 2) {
+            const lowDims = dims.filter(d => scores[d] < low).sort();
+            return `${lowDims[0]}-${lowDims[1]}`;
         }
 
-        function calculateDiamondPoints(clarity, capacity, consistency, conversion) {
-            const center = 200;
-            const maxRadius = 170;
-            
-            // Calculate radius for each dimension (0-100 → 0-maxRadius)
-            const clarityR = (clarity / 100) * maxRadius;
-            const consistencyR = (consistency / 100) * maxRadius;
-            const conversionR = (conversion / 100) * maxRadius;
-            const capacityR = (capacity / 100) * maxRadius;
-            
-            // Diamond points: top (Guidance), right (Resources), bottom (Implementation), left (Performance)
-            const top = `${center},${center - clarityR}`;
-            const right = `${center + consistencyR},${center}`;
-            const bottom = `${center},${center + conversionR}`;
-            const left = `${center - capacityR},${center}`;
-            
-            return `${top} ${right} ${bottom} ${left}`;
-        }
+        const lowest = dims.reduce((a, b) => scores[a] < scores[b] ? a : b);
+        return `${lowest}-constraint`;
+    }
 
-        function calculateCustomerPosition(clarity, capacity, consistency, conversion) {
-            const center = 200;
-            const maxRadius = 170;
-            
-            // Calculate weighted center position
-            const clarityR = (clarity / 100) * maxRadius;
-            const consistencyR = (consistency / 100) * maxRadius;
-            const conversionR = (conversion / 100) * maxRadius;
-            const capacityR = (capacity / 100) * maxRadius;
-            
-            // Simple average position (center of the score shape)
-            const x = center + (consistencyR - capacityR) / 2;
-            const y = center + (conversionR - clarityR) / 2;
-            
-            return { x, y };
-        }
+    function getStatus(score) {
+        if (score >= 70) return { class: 'status-success', text: 'Strong' };
+        if (score >= 50) return { class: 'status-warning', text: 'Developing' };
+        return { class: 'status-critical', text: 'Critical' };
+    }
 
-        function updateVisualization() {
-            const clarity = parseInt(document.getElementById('claritySlider').value);
-            const capacity = parseInt(document.getElementById('capacitySlider').value);
-            const consistency = parseInt(document.getElementById('consistencySlider').value);
-            const conversion = parseInt(document.getElementById('conversionSlider').value);
-            
-            // Update value displays
-            document.getElementById('clarityValue').textContent = clarity;
-            document.getElementById('capacityValue').textContent = capacity;
-            document.getElementById('consistencyValue').textContent = consistency;
-            document.getElementById('conversionValue').textContent = conversion;
-            
-            // Update overall score
-            const overall = Math.round((clarity + capacity + consistency + conversion) / 4);
-            document.getElementById('overallScore').textContent = overall;
-            
-            // Update score displays
-            document.getElementById('clarityScoreDisplay').textContent = `${clarity}/100`;
-            document.getElementById('capacityScoreDisplay').textContent = `${capacity}/100`;
-            document.getElementById('consistencyScoreDisplay').textContent = `${consistency}/100`;
-            document.getElementById('conversionScoreDisplay').textContent = `${conversion}/100`;
-            
-            // Update bars
-            document.getElementById('clarityBar').style.width = `${clarity}%`;
-            document.getElementById('capacityBar').style.width = `${capacity}%`;
-            document.getElementById('consistencyBar').style.width = `${consistency}%`;
-            document.getElementById('conversionBar').style.width = `${conversion}%`;
-            
-            // Update statuses
-            ['clarity', 'capacity', 'consistency', 'conversion'].forEach(dim => {
-                const score = dim === 'clarity' ? clarity : dim === 'capacity' ? capacity : dim === 'consistency' ? consistency : conversion;
-                const status = getStatus(score);
-                const el = document.getElementById(`${dim}Status`);
-                el.className = `dimension-score-status ${status.class}`;
-                el.textContent = status.text;
-            });
-            
-            // Update score shape
-            const points = calculateDiamondPoints(clarity, capacity, consistency, conversion);
-            document.getElementById('scoreShape').setAttribute('points', points);
-            
-            // Update customer position
-            const pos = calculateCustomerPosition(clarity, capacity, consistency, conversion);
-            const dot = document.getElementById('customerDot');
-            dot.style.left = `${(pos.x / 400) * 100}%`;
-            dot.style.top = `${(pos.y / 400) * 100}%`;
-            
-            // Update archetype
-            const archetypeKey = getArchetype(clarity, capacity, consistency, conversion);
-            const archetype = archetypes[archetypeKey];
-            
-            document.getElementById('archetypeName').textContent = archetype.name;
-            document.getElementById('archetypeDescription').textContent = archetype.description;
-            document.getElementById('priorityFix').textContent = archetype.fix;
-            
-            // Update constraint badge
-            const badge = document.getElementById('constraintBadge');
-            if (archetype.constraint) {
-                badge.className = `constraint-badge ${archetype.constraint}`;
-                const label =
-                    archetype.constraint === 'clarity' ? 'Guidance' :
-                    archetype.constraint === 'capacity' ? 'Resources' :
-                    archetype.constraint === 'consistency' ? 'Implementation' :
-                    'Performance';
-                badge.innerHTML = `
-                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                    Primary constraint: ${label}
-                `;
-                badge.style.display = 'inline-flex';
-            } else {
-                badge.style.display = 'none';
-            }
-        }
+    function calculateDiamondPoints(clarity, capacity, consistency, conversion) {
+        const center = 200;
+        const maxRadius = 170;
 
-        // Initialize
-        document.querySelectorAll('input[type="range"]').forEach(slider => {
-            slider.addEventListener('input', updateVisualization);
+        const clarityR = (clarity / 100) * maxRadius;
+        const consistencyR = (consistency / 100) * maxRadius;
+        const conversionR = (conversion / 100) * maxRadius;
+        const capacityR = (capacity / 100) * maxRadius;
+
+        const top = `${center},${center - clarityR}`;
+        const right = `${center + consistencyR},${center}`;
+        const bottom = `${center},${center + conversionR}`;
+        const left = `${center - capacityR},${center}`;
+
+        return `${top} ${right} ${bottom} ${left}`;
+    }
+
+    function calculateCustomerPosition(clarity, capacity, consistency, conversion) {
+        const center = 200;
+        const maxRadius = 170;
+
+        const clarityR = (clarity / 100) * maxRadius;
+        const consistencyR = (consistency / 100) * maxRadius;
+        const conversionR = (conversion / 100) * maxRadius;
+        const capacityR = (capacity / 100) * maxRadius;
+
+        const x = center + (consistencyR - capacityR) / 2;
+        const y = center + (conversionR - clarityR) / 2;
+
+        return { x, y };
+    }
+
+    function updateVisualization() {
+        const clarity = parseInt(document.getElementById('claritySlider').value);
+        const capacity = parseInt(document.getElementById('capacitySlider').value);
+        const consistency = parseInt(document.getElementById('consistencySlider').value);
+        const conversion = parseInt(document.getElementById('conversionSlider').value);
+
+        document.getElementById('clarityValue').textContent = clarity;
+        document.getElementById('capacityValue').textContent = capacity;
+        document.getElementById('consistencyValue').textContent = consistency;
+        document.getElementById('conversionValue').textContent = conversion;
+
+        const overall = Math.round((clarity + capacity + consistency + conversion) / 4);
+        document.getElementById('overallScore').textContent = overall;
+
+        document.getElementById('clarityScoreDisplay').textContent = `${clarity}/100`;
+        document.getElementById('capacityScoreDisplay').textContent = `${capacity}/100`;
+        document.getElementById('consistencyScoreDisplay').textContent = `${consistency}/100`;
+        document.getElementById('conversionScoreDisplay').textContent = `${conversion}/100`;
+
+        document.getElementById('clarityBar').style.width = `${clarity}%`;
+        document.getElementById('capacityBar').style.width = `${capacity}%`;
+        document.getElementById('consistencyBar').style.width = `${consistency}%`;
+        document.getElementById('conversionBar').style.width = `${conversion}%`;
+
+        ['clarity', 'capacity', 'consistency', 'conversion'].forEach(dim => {
+            const score = dim === 'clarity' ? clarity :
+                          dim === 'capacity' ? capacity :
+                          dim === 'consistency' ? consistency : conversion;
+            const status = getStatus(score);
+            const el = document.getElementById(`${dim}Status`);
+            el.className = `dimension-score-status ${status.class}`;
+            el.textContent = status.text;
         });
 
-        updateVisualization();
-    </script>
+        const points = calculateDiamondPoints(clarity, capacity, consistency, conversion);
+        document.getElementById('scoreShape').setAttribute('points', points);
+
+        const pos = calculateCustomerPosition(clarity, capacity, consistency, conversion);
+        const dot = document.getElementById('customerDot');
+        dot.style.left = `${(pos.x / 400) * 100}%`;
+        dot.style.top = `${(pos.y / 400) * 100}%`;
+
+        const archetypeKey = getArchetype(clarity, capacity, consistency, conversion);
+        const archetype = archetypes[archetypeKey];
+
+        document.getElementById('archetypeName').textContent = archetype.name;
+        document.getElementById('archetypeDescription').textContent = archetype.description;
+        document.getElementById('priorityFix').textContent = archetype.fix;
+
+        const badge = document.getElementById('constraintBadge');
+        if (archetype.constraint) {
+            badge.className = `constraint-badge ${archetype.constraint}`;
+            const label =
+                archetype.constraint === 'clarity' ? 'Guidance' :
+                archetype.constraint === 'capacity' ? 'Resources' :
+                archetype.constraint === 'consistency' ? 'Implementation' :
+                'Performance';
+            badge.innerHTML = `
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                Primary constraint: ${label}
+            `;
+            badge.style.display = 'inline-flex';
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+        slider.addEventListener('input', updateVisualization);
+    });
+
+    updateVisualization();
+</script>
 </body>
 </html>
