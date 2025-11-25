@@ -427,6 +427,10 @@
       margin-top: 6px;
     }
   </style>
+
+<!-- 🔒 SECURITY: Protect this entire page -->
+<script src="/auth.js"></script>
+
 </head>
 <body>
   <!-- Site header (zelfde structuur als andere pagina's) -->
