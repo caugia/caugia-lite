@@ -1,417 +1,196 @@
 /* ===========================================================
-   CAUGIA — SERVICES PAGE (v1.3)
-   Namespaced under .services-page to avoid conflicts
+   CAUGIA — NEW SERVICES LAYOUT (v1.0)
+   Premium, calm, aligned. No left columns, no chaos.
    =========================================================== */
 
-/* Page background */
 .services-page {
-  background-color: #f9fafc;
+  background: #f9fafc;
   color: #0b132b;
 }
 
-/* Hero
-   ---------------------------------------------------------- */
+/* ---------------- HERO ---------------- */
 
-.services-page .page-hero {
-  padding: 56px 16px 40px;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+.hero {
+  padding: 64px 0 48px;
 }
 
-/* verwijder eventuele globale "SERVICES" label */
-.services-page .page-hero::before {
-  content: none !important;
-}
-
-.services-page .hero-inner {
-  max-width: 920px;
-}
-
-.services-page .eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(11, 19, 43, 0.6);
-  margin-bottom: 8px;
-}
-
-.services-page .page-hero h1 {
-  font-size: clamp(32px, 3.4vw, 40px);
-  line-height: 1.15;
-  margin-bottom: 24px;
-}
-
-.services-page .hero-lead {
-  font-size: 17px;
-  line-height: 1.55;
-  color: rgba(11, 19, 43, 0.85);
-  margin-bottom: 6px;
-  max-width: 640px;
-}
-
-.services-page .hero-sub {
-  font-size: 15px;
-  line-height: 1.55;
-  color: rgba(11, 19, 43, 0.7);
-  max-width: 640px;
-}
-
-/* Section headers
-   ---------------------------------------------------------- */
-
-.services-page .section-header {
+.hero h1 {
+  font-size: clamp(32px, 3.5vw, 42px);
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
-.services-page .section-header h2 {
-  font-size: 24px;
+.hero-lead {
+  font-size: 18px;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+  max-width: 680px;
+}
+
+/* ---------------- GRID ---------------- */
+
+.services {
+  padding: 20px 0 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 32px;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px 22px;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+}
+
+/* Flagship card visual highlight */
+.flagship-card {
+  border: 2px solid #002A5C;  /* deep elegant navy */
+}
+
+/* Tags */
+.service-card .tag {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.04);
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+
+.tag.flagship {
+  background: rgba(0,70,165,0.12);
+  color: #0046A5;
+}
+
+/* Title */
+.service-card h3 {
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 6px;
 }
 
-.services-page .section-header p {
-  font-size: 15px;
-  color: rgba(11, 19, 43, 0.7);
-  max-width: 640px;
-}
-
-.services-page .section-header--narrow {
-  max-width: 720px;
-}
-
-/* Service ladder layout
-   ---------------------------------------------------------- */
-
-.services-page .service-ladder {
-  padding: 40px 16px 32px;
-}
-
-.services-page .service-ladder .container {
-  display: grid;
-  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-  column-gap: 40px;
-  align-items: flex-start;
-}
-
-.services-page .service-ladder .section-header {
-  margin-bottom: 0;
-}
-
-@media (max-width: 900px) {
-  .services-page .service-ladder .container {
-    display: block;
-  }
-
-  .services-page .service-ladder .section-header {
-    margin-bottom: 24px;
-  }
-}
-
-/* Services grid and cards
-   ---------------------------------------------------------- */
-
-.services-page .services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-@media (max-width: 1100px) {
-  .services-page .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .services-page .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.services-page .service-card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 22px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
-}
-
-.services-page .service-card-tag {
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.03);
-  display: inline-flex;
+/* Price */
+.service-card .price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0046A5;
   margin-bottom: 12px;
 }
 
-.services-page .service-card-tag--primary {
-  background: rgba(0, 70, 165, 0.08);
-  color: #0046A5;
-}
-
-.services-page .service-card-title {
-  font-size: 18px;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.services-page .service-card-lead {
-  font-size: 14px;
-  color: rgba(11, 19, 43, 0.8);
-  margin-bottom: 10px;
-}
-
-.services-page .service-card-body {
-  font-size: 14px;
-  color: rgba(11, 19, 43, 0.75);
-  line-height: 1.55;
+/* Lead */
+.service-card .lead {
+  font-size: 15px;
+  color: rgba(0,0,0,0.75);
   margin-bottom: 14px;
 }
 
-.services-page .service-card-list {
+/* Features */
+.features {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
 }
 
-.services-page .service-card-list li {
-  font-size: 13px;
-  color: rgba(11, 19, 43, 0.8);
-  line-height: 1.45;
+.features li {
+  font-size: 14px;
   padding-left: 16px;
   position: relative;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
-.services-page .service-card-list li::before {
+.features li::before {
   content: "";
   width: 6px;
   height: 6px;
-  border-radius: 999px;
-  background: rgba(0, 70, 165, 0.4);
+  background: rgba(0,70,165,0.5);
+  border-radius: 50%;
   position: absolute;
-  left: 2px;
+  left: 0;
   top: 7px;
 }
 
-/* Card CTAs */
-
-.services-page .service-card-cta {
+/* CTA */
+.cta {
   margin-top: auto;
-  display: inline-flex;
-  padding: 9px 15px;
+  padding: 10px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(0, 70, 165, 0.2);
-  background: rgba(0, 70, 165, 0.04);
+  background: rgba(0,70,165,0.06);
   color: #0046A5;
-  font-size: 13px;
+  border: 1px solid rgba(0,70,165,0.2);
   text-decoration: none;
-  transition: 0.18s ease;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.2s ease;
 }
 
-.services-page .service-card-cta:hover {
-  background: rgba(0, 70, 165, 0.12);
-  border-color: rgba(0, 70, 165, 0.4);
+.cta:hover {
+  background: rgba(0,70,165,0.12);
 }
 
-/* Variations */
-
-.services-page .service-card--consulting {
-  background: #0f172a;
+.cta.primary {
+  background: #0046A5;
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: #0046A5;
 }
 
-.services-page .service-card--consulting .service-card-tag {
-  background: rgba(255, 255, 255, 0.08);
-  color: #e5e7eb;
+/* ---------------- FLOW ---------------- */
+
+.flow {
+  padding: 60px 0;
 }
 
-.services-page .service-card--consulting .service-card-lead,
-.services-page .service-card--consulting .service-card-body,
-.services-page .service-card--consulting .service-card-list li {
-  color: #e5e7eb;
-}
-
-.services-page .service-card--consulting .service-card-list li::before {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.services-page .service-card--consulting .service-card-cta {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-/* Subscription meta */
-
-.services-page .service-card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: baseline;
-  font-size: 12px;
-  color: rgba(11, 19, 43, 0.7);
-  margin-bottom: 8px;
-}
-
-.services-page .service-card-price {
-  font-weight: 600;
-  color: #0046A5;
-}
-
-/* Flow section
-   ---------------------------------------------------------- */
-
-.services-page .services-flow {
-  padding: 40px 16px 24px;
-}
-
-.services-page .flow-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+.flow h2 {
+  text-align: center;
+  font-size: 26px;
   margin-bottom: 32px;
 }
 
-@media (max-width: 1024px) {
-  .services-page .flow-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .services-page .flow-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.services-page .flow-step {
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 18px 16px;
-}
-
-.services-page .flow-step-label {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(11, 19, 43, 0.55);
-  margin-bottom: 8px;
-}
-
-.services-page .flow-step h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.services-page .flow-step p {
-  font-size: 14px;
-  color: rgba(11, 19, 43, 0.72);
-  line-height: 1.55;
-}
-
-/* Flow CTA */
-
-.services-page .flow-cta {
-  padding: 24px 20px;
-  border-radius: 14px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 70, 165, 0.18);
-}
-
-.services-page .flow-cta h3 {
-  font-size: 17px;
-  margin-bottom: 8px;
-}
-
-.services-page .flow-cta p {
-  font-size: 14px;
-  margin-bottom: 14px;
-  color: rgba(11, 19, 43, 0.75);
-}
-
-.services-page .flow-cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.services-page .btn-primary,
-.services-page .btn-secondary {
-  padding: 9px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.services-page .btn-primary {
-  background: #0046A5;
-  color: #ffffff;
-  border: 1px solid #0046A5;
-}
-
-.services-page .btn-secondary {
-  background: #ffffff;
-  color: #0046A5;
-  border: 1px solid rgba(0, 70, 165, 0.25);
-}
-
-/* Pricing section
-   ---------------------------------------------------------- */
-
-.services-page .services-pricing {
-  padding: 40px 16px 64px;
-}
-
-.services-page .pricing-grid {
+.flow-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  margin-top: 24px;
 }
 
-@media (max-width: 900px) {
-  .services-page .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.services-page .pricing-card {
+.flow-card {
   background: #ffffff;
-  border-radius: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 20px 18px;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
-.services-page .pricing-card h3 {
+.flow-card .step {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: rgba(0,0,0,0.55);
+}
+
+.flow-card h3 {
   font-size: 16px;
   margin-bottom: 6px;
 }
 
-.services-page .pricing-amount {
+.flow-card p {
   font-size: 15px;
-  font-weight: 600;
-  color: #0046A5;
-  margin-bottom: 8px;
+  color: rgba(0,0,0,0.75);
 }
 
-.services-page .pricing-body {
-  font-size: 14px;
-  color: rgba(11, 19, 43, 0.75);
-  line-height: 1.55;
-}
-
-/* Footer basic spacing override */
-
-.services-page .site-footer {
-  margin-top: 0;
+/* Footer spacing */
+.site-footer {
+  margin-top: 40px;
 }
