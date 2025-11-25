@@ -116,4 +116,175 @@
   font-weight: 600;
 }
 
-.services-page .service-ca
+.services-page .service-card-lead {
+  font-size: 14px;
+  color: rgba(11,19,43,0.8);
+  margin-bottom: 10px;
+}
+
+.services-page .service-card-body {
+  font-size: 14px;
+  color: rgba(11,19,43,0.75);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.services-page .service-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.services-page .service-card-list li {
+  font-size: 13px;
+  color: rgba(11,19,43,0.8);
+  line-height: 1.45;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.services-page .service-card-list li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0,70,165,0.4);
+  position: absolute;
+  left: 2px;
+  top: 7px;
+}
+
+/* CTA */
+.services-page .service-card-cta {
+  margin-top: auto;
+  display: inline-flex;
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,70,165,0.2);
+  background: rgba(0,70,165,0.04);
+  color: #0046A5;
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.18s ease;
+}
+
+.services-page .service-card-cta:hover {
+  background: rgba(0,70,165,0.12);
+  border-color: rgba(0,70,165,0.4);
+}
+
+/* Consulting dark card */
+.services-page .service-card--consulting {
+  background: #0b132b;
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.1);
+}
+
+.services-page .service-card--consulting .service-card-list li {
+  color: #f0f0f0;
+}
+
+.services-page .service-card--consulting .service-card-list li::before {
+  background: rgba(255,255,255,0.6);
+}
+
+.services-page .service-card--consulting .service-card-cta {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+  color: #ffffff;
+}
+
+/* Flow section */
+.services-page .services-flow {
+  margin-top: 48px;
+}
+
+.services-page .flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media(max-width:1024px){
+  .services-page .flow-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media(max-width:768px){
+  .services-page .flow-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services-page .flow-step {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 18px 16px;
+}
+
+.services-page .flow-step-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(11,19,43,0.55);
+  margin-bottom: 8px;
+}
+
+.services-page .flow-step h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.services-page .flow-step p {
+  font-size: 14px;
+  color: rgba(11,19,43,0.72);
+  line-height: 1.55;
+}
+
+/* Flow CTA */
+.services-page .flow-cta {
+  padding: 24px 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0,70,165,0.18);
+}
+
+.services-page .flow-cta h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.services-page .flow-cta p {
+  font-size: 14px;
+  margin-bottom: 14px;
+  color: rgba(11,19,43,0.75);
+}
+
+.services-page .flow-cta-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.services-page .btn-primary,
+.services-page .btn-secondary {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.services-page .btn-primary {
+  background: #0046A5;
+  color: #ffffff;
+}
+
+.services-page .btn-secondary {
+  background: #ffffff;
+  border: 1px solid rgba(0,70,165,0.25);
+  color: #0046A5;
+}
