@@ -11,19 +11,18 @@
   <link rel="apple-touch-icon" href="/C-logo.png">
   <meta name="msapplication-TileImage" content="/C-logo.png">
 
-  <link rel="stylesheet" href="assets/caugia.css?v=2.6" />
+  <link rel="stylesheet" href="assets/caugia.css?v=2.7" />
 </head>
 
 <body class="services-page">
-
   <!-- 🔒 SECURITY: Protect this entire page -->
   <script src="/auth.js"></script>
 
-  <header class="site-header">
-    <div class="container header-inner">
+  <header>
+    <div class="container">
       <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Consulting logo" class="brand-mark">
-        <span class="brand-name">Caugia Consulting</span>
+        <img src="C-logo.png" alt="Caugia Consulting logo">
+        <span>Caugia Consulting</span>
       </a>
 
       <nav class="nav-desktop">
@@ -33,17 +32,29 @@
         <a href="grip-diamond.html">GRIP Diamond</a>
         <a href="resources.html">Resources</a>
       </nav>
+
+      <!-- Mobile toggle (werkt met je bestaande JS als je die hebt) -->
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <nav class="nav-mobile">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="grip-diamond.html">GRIP Diamond</a>
+      <a href="resources.html">Resources</a>
+    </nav>
   </header>
 
-  <main class="page-main">
-
+  <main>
     <!-- HERO -->
     <section class="hero">
       <div class="container">
         <h1>Clarity. Insight. Architecture.</h1>
         <p class="hero-lead">
-          Caugia helps B2B SaaS companies build calm, predictable and system aligned go to market engines. 
+          Caugia helps B2B SaaS companies build calm, predictable and system aligned go to market engines.
           Every service fits into one operating model built on the GRIP Framework.
         </p>
         <p class="hero-sub">
@@ -55,10 +66,9 @@
     <!-- SERVICES GRID -->
     <section class="services">
       <div class="container">
-
         <div class="services-grid">
 
-          <!-- FREE GTM SCORE -->
+          <!-- Free GTM Score -->
           <article class="service-card">
             <div class="tag">Entry</div>
             <h3>Free GTM Score</h3>
@@ -78,7 +88,7 @@
             <a href="the-gtm-score.html" class="cta">Start free assessment</a>
           </article>
 
-          <!-- FLAGSHIP REPORT -->
+          <!-- GTM Intelligence Report (Flagship) -->
           <article class="service-card flagship-card">
             <div class="tag flagship">Flagship</div>
             <h3>The GTM Intelligence Report</h3>
@@ -100,7 +110,7 @@
             <a href="gtm-intelligence-report.html" class="cta primary">See example report</a>
           </article>
 
-          <!-- SUBSCRIPTION -->
+          <!-- GTM Intelligence Subscription -->
           <article class="service-card">
             <div class="tag">Ongoing</div>
             <h3>GTM Intelligence Subscription</h3>
@@ -122,7 +132,7 @@
             <a href="subscription.html" class="cta">Learn how it works</a>
           </article>
 
-          <!-- MARKETPLACE -->
+          <!-- GTM Intelligence Marketplace -->
           <article class="service-card">
             <div class="tag">Modular</div>
             <h3>GTM Intelligence Marketplace</h3>
@@ -133,20 +143,20 @@
             </p>
 
             <ul class="features">
-              <li>ICP review & segmentation</li>
-              <li>Narrative & messaging check</li>
-              <li>Pricing & packaging scan</li>
+              <li>ICP review and segmentation</li>
+              <li>Narrative and messaging check</li>
+              <li>Pricing and packaging scan</li>
               <li>Demand generation pattern analysis</li>
               <li>Sales execution quality review</li>
-              <li>Customer success scan</li>
+              <li>Customer success expansion scan</li>
             </ul>
 
             <a href="gtm-intelligence-marketplace.html" class="cta">Browse modules</a>
           </article>
 
-          <!-- CONSULTING -->
+          <!-- Caugia Consulting -->
           <article class="service-card">
-            <div class="tag">Deep Work</div>
+            <div class="tag">Deep work</div>
             <h3>Caugia Consulting</h3>
             <p class="price">Custom project pricing</p>
 
@@ -169,13 +179,12 @@
       </div>
     </section>
 
-    <!-- SERVICE FLOW -->
+    <!-- FLOW SECTION -->
     <section class="flow">
       <div class="container">
         <h2>How these services work together</h2>
 
         <div class="flow-grid">
-
           <div class="flow-card">
             <div class="step">Step 1</div>
             <h3>Free GTM Score</h3>
@@ -185,7 +194,7 @@
           <div class="flow-card">
             <div class="step">Step 2</div>
             <h3>The GTM Intelligence Report</h3>
-            <p>Your full system diagnosis and prioritization.</p>
+            <p>Your full GTM system diagnosis and prioritization.</p>
           </div>
 
           <div class="flow-card">
@@ -203,20 +212,20 @@
           <div class="flow-card">
             <div class="step">Step 5</div>
             <h3>Caugia Consulting</h3>
-            <p>Architecture and operating model design when ready to scale.</p>
+            <p>Architecture and operating model design when you are ready to scale.</p>
           </div>
-
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>Caugia Consulting</span>
-      <span>GTM Intelligence for B2B SaaS</span>
+  <footer>
+    <div class="container" style="justify-content: center;">
+      <span>Caugia Consulting · GTM intelligence for B2B SaaS</span>
     </div>
   </footer>
 
+  <!-- Als je al een JS file hebt voor menu-toggle / scroll header kun je die hier includen -->
+  <!-- <script src="assets/site.js"></script> -->
 </body>
 </html>
