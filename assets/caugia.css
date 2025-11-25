@@ -525,6 +525,238 @@ p {
   margin-bottom: 18px;
 }
 
+/* ===========================================================
+   SERVICES PAGE LAYOUT (namespaced under .services-page)
+   =========================================================== */
+
+.services-page {
+  background: #f9fafc;
+  color: #0b132b;
+}
+
+/* Reset globale section-margins op deze pagina */
+.services-page section {
+  margin: 0;
+}
+
+/* ---------- Hero ---------- */
+
+.services-page .hero {
+  padding: 64px 0 40px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.services-page .hero .container {
+  max-width: 960px;
+}
+
+.services-page .hero h1 {
+  font-size: clamp(32px, 3.5vw, 42px);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.services-page .hero-lead {
+  font-size: 18px;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.services-page .hero-sub {
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(0, 0, 0, 0.75);
+  max-width: 680px;
+}
+
+/* ---------- Services grid ---------- */
+
+.services-page .services {
+  padding: 32px 0 40px;
+}
+
+.services-page .services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* max 3 kolommen, op kleinere schermen 2 of 1 */
+@media (max-width: 1120px) {
+  .services-page .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .services-page .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+
+.services-page .service-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px 22px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+}
+
+/* Flagship visueel accent */
+.services-page .service-card.flagship-card {
+  border-width: 2px;
+  border-color: #002a5c;
+}
+
+.services-page .service-card .tag {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.services-page .service-card .tag.flagship {
+  background: rgba(0, 70, 165, 0.12);
+  color: #0046a5;
+}
+
+.services-page .service-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.services-page .service-card .price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0046a5;
+  margin-bottom: 12px;
+}
+
+.services-page .service-card .lead {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.78);
+  margin-bottom: 14px;
+}
+
+.services-page .service-card .features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+.services-page .service-card .features li {
+  font-size: 14px;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.services-page .service-card .features li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0, 70, 165, 0.5);
+  position: absolute;
+  left: 0;
+  top: 7px;
+}
+
+/* CTA in card */
+
+.services-page .service-card .cta {
+  margin-top: auto;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(0, 70, 165, 0.06);
+  color: #0046a5;
+  border: 1px solid rgba(0, 70, 165, 0.2);
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  transition: 0.18s ease;
+}
+
+.services-page .service-card .cta:hover {
+  background: rgba(0, 70, 165, 0.12);
+}
+
+.services-page .service-card .cta.primary {
+  background: #0046a5;
+  border-color: #0046a5;
+  color: #ffffff;
+}
+
+/* Consulting kaart licht houden (geen donkere achtergrond meer) */
+.services-page .service-card:last-child {
+  /* bewust zelfde stijl als de rest */
+}
+
+/* ---------- Flow section ---------- */
+
+.services-page .flow {
+  padding: 56px 0 64px;
+}
+
+.services-page .flow h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 28px;
+}
+
+.services-page .flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .services-page .flow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .services-page .flow-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.services-page .flow-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 18px 16px;
+}
+
+.services-page .flow-card .step {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 8px;
+}
+
+.services-page .flow-card h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.services-page .flow-card p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.75);
+}
 
 /* ------------------ Footer ------------------ */
 
