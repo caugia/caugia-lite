@@ -1,934 +1,1471 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>The GRIP Framework – GTM Health Diamond</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    :root {
-      --bg: #05060a;
-      --bg-alt: #10111a;
-      --bg-soft: #181926;
-      --border-soft: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.16);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-
-      /* GRIP colours (kun je later matchen met Caugia palette) */
-      --guidance: #3b82f6;
-      --resources: #8b5cf6;
-      --implementation: #f59e0b;
-      --performance: #10b981;
-
-      --critical: #ef4444;
-      --warning: #f59e0b;
-      --good: #10b981;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020309 55%);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 40px 20px 56px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 14px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.8);
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(30px, 4vw, 40px);
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      max-width: 560px;
-      margin: 0 auto;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .tagline {
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--muted);
-      opacity: 0.9;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 32px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 920px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    /* DIAMOND */
-
-    .diamond-card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      padding: 20px 20px 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .diamond-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top,
-        rgba(56, 189, 248, 0.22),
-        transparent 55%
-      );
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .diamond-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .diamond-wrapper {
-      max-width: 520px;
-      margin: 0 auto 20px;
-      aspect-ratio: 1;
-      position: relative;
-    }
-
-    svg.diamond {
-      width: 100%;
-      height: 100%;
-    }
-
-    .zone {
-      fill: none;
-      stroke-width: 1;
-      opacity: 0.14;
-    }
-
-    .zone.outer {
-      stroke: #4338ca;
-    }
-    .zone.mid {
-      stroke: #64748b;
-    }
-    .zone.inner {
-      stroke: #22c55e;
-    }
-
-    .axis {
-      stroke: rgba(148, 163, 184, 0.3);
-      stroke-width: 1;
-      stroke-dasharray: 4 4;
-    }
-
-    .outline {
-      fill: none;
-      stroke: url(#gradDiamond);
-      stroke-width: 2;
-    }
-
-    .score-shape {
-      fill: url(#gradFill);
-      fill-opacity: 0.16;
-      stroke: url(#gradDiamond);
-      stroke-width: 2;
-    }
-
-    .center-dot {
-      fill: #020617;
-      stroke: rgba(148, 163, 184, 0.9);
-      stroke-width: 1.2;
-    }
-
-    .customer-marker {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      transform: translate(-50%, -50%);
-      background: #f9fafb;
-      box-shadow: 0 0 0 3px #020617, 0 0 0 5px #f9fafb,
-        0 0 24px rgba(248, 250, 252, 0.8);
-      z-index: 4;
-    }
-
-    .customer-label {
-      position: absolute;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      background: rgba(15, 23, 42, 0.96);
-      color: var(--muted);
-      top: calc(50% + 16px);
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-    }
-
-    .dim-label {
-      position: absolute;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid var(--border-soft);
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .dim-label strong {
-      font-weight: 600;
-      color: #e5e7eb;
-      margin-right: 4px;
-    }
-
-    .dim-label.g {
-      top: 6%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-color: rgba(59, 130, 246, 0.6);
-    }
-
-    .dim-label.r {
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-      border-color: rgba(139, 92, 246, 0.6);
-    }
-
-    .dim-label.i {
-      bottom: 6%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-color: rgba(245, 158, 11, 0.7);
-    }
-
-    .dim-label.p {
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      border-color: rgba(16, 185, 129, 0.7);
-    }
-
-    /* sliders */
-
-    .sliders {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 640px) {
-      .sliders {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .slider {
-      background: var(--bg-soft);
-      border-radius: 12px;
-      border: 1px solid var(--border-soft);
-      padding: 10px 12px;
-    }
-
-    .slider-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .slider-label {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .slider-value {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .slider-value.g {
-      color: var(--guidance);
-    }
-    .slider-value.r {
-      color: var(--resources);
-    }
-    .slider-value.i {
-      color: var(--implementation);
-    }
-    .slider-value.p {
-      color: var(--performance);
-    }
-
-    input[type="range"] {
-      width: 100%;
-      appearance: none;
-      background: rgba(15, 23, 42, 0.9);
-      height: 4px;
-      border-radius: 999px;
-      outline: none;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: #f9fafb;
-      box-shadow: 0 1px 6px rgba(15, 23, 42, 0.7);
-      cursor: pointer;
-    }
-
-    /* SIDEBAR */
-
-    .sidebar-card {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: 18px;
-      border: 1px solid var(--border-soft);
-      padding: 20px 20px 22px;
-      margin-bottom: 18px;
-    }
-
-    .score-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--border-soft);
-      padding-bottom: 10px;
-    }
-
-    .score-title {
-      font-size: 16px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .score-main {
-      font-size: 26px;
-      font-weight: 600;
-    }
-
-    .score-main span {
-      font-size: 14px;
-      color: var(--muted);
-      font-weight: 400;
-      margin-left: 2px;
-    }
-
-    .dims-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .dim-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .dim-tag {
-      min-width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .dim-tag.g {
-      background: rgba(59, 130, 246, 0.16);
-      color: var(--guidance);
-    }
-    .dim-tag.r {
-      background: rgba(139, 92, 246, 0.18);
-      color: var(--resources);
-    }
-    .dim-tag.i {
-      background: rgba(245, 158, 11, 0.18);
-      color: var(--implementation);
-    }
-    .dim-tag.p {
-      background: rgba(16, 185, 129, 0.18);
-      color: var(--performance);
-    }
-
-    .dim-meta {
-      flex: 1;
-    }
-
-    .dim-name {
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .dim-bar {
-      margin-top: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      overflow: hidden;
-    }
-
-    .dim-fill {
-      height: 100%;
-      border-radius: 999px;
-      width: 0;
-    }
-
-    .dim-fill.g {
-      background: linear-gradient(to right, #3b82f6, #60a5fa);
-    }
-    .dim-fill.r {
-      background: linear-gradient(to right, #8b5cf6, #a855f7);
-    }
-    .dim-fill.i {
-      background: linear-gradient(to right, #f59e0b, #fbbf24);
-    }
-    .dim-fill.p {
-      background: linear-gradient(to right, #10b981, #34d399);
-    }
-
-    .status-pill {
-      font-size: 10px;
-      padding: 1px 6px;
-      border-radius: 999px;
-      margin-left: 6px;
-    }
-
-    .status-critical {
-      background: rgba(239, 68, 68, 0.18);
-      color: var(--critical);
-    }
-    .status-warning {
-      background: rgba(245, 158, 11, 0.18);
-      color: var(--warning);
-    }
-    .status-good {
-      background: rgba(34, 197, 94, 0.16);
-      color: var(--good);
-    }
-
-    .archetype-label {
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .archetype-name {
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    .archetype-text {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .constraint-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      margin-bottom: 8px;
-    }
-
-    .constraint-pill span {
-      font-weight: 600;
-    }
-
-    .priority-box {
-      margin-top: 6px;
-      border-radius: 12px;
-      border: 1px solid var(--border-soft);
-      background: var(--bg-soft);
-      padding: 8px 10px;
-      font-size: 12px;
-      color: var(--text);
-    }
-
-    footer {
-      margin-top: 32px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--muted);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The GTM Health Diamond™ | Caugia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0b;
+            --bg-secondary: #111113;
+            --bg-tertiary: #1a1a1d;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6b6b70;
+            
+            /* original 4C colours — reused for GRIP */
+            --clarity: #3b82f6;
+            --clarity-glow: rgba(59, 130, 246, 0.3);
+            --capacity: #8b5cf6;
+            --capacity-glow: rgba(139, 92, 246, 0.3);
+            --consistency: #f59e0b;
+            --consistency-glow: rgba(245, 158, 11, 0.3);
+            --conversion: #10b981;
+            --conversion-glow: rgba(16, 185, 129, 0.3);
+            
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-medium: rgba(255, 255, 255, 0.1);
+            --critical: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-medium);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .header-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--clarity);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(42px, 5vw, 64px);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        h1 span {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--clarity), var(--capacity), var(--consistency), var(--conversion));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+
+        /* GRIP pills */
+        .four-cs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .c-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .c-pill::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .c-pill.clarity::before { background: var(--clarity); }
+        .c-pill.capacity::before { background: var(--capacity); }
+        .c-pill.consistency::before { background: var(--consistency); }
+        .c-pill.conversion::before { background: var(--conversion); }
+
+        .c-pill .c-question {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: start;
+        }
+
+        @media (max-width: 1100px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* Diamond Container */
+        .diamond-section {
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .diamond-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            aspect-ratio: 1;
+        }
+
+        /* SVG Diamond */
+        .diamond-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .diamond-zones .zone {
+            fill: none;
+            stroke-width: 1;
+            opacity: 0.12;
+        }
+
+        .zone-outer { stroke: var(--critical); }
+        .zone-mid { stroke: var(--warning); }
+        .zone-inner { stroke: var(--success); }
+
+        .diamond-main {
+            fill: none;
+            stroke: url(#diamondGradient);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.15));
+        }
+
+        .axis-line {
+            stroke: var(--border-subtle);
+            stroke-width: 1;
+            stroke-dasharray: 4 4;
+        }
+
+        .center-point {
+            fill: var(--bg-tertiary);
+            stroke: var(--border-medium);
+            stroke-width: 1;
+        }
+
+        /* Dimension Labels (outside diamond, clean) */
+        .dimension-label {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .dimension-label:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .dimension-label.clarity { top: 2%; left: 50%; }
+        .dimension-label.consistency { top: 50%; right: -8%; left: auto; transform: translate(0, -50%); }
+        .dimension-label.consistency:hover { transform: translate(0, -50%) scale(1.05); }
+        .dimension-label.conversion { bottom: -2%; top: auto; left: 50%; transform: translate(-50%, 0); }
+        .dimension-label.conversion:hover { transform: translate(-50%, 0) scale(1.05); }
+        .dimension-label.capacity { top: 50%; left: -8%; transform: translate(0, -50%); }
+        .dimension-label.capacity:hover { transform: translate(0, -50%) scale(1.05); }
+
+        .dimension-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .dimension-label.clarity .dimension-icon {
+            background: linear-gradient(135deg, var(--clarity), #1d4ed8);
+            box-shadow: 0 8px 32px var(--clarity-glow);
+        }
+
+        .dimension-label.capacity .dimension-icon {
+            background: linear-gradient(135deg, var(--capacity), #6d28d9);
+            box-shadow: 0 8px 32px var(--capacity-glow);
+        }
+
+        .dimension-label.consistency .dimension-icon {
+            background: linear-gradient(135deg, var(--consistency), #d97706);
+            box-shadow: 0 8px 32px var(--consistency-glow);
+        }
+
+        .dimension-label.conversion .dimension-icon {
+            background: linear-gradient(135deg, var(--conversion), #047857);
+            box-shadow: 0 8px 32px var(--conversion-glow);
+        }
+
+        .dimension-icon svg {
+            width: 22px;
+            height: 22px;
+            color: white;
+        }
+
+        .dimension-name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .dimension-label.clarity .dimension-name { color: var(--clarity); }
+        .dimension-label.capacity .dimension-name { color: var(--capacity); }
+        .dimension-label.consistency .dimension-name { color: var(--consistency); }
+        .dimension-label.conversion .dimension-name { color: var(--conversion); }
+
+        .dimension-subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+            max-width: 140px;
+        }
+
+        /* Customer Position */
+        .customer-position {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .customer-position:hover {
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        .customer-dot {
+            width: 100%;
+            height: 100%;
+            background: var(--text-primary);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 0 3px var(--bg-primary),
+                0 0 0 5px var(--text-primary),
+                0 0 30px rgba(255, 255, 255, 0.5);
+            animation: customerPulse 2s ease-in-out infinite;
+        }
+
+        .customer-label {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+            white-space: nowrap;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: var(--bg-tertiary);
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-medium);
+        }
+
+        /* Score Shape (the filled area) */
+        .score-shape {
+            fill: url(#scoreGradient);
+            fill-opacity: 0.15;
+            stroke: url(#diamondGradient);
+            stroke-width: 2;
+            transition: all 0.5s ease;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        .score-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .score-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .score-card-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 22px;
+            font-weight: 400;
+        }
+
+        .overall-score {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .overall-score-value {
+            font-size: 32px;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .overall-score-max {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Dimension Scores */
+        .dimension-scores {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dimension-score-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .dimension-score-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .dimension-score-icon.clarity { background: rgba(59, 130, 246, 0.15); color: var(--clarity); }
+        .dimension-score-icon.capacity { background: rgba(139, 92, 246, 0.15); color: var(--capacity); }
+        .dimension-score-icon.consistency { background: rgba(245, 158, 11, 0.15); color: var(--consistency); }
+        .dimension-score-icon.conversion { background: rgba(16, 185, 129, 0.15); color: var(--conversion); }
+
+        .dimension-score-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .dimension-score-content {
+            flex: 1;
+        }
+
+        .dimension-score-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .dimension-score-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .dimension-score-value {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .dimension-score-bar {
+            height: 5px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .dimension-score-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dimension-score-fill.clarity { background: linear-gradient(90deg, var(--clarity), #60a5fa); }
+        .dimension-score-fill.capacity { background: linear-gradient(90deg, var(--capacity), #a78bfa); }
+        .dimension-score-fill.consistency { background: linear-gradient(90deg, var(--consistency), #fbbf24); }
+        .dimension-score-fill.conversion { background: linear-gradient(90deg, var(--conversion), #34d399); }
+
+        .dimension-score-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+
+        .status-critical { background: rgba(239, 68, 68, 0.15); color: var(--critical); }
+        .status-warning { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+        .status-success { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+
+        /* Archetype Card */
+        .archetype-card {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            border: 1px solid var(--border-medium);
+            border-radius: 20px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archetype-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--clarity), var(--capacity), var(--consistency), var(--conversion));
+        }
+
+        .archetype-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .archetype-name {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .archetype-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .constraint-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .constraint-badge.clarity { background: rgba(59, 130, 246, 0.15); color: var(--clarity); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .constraint-badge.capacity { background: rgba(139, 92, 246, 0.15); color: var(--capacity); border: 1px solid rgba(139, 92, 246, 0.3); }
+        .constraint-badge.consistency { background: rgba(245, 158, 11, 0.15); color: var(--consistency); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .constraint-badge.conversion { background: rgba(16, 185, 129, 0.15); color: var(--conversion); border: 1px solid rgba(16, 185, 129, 0.3); }
+
+        .priority-fix {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-medium);
+            border-radius: 12px;
+        }
+
+        .priority-fix-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--conversion);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .priority-fix-icon svg {
+            width: 16px;
+            height: 16px;
+            color: white;
+        }
+
+        .priority-fix-content {
+            flex: 1;
+        }
+
+        .priority-fix-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .priority-fix-text {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Interactive Controls */
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .control-slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 12px;
+        }
+
+        .control-slider label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .control-slider input[type="range"] {
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            appearance: none;
+            background: var(--bg-tertiary);
+            cursor: pointer;
+        }
+
+        .control-slider input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-slider .value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .control-slider.clarity .value { color: var(--clarity); }
+        .control-slider.capacity .value { color: var(--capacity); }
+        .control-slider.consistency .value { color: var(--consistency); }
+        .control-slider.conversion .value { color: var(--conversion); }
+
+        /* Pillar Mapping */
+        .pillar-mapping {
+            margin-top: 50px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .pillar-mapping-title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 1000px) {
+            .pillar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pillar-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-column {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .pillar-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .pillar-column.clarity::before { background: var(--clarity); }
+        .pillar-column.capacity::before { background: var(--capacity); }
+        .pillar-column.consistency::before { background: var(--consistency); }
+        .pillar-column.conversion::before { background: var(--conversion); }
+
+        .pillar-column-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .pillar-column-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pillar-column.clarity .pillar-column-icon { background: rgba(59, 130, 246, 0.15); color: var(--clarity); }
+        .pillar-column.capacity .pillar-column-icon { background: rgba(139, 92, 246, 0.15); color: var(--capacity); }
+        .pillar-column.consistency .pillar-column-icon { background: rgba(245, 158, 11, 0.15); color: var(--consistency); }
+        .pillar-column.conversion .pillar-column-icon { background: rgba(16, 185, 129, 0.15); color: var(--conversion); }
+
+        .pillar-column-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .pillar-column-name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .pillar-column.clarity .pillar-column-name { color: var(--clarity); }
+        .pillar-column.capacity .pillar-column-name { color: var(--capacity); }
+        .pillar-column.consistency .pillar-column-name { color: var(--consistency); }
+        .pillar-column.conversion .pillar-column-name { color: var(--conversion); }
+
+        .pillar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pillar-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .pillar-item:hover {
+            background: var(--bg-primary);
+            transform: translateX(3px);
+        }
+
+        .pillar-number {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .pillar-column.clarity .pillar-number { background: rgba(59, 130, 246, 0.2); color: var(--clarity); }
+        .pillar-column.capacity .pillar-number { background: rgba(139, 92, 246, 0.2); color: var(--capacity); }
+        .pillar-column.consistency .pillar-number { background: rgba(245, 158, 11, 0.2); color: var(--consistency); }
+        .pillar-column.conversion .pillar-number { background: rgba(16, 185, 129, 0.2); color: var(--conversion); }
+
+        .pillar-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+            flex: 1;
+            line-height: 1.3;
+        }
+
+        .pillar-score {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes customerPulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 5px var(--text-primary), 0 0 30px rgba(255, 255, 255, 0.5);
+            }
+            50% { 
+                box-shadow: 0 0 0 3px var(--bg-primary), 0 0 0 7px var(--text-primary), 0 0 50px rgba(255, 255, 255, 0.7);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-subtle);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+        }
+
+        .footer-brand {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="badge">The GRIP Framework</div>
-      <h1>The GTM Health Diamond</h1>
-      <p class="subtitle">
-        Een compacte diagnose van je go to market systeem langs vier dimensies
-        van GRIP. Vind je primaire constraint en bepaal wat eerst moet worden
-        aangepakt.
-      </p>
-      <p class="tagline">G = Guidance, R = Resources, I = Implementation, P = Performance</p>
-    </header>
-
-    <div class="layout">
-      <!-- LEFT: DIAMOND -->
-      <section class="diamond-card">
-        <div class="diamond-inner">
-          <div class="diamond-wrapper">
-            <!-- SVG -->
-            <svg class="diamond" viewBox="0 0 400 400">
-              <defs>
-                <linearGradient id="gradDiamond" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#3b82f6" />
-                  <stop offset="35%" stop-color="#8b5cf6" />
-                  <stop offset="70%" stop-color="#f59e0b" />
-                  <stop offset="100%" stop-color="#10b981" />
-                </linearGradient>
-                <linearGradient id="gradFill" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#3b82f6" />
-                  <stop offset="35%" stop-color="#8b5cf6" />
-                  <stop offset="70%" stop-color="#f59e0b" />
-                  <stop offset="100%" stop-color="#10b981" />
-                </linearGradient>
-              </defs>
-
-              <!-- zones -->
-              <polygon class="zone outer" points="200,20 380,200 200,380 20,200" />
-              <polygon class="zone mid"   points="200,80 320,200 200,320 80,200" />
-              <polygon class="zone inner" points="200,140 260,200 200,260 140,200" />
-
-              <!-- axes -->
-              <line class="axis" x1="200" y1="20" x2="200" y2="380" />
-              <line class="axis" x1="20" y1="200" x2="380" y2="200" />
-
-              <!-- outline -->
-              <polygon class="outline" points="200,20 380,200 200,380 20,200" />
-
-              <!-- score shape -->
-              <polygon
-                id="scoreShape"
-                class="score-shape"
-                points="200,80 320,200 200,320 80,200"
-              />
-
-              <!-- center -->
-              <circle class="center-dot" cx="200" cy="200" r="4" />
-            </svg>
-
-            <!-- labels -->
-            <div class="dim-label g">
-              <strong>Guidance</strong> weten teams wat belangrijk is
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-badge">
+                <span>The GRIP Framework™</span>
             </div>
-            <div class="dim-label r">
-              <strong>Resources</strong> hebben teams middelen om uit te voeren
+            <h1>The GTM Health <span>Diamond</span>™</h1>
+            <p class="header-subtitle">
+                Your go-to-market engine diagnosed across four GRIP dimensions. 
+                Find your constraint. Decide what to fix first.
+            </p>
+            <div class="four-cs">
+                <div class="c-pill clarity">Guidance <span class="c-question">— Do teams know what to do?</span></div>
+                <div class="c-pill capacity">Resources <span class="c-question">— Do teams have what they need?</span></div>
+                <div class="c-pill consistency">Implementation <span class="c-question">— Do teams execute the same way?</span></div>
+                <div class="c-pill conversion">Performance <span class="c-question">— Does it deliver results?</span></div>
             </div>
-            <div class="dim-label i">
-              <strong>Implementation</strong> voeren teams het op dezelfde manier uit
-            </div>
-            <div class="dim-label p">
-              <strong>Performance</strong> levert het voorspelbare resultaten
-            </div>
+        </header>
 
-            <div id="customerDot" class="customer-marker"></div>
-            <div class="customer-label">Jouw positie</div>
-          </div>
+        <!-- Main Content -->
+        <div class="main-grid">
+            <!-- Diamond Visualization -->
+            <section class="diamond-section">
+                <div class="diamond-wrapper">
+                    <svg class="diamond-svg" viewBox="0 0 400 400">
+                        <defs>
+                            <linearGradient id="diamondGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="var(--clarity)" />
+                                <stop offset="33%" stop-color="var(--capacity)" />
+                                <stop offset="66%" stop-color="var(--consistency)" />
+                                <stop offset="100%" stop-color="var(--conversion)" />
+                            </linearGradient>
+                            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="var(--clarity)" />
+                                <stop offset="33%" stop-color="var(--capacity)" />
+                                <stop offset="66%" stop-color="var(--consistency)" />
+                                <stop offset="100%" stop-color="var(--conversion)" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Zone rings -->
+                        <g class="diamond-zones">
+                            <polygon class="zone zone-outer" points="200,30 370,200 200,370 30,200" />
+                            <polygon class="zone zone-mid" points="200,90 310,200 200,310 90,200" />
+                            <polygon class="zone zone-inner" points="200,150 250,200 200,250 150,200" />
+                        </g>
+                        
+                        <!-- Axis lines -->
+                        <line class="axis-line" x1="200" y1="30" x2="200" y2="370" />
+                        <line class="axis-line" x1="30" y1="200" x2="370" y2="200" />
+                        
+                        <!-- Main diamond outline -->
+                        <polygon class="diamond-main" points="200,30 370,200 200,370 30,200" />
+                        
+                        <!-- Score shape (filled area based on scores) -->
+                        <polygon class="score-shape" id="scoreShape" points="200,100 300,200 200,300 100,200" />
+                        
+                        <!-- Center point -->
+                        <circle class="center-point" cx="200" cy="200" r="4" />
+                    </svg>
 
-          <!-- sliders -->
-          <div class="sliders">
-            <div class="slider">
-              <div class="slider-header">
-                <div class="slider-label">Guidance</div>
-                <div class="slider-value g" id="guidanceValue">80</div>
-              </div>
-              <input
-                id="guidanceSlider"
-                type="range"
-                min="0"
-                max="100"
-                value="80"
-              />
-            </div>
+                    <!-- Dimension Labels (GRIP, outside) -->
+                    <div class="dimension-label clarity">
+                        <div class="dimension-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <span class="dimension-name">Guidance</span>
+                        <span class="dimension-subtitle">Do teams know what to do?</span>
+                    </div>
 
-            <div class="slider">
-              <div class="slider-header">
-                <div class="slider-label">Resources</div>
-                <div class="slider-value r" id="resourcesValue">45</div>
-              </div>
-              <input
-                id="resourcesSlider"
-                type="range"
-                min="0"
-                max="100"
-                value="45"
-              />
-            </div>
+                    <div class="dimension-label capacity">
+                        <div class="dimension-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <span class="dimension-name">Resources</span>
+                        <span class="dimension-subtitle">Do teams have what they need?</span>
+                    </div>
 
-            <div class="slider">
-              <div class="slider-header">
-                <div class="slider-label">Implementation</div>
-                <div class="slider-value i" id="implementationValue">65</div>
-              </div>
-              <input
-                id="implementationSlider"
-                type="range"
-                min="0"
-                max="100"
-                value="65"
-              />
-            </div>
+                    <div class="dimension-label consistency">
+                        <div class="dimension-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <span class="dimension-name">Implementation</span>
+                        <span class="dimension-subtitle">Do teams execute the same way?</span>
+                    </div>
 
-            <div class="slider">
-              <div class="slider-header">
-                <div class="slider-label">Performance</div>
-                <div class="slider-value p" id="performanceValue">60</div>
-              </div>
-              <input
-                id="performanceSlider"
-                type="range"
-                min="0"
-                max="100"
-                value="60"
-              />
-            </div>
-          </div>
+                    <div class="dimension-label conversion">
+                        <div class="dimension-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <span class="dimension-name">Performance</span>
+                        <span class="dimension-subtitle">Does the system deliver results?</span>
+                    </div>
+
+                    <!-- Customer Position -->
+                    <div class="customer-position" id="customerDot">
+                        <div class="customer-dot"></div>
+                        <span class="customer-label">Your position</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Controls -->
+                <div class="controls">
+                    <div class="control-slider clarity">
+                        <label>Guidance</label>
+                        <input type="range" id="claritySlider" min="0" max="100" value="85">
+                        <span class="value" id="clarityValue">85</span>
+                    </div>
+                    <div class="control-slider capacity">
+                        <label>Resources</label>
+                        <input type="range" id="capacitySlider" min="0" max="100" value="41">
+                        <span class="value" id="capacityValue">41</span>
+                    </div>
+                    <div class="control-slider consistency">
+                        <label>Implementation</label>
+                        <input type="range" id="consistencySlider" min="0" max="100" value="68">
+                        <span class="value" id="consistencyValue">68</span>
+                    </div>
+                    <div class="control-slider conversion">
+                        <label>Performance</label>
+                        <input type="range" id="conversionSlider" min="0" max="100" value="72">
+                        <span class="value" id="conversionValue">72</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Score Card -->
+                <div class="score-card">
+                    <div class="score-card-header">
+                        <h2 class="score-card-title">Your GTM Health</h2>
+                        <div class="overall-score">
+                            <span class="overall-score-value" id="overallScore">67</span>
+                            <span class="overall-score-max">/100</span>
+                        </div>
+                    </div>
+
+                    <div class="dimension-scores">
+                        <div class="dimension-score-item">
+                            <div class="dimension-score-icon clarity">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                            <div class="dimension-score-content">
+                                <div class="dimension-score-header">
+                                    <span class="dimension-score-name">Guidance<span class="dimension-score-status status-success" id="clarityStatus">Strong</span></span>
+                                    <span class="dimension-score-value" id="clarityScoreDisplay">85/100</span>
+                                </div>
+                                <div class="dimension-score-bar">
+                                    <div class="dimension-score-fill clarity" id="clarityBar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dimension-score-item">
+                            <div class="dimension-score-icon capacity">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <div class="dimension-score-content">
+                                <div class="dimension-score-header">
+                                    <span class="dimension-score-name">Resources<span class="dimension-score-status status-critical" id="capacityStatus">Critical</span></span>
+                                    <span class="dimension-score-value" id="capacityScoreDisplay">41/100</span>
+                                </div>
+                                <div class="dimension-score-bar">
+                                    <div class="dimension-score-fill capacity" id="capacityBar" style="width: 41%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dimension-score-item">
+                            <div class="dimension-score-icon consistency">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                            </div>
+                            <div class="dimension-score-content">
+                                <div class="dimension-score-header">
+                                    <span class="dimension-score-name">Implementation<span class="dimension-score-status status-success" id="consistencyStatus">Solid</span></span>
+                                    <span class="dimension-score-value" id="consistencyScoreDisplay">68/100</span>
+                                </div>
+                                <div class="dimension-score-bar">
+                                    <div class="dimension-score-fill consistency" id="consistencyBar" style="width: 68%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dimension-score-item">
+                            <div class="dimension-score-icon conversion">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+                            <div class="dimension-score-content">
+                                <div class="dimension-score-header">
+                                    <span class="dimension-score-name">Performance<span class="dimension-score-status status-success" id="conversionStatus">Solid</span></span>
+                                    <span class="dimension-score-value" id="conversionScoreDisplay">72/100</span>
+                                </div>
+                                <div class="dimension-score-bar">
+                                    <div class="dimension-score-fill conversion" id="conversionBar" style="width: 72%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Archetype Card -->
+                <div class="archetype-card">
+                    <div class="archetype-label">Your GTM Archetype</div>
+                    <h3 class="archetype-name" id="archetypeName">The Capacity Crunch</h3>
+                    
+                    <div class="constraint-badge capacity" id="constraintBadge">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        Primary constraint: Resources
+                    </div>
+                    
+                    <p class="archetype-description" id="archetypeDescription">
+                        You have solid guidance and reasonable execution patterns, but your teams lack the operational infrastructure to scale. The engine knows where to go and how to run — it just cannot go faster yet.
+                    </p>
+
+                    <div class="priority-fix">
+                        <div class="priority-fix-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div class="priority-fix-content">
+                            <div class="priority-fix-label">Priority fix</div>
+                            <div class="priority-fix-text" id="priorityFix">Invest in RevOps, enablement, and performance management before scaling further.</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
-      </section>
 
-      <!-- RIGHT: SUMMARY -->
-      <aside>
-        <div class="sidebar-card">
-          <div class="score-header">
-            <div class="score-title">GTM Health</div>
-            <div class="score-main" id="overallScore">62<span>/100</span></div>
-          </div>
+        <!-- Pillar Mapping -->
+        <section class="pillar-mapping">
+            <h2 class="pillar-mapping-title">The GRIP Framework™ — 12 Pillars Mapped</h2>
+            <div class="pillar-grid">
+                <!-- Guidance Column (was Clarity) -->
+                <div class="pillar-column clarity">
+                    <div class="pillar-column-header">
+                        <div class="pillar-column-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <span class="pillar-column-name">Guidance</span>
+                    </div>
+                    <div class="pillar-list">
+                        <div class="pillar-item">
+                            <span class="pillar-number">01</span>
+                            <span class="pillar-name">GTM Strategy &amp; Leadership</span>
+                            <span class="pillar-score">88</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">02</span>
+                            <span class="pillar-name">Market Intelligence</span>
+                            <span class="pillar-score">82</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">03</span>
+                            <span class="pillar-name">Product Marketing</span>
+                            <span class="pillar-score">85</span>
+                        </div>
+                    </div>
+                </div>
 
-          <div class="dims-list">
-            <div class="dim-row">
-              <div class="dim-tag g">G</div>
-              <div class="dim-meta">
-                <div class="dim-name">
-                  <span>Guidance</span>
-                  <span>
-                    <span id="guidanceScoreText">80</span>
-                    <span id="guidanceStatus" class="status-pill"></span>
-                  </span>
+                <!-- Resources Column (was Capacity) -->
+                <div class="pillar-column capacity">
+                    <div class="pillar-column-header">
+                        <div class="pillar-column-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <span class="pillar-column-name">Resources</span>
+                    </div>
+                    <div class="pillar-list">
+                        <div class="pillar-item">
+                            <span class="pillar-number">09</span>
+                            <span class="pillar-name">Revenue Operations</span>
+                            <span class="pillar-score">42</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">10</span>
+                            <span class="pillar-name">Enablement</span>
+                            <span class="pillar-score">38</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">11</span>
+                            <span class="pillar-name">Performance Management</span>
+                            <span class="pillar-score">43</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="dim-bar">
-                  <div id="guidanceBar" class="dim-fill g"></div>
+
+                <!-- Implementation Column (was Consistency) -->
+                <div class="pillar-column consistency">
+                    <div class="pillar-column-header">
+                        <div class="pillar-column-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <span class="pillar-column-name">Implementation</span>
+                    </div>
+                    <div class="pillar-list">
+                        <div class="pillar-item">
+                            <span class="pillar-number">04</span>
+                            <span class="pillar-name">Demand Generation</span>
+                            <span class="pillar-score">65</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">05</span>
+                            <span class="pillar-name">Sales Development</span>
+                            <span class="pillar-score">68</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">12</span>
+                            <span class="pillar-name">Pricing &amp; Packaging</span>
+                            <span class="pillar-score">71</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <!-- Performance Column (was Conversion) -->
+                <div class="pillar-column conversion">
+                    <div class="pillar-column-header">
+                        <div class="pillar-column-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <span class="pillar-column-name">Performance</span>
+                    </div>
+                    <div class="pillar-list">
+                        <div class="pillar-item">
+                            <span class="pillar-number">06</span>
+                            <span class="pillar-name">Sales Execution</span>
+                            <span class="pillar-score">74</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">07</span>
+                            <span class="pillar-name">Customer Success</span>
+                            <span class="pillar-score">70</span>
+                        </div>
+                        <div class="pillar-item">
+                            <span class="pillar-number">08</span>
+                            <span class="pillar-name">Account Management</span>
+                            <span class="pillar-score">72</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="dim-row">
-              <div class="dim-tag r">R</div>
-              <div class="dim-meta">
-                <div class="dim-name">
-                  <span>Resources</span>
-                  <span>
-                    <span id="resourcesScoreText">45</span>
-                    <span id="resourcesStatus" class="status-pill"></span>
-                  </span>
-                </div>
-                <div class="dim-bar">
-                  <div id="resourcesBar" class="dim-fill r"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="dim-row">
-              <div class="dim-tag i">I</div>
-              <div class="dim-meta">
-                <div class="dim-name">
-                  <span>Implementation</span>
-                  <span>
-                    <span id="implementationScoreText">65</span>
-                    <span id="implementationStatus" class="status-pill"></span>
-                  </span>
-                </div>
-                <div class="dim-bar">
-                  <div id="implementationBar" class="dim-fill i"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="dim-row">
-              <div class="dim-tag p">P</div>
-              <div class="dim-meta">
-                <div class="dim-name">
-                  <span>Performance</span>
-                  <span>
-                    <span id="performanceScoreText">60</span>
-                    <span id="performanceStatus" class="status-pill"></span>
-                  </span>
-                </div>
-                <div class="dim-bar">
-                  <div id="performanceBar" class="dim-fill p"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="sidebar-card">
-          <div class="archetype-label">GTM Archetype</div>
-          <div class="archetype-name" id="archetypeName">
-            The Capacity Crunch
-          </div>
-
-          <div class="constraint-pill" id="constraintPill">
-            Primaire constraint:
-            <span id="constraintName">Resources</span>
-          </div>
-
-          <p class="archetype-text" id="archetypeText">
-            Je hebt genoeg richting en redelijke uitvoering, maar de
-            onderliggende infrastructuur en enablement houden groei tegen.
-          </p>
-
-          <div class="priority-box" id="priorityBox">
-            Richt de komende 90 dagen op Resources. Sterk fundament in RevOps,
-            enablement en performance management geeft direct lucht aan
-            implementatie en performance.
-          </div>
-        </div>
-      </aside>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-brand">Caugia</div>
+            <p class="footer-tagline">GTM intelligence for B2B SaaS</p>
+        </footer>
     </div>
 
-    <footer>
-      Prototype voor Caugia. Logica en teksten kun je later direct koppelen aan
-      de 12 pilaren en de volledige GTM Intelligence Report flow.
-    </footer>
-  </div>
+    <script>
+        // Archetypes data (text updated for GRIP, keys kept for code simplicity)
+        const archetypes = {
+            'balanced-high': {
+                name: 'The High Performer',
+                constraint: null,
+                description: 'Strong across all four GRIP dimensions. Your GTM engine is well-balanced and operating at high efficiency. Focus on optimization and maintaining excellence.',
+                fix: 'Optimize for efficiency gains and build competitive moats. Consider expanding into new segments or markets.'
+            },
+            'balanced-low': {
+                name: 'The Foundation Builder',
+                constraint: 'clarity',
+                description: 'Your GTM system needs strengthening across multiple dimensions. Start with Guidance — define your ICP, positioning, and strategy before investing in execution.',
+                fix: 'Start with Guidance: lock in ICP, positioning, and GTM strategy. Then build Resources to support execution.'
+            },
+            'clarity-constraint': {
+                name: 'The Directionless Engine',
+                constraint: 'clarity',
+                description: 'You have the resources and execution capability, but lack strategic guidance. Teams are working hard but may be chasing the wrong customers or markets.',
+                fix: 'Pause execution. Clarify ICP, validate positioning, align leadership on strategy, then redirect the team.'
+            },
+            'capacity-constraint': {
+                name: 'The Capacity Crunch',
+                constraint: 'capacity',
+                description: 'You have strong guidance and solid implementation patterns, but your teams lack the operational resources to scale. The engine knows where to go — it just cannot go faster.',
+                fix: 'Invest in RevOps, enablement, and performance management before scaling further.'
+            },
+            'consistency-constraint': {
+                name: 'The Heroic Chaos',
+                constraint: 'consistency',
+                description: 'You know what to do and have the resources, but implementation varies widely. Top performers crush it while others struggle. Results depend on individual heroics, not systems.',
+                fix: 'Document and standardize. Build playbooks, enforce process discipline, and create repeatable implementation patterns.'
+            },
+            'conversion-constraint': {
+                name: 'The Leaky Bucket',
+                constraint: 'conversion',
+                description: 'Guidance, resources, and implementation are in place, but performance lags. The pipeline fills, yet revenue does not follow.',
+                fix: 'Focus on Sales Execution, Customer Success, and Account Management. Fix performance (win rates and retention) before adding more pipeline.'
+            },
+            'clarity-capacity': {
+                name: 'The Executing Blind',
+                constraint: 'clarity',
+                description: 'Weak guidance and weak resources. You are building without blueprints and without proper tools. High risk of wasted effort.',
+                fix: 'Clarify direction first (ICP, strategy), then build supporting resources (RevOps, systems). Do not scale chaos.'
+            },
+            'clarity-consistency': {
+                name: 'The Random Walk',
+                constraint: 'clarity',
+                description: 'No clear guidance and no consistent implementation. Every campaign and deal looks different. Performance is unpredictable.',
+                fix: 'Define Guidance first. Once strategy is set, build Implementation through documented processes and playbooks.'
+            },
+            'clarity-conversion': {
+                name: 'The Busy Failure',
+                constraint: 'clarity',
+                description: 'Lots of activity but no performance, and no clear guidance to correct it. Teams are exhausted but results do not improve.',
+                fix: 'Reset with Guidance. Define what winning looks like, then focus Performance efforts on the right targets.'
+            },
+            'capacity-consistency': {
+                name: 'The Undermanned Mess',
+                constraint: 'capacity',
+                description: 'Neither the resources nor the implementation discipline are strong enough. Teams are under-resourced and under-organized.',
+                fix: 'Build Resources first (hire RevOps, add systems), then standardize Implementation for consistency.'
+            },
+            'capacity-conversion': {
+                name: 'The Resource Starved',
+                constraint: 'capacity',
+                description: 'You know what works but cannot scale it. Performance suffers because the supporting resources are not there.',
+                fix: 'Add Resources (RevOps, enablement) to unlock Performance potential. The revenue is there — you just cannot reach it yet.'
+            },
+            'consistency-conversion': {
+                name: 'The Inconsistent Closer',
+                constraint: 'consistency',
+                description: 'Implementation quality depends on who touches the deal. Performance varies by individual rather than by system.',
+                fix: 'Standardize Implementation first. Build playbooks for Sales and CS, then watch Performance improve across the board.'
+            }
+        };
 
-  <script>
-    const archetypes = {
-      "balanced-high": {
-        name: "The Steady Engine",
-        constraint: null,
-        text:
-          "Alle vier dimensies zijn op niveau. De focus ligt op verfijning, niet op brandjes blussen.",
-        priority:
-          "Gebruik de Diamond als gesprekstool voor volgende fase groei. Optimaliseer op efficiëntie en marges."
-      },
-      "balanced-low": {
-        name: "The Foundation Builder",
-        constraint: "Guidance",
-        text:
-          "Geen enkele dimensie is echt sterk. Het systeem vraagt om een rustige herbouw van de basis.",
-        priority:
-          "Begin met Guidance. Maak ICP, positionering en prioriteiten scherp voordat je in tooling of headcount investeert."
-      },
-      guidance: {
-        name: "The Directionless Engine",
-        constraint: "Guidance",
-        text:
-          "Teams werken hard maar niet altijd aan hetzelfde doel. Strategie, ICP of prioriteiten zijn niet scherp genoeg.",
-        priority:
-          "Zet eerst een helder kompas. Definieer ICP, segmenten, motion en doelen, en maak dat expliciet voor alle teams."
-      },
-      resources: {
-        name: "The Capacity Crunch",
-        constraint: "Resources",
-        text:
-          "De richting is redelijk duidelijk, maar de infrastructuur en enablement kunnen de ambities niet dragen.",
-        priority:
-          "Investeer in RevOps, enablement en performance management voordat je extra pipeline of headcount toevoegt."
-      },
-      implementation: {
-        name: "The Heroic Chaos",
-        constraint: "Implementation",
-        text:
-          "Succes hangt te veel af van individuele toppers. Processen zijn niet vastgelegd en handoffs verschillen per team.",
-        priority:
-          "Documenteer de basisplaybooks, standaardiseer pipeline stappen en maak één manier van werken de norm."
-      },
-      performance: {
-        name: "The Leaky Funnel",
-        constraint: "Performance",
-        text:
-          "Er is activiteit en structuur, maar het vertaalt zich niet stabiel naar omzet en retentie.",
-        priority:
-          "Zoek eerst naar structurele lekken in winrate, churn en uitbreiding. Combineer kwantitatieve data met deal reviews."
-      }
-    };
+        function getArchetype(clarity, capacity, consistency, conversion) {
+            const high = 65;
+            const low = 50;
+            const scores = { clarity, capacity, consistency, conversion };
+            const dims = ['clarity', 'capacity', 'consistency', 'conversion'];
+            
+            // Count highs and lows
+            const highCount = dims.filter(d => scores[d] >= high).length;
+            const lowCount = dims.filter(d => scores[d] < low).length;
+            
+            // All high
+            if (highCount === 4) return 'balanced-high';
+            
+            // All low or mostly low
+            if (lowCount >= 3) return 'balanced-low';
+            
+            // Find the lowest dimension(s)
+            const minScore = Math.min(clarity, capacity, consistency, conversion);
+            const lowestDims = dims.filter(d => scores[d] === minScore);
+            
+            // Single constraint
+            if (lowestDims.length === 1 && minScore < low) {
+                return `${lowestDims[0]}-constraint`;
+            }
+            
+            // Two constraints - pick the pattern
+            if (lowCount === 2) {
+                const lowDims = dims.filter(d => scores[d] < low).sort();
+                return `${lowDims[0]}-${lowDims[1]}`;
+            }
+            
+            // Default to lowest single constraint
+            const lowest = dims.reduce((a, b) => scores[a] < scores[b] ? a : b);
+            return `${lowest}-constraint`;
+        }
 
-    function statusFor(score) {
-      if (score >= 70)
-        return { cls: "status-good", label: "Sterk" };
-      if (score >= 50)
-        return { cls: "status-warning", label: "In ontwikkeling" };
-      return { cls: "status-critical", label: "Kritiek" };
-    }
+        function getStatus(score) {
+            if (score >= 70) return { class: 'status-success', text: 'Strong' };
+            if (score >= 50) return { class: 'status-warning', text: 'Developing' };
+            return { class: 'status-critical', text: 'Critical' };
+        }
 
-    function updateDiamond() {
-      const g = Number(document.getElementById("guidanceSlider").value);
-      const r = Number(document.getElementById("resourcesSlider").value);
-      const i = Number(document.getElementById("implementationSlider").value);
-      const p = Number(document.getElementById("performanceSlider").value);
+        function calculateDiamondPoints(clarity, capacity, consistency, conversion) {
+            const center = 200;
+            const maxRadius = 170;
+            
+            // Calculate radius for each dimension (0-100 → 0-maxRadius)
+            const clarityR = (clarity / 100) * maxRadius;
+            const consistencyR = (consistency / 100) * maxRadius;
+            const conversionR = (conversion / 100) * maxRadius;
+            const capacityR = (capacity / 100) * maxRadius;
+            
+            // Diamond points: top (Guidance), right (Resources), bottom (Implementation), left (Performance)
+            const top = `${center},${center - clarityR}`;
+            const right = `${center + consistencyR},${center}`;
+            const bottom = `${center},${center + conversionR}`;
+            const left = `${center - capacityR},${center}`;
+            
+            return `${top} ${right} ${bottom} ${left}`;
+        }
 
-      // UI waarden
-      document.getElementById("guidanceValue").textContent = g;
-      document.getElementById("resourcesValue").textContent = r;
-      document.getElementById("implementationValue").textContent = i;
-      document.getElementById("performanceValue").textContent = p;
+        function calculateCustomerPosition(clarity, capacity, consistency, conversion) {
+            const center = 200;
+            const maxRadius = 170;
+            
+            // Calculate weighted center position
+            const clarityR = (clarity / 100) * maxRadius;
+            const consistencyR = (consistency / 100) * maxRadius;
+            const conversionR = (conversion / 100) * maxRadius;
+            const capacityR = (capacity / 100) * maxRadius;
+            
+            // Simple average position (center of the score shape)
+            const x = center + (consistencyR - capacityR) / 2;
+            const y = center + (conversionR - clarityR) / 2;
+            
+            return { x, y };
+        }
 
-      document.getElementById("guidanceScoreText").textContent = g;
-      document.getElementById("resourcesScoreText").textContent = r;
-      document.getElementById("implementationScoreText").textContent = i;
-      document.getElementById("performanceScoreText").textContent = p;
+        function updateVisualization() {
+            const clarity = parseInt(document.getElementById('claritySlider').value);
+            const capacity = parseInt(document.getElementById('capacitySlider').value);
+            const consistency = parseInt(document.getElementById('consistencySlider').value);
+            const conversion = parseInt(document.getElementById('conversionSlider').value);
+            
+            // Update value displays
+            document.getElementById('clarityValue').textContent = clarity;
+            document.getElementById('capacityValue').textContent = capacity;
+            document.getElementById('consistencyValue').textContent = consistency;
+            document.getElementById('conversionValue').textContent = conversion;
+            
+            // Update overall score
+            const overall = Math.round((clarity + capacity + consistency + conversion) / 4);
+            document.getElementById('overallScore').textContent = overall;
+            
+            // Update score displays
+            document.getElementById('clarityScoreDisplay').textContent = `${clarity}/100`;
+            document.getElementById('capacityScoreDisplay').textContent = `${capacity}/100`;
+            document.getElementById('consistencyScoreDisplay').textContent = `${consistency}/100`;
+            document.getElementById('conversionScoreDisplay').textContent = `${conversion}/100`;
+            
+            // Update bars
+            document.getElementById('clarityBar').style.width = `${clarity}%`;
+            document.getElementById('capacityBar').style.width = `${capacity}%`;
+            document.getElementById('consistencyBar').style.width = `${consistency}%`;
+            document.getElementById('conversionBar').style.width = `${conversion}%`;
+            
+            // Update statuses
+            ['clarity', 'capacity', 'consistency', 'conversion'].forEach(dim => {
+                const score = dim === 'clarity' ? clarity : dim === 'capacity' ? capacity : dim === 'consistency' ? consistency : conversion;
+                const status = getStatus(score);
+                const el = document.getElementById(`${dim}Status`);
+                el.className = `dimension-score-status ${status.class}`;
+                el.textContent = status.text;
+            });
+            
+            // Update score shape
+            const points = calculateDiamondPoints(clarity, capacity, consistency, conversion);
+            document.getElementById('scoreShape').setAttribute('points', points);
+            
+            // Update customer position
+            const pos = calculateCustomerPosition(clarity, capacity, consistency, conversion);
+            const dot = document.getElementById('customerDot');
+            dot.style.left = `${(pos.x / 400) * 100}%`;
+            dot.style.top = `${(pos.y / 400) * 100}%`;
+            
+            // Update archetype
+            const archetypeKey = getArchetype(clarity, capacity, consistency, conversion);
+            const archetype = archetypes[archetypeKey];
+            
+            document.getElementById('archetypeName').textContent = archetype.name;
+            document.getElementById('archetypeDescription').textContent = archetype.description;
+            document.getElementById('priorityFix').textContent = archetype.fix;
+            
+            // Update constraint badge
+            const badge = document.getElementById('constraintBadge');
+            if (archetype.constraint) {
+                badge.className = `constraint-badge ${archetype.constraint}`;
+                const label =
+                    archetype.constraint === 'clarity' ? 'Guidance' :
+                    archetype.constraint === 'capacity' ? 'Resources' :
+                    archetype.constraint === 'consistency' ? 'Implementation' :
+                    'Performance';
+                badge.innerHTML = `
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    Primary constraint: ${label}
+                `;
+                badge.style.display = 'inline-flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
 
-      // overall
-      const overall = Math.round((g + r + i + p) / 4);
-      document.getElementById("overallScore").firstChild.nodeValue = overall;
+        // Initialize
+        document.querySelectorAll('input[type="range"]').forEach(slider => {
+            slider.addEventListener('input', updateVisualization);
+        });
 
-      // bars
-      document.getElementById("guidanceBar").style.width = g + "%";
-      document.getElementById("resourcesBar").style.width = r + "%";
-      document.getElementById("implementationBar").style.width = i + "%";
-      document.getElementById("performanceBar").style.width = p + "%";
-
-      // status
-      const statuses = {
-        guidance: statusFor(g),
-        resources: statusFor(r),
-        implementation: statusFor(i),
-        performance: statusFor(p)
-      };
-
-      Object.entries(statuses).forEach(([key, s]) => {
-        const el = document.getElementById(key + "Status");
-        el.className = "status-pill " + s.cls;
-        el.textContent = s.label;
-      });
-
-      // diamond points
-      const center = 200;
-      const maxR = 170;
-      const gR = (g / 100) * maxR;
-      const rR = (r / 100) * maxR;
-      const iR = (i / 100) * maxR;
-      const pR = (p / 100) * maxR;
-
-      const top = `${center},${center - gR}`;
-      const right = `${center + rR},${center}`;
-      const bottom = `${center},${center + iR}`;
-      const left = `${center - pR},${center}`;
-
-      document
-        .getElementById("scoreShape")
-        .setAttribute("points", `${top} ${right} ${bottom} ${left}`);
-
-      // customer dot (gewoon het geometrisch centrum van de shape)
-      const x = center + (rR - pR) / 2;
-      const y = center + (iR - gR) / 2;
-
-      const dot = document.getElementById("customerDot");
-      dot.style.left = (x / 400) * 100 + "%";
-      dot.style.top = (y / 400) * 100 + "%";
-
-      // archetype: pak gewoon de laagste score als primaire constraint
-      const scores = [
-        { key: "guidance", value: g },
-        { key: "resources", value: r },
-        { key: "implementation", value: i },
-        { key: "performance", value: p }
-      ];
-      scores.sort((a, b) => a.value - b.value);
-      const lowest = scores[0];
-
-      let archetypeKey = lowest.key;
-      const highCount = scores.filter((s) => s.value >= 70).length;
-      const lowCount = scores.filter((s) => s.value < 50).length;
-
-      if (highCount === 4) {
-        archetypeKey = "balanced-high";
-      } else if (lowCount >= 3) {
-        archetypeKey = "balanced-low";
-      }
-
-      const arch = archetypes[archetypeKey];
-
-      document.getElementById("archetypeName").textContent = arch.name;
-      document.getElementById("archetypeText").textContent = arch.text;
-      document.getElementById("priorityBox").textContent = arch.priority;
-
-      const pill = document.getElementById("constraintPill");
-      if (arch.constraint) {
-        pill.style.display = "inline-flex";
-        document.getElementById("constraintName").textContent =
-          arch.constraint;
-      } else {
-        pill.style.display = "none";
-      }
-    }
-
-    ["guidanceSlider", "resourcesSlider", "implementationSlider", "performanceSlider"]
-      .forEach((id) => {
-        document
-          .getElementById(id)
-          .addEventListener("input", updateDiamond);
-      });
-
-    updateDiamond();
-  </script>
+        updateVisualization();
+    </script>
 </body>
 </html>
