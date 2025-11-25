@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The GRIP Framework – GTM Health Diamond</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #05060a;
+      --bg-alt: #10111a;
+      --bg-soft: #181926;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.16);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+
+      /* GRIP colours (kun je later matchen met Caugia palette) */
+      --guidance: #3b82f6;
+      --resources: #8b5cf6;
+      --implementation: #f59e0b;
+      --performance: #10b981;
+
+      --critical: #ef4444;
+      --warning: #f59e0b;
+      --good: #10b981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020309 55%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 20px 56px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      opacity: 0.9;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* DIAMOND */
+
+    .diamond-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 20px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diamond-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top,
+        rgba(56, 189, 248, 0.22),
+        transparent 55%
+      );
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .diamond-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .diamond-wrapper {
+      max-width: 520px;
+      margin: 0 auto 20px;
+      aspect-ratio: 1;
+      position: relative;
+    }
+
+    svg.diamond {
+      width: 100%;
+      height: 100%;
+    }
+
+    .zone {
+      fill: none;
+      stroke-width: 1;
+      opacity: 0.14;
+    }
+
+    .zone.outer {
+      stroke: #4338ca;
+    }
+    .zone.mid {
+      stroke: #64748b;
+    }
+    .zone.inner {
+      stroke: #22c55e;
+    }
+
+    .axis {
+      stroke: rgba(148, 163, 184, 0.3);
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+    }
+
+    .outline {
+      fill: none;
+      stroke: url(#gradDiamond);
+      stroke-width: 2;
+    }
+
+    .score-shape {
+      fill: url(#gradFill);
+      fill-opacity: 0.16;
+      stroke: url(#gradDiamond);
+      stroke-width: 2;
+    }
+
+    .center-dot {
+      fill: #020617;
+      stroke: rgba(148, 163, 184, 0.9);
+      stroke-width: 1.2;
+    }
+
+    .customer-marker {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      transform: translate(-50%, -50%);
+      background: #f9fafb;
+      box-shadow: 0 0 0 3px #020617, 0 0 0 5px #f9fafb,
+        0 0 24px rgba(248, 250, 252, 0.8);
+      z-index: 4;
+    }
+
+    .customer-label {
+      position: absolute;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--muted);
+      top: calc(50% + 16px);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .dim-label {
+      position: absolute;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-soft);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .dim-label strong {
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-right: 4px;
+    }
+
+    .dim-label.g {
+      top: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-color: rgba(59, 130, 246, 0.6);
+    }
+
+    .dim-label.r {
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      border-color: rgba(139, 92, 246, 0.6);
+    }
+
+    .dim-label.i {
+      bottom: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-color: rgba(245, 158, 11, 0.7);
+    }
+
+    .dim-label.p {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      border-color: rgba(16, 185, 129, 0.7);
+    }
+
+    /* sliders */
+
+    .sliders {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .sliders {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .slider {
+      background: var(--bg-soft);
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      padding: 10px 12px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .slider-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .slider-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .slider-value.g {
+      color: var(--guidance);
+    }
+    .slider-value.r {
+      color: var(--resources);
+    }
+    .slider-value.i {
+      color: var(--implementation);
+    }
+    .slider-value.p {
+      color: var(--performance);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      appearance: none;
+      background: rgba(15, 23, 42, 0.9);
+      height: 4px;
+      border-radius: 999px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #f9fafb;
+      box-shadow: 0 1px 6px rgba(15, 23, 42, 0.7);
+      cursor: pointer;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 20px 22px;
+      margin-bottom: 18px;
+    }
+
+    .score-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 10px;
+    }
+
+    .score-title {
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .score-main {
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .score-main span {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    .dims-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dim-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .dim-tag {
+      min-width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .dim-tag.g {
+      background: rgba(59, 130, 246, 0.16);
+      color: var(--guidance);
+    }
+    .dim-tag.r {
+      background: rgba(139, 92, 246, 0.18);
+      color: var(--resources);
+    }
+    .dim-tag.i {
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--implementation);
+    }
+    .dim-tag.p {
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--performance);
+    }
+
+    .dim-meta {
+      flex: 1;
+    }
+
+    .dim-name {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .dim-bar {
+      margin-top: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+
+    .dim-fill {
+      height: 100%;
+      border-radius: 999px;
+      width: 0;
+    }
+
+    .dim-fill.g {
+      background: linear-gradient(to right, #3b82f6, #60a5fa);
+    }
+    .dim-fill.r {
+      background: linear-gradient(to right, #8b5cf6, #a855f7);
+    }
+    .dim-fill.i {
+      background: linear-gradient(to right, #f59e0b, #fbbf24);
+    }
+    .dim-fill.p {
+      background: linear-gradient(to right, #10b981, #34d399);
+    }
+
+    .status-pill {
+      font-size: 10px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      margin-left: 6px;
+    }
+
+    .status-critical {
+      background: rgba(239, 68, 68, 0.18);
+      color: var(--critical);
+    }
+    .status-warning {
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--warning);
+    }
+    .status-good {
+      background: rgba(34, 197, 94, 0.16);
+      color: var(--good);
+    }
+
+    .archetype-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .archetype-name {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .archetype-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .constraint-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      margin-bottom: 8px;
+    }
+
+    .constraint-pill span {
+      font-weight: 600;
+    }
+
+    .priority-box {
+      margin-top: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-soft);
+      padding: 8px 10px;
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">The GRIP Framework</div>
+      <h1>The GTM Health Diamond</h1>
+      <p class="subtitle">
+        Een compacte diagnose van je go to market systeem langs vier dimensies
+        van GRIP. Vind je primaire constraint en bepaal wat eerst moet worden
+        aangepakt.
+      </p>
+      <p class="tagline">G = Guidance, R = Resources, I = Implementation, P = Performance</p>
+    </header>
+
+    <div class="layout">
+      <!-- LEFT: DIAMOND -->
+      <section class="diamond-card">
+        <div class="diamond-inner">
+          <div class="diamond-wrapper">
+            <!-- SVG -->
+            <svg class="diamond" viewBox="0 0 400 400">
+              <defs>
+                <linearGradient id="gradDiamond" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="35%" stop-color="#8b5cf6" />
+                  <stop offset="70%" stop-color="#f59e0b" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+                <linearGradient id="gradFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="35%" stop-color="#8b5cf6" />
+                  <stop offset="70%" stop-color="#f59e0b" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+              </defs>
+
+              <!-- zones -->
+              <polygon class="zone outer" points="200,20 380,200 200,380 20,200" />
+              <polygon class="zone mid"   points="200,80 320,200 200,320 80,200" />
+              <polygon class="zone inner" points="200,140 260,200 200,260 140,200" />
+
+              <!-- axes -->
+              <line class="axis" x1="200" y1="20" x2="200" y2="380" />
+              <line class="axis" x1="20" y1="200" x2="380" y2="200" />
+
+              <!-- outline -->
+              <polygon class="outline" points="200,20 380,200 200,380 20,200" />
+
+              <!-- score shape -->
+              <polygon
+                id="scoreShape"
+                class="score-shape"
+                points="200,80 320,200 200,320 80,200"
+              />
+
+              <!-- center -->
+              <circle class="center-dot" cx="200" cy="200" r="4" />
+            </svg>
+
+            <!-- labels -->
+            <div class="dim-label g">
+              <strong>Guidance</strong> weten teams wat belangrijk is
+            </div>
+            <div class="dim-label r">
+              <strong>Resources</strong> hebben teams middelen om uit te voeren
+            </div>
+            <div class="dim-label i">
+              <strong>Implementation</strong> voeren teams het op dezelfde manier uit
+            </div>
+            <div class="dim-label p">
+              <strong>Performance</strong> levert het voorspelbare resultaten
+            </div>
+
+            <div id="customerDot" class="customer-marker"></div>
+            <div class="customer-label">Jouw positie</div>
+          </div>
+
+          <!-- sliders -->
+          <div class="sliders">
+            <div class="slider">
+              <div class="slider-header">
+                <div class="slider-label">Guidance</div>
+                <div class="slider-value g" id="guidanceValue">80</div>
+              </div>
+              <input
+                id="guidanceSlider"
+                type="range"
+                min="0"
+                max="100"
+                value="80"
+              />
+            </div>
+
+            <div class="slider">
+              <div class="slider-header">
+                <div class="slider-label">Resources</div>
+                <div class="slider-value r" id="resourcesValue">45</div>
+              </div>
+              <input
+                id="resourcesSlider"
+                type="range"
+                min="0"
+                max="100"
+                value="45"
+              />
+            </div>
+
+            <div class="slider">
+              <div class="slider-header">
+                <div class="slider-label">Implementation</div>
+                <div class="slider-value i" id="implementationValue">65</div>
+              </div>
+              <input
+                id="implementationSlider"
+                type="range"
+                min="0"
+                max="100"
+                value="65"
+              />
+            </div>
+
+            <div class="slider">
+              <div class="slider-header">
+                <div class="slider-label">Performance</div>
+                <div class="slider-value p" id="performanceValue">60</div>
+              </div>
+              <input
+                id="performanceSlider"
+                type="range"
+                min="0"
+                max="100"
+                value="60"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: SUMMARY -->
+      <aside>
+        <div class="sidebar-card">
+          <div class="score-header">
+            <div class="score-title">GTM Health</div>
+            <div class="score-main" id="overallScore">62<span>/100</span></div>
+          </div>
+
+          <div class="dims-list">
+            <div class="dim-row">
+              <div class="dim-tag g">G</div>
+              <div class="dim-meta">
+                <div class="dim-name">
+                  <span>Guidance</span>
+                  <span>
+                    <span id="guidanceScoreText">80</span>
+                    <span id="guidanceStatus" class="status-pill"></span>
+                  </span>
+                </div>
+                <div class="dim-bar">
+                  <div id="guidanceBar" class="dim-fill g"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dim-row">
+              <div class="dim-tag r">R</div>
+              <div class="dim-meta">
+                <div class="dim-name">
+                  <span>Resources</span>
+                  <span>
+                    <span id="resourcesScoreText">45</span>
+                    <span id="resourcesStatus" class="status-pill"></span>
+                  </span>
+                </div>
+                <div class="dim-bar">
+                  <div id="resourcesBar" class="dim-fill r"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dim-row">
+              <div class="dim-tag i">I</div>
+              <div class="dim-meta">
+                <div class="dim-name">
+                  <span>Implementation</span>
+                  <span>
+                    <span id="implementationScoreText">65</span>
+                    <span id="implementationStatus" class="status-pill"></span>
+                  </span>
+                </div>
+                <div class="dim-bar">
+                  <div id="implementationBar" class="dim-fill i"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dim-row">
+              <div class="dim-tag p">P</div>
+              <div class="dim-meta">
+                <div class="dim-name">
+                  <span>Performance</span>
+                  <span>
+                    <span id="performanceScoreText">60</span>
+                    <span id="performanceStatus" class="status-pill"></span>
+                  </span>
+                </div>
+                <div class="dim-bar">
+                  <div id="performanceBar" class="dim-fill p"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="archetype-label">GTM Archetype</div>
+          <div class="archetype-name" id="archetypeName">
+            The Capacity Crunch
+          </div>
+
+          <div class="constraint-pill" id="constraintPill">
+            Primaire constraint:
+            <span id="constraintName">Resources</span>
+          </div>
+
+          <p class="archetype-text" id="archetypeText">
+            Je hebt genoeg richting en redelijke uitvoering, maar de
+            onderliggende infrastructuur en enablement houden groei tegen.
+          </p>
+
+          <div class="priority-box" id="priorityBox">
+            Richt de komende 90 dagen op Resources. Sterk fundament in RevOps,
+            enablement en performance management geeft direct lucht aan
+            implementatie en performance.
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Prototype voor Caugia. Logica en teksten kun je later direct koppelen aan
+      de 12 pilaren en de volledige GTM Intelligence Report flow.
+    </footer>
+  </div>
+
+  <script>
+    const archetypes = {
+      "balanced-high": {
+        name: "The Steady Engine",
+        constraint: null,
+        text:
+          "Alle vier dimensies zijn op niveau. De focus ligt op verfijning, niet op brandjes blussen.",
+        priority:
+          "Gebruik de Diamond als gesprekstool voor volgende fase groei. Optimaliseer op efficiëntie en marges."
+      },
+      "balanced-low": {
+        name: "The Foundation Builder",
+        constraint: "Guidance",
+        text:
+          "Geen enkele dimensie is echt sterk. Het systeem vraagt om een rustige herbouw van de basis.",
+        priority:
+          "Begin met Guidance. Maak ICP, positionering en prioriteiten scherp voordat je in tooling of headcount investeert."
+      },
+      guidance: {
+        name: "The Directionless Engine",
+        constraint: "Guidance",
+        text:
+          "Teams werken hard maar niet altijd aan hetzelfde doel. Strategie, ICP of prioriteiten zijn niet scherp genoeg.",
+        priority:
+          "Zet eerst een helder kompas. Definieer ICP, segmenten, motion en doelen, en maak dat expliciet voor alle teams."
+      },
+      resources: {
+        name: "The Capacity Crunch",
+        constraint: "Resources",
+        text:
+          "De richting is redelijk duidelijk, maar de infrastructuur en enablement kunnen de ambities niet dragen.",
+        priority:
+          "Investeer in RevOps, enablement en performance management voordat je extra pipeline of headcount toevoegt."
+      },
+      implementation: {
+        name: "The Heroic Chaos",
+        constraint: "Implementation",
+        text:
+          "Succes hangt te veel af van individuele toppers. Processen zijn niet vastgelegd en handoffs verschillen per team.",
+        priority:
+          "Documenteer de basisplaybooks, standaardiseer pipeline stappen en maak één manier van werken de norm."
+      },
+      performance: {
+        name: "The Leaky Funnel",
+        constraint: "Performance",
+        text:
+          "Er is activiteit en structuur, maar het vertaalt zich niet stabiel naar omzet en retentie.",
+        priority:
+          "Zoek eerst naar structurele lekken in winrate, churn en uitbreiding. Combineer kwantitatieve data met deal reviews."
+      }
+    };
+
+    function statusFor(score) {
+      if (score >= 70)
+        return { cls: "status-good", label: "Sterk" };
+      if (score >= 50)
+        return { cls: "status-warning", label: "In ontwikkeling" };
+      return { cls: "status-critical", label: "Kritiek" };
+    }
+
+    function updateDiamond() {
+      const g = Number(document.getElementById("guidanceSlider").value);
+      const r = Number(document.getElementById("resourcesSlider").value);
+      const i = Number(document.getElementById("implementationSlider").value);
+      const p = Number(document.getElementById("performanceSlider").value);
+
+      // UI waarden
+      document.getElementById("guidanceValue").textContent = g;
+      document.getElementById("resourcesValue").textContent = r;
+      document.getElementById("implementationValue").textContent = i;
+      document.getElementById("performanceValue").textContent = p;
+
+      document.getElementById("guidanceScoreText").textContent = g;
+      document.getElementById("resourcesScoreText").textContent = r;
+      document.getElementById("implementationScoreText").textContent = i;
+      document.getElementById("performanceScoreText").textContent = p;
+
+      // overall
+      const overall = Math.round((g + r + i + p) / 4);
+      document.getElementById("overallScore").firstChild.nodeValue = overall;
+
+      // bars
+      document.getElementById("guidanceBar").style.width = g + "%";
+      document.getElementById("resourcesBar").style.width = r + "%";
+      document.getElementById("implementationBar").style.width = i + "%";
+      document.getElementById("performanceBar").style.width = p + "%";
+
+      // status
+      const statuses = {
+        guidance: statusFor(g),
+        resources: statusFor(r),
+        implementation: statusFor(i),
+        performance: statusFor(p)
+      };
+
+      Object.entries(statuses).forEach(([key, s]) => {
+        const el = document.getElementById(key + "Status");
+        el.className = "status-pill " + s.cls;
+        el.textContent = s.label;
+      });
+
+      // diamond points
+      const center = 200;
+      const maxR = 170;
+      const gR = (g / 100) * maxR;
+      const rR = (r / 100) * maxR;
+      const iR = (i / 100) * maxR;
+      const pR = (p / 100) * maxR;
+
+      const top = `${center},${center - gR}`;
+      const right = `${center + rR},${center}`;
+      const bottom = `${center},${center + iR}`;
+      const left = `${center - pR},${center}`;
+
+      document
+        .getElementById("scoreShape")
+        .setAttribute("points", `${top} ${right} ${bottom} ${left}`);
+
+      // customer dot (gewoon het geometrisch centrum van de shape)
+      const x = center + (rR - pR) / 2;
+      const y = center + (iR - gR) / 2;
+
+      const dot = document.getElementById("customerDot");
+      dot.style.left = (x / 400) * 100 + "%";
+      dot.style.top = (y / 400) * 100 + "%";
+
+      // archetype: pak gewoon de laagste score als primaire constraint
+      const scores = [
+        { key: "guidance", value: g },
+        { key: "resources", value: r },
+        { key: "implementation", value: i },
+        { key: "performance", value: p }
+      ];
+      scores.sort((a, b) => a.value - b.value);
+      const lowest = scores[0];
+
+      let archetypeKey = lowest.key;
+      const highCount = scores.filter((s) => s.value >= 70).length;
+      const lowCount = scores.filter((s) => s.value < 50).length;
+
+      if (highCount === 4) {
+        archetypeKey = "balanced-high";
+      } else if (lowCount >= 3) {
+        archetypeKey = "balanced-low";
+      }
+
+      const arch = archetypes[archetypeKey];
+
+      document.getElementById("archetypeName").textContent = arch.name;
+      document.getElementById("archetypeText").textContent = arch.text;
+      document.getElementById("priorityBox").textContent = arch.priority;
+
+      const pill = document.getElementById("constraintPill");
+      if (arch.constraint) {
+        pill.style.display = "inline-flex";
+        document.getElementById("constraintName").textContent =
+          arch.constraint;
+      } else {
+        pill.style.display = "none";
+      }
+    }
+
+    ["guidanceSlider", "resourcesSlider", "implementationSlider", "performanceSlider"]
+      .forEach((id) => {
+        document
+          .getElementById(id)
+          .addEventListener("input", updateDiamond);
+      });
+
+    updateDiamond();
+  </script>
+</body>
+</html>
