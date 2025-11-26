@@ -5,35 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Services | Caugia Consulting</title>
-  <meta name="description" content="The Caugia service suite: Free GTM Score, GTM Intelligence Report, Intelligence Subscription, Marketplace modules and Consulting — all aligned with the GRIP Framework." />
+  <meta name="description" content="A structured set of GTM clarity products, including the Free GTM Score, the GTM Intelligence Report, the Intelligence Subscription and the 12 GRIP Modules." />
 
   <link rel="icon" href="/C-logo.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="/C-logo.png">
   <meta name="msapplication-TileImage" content="/C-logo.png">
 
   <link rel="stylesheet" href="assets/caugia.css?v=2.7" />
-</head>
 
-<body class="services-page">
   <!-- 🔒 SECURITY: Protect this entire page -->
   <script src="/auth.js"></script>
+</head>
 
+<body>
+
+  <!-- HEADER -->
   <header>
     <div class="container">
       <a href="index.html" class="brand">
-        <img src="C-logo.png" alt="Caugia Consulting logo">
+        <img src="/C-logo.png" alt="Caugia Consulting">
         <span>Caugia Consulting</span>
       </a>
 
-      <nav class="nav-desktop">
+      <nav class="nav-desktop" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html" class="active">Services</a>
         <a href="grip-diamond.html">GRIP Diamond</a>
         <a href="resources.html">Resources</a>
+        <a href="contact.html" class="cta">Contact</a>
       </nav>
 
-      <button class="menu-toggle" aria-label="Toggle navigation">
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -44,187 +47,201 @@
       <a href="services.html" class="active">Services</a>
       <a href="grip-diamond.html">GRIP Diamond</a>
       <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <h1>Clarity. Insight. Architecture.</h1>
-        <p class="hero-lead">
-          Caugia helps B2B SaaS companies build calm, predictable and system aligned go to market engines.
-          Every service fits into one operating model built on the GRIP Framework.
-        </p>
-        <p class="hero-sub">
-          Start with a free signal or go straight to a full diagnostic. All services share the same language and the same view of your GTM system.
-        </p>
-      </div>
-    </section>
+    <div class="wrap services-page">
 
-    <!-- SERVICES GRID -->
-    <section class="services">
-      <div class="container">
-        <div class="services-grid">
-
-          <!-- Free GTM Score -->
-          <article class="service-card">
-            <div class="tag">Entry</div>
-            <h3>Free GTM Score</h3>
-            <p class="price">Free</p>
-
-            <p class="lead">
-              A fast and insight dense entry point for B2B SaaS teams.
-            </p>
-
-            <ul class="features">
-              <li>GRIP health snapshot</li>
-              <li>Your primary constraint</li>
-              <li>Short interpretation</li>
-              <li>Areas to investigate</li>
-            </ul>
-
-            <a href="the-gtm-score.html" class="cta">Start free assessment</a>
-          </article>
-
-          <!-- GTM Intelligence Report (Flagship) -->
-          <article class="service-card flagship-card">
-            <div class="tag flagship">Flagship</div>
-            <h3>The GTM Intelligence Report</h3>
-            <p class="price">€749 one time</p>
-
-            <p class="lead">
-              A complete GTM system diagnosis built on the GRIP Framework.
-            </p>
-
-            <ul class="features">
-              <li>Full GRIP Health Diamond</li>
-              <li>12 pillar maturity scores</li>
-              <li>Your GTM archetype and constraint</li>
-              <li>Priority sequencing and system risks</li>
-              <li>Strategic recommendations</li>
-              <li>Structured PDF report</li>
-            </ul>
-
-            <a href="gtm-intelligence-report.html" class="cta primary">See example report</a>
-          </article>
-
-          <!-- GTM Intelligence Subscription -->
-          <article class="service-card">
-            <div class="tag">Ongoing</div>
-            <h3>GTM Intelligence Subscription</h3>
-            <p class="price">From €99 per month</p>
-
-            <p class="lead">
-              A monthly intelligence layer that keeps leadership aligned and aware.
-            </p>
-
-            <ul class="features">
-              <li>Monthly GRIP re score</li>
-              <li>Priority shift detection</li>
-              <li>Movement across the pillars</li>
-              <li>Light competitive signals</li>
-              <li>Quarterly benchmark comparison</li>
-              <li>One strategic question per month</li>
-            </ul>
-
-            <a href="subscription.html" class="cta">Learn how it works</a>
-          </article>
-
-          <!-- GTM Intelligence Marketplace -->
-          <article class="service-card">
-            <div class="tag">Modular</div>
-            <h3>GTM Intelligence Marketplace</h3>
-            <p class="price">From €149 per module</p>
-
-            <p class="lead">
-              Deep dives into specific GTM areas such as ICP, pricing, messaging or RevOps.
-            </p>
-
-            <ul class="features">
-              <li>ICP review and segmentation</li>
-              <li>Narrative and messaging check</li>
-              <li>Pricing and packaging scan</li>
-              <li>Demand generation pattern analysis</li>
-              <li>Sales execution quality review</li>
-              <li>Customer success expansion scan</li>
-            </ul>
-
-            <a href="gtm-intelligence-marketplace.html" class="cta">Browse modules</a>
-          </article>
-
-          <!-- Caugia Consulting -->
-          <article class="service-card">
-            <div class="tag">Deep work</div>
-            <h3>Caugia Consulting</h3>
-            <p class="price">Custom project pricing</p>
-
-            <p class="lead">
-              Architecture and operating model design based on a shared view of your GTM system.
-            </p>
-
-            <ul class="features">
-              <li>Clear GTM operating model</li>
-              <li>Leadership and team alignment</li>
-              <li>Playbook and process architecture</li>
-              <li>Resource and role design</li>
-              <li>Strategic clarity before scaling</li>
-            </ul>
-
-            <a href="consulting.html" class="cta">Work with Caugia</a>
-          </article>
-
+      <!-- 1. HERO -->
+      <section class="hero">
+        <div class="container">
+          <h1>Services</h1>
+          <p class="hero-lead">
+            A structured set of clarity products for modern GTM teams.
+          </p>
+          <p class="hero-sub">
+            Every product builds on the GRIP Diamond and the 12 pillar diagnostic engine.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FLOW SECTION -->
-    <section class="flow">
-      <div class="container">
-        <h2>How these services work together</h2>
+      <!-- 2. FREE GTM SCORE -->
+      <section class="services">
+        <div class="container">
 
-        <div class="flow-grid">
-          <div class="flow-card">
-            <div class="step">Step 1</div>
-            <h3>Free GTM Score</h3>
-            <p>A first light signal of where your GTM system strains.</p>
-          </div>
+          <div class="services-grid">
 
-          <div class="flow-card">
-            <div class="step">Step 2</div>
-            <h3>The GTM Intelligence Report</h3>
-            <p>Your full GTM system diagnosis and prioritization.</p>
-          </div>
+            <!-- FREE SCORE -->
+            <div class="service-card">
+              <span class="tag">Free Assessment</span>
+              <h3>Free GTM Score</h3>
+              <p class="lead">
+                A fast, structured snapshot of your GTM maturity across the GRIP dimensions.
+              </p>
+              <ul class="features">
+                <li>Short senior-level assessment</li>
+                <li>Clear view of strengths and systemic risks</li>
+                <li>Instantly available at the end of the flow</li>
+              </ul>
+              <a href="gtm-assessment.html" class="cta primary">Start Your Free GTM Score</a>
+            </div>
 
-          <div class="flow-card">
-            <div class="step">Step 3</div>
-            <h3>GTM Intelligence Subscription</h3>
-            <p>Ongoing movement detection and system alignment.</p>
-          </div>
+            <!-- INTELLIGENCE REPORT -->
+            <div class="service-card flagship-card">
+              <span class="tag flagship">Premium</span>
+              <h3>GTM Intelligence Report</h3>
+              <p class="price">€749</p>
+              <p class="lead">
+                A structured, context aware diagnostic report built on the 12 pillar engine and
+                framed using the GRIP Diamond.
+              </p>
+              <ul class="features">
+                <li>Maturity analysis across all 12 pillars</li>
+                <li>GRIP Health Diamond visual</li>
+                <li>Clear priorities and recommendations</li>
+                <li>Executive-level clarity</li>
+              </ul>
+              <a href="gtm-intelligence-report.html" class="cta primary">Explore the Intelligence Report</a>
+            </div>
 
-          <div class="flow-card">
-            <div class="step">Step 4</div>
-            <h3>Marketplace Modules</h3>
-            <p>Deep dives into specific domains surfaced by the report.</p>
-          </div>
+            <!-- SUBSCRIPTION -->
+            <div class="service-card" id="subscription">
+              <span class="tag">Subscription</span>
+              <h3>GTM Intelligence Subscription</h3>
+              <p class="price">€99 / month</p>
+              <p class="lead">
+                Continuous clarity for teams that want regular visibility and alignment.
+              </p>
+              <ul class="features">
+                <li>Monthly GRIP Health refresh</li>
+                <li>Updated GTM Score comparisons</li>
+                <li>Access to all Intelligence Modules in read only mode</li>
+                <li>Cancel anytime</li>
+              </ul>
+              <a href="#subscription" class="cta primary">Learn More</a>
+            </div>
 
-          <div class="flow-card">
-            <div class="step">Step 5</div>
-            <h3>Caugia Consulting</h3>
-            <p>Architecture and operating model design when you are ready to scale.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- 3. MODULES (12) -->
+      <section class="flow">
+        <div class="container">
+          <h2>GTM Intelligence Modules</h2>
+          <p class="services-page-intro">
+            Each module focuses on one of the 12 structural pillars of the GTM engine.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card"><h3>Market Clarity</h3></div>
+            <div class="service-card"><h3>Positioning and Messaging</h3></div>
+            <div class="service-card"><h3>Strategy and Leadership Alignment</h3></div>
+
+            <div class="service-card"><h3>Data and Infrastructure</h3></div>
+            <div class="service-card"><h3>Tooling and Automation</h3></div>
+            <div class="service-card"><h3>Team Capacity and Competency</h3></div>
+
+            <div class="service-card"><h3>Demand Operations</h3></div>
+            <div class="service-card"><h3>Sales Operations</h3></div>
+            <div class="service-card"><h3>Customer Operations</h3></div>
+
+            <div class="service-card"><h3>Metrics and Measurement</h3></div>
+            <div class="service-card"><h3>Forecasting and Revenue Planning</h3></div>
+            <div class="service-card"><h3>Review and Improvement Rhythm</h3></div>
+          </div>
+
+          <p style="margin-top: 22px;">
+            <a href="modules.html" class="cta">Explore Modules</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. CONSULTING -->
+      <section class="flow">
+        <div class="container">
+          <h2>Senior GTM Consulting</h2>
+          <p class="hero-sub" style="max-width: 760px;">
+            For leaders who want structured guidance across strategy, operations and GTM governance.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <h3>Founder and Executive Support</h3>
+              <p class="lead">Clarity for high-impact decisions.</p>
+              <ul class="features">
+                <li>Strategic alignment</li>
+                <li>Metric selection and forecasting</li>
+                <li>GTM operating rhythm</li>
+              </ul>
+            </div>
+
+            <div class="service-card">
+              <h3>Revenue Operations Advisory</h3>
+              <p class="lead">Structure for modern GTM operations.</p>
+              <ul class="features">
+                <li>Process consistency</li>
+                <li>Pipeline design</li>
+                <li>Tooling and automation alignment</li>
+              </ul>
+            </div>
+
+            <div class="service-card">
+              <h3>Team Workshops</h3>
+              <p class="lead">Shared language for GTM teams.</p>
+              <ul class="features">
+                <li>GRIP based workshops</li>
+                <li>GTM Score alignment</li>
+                <li>Quarterly planning framework</li>
+              </ul>
+            </div>
+          </div>
+
+          <p style="margin-top: 22px;">
+            <a href="contact.html" class="cta">Contact Caugia</a>
+          </p>
+        </div>
+      </section>
+
+    </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container" style="justify-content: center;">
-      <span>Caugia Consulting · GTM intelligence for B2B SaaS</span>
+    <div class="container">
+      <p>
+        © <span id="year"></span> Caugia Consulting. All rights reserved.
+        <a href="privacy.html">Privacy Policy</a>
+        ·
+        <a href="contact.html">Contact</a>
+      </p>
     </div>
   </footer>
 
-  <!-- Optional: your JS for menu toggle / header scroll -->
-  <!-- <script src="assets/site.js"></script> -->
+  <script>
+    (function () {
+      const yearSpan = document.getElementById("year");
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      const toggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.nav-mobile');
+      if (toggle && mobileNav) {
+        toggle.addEventListener('click', function () {
+          const isOpen = mobileNav.classList.toggle('open');
+          toggle.classList.toggle('active', isOpen);
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
+
 </body>
 </html>
