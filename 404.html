@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Page Not Found | Caugia Consulting</title>
-<meta name="description" content="This page does not exist or has been moved. Return to Caugia Consulting for insights and GTM resources." />
-<link rel="icon" type="image/png" href="android-chrome-512x512.png" />
-<link rel="stylesheet" href="assets/caugia.css?v=1.1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- 🔒 PROTECTION -->
-<script src="/auth.js"></script>
+  <title>Page Not Found | Caugia Consulting</title>
+  <meta name="description" content="The page you are looking for does not exist. Return to Caugia's homepage or explore our GTM resources.">
 
+  <link rel="icon" href="/C-logo.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/C-logo.png">
+  <meta name="msapplication-TileImage" content="/C-logo.png">
+
+  <link rel="stylesheet" href="assets/caugia.css?v=2.7" />
+
+  <!-- 🔒 SECURITY: Protect this page -->
+  <script src="/auth.js"></script>
 </head>
 
 <body>
@@ -18,7 +22,7 @@
 <header>
   <div class="container">
     <a href="index.html" class="brand">
-      <img src="C-logo.png" alt="Caugia Consulting logo">
+      <img src="/C-logo.png" alt="Caugia Consulting">
       <span>Caugia Consulting</span>
     </a>
 
@@ -26,13 +30,12 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="the-gtm-framework.html">GTM Framework</a>
-      <a href="gtm-assessment.html">GTM Score</a>
+      <a href="grip-diamond.html">GRIP Diamond</a>
       <a href="resources.html">Resources</a>
-      <a class="cta" href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+      <a href="contact.html" class="cta">Contact</a>
     </nav>
 
-    <button class="menu-toggle" aria-label="Menu">
+    <button class="menu-toggle">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -41,62 +44,77 @@
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="the-gtm-framework.html">GTM Framework</a>
-    <a href="gtm-assessment.html">GTM Score</a>
+    <a href="grip-diamond.html">GRIP Diamond</a>
     <a href="resources.html">Resources</a>
-    <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const toggle = document.querySelector(".menu-toggle");
-  const mobileNav = document.querySelector(".nav-mobile");
+<main>
+  <div class="wrap">
 
-  toggle.addEventListener("click", () => {
-    toggle.classList.toggle("active");
-    mobileNav.classList.toggle("open");
-  });
+    <!-- HERO -->
+    <section>
+      <div class="container">
+        <h1>Page not found</h1>
+        <p class="hero-sub">
+          The page you are looking for does not exist or has been moved.  
+          You can return to the homepage or explore one of our resources below.
+        </p>
+      </div>
+    </section>
 
-  document.querySelectorAll(".nav-mobile a").forEach(link => {
-    link.addEventListener("click", () => {
-      toggle.classList.remove("active");
-      mobileNav.classList.remove("open");
-    });
-  });
+    <!-- OPTIONS -->
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2>What would you like to do?</h2>
+          <ul>
+            <li><a href="index.html"><strong>Go to the homepage</strong></a></li>
+            <li><a href="gtm-assessment.html"><strong>Start the Free GTM Score</strong></a></li>
+            <li><a href="gtm-intelligence-report.html"><strong>Explore the GTM Intelligence Report</strong></a></li>
+            <li><a href="modules.html"><strong>View the 12 GTM Modules</strong></a></li>
+            <li><a href="contact.html"><strong>Contact Caugia</strong></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (window.scrollY > 10) header.classList.add("scrolled");
-    else header.classList.remove("scrolled");
-  });
-});
-</script>
-
-<main style="flex:1;padding:calc(var(--header-h) + 80px) 24px 120px;display:flex;align-items:center;justify-content:center;">
-  <div style="text-align:center;max-width:640px;">
-    <h1 style="font-size:6rem;font-weight:800;color:#dedede;margin-bottom:10px;line-height:1;">404</h1>
-
-    <h2 style="font-size:1.9rem;font-weight:700;color:var(--blue);margin-bottom:16px;">Page Not Found</h2>
-
-    <p style="font-size:1.1rem;line-height:1.7;color:#555;margin-bottom:36px;">
-      This page does not exist or may have been moved.<br>
-      You can return to the homepage or continue to The GTM Score.
-    </p>
-
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="index.html" class="cta" style="padding:14px 24px;font-size:1rem;">Go to Homepage</a>
-      <a href="the-gtm-score.html" class="cta" style="background:var(--accent);padding:14px 24px;font-size:1rem;">Take the GTM Assessment</a>
-    </div>
   </div>
 </main>
 
 <footer>
-  © 2025 Caugia Consulting ·
-  <a href="privacy.html">Privacy Notice</a> ·
-  <a href="https://www.linkedin.com/in/meijertom" target="_blank" rel="noopener">LinkedIn</a> ·
-  <a href="mailto:tom@caugia.com">tom@caugia.com</a>
+  <div class="container">
+    © <span id="year"></span> Caugia Consulting. All rights reserved.
+    <a href="privacy.html">Privacy Policy</a>
+    ·
+    <a href="contact.html">Contact</a>
+  </div>
 </footer>
+
+<script>
+(function () {
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 10) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.nav-mobile');
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', function () {
+      const isOpen = mobileNav.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
